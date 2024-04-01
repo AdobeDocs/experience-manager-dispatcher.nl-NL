@@ -9,29 +9,29 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 discoiquuid: ff3d38e0-71c9-4b41-85f9-fa896393aac5
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: f2036e8f73d5f9f58ff713df8f04caad89d660fc
+source-git-commit: 7bf3bf55abe5a015df9b9e99fe838388a4fe6360
 workflow-type: tm+mt
-source-wordcount: '1063'
+source-wordcount: '1101'
 ht-degree: 1%
 
 ---
 
 # Opmerkingen bij de release AEM Dispatcher{#aem-dispatcher-release-notes}
 
-## Geen informatie {#release-information}
+## Gegevens vrijgeven {#release-information}
 
 |  |  |
 |--- |--- |
 | Producten | Adobe Experience Manager (AEM) Dispatcher |
-| Versie | 4.3.6 |
+| Versie | 4.3.7. |
 | Type | Kleine release |
-| Datum | 25 juli 2023 |
+| Datum | 27 maart 2024 |
 | URL downloaden | <ul><li>[Apache 2.4](release-notes.md#apache)</li><li>[Microsoft Internet Information Services (IIS)](release-notes.md#iis)</li></ul> |
 | Compatibiliteit | AEM 6.1 of hoger |
 
 ## Systeemvereisten en -vereisten {#system-requirements-and-prerequisites}
 
-Zie de [Ondersteunde Platforms](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/technical-requirements.html)voor meer informatie over vereisten en voorwaarden.
+Zie de [Ondersteunde platforms](https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/technical-requirements.html)voor meer informatie over vereisten en voorwaarden.
 
 Adobe raadt u ten zeerste aan de nieuwste versie van AEM Dispatcher te gebruiken om te profiteren van de nieuwste functionaliteit, de meest recente opgeloste problemen en de best mogelijke prestaties.
 
@@ -40,6 +40,15 @@ Adobe raadt u ten zeerste aan de nieuwste versie van AEM Dispatcher te gebruiken
 Zie voor gedetailleerde instructies [Dispatcher installeren](dispatcher-install.md).
 
 ## Releasegeschiedenis {#release-history}
+
+### Release 4.3.7 (2024-maart-27) {#march}
+
+**Verbeteringen**:
+
+* DISP-1009 - het plaatsen van kopballengte opnieuw
+* DISP-1013 - voeg openssl 3.0 steun voor linux toe
+* DISP-1014 - response.location processing leading to invalid redirect
+* DISP-1017 - veranderende definitie DTD
 
 ### Release 4.3.6 (2023-juli-25) {#jyly}
 
@@ -65,7 +74,7 @@ Zie voor gedetailleerde instructies [Dispatcher installeren](dispatcher-install.
 
 **Verbeteringen**:
 
-* DISP-874 - creeert een berichtcherconfiguratie om implementatie van DISP-818 of of aan of uit door een vlag te draaien `DispatcherRestrictUncacheableContent`. De standaardwaarde is Uit. Wanneer Aan, verwijdert het om het even welke caching kopballen die door mod worden geplaatst verlopen voor uncacheable inhoud. Dit is anders dan het gedrag in versie 4.3.3 (waar de standaardwaarde Aan was), maar hetzelfde als versies ouder dan 4.3.3 (waar de standaardinstelling Uit was). Houden `DispatcherRestrictUncacheableContent`De standaardinstelling Uit is de aanbevolen aanpak, zodat de browsercache meer flexibiliteit heeft. Als u bij een upgrade van versie 4.3.3 naar 4.3.4 hetzelfde gedrag wilt behouden als in versie 4.3.3, moet u dit expliciet instellen `DispatcherRestrictUncacheableContent` aan Aan.
+* DISP-874 - creeert een berichtcherconfiguratie om implementatie van DISP-818 of of aan of uit door een vlag te draaien `DispatcherRestrictUncacheableContent`. De standaardwaarde is Uit. Wanneer Aan, verwijdert het om het even welke caching kopballen die door mod worden geplaatst verlopen voor uncacheable inhoud. Dit is anders dan het gedrag in versie 4.3.3 (waar de standaardwaarde Aan was), maar hetzelfde als versies ouder dan 4.3.3 (waar de standaardwaarde Uit was). Houden `DispatcherRestrictUncacheableContent`De standaardinstelling Uit is de aanbevolen aanpak, zodat de browsercache meer flexibiliteit heeft. Als u bij een upgrade van versie 4.3.3 naar 4.3.4 hetzelfde gedrag wilt behouden als in versie 4.3.3, moet u dit expliciet instellen `DispatcherRestrictUncacheableContent` aan Aan.
 * DISP-841 - De Verzender respecteert /serverStaleOnError niet voor 504 reactiecode
 * DISP-874 - creeer een berichtcherconfiguratie om implementatie van DISP-818 of weg te draaien
 * DISP-883 - Spoor tonend URL verzoek Decomposition in Dispatcher
@@ -154,7 +163,7 @@ Zie voor gedetailleerde instructies [Dispatcher installeren](dispatcher-install.
 * DISP-698 - De Verzender TTL moet s-maxage en privé richtlijnen steunen
 * DISP-700 - Module werkt niet correct op Alpine Linux
 * DISP-704 - Browser verzoeken die %2b bevatten worden verzonden naar de uitgever niet-gecodeerd
-* DISP-705 - Dispatcher crashte vanwege dubbele vrije waarde of corruptie (fasttop)
+* DISP-705 - Dispatcher crashte vanwege dubbele vrijheid of beschadiging (fasttop)
 * DISP-706 - tijdens ongeldigverklaring, de verzender achterverwijzingssymlinks volgt die een oneindige lijn kunnen veroorzaken
 * DISP-709 - blokkeer sommige vanity URL uitbreidingen
 * DISP-710 - Builds for Linux not utable on Cent OS 6
@@ -173,25 +182,29 @@ Zie voor gedetailleerde instructies [Dispatcher installeren](dispatcher-install.
 
 | Platform | Architectuur | OpenSSL-ondersteuning | Downloaden |
 |---|---|---|---|
-| Linux | i686 (32-bits) | Geen | [dispatcher-apache2.4-linux-i686-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.6.tar.gz) |
-| Linux | i686 (32-bits) | 1.0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.6.tar.gz) |
-| Linux | i686 (32-bits) | 1.1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.6.tar.gz) |
-| Linux | x86_64 (64-bits) | Geen | [dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.6.tar.gz) |
-| Linux | x86_64 (64-bits) | 1.0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.6.tar.gz) |
-| Linux | x86_64 (64-bits) | 1.1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.6.tar.gz) |
-| Linux | aarch64 (64-bits) | Geen | [dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.6.tar.gz) |
-| Linux | aarch64 (64-bits) | 1.0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.6.tar.gz) |
-| Linux | aarch64 (64-bits) | 1.1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.6.tar.gz) |
-| macOS | arm64 (64-bits) | Geen | [dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.6.tar.gz) |
-| macOS | x86_64 (64-bits) | Geen | [dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.6.tar.gz) |
+| Linux | i686 (32 bits) | Geen | [dispatcher-apache2.4-linux-i686-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-4.3.7.tar.gz) |
+| Linux | i686 (32 bits) | 1,0 | [dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.0-4.3.7.tar.gz) |
+| Linux | i686 (32 bits) | 1,1 | [dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl1.1-4.3.7.tar.gz) |
+| Linux | i686 (32 bits) | 3,0 | [dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-i686-ssl3.0-4.3.7.tar.gz) |
+| Linux | x86_64 (64-bits) | Geen | [dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-4.3.7.tar.gz) |
+| Linux | x86_64 (64-bits) | 1,0 | [dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.0-4.3.7.tar.gz) |
+| Linux | x86_64 (64-bits) | 1,1 | [dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl1.1-4.3.7.tar.gz) |
+| Linux | x86_64 (64-bits) | 3,0 | [dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-x86_64-ssl3.0-4.3.7.tar.gz) |
+| Linux | aarch64 (64-bits) | Geen | [dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-4.3.7.tar.gz) |
+| Linux | aarch64 (64-bits) | 1,0 | [dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.0-4.3.7.tar.gz) |
+| Linux | aarch64 (64-bits) | 1,1 | [dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl1.1-4.3.7.tar.gz) |
+| Linux | aarch64 (64-bits) | 3,0 | [dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-linux-aarch64-ssl3.0-4.3.7.tar.gz) |
+| macOS | arm64 (64-bits) | Geen | [dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-arm64-4.3.7.tar.gz) |
+| macOS | x86_64 (64-bits) | Geen | [dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz](https://download.macromedia.com/dispatcher/download/dispatcher-apache2.4-darwin-x86_64-4.3.7.tar.gz) |
 
 ### IIS {#iis}
 
 | Platform | Architectuur | OpenSSL-ondersteuning | Downloaden |
 |---|---|---|---|
-| Windows | x86 (32 bits) | Geen | [dispatcher-is-windows-x86-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.6.zip) |
-| Windows | x86 (32 bits) | 1.0 | [dispatcher-is-windows-x86-ssl1.0-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.6.zip) |
-| Windows | x86 (32 bits) | 1.1 | [dispatcher-is-windows-x86-ssl1.1-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.6.zip) |
-| Windows | x64 (64-bits) | Geen | [dispatcher-is-windows-x64-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.6.zip) |
-| Windows | x64 (64-bits) | 1.0 | [dispatcher-is-windows-x64-ssl1.0-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.6.zip) |
-| Windows | x64 (64-bits) | 1.1 | [dispatcher-is-windows-x64-ssl1.1-4.3.6.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.6.zip) |
+| Windows | x86 (32 bits) | Geen | [dispatcher-is-windows-x86-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.7.zip) |
+| Windows | x86 (32 bits) | 1,0 | [dispatcher-is-windows-x86-ssl1.0-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip) |
+| Windows | x86 (32 bits) | 1,1 | [dispatcher-is-windows-x86-ssl1.1-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip) |
+| Windows | x64 (64-bits) | Geen | [dispatcher-is-windows-x64-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.7.zip) |
+| Windows | x64 (64-bits) | 1,0 | [dispatcher-is-windows-x64-ssl1.0-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip) |
+| Windows | x64 (64-bits) | 1,1 | [dispatcher-is-windows-x64-ssl1.1-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip) |
+| Windows | x64 (64-bits) | 3,0 | [dispatcher-is-windows-x64-ssl3.0-4.3.7.zip](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip) |
