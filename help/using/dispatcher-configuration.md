@@ -2,7 +2,7 @@
 title: Dispatcher configureren
 description: Leer hoe u Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, noemend de instantie, bepalend landbouwbedrijven, identificerend virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 410346694a134c0f32a24de905623655f15269b4
+source-git-commit: 336e69a4635c9822a97bbffd0b1410807012f9e7
 workflow-type: tm+mt
 source-wordcount: '8857'
 ht-degree: 0%
@@ -1885,3 +1885,4 @@ Het geheime voorgeheugen van het landbouwbedrijf wordt geregeerd door een zittin
 De externe server heeft een `Dispatcher: no_cache` header, waarbij de Dispatcher wordt verboden de uitvoer in cache te plaatsen.
 * **niet in cache geplaatst: lengte van reactieinhoud is nul**
 De lengte van de reactie is nul. De verzender maakt geen bestand met een lengte van nul.
+
