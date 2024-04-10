@@ -2,7 +2,7 @@
 title: Dispatcher configureren
 description: Leer hoe u Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, noemend de instantie, bepalend landbouwbedrijven, identificerend virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 336e69a4635c9822a97bbffd0b1410807012f9e7
+source-git-commit: 002458d52df4680ded5cb84a8119bc000e3ca88a
 workflow-type: tm+mt
 source-wordcount: '8857'
 ht-degree: 0%
@@ -1324,7 +1324,7 @@ Zie voor informatie over eigenschappen van glob [Patronen ontwerpen voor globale
 >
 >Deze functie is beschikbaar bij versie **4.1.11.** van de verzender.
 
-De `/headers` staat u toe om de kopbaltypes te bepalen van HTTP die door de Dispatcher in het voorgeheugen zullen worden opgenomen. Op het eerste verzoek aan een middel uncached, worden alle kopballen die één van de gevormde waarden (zie de configuratiemonster hieronder) aanpassen opgeslagen in een afzonderlijk dossier, naast het geheim voorgeheugendossier. Bij verdere verzoeken aan het caching middel, worden de opgeslagen kopballen toegevoegd aan de reactie.
+De `/headers` staat u toe om de kopbaltypes te bepalen van HTTP die door de Dispatcher in het voorgeheugen zullen worden opgenomen. Op het eerste verzoek aan een middel uncached, worden alle kopballen die één van de gevormde waarden (zie de configuratiemonster hieronder) aanpassen opgeslagen in een afzonderlijk dossier, naast het geheim voorgeheugendossier. Bij verdere verzoeken aan het caching middel worden de opgeslagen kopballen toegevoegd aan de reactie.
 
 Hieronder ziet u een voorbeeld van de standaardconfiguratie:
 
