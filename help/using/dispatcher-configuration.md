@@ -2,9 +2,9 @@
 title: Dispatcher configureren
 description: Leer hoe u Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, noemend de instantie, bepalend landbouwbedrijven, identificerend virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 002458d52df4680ded5cb84a8119bc000e3ca88a
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '8857'
+source-wordcount: '8854'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ De volgende secties beschrijven hoe te om diverse aspecten van de Verzender te v
 
 ## Ondersteuning voor IPv4 en IPv6 {#support-for-ipv-and-ipv}
 
-Alle elementen van AEM en Dispatcher kunnen in zowel IPv4 als IPv6 netwerken worden geïnstalleerd. Zie [IPV4 en IPV6](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/introduction/technical-requirements.html?lang=en#ipv-and-ipv).
+Alle elementen van AEM en Dispatcher kunnen in zowel IPv4 als IPv6 netwerken worden geïnstalleerd. Zie [IPV4 en IPV6](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#ipv-and-ipv).
 
 ## Dispatcher Configuration Files {#dispatcher-configuration-files}
 
@@ -133,7 +133,7 @@ Als het bestand dispatcher.any zich bijvoorbeeld in dezelfde map bevindt als de 
 /docroot "${PWD}/cache"
 ```
 
-Als ander voorbeeld, als u een milieuvariabele genoemd creeert `PUBLISH_IP` dat hostname van AEM publiceert instantie, de volgende configuratie van [/renders](#defining-page-renderers-renders) eigenschap kan worden gebruikt:
+Als ander voorbeeld, als u een milieuvariabele creeert die wordt genoemd `PUBLISH_IP` dat hostname van AEM publiceert instantie, de volgende configuratie van [/renders](#defining-page-renderers-renders) eigenschap kan worden gebruikt:
 
 ```xml
 /renders {
@@ -194,7 +194,7 @@ Elk landbouwbedrijfbezit kan de volgende kindeigenschappen bevatten:
 |--- |--- |
 | [/homepage](#specify-a-default-page-iis-only-homepage) | Standaardstartpagina (optioneel) (alleen IIS) |
 | [/clientheaders](#specifying-the-http-headers-to-pass-through-clientheaders) | De headers van de HTTP-client-aanvraag die moeten worden doorgegeven. |
-| [/virtuele hosts](#identifying-virtual-hosts-virtualhosts) | De virtuele gastheren voor dit landbouwbedrijf. |
+| [/virtuele hosts](#identifying-virtual-hosts-virtualhosts) | De virtuele hosts van deze boerderij. |
 | [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | Ondersteuning voor sessiebeheer en verificatie. |
 | [/renders](#defining-page-renderers-renders) | De servers die gerenderde pagina&#39;s leveren (AEM gewoonlijk exemplaren publiceren). |
 | [/filter](#configuring-access-to-content-filter) | Bepaalt URLs waaraan de Verzender toegang toelaat. |
@@ -259,7 +259,7 @@ Comment Type: draft
 
 De `/clientheaders` eigenschap definieert een lijst met HTTP-headers die door Dispatcher worden doorgegeven van de HTTP-client-aanvraag naar de renderer (AEM-instantie).
 
-Standaard verzendt Dispatcher de standaard HTTP-headers naar de AEM-instantie. In sommige gevallen wilt u mogelijk extra kopteksten doorsturen of specifieke kopteksten verwijderen:
+Standaard verzendt Dispatcher de standaard HTTP-headers naar de AEM-instantie. In sommige gevallen wilt u mogelijk andere koppen doorsturen of specifieke koppen verwijderen:
 
 * Voeg kopballen, zoals douanekopballen, toe die uw AEM instantie in de HTTP- aanvraag verwacht.
 * Verwijder kopballen, zoals authentificatiekopballen die slechts relevant voor de Webserver zijn.
@@ -402,9 +402,9 @@ Gebruikend dit voorbeeld, toont de volgende lijst de virtuele gastheren die voor
 
 >[!CAUTION]
 >
->`/allowAuthorized` Instellen op `"0"` in de `/cache` om deze functie in te schakelen. Zoals in het [In cache plaatsen wanneer verificatie wordt gebruikt](#caching-when-authentication-is-used) -sectie, wanneer u instelt `/allowAuthorized 0 ` verzoeken die authentificatieinformatie omvatten zijn **niet** in cache geplaatst. Als het toestemming-gevoelige caching wordt vereist, zie [Beveiligde inhoud in cache plaatsen](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/permissions-cache.html) pagina.
+>`/allowAuthorized` Instellen op `"0"` in de `/cache` om deze functie in te schakelen. Zoals in het [In cache plaatsen wanneer verificatie wordt gebruikt](#caching-when-authentication-is-used) -sectie, wanneer u instelt `/allowAuthorized 0 ` verzoeken die authentificatieinformatie omvatten zijn **niet** in cache geplaatst. Als het toestemming-gevoelige caching wordt vereist, zie [Beveiligde inhoud in cache plaatsen](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/permissions-cache) pagina.
 
-Creeer een veilige zitting voor toegang tot teruggeven landbouwbedrijf zodat de gebruikers moeten login om het even welke pagina in het landbouwbedrijf toegang hebben. Na het programma openen, kunnen de gebruikers tot pagina&#39;s in het landbouwbedrijf toegang hebben. Zie [Een gesloten gebruikersgroep maken](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/cug.html?lang=en#creating-the-user-group-to-be-used) voor informatie over het gebruiken van deze eigenschap met CUGs. Zie ook de Dispatcher [Beveiligingscontrolelijst](/help/using/security-checklist.md) voordat je live gaat.
+Creeer een veilige zitting voor toegang tot teruggeven landbouwbedrijf zodat de gebruikers moeten login om het even welke pagina in het landbouwbedrijf toegang hebben. Na het programma openen, kunnen de gebruikers tot pagina&#39;s in het landbouwbedrijf toegang hebben. Zie [Een gesloten gebruikersgroep maken](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used) voor informatie over het gebruiken van deze eigenschap met CUGs. Zie ook de Dispatcher [Beveiligingscontrolelijst](/help/using/security-checklist.md) voordat je live gaat.
 
 De `/sessionmanagement` eigenschap is een subeigenschap van `/farms`.
 
@@ -420,7 +420,7 @@ De map waarin de sessiegegevens worden opgeslagen. Als de map niet bestaat, word
 
 >[!CAUTION]
 >
-> Wanneer het vormen van de folder sub-parameter, **niet** verwijzen naar de hoofdmap (`/directory "/"`), omdat dit ernstige problemen kan veroorzaken. Geef altijd het pad op naar de map waarin de sessiegegevens worden opgeslagen. Bijvoorbeeld:
+> Wanneer het vormen van de folder subparameter, **niet** verwijzen naar de hoofdmap (`/directory "/"`), omdat dit ernstige problemen kan veroorzaken. Geef altijd het pad op naar de map waarin de sessiegegevens worden opgeslagen. Bijvoorbeeld:
 
 ```xml
 /sessionmanagement
@@ -513,7 +513,7 @@ Geeft de time-out van de verbinding op die de AEM instantie benadert, in millise
 
 Geeft de tijd op in milliseconden die een reactie mag afleggen. De standaardwaarde is `"600000"`, waardoor de Dispatcher 10 minuten wacht. Een instelling van `"0"` Hiermee wordt de time-out verwijderd.
 
-Wanneer de time-out wordt bereikt tijdens het parseren van responsheaders, wordt een HTTP-status van 504 (Bad Gateway) geretourneerd. Als de onderbreking wordt bereikt terwijl het antwoordlichaam wordt gelezen, keert de Dispatcher de onvolledige reactie op de cliënt terug. Het schrapt ook om het even welk geheim voorgeheugendossier dat zou kunnen zijn geschreven.
+Wanneer de time-out wordt bereikt tijdens het parseren van responsheaders, wordt een HTTP-status van 504 (Bad Gateway) geretourneerd. Als de onderbreking wordt bereikt terwijl het antwoordlichaam wordt gelezen, keert de Dispatcher de onvolledige reactie op de cliënt terug. Het schrapt ook om het even welke caching dossiers die zouden kunnen zijn geschreven.
 
 **/ipv4**
 
@@ -525,7 +525,7 @@ Amazon Elastic Load Balancing (ELB) is een service die reageert op getaddrinfo m
 
 **/secure**
 
-Als de `/secure` eigenschap heeft een waarde van `"1"`, gebruikt Dispatcher HTTPS om te communiceren met de AEM instantie. Zie ook voor meer informatie [Dispatcher configureren voor gebruik van SSL](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
+Als de `/secure` eigenschap heeft een waarde van `"1"`, gebruikt Dispatcher HTTPS om te communiceren met de AEM instantie. Zie voor meer informatie [Dispatcher configureren voor gebruik van SSL](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl).
 
 **/always-resolve**
 
@@ -555,7 +555,7 @@ Gebruik de `/filter` om de HTTP-aanvragen op te geven die Dispatcher accepteert.
 
 >[!CAUTION]
 >
->Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend Dispatcher. Lees ook de [Beveiligingschecklist AEM](https://experienceleague.adobe.com/docs/experience-manager-65/administering/security/security-checklist.html?lang=en#security) voor extra veiligheidsdetails betreffende uw AEM installatie.
+>Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend Dispatcher. Zie ook de [Beveiligingschecklist AEM](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) voor meer veiligheidsdetails betreffende uw AEM installatie.
 
 De `/filter` de sectie bestaat uit een reeks regels die of toegang tot inhoud volgens patronen in het verzoek-lijn deel van het HTTP- verzoek ontkennen of toestaan. Gebruik een strategie voor lijst van gewenste personen voor uw `/filter` sectie:
 
@@ -588,7 +588,7 @@ Elk item in het dialoogvenster `/filter` Deze sectie bevat een type en een patro
 >
 >`/glob "* *.css *"`
 >
->gebruiken
+>Gebruiken
 >
 >`/url "*.css"`
 
@@ -680,7 +680,7 @@ Met dit filter schakelt u extensies in mappen met niet-openbare inhoud in met be
 /005  {  /type "allow" /extension '(css|gif|ico|js|png|swf|jpe?g)' }
 ```
 
-#### Voorbeeld, filter: Aanvullende elementen van een aanvraag-URL filteren {#example-filter-filter-additional-elements-of-a-request-url}
+#### Voorbeeld, filter: extra elementen van een aanvraag-URL filteren {#example-filter-filter-additional-elements-of-a-request-url}
 
 Hieronder ziet u een regelvoorbeeld waarin wordt voorkomen dat inhoud wordt opgehaald uit het `/content` pad en de bijbehorende substructuur, met filters voor pad, kiezers en extensies:
 
@@ -797,15 +797,15 @@ Overweeg de volgende aanbevelingen als u verkiest om toegang uit te breiden:
 
    * `/libs/opensocial/proxy*`
 
-Afhankelijk van uw installatie zijn er mogelijk extra bronnen onder `/libs`, `/apps` of elders, die beschikbaar moeten worden gesteld. U kunt de `access.log` bestand als een methode om te bepalen welke bronnen extern worden benaderd.
+Afhankelijk van uw installatie kunnen er meer bronnen onder zijn `/libs`, `/apps` of elders, die beschikbaar moeten worden gesteld. U kunt de `access.log` bestand als een methode om te bepalen welke bronnen extern worden benaderd.
 
 >[!CAUTION]
 >
->De toegang tot consoles en folders kan een veiligheidsrisico voor productiemilieu&#39;s vormen. Als u geen expliciete redenen hebt, moeten ze gedeactiveerd blijven (gemarkeerd als commentaar).
+>De toegang tot consoles en folders kan een veiligheidsrisico voor productiemilieu&#39;s vormen. Tenzij u een expliciete motivering hebt, moeten deze worden gedeactiveerd (gemarkeerd als commentaar).
 
 >[!CAUTION]
 >
->Als u [rapporten gebruiken in een publicatieomgeving](https://experienceleague.adobe.com/docs/experience-manager-65/administering/operations/reporting.html?lang=en#using-reports-in-a-publish-environment)moet u Dispatcher configureren om toegang tot `/etc/reports` voor externe bezoekers.
+>Als u [rapporten gebruiken in een publicatieomgeving](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/operations/reporting#using-reports-in-a-publish-environment)moet u Dispatcher configureren om toegang tot `/etc/reports` voor externe bezoekers.
 
 ### Query-tekenreeksen beperken {#restricting-query-strings}
 
@@ -937,7 +937,7 @@ De `/vanity_urls` Deze sectie bevat de volgende eigenschappen:
 
 >[!NOTE]
 >
->Als de rendermethode een instantie van AEM is, moet u de [VanityURLS-Components-pakket van softwaredistributie](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) om de service vanity URL in te schakelen. (Zie [Softwaredistributie](https://experienceleague.adobe.com/docs/experience-manager-65/administering/contentmanagement/package-manager.html?lang=en#software-distribution) voor meer informatie .)
+>Als de rendermethode een instantie van AEM is, moet u de [VanityURLS-Components-pakket van softwaredistributie](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) om de service vanity URL in te schakelen. (Zie [Softwaredistributie](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution) voor meer informatie .)
 
 Gebruik de volgende procedure om toegang tot vanity URLs toe te laten.
 
@@ -954,7 +954,7 @@ Indien nodig stelt u de `/propagateSyndPost` eigenschap aan `"1"` om synchronisa
 
 ## Het vormen van het Geheime voorgeheugen van de Verzender - /cache {#configuring-the-dispatcher-cache-cache}
 
-De `/cache` sectie bepaalt hoe de Verzender documenten in cache plaatst. Vorm verscheidene sub-eigenschappen om uw caching strategieën uit te voeren:
+De `/cache` sectie bepaalt hoe de Verzender documenten in cache plaatst. Vorm verscheidene subproperties om uw caching strategieën uit te voeren:
 
 * `/docroot`
 * `/statfile`
@@ -1150,7 +1150,7 @@ Last Modified Date: 2017-11-13T09:23:24.326-0500
 Gebruik de `/statfileslevel` eigenschap voor het ongeldig maken van cachebestanden volgens het pad:
 
 * Dispatcher maakt `.stat`bestanden in elke map van de hoofdmap naar het niveau dat u opgeeft. De documenthoofdmap is niveau 0.
-* Bestanden worden ongeldig gemaakt door op de knop `.stat` bestand. De `.stat` de laatste wijzigingsdatum van het bestand wordt vergeleken met de laatste wijzigingsdatum van een document in de cache. Het document wordt opnieuw opgehaald als de `.stat` is nieuwer.
+* Bestanden worden ongeldig gemaakt door op de knop `.stat` bestand. De `.stat` de laatste wijzigingsdatum van het bestand wordt vergeleken met de laatste wijzigingsdatum van een document in de cache. Het document wordt opnieuw ingesteld als de `.stat` is nieuwer.
 
 * Wanneer een bestand op een bepaald niveau ongeldig wordt gemaakt, **alles** `.stat` bestanden uit de hoofdmap **tot** het niveau van het ongeldig gemaakte dossier of gevormd `statsfilevel` (de kleinste) wordt aangeraakt.
 
@@ -1167,7 +1167,7 @@ Wanneer een bestand in `/content/myWebsite/xx` ongeldig is, dan elke `.stat` bes
 
 >[!NOTE]
 >
->Ongeldige validatie kan worden voorkomen door een extra koptekst te verzenden `CQ-Action-Scope:ResourceOnly`. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [deze pagina](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [De Dispatcher-cache handmatig ongeldig maken](https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/configuring/page-invalidate.html?lang=en#configuring) voor meer informatie.
+>Ongeldige validatie kan worden voorkomen door een extra koptekst te verzenden `CQ-Action-Scope:ResourceOnly`. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [deze pagina](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [De Dispatcher-cache handmatig ongeldig maken](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) voor meer informatie .
 
 >[!NOTE]
 >
@@ -1195,7 +1195,7 @@ Deze configuratie veroorzaakt de volgende activiteit wanneer `/content/wknd/us/e
 
 * Alle bestanden met patroon en.* worden verwijderd uit de `/content/wknd/us` map.
 * De `/content/wknd/us/en./_jcr_content` map wordt verwijderd.
-* Alle andere bestanden die overeenkomen met de `/invalidate` configuratie niet onmiddellijk worden verwijderd. Deze bestanden worden verwijderd wanneer de volgende aanvraag wordt uitgevoerd. In het voorbeeld `/content/wknd.html` wordt niet geschrapt; het wordt geschrapt wanneer `/content/wknd.html` is aangevraagd.
+* Alle andere bestanden die overeenkomen met de `/invalidate` configuratie niet onmiddellijk worden verwijderd. Deze bestanden worden verwijderd wanneer de volgende aanvraag wordt uitgevoerd. In het voorbeeld: `/content/wknd.html` wordt niet verwijderd. In plaats daarvan wordt deze verwijderd wanneer `/content/wknd.html` is aangevraagd.
 
 Als u automatisch gegenereerde PDF- en ZIP-bestanden aanbiedt om te downloaden, moet u deze bestanden mogelijk ook automatisch ongeldig maken. Een configuratievoorbeeld ziet er als volgt uit:
 
@@ -1229,7 +1229,7 @@ De methode wordt aangeroepen met de volgende argumenten:
 
 Deze methode kan worden gebruikt voor verschillende gebruiksgevallen. Bijvoorbeeld het ongeldig maken van andere toepassingsspecifieke geheime voorgeheugens, of het behandelen van gevallen waar extern URL van een pagina, en zijn plaats in het docroot, niet de inhoudspad aanpast.
 
-In het onderstaande voorbeeld wordt elk verzoek om validatie aan een bestand genoteerd.
+In het onderstaande voorbeeld wordt elk ongeldig verzoek in een bestand geregistreerd.
 
 ```xml
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"
@@ -1324,7 +1324,7 @@ Zie voor informatie over eigenschappen van glob [Patronen ontwerpen voor globale
 >
 >Deze functie is beschikbaar bij versie **4.1.11.** van de verzender.
 
-De `/headers` staat u toe om de kopbaltypes te bepalen van HTTP die door de Dispatcher in het voorgeheugen zullen worden opgenomen. Op het eerste verzoek aan een middel uncached, worden alle kopballen die één van de gevormde waarden (zie de configuratiemonster hieronder) aanpassen opgeslagen in een afzonderlijk dossier, naast het geheim voorgeheugendossier. Bij verdere verzoeken aan het caching middel worden de opgeslagen kopballen toegevoegd aan de reactie.
+De `/headers` staat u toe om de kopbaltypes te bepalen van HTTP die door de Dispatcher in het voorgeheugen zullen worden opgenomen. Op het eerste verzoek aan een middel uncached, worden alle kopballen die één van de gevormde waarden (zie de configuratiemonster hieronder) aanpassen opgeslagen in een afzonderlijk dossier, naast het geheim voorgeheugendossier. Bij verdere verzoeken aan het caching middel, worden de opgeslagen kopballen toegevoegd aan de reactie.
 
 Hieronder ziet u een voorbeeld van de standaardconfiguratie:
 
@@ -1380,7 +1380,7 @@ Met de standaardinstelling `/invalidate` eigenschap, elke activering maakt alle 
 
 De `/gracePeriod` eigenschap definieert het aantal seconden dat een standaard, automatisch ongeldig gemaakte resource mogelijk nog steeds uit de cache wordt aangeboden na de laatste activering. De eigenschap kan worden gebruikt in een installatie waarbij een batch activeringen anders de gehele cache herhaaldelijk ongeldig zouden maken. De aanbevolen waarde is 2 seconden.
 
-Lees voor meer informatie ook de `/invalidate` en `/statfileslevel`bovenstaande secties.
+Zie voor meer informatie `/invalidate` en `/statfileslevel`eerder.
 
 ### Het vormen tijd-Gebaseerde Invalidatie van het Geheime voorgeheugen - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
 
@@ -1412,7 +1412,7 @@ Zo zorgt u ervoor dat `.stat` de bestandsinvalidatie wordt niet gebruikt en alle
 
 >[!NOTE]
 >
->Onthoud dat instelling `/enableTTL` aan 1 laat TTL caching slechts op de verzender kant toe. Als dusdanig, wordt de informatie van TTL in het extra dossier (zie hierboven) niet verstrekt aan een andere gebruikersagent die een dergelijk dossiertype van de verzender verzoekt. Als u caching kopballen aan stroomafwaartse systemen zoals CDN of browser wilt verstrekken, zou u moeten vormen `/cache/headers` van toepassing.
+>Onthoud dat instelling `/enableTTL` aan 1 laat TTL caching slechts op de Dispatcher kant toe. Als dusdanig, wordt de informatie van TTL in het extra dossier (zie hierboven) niet verstrekt aan een andere gebruikersagent die om zo een dossiertype van de Dispatcher verzoekt. Als u caching kopballen aan stroomafwaartse systemen zoals CDN of browser wilt verstrekken, zou u moeten vormen `/cache/headers` van toepassing.
 
 >[!NOTE]
 >
@@ -1520,13 +1520,13 @@ Wanneer een pagina bestaat uit inhoud van verschillende inhoudsknooppunten, neem
 }
 ```
 
-### httpOnly {#httponly}
+### `httpOnly` {#httponly}
 
 Wanneer kleverige verbindingen worden toegelaten, plaatst de module van de Verzender `renderid` cookie. Deze cookie bevat niet de `httponly` markering, die moet worden toegevoegd om de veiligheid te verbeteren. U voegt de `httponly` markeren door de `httpOnly` eigenschap in de `/stickyConnections` knooppunt van een `dispatcher.any` configuratiebestand. De waarde van de eigenschap (ofwel `0` of `1`) bepaalt of de `renderid` cookie `HttpOnly` toegevoegd kenmerk. De standaardwaarde is `0`, wat betekent dat het kenmerk niet wordt toegevoegd.
 
-Voor meer informatie over de `httponly` markering, lezen [deze pagina](https://www.owasp.org/index.php/HttpOnly).
+Voor meer informatie over de `httponly` markering, lezen [deze pagina](https://owasp.org/www-community/HttpOnly).
 
-### beveiligen {#secure}
+### `secure` {#secure}
 
 Wanneer kleverige verbindingen worden toegelaten, plaatst de module van de Verzender `renderid` cookie. Deze cookie bevat niet de `secure` markering, die moet worden toegevoegd om de veiligheid te verbeteren. U voegt de `secure` markering die de `secure` eigenschap in de `/stickyConnections` knooppunt van een `dispatcher.any` configuratiebestand. De waarde van de eigenschap (ofwel `0` of `1`) bepaalt of de `renderid` cookie `secure` toegevoegd kenmerk. De standaardwaarde is `0`, wat betekent dat het kenmerk wordt toegevoegd **indien** het binnenkomende verzoek is veilig. Als de waarde is ingesteld op `1`, dan wordt de veilige vlag toegevoegd ongeacht of het inkomende verzoek veilig of niet is.
 
@@ -1550,7 +1550,7 @@ Gebruik de `/health_check` eigenschap om een URL op te geven die wordt gecontrol
 
 De `/retryDelay` het bezit plaatst de tijd (in seconden) dat de Verzender tussen ronde van verbindingspogingen met het landbouwbedrijf teruggeeft. Voor elke ronde, is het maximumaantal tijden de Verzender probeert een verbinding aan terug te geven het aantal teruggeeft in het landbouwbedrijf.
 
-Dispatcher gebruikt de waarde van `"1"` indien `/retryDelay` is niet expliciet gedefinieerd. De standaardwaarde is meestal van toepassing.
+Dispatcher gebruikt de waarde van `"1"` indien `/retryDelay` is niet expliciet gedefinieerd. De standaardwaarde is geschikt.
 
 ```xml
 /retryDelay "1"
@@ -1619,7 +1619,7 @@ Instelling `/ignoreEINTR` tot `"1"` zorgt ervoor dat Dispatcher blijft proberen 
 
 ## Patronen ontwerpen voor globale eigenschappen {#designing-patterns-for-glob-properties}
 
-Verschillende secties in het configuratiebestand Dispatcher worden gebruikt `glob` eigenschappen als selectiecriteria voor cliëntverzoeken. De waarden van `glob` eigenschappen zijn patronen die de Verzender met een aspect van het verzoek, zoals de weg van het gevraagde middel, of het IP adres van de cliënt vergelijkt. De items in het dialoogvenster `/filter` sectiegebruik `glob` patronen om de paden te identificeren van de pagina&#39;s waarop Dispatcher reageert of deze weigert.
+Verschillende secties in het Dispatcher-configuratiebestand kunnen worden gebruikt `glob` eigenschappen als selectiecriteria voor cliëntverzoeken. De waarden van `glob` eigenschappen zijn patronen die de Verzender met een aspect van het verzoek, zoals de weg van het gevraagde middel, of het IP adres van de cliënt vergelijkt. De items in het dialoogvenster `/filter` sectiegebruik `glob` patronen om de paden te identificeren van de pagina&#39;s waarop Dispatcher reageert of deze weigert.
 
 De `glob` Deze waarden kunnen jokertekens en alfanumerieke tekens bevatten om het patroon te definiëren.
 
@@ -1751,7 +1751,7 @@ Raadpleeg de documentatie bij de Apache-webserver over Log Rotation en Piped Log
 >
 >Na installatie, is het standaardlogboekniveau hoog (namelijk niveau 3 = zuivert), zodat de Dispatcher alle fouten en waarschuwingen registreert. Dit niveau is handig in de beginstadia.
 >
->Een dergelijk niveau vereist echter extra middelen. Wanneer de Dispatcher probleemloos werkt *volgens uw vereisten* kunt u het logniveau verlagen.
+>Een dergelijk niveau vereist echter meer middelen. Wanneer de Dispatcher probleemloos werkt *volgens uw vereisten* kunt u het logniveau verlagen.
 
 ### Trackregistratie {#trace-logging}
 

@@ -1,8 +1,7 @@
 ---
-source-git-commit: d83eb9ce10c2f324163ac629ea7c02d154dc387d
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-translation-type: tm+mt
-source-wordcount: '73'
+source-wordcount: '72'
 ht-degree: 0%
 
 ---
@@ -12,6 +11,6 @@ Dit is de opslagplaats voor de documentatie van Adobe Experience Manager Dispatc
 
 Uw bijdragen aan de documentatie zijn welkom. Zie de volgende bronnen:
 
-* [contribute.](contributing.md) mdVoor een overzicht van hoe te om aan de documentatie bij te dragen.
-* [Guidelines.](guidelines.md) mdVoor een overzicht van wat in bijdragen wordt verwacht en hoe te om uw documentatiebijdragen samen te stellen.
-* [gedragscode.](code-of-conduct.md) mdVoor een overzicht van de normen van gedrag wij verwachten aangezien u aan dit documentatieproject bijdraagt.
+* [contribute.md](contributing.md) Voor een overzicht van hoe te om aan de documentatie bij te dragen.
+* [guidelines.md](guidelines.md) Voor een overzicht van wat in bijdragen en hoe te om uw documentatiebijdragen samen te stellen wordt verwacht.
+* [gedragscode.md](code-of-conduct.md) Voor een overzicht van de normen van gedrag verwacht de Adobe aangezien u aan dit documentatieproject bijdraagt.

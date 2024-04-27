@@ -1,18 +1,14 @@
 ---
 title: Beveiligde inhoud in cache plaatsen
-seo-title: Caching Secured Content in AEM Dispatcher
 description: Leer hoe het in cache plaatsen met toestemming werkt in Dispatcher.
-seo-description: Learn how permission-sensitive caching works in AEM Dispatcher.
-uuid: abfed68a-2efe-45f6-bdf7-2284931629d6
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: 4f9b2bc8-a309-47bc-b70d-a1c0da78d464
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 31eaa42b17838d97cacd5c535e04be01a3eb6807
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '918'
+source-wordcount: '910'
 ht-degree: 0%
 
 ---
@@ -73,8 +69,8 @@ Om toestemming-gevoelig caching uit te voeren, voer de volgende taken uit:
 
 >[!NOTE]
 >
->Wanneer er een CDN (of een ander geheime voorgeheugen) vóór de verzender is, dan zou u de caching kopballen dienovereenkomstig moeten plaatsen zodat CDN niet de privé inhoud in het voorgeheugen onderbrengt. Bijvoorbeeld: `Header always set Cache-Control private`.
->Voor AEM as a Cloud Service raadpleegt u de [Caching](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching.html) voor meer informatie over het instellen van headers voor persoonlijke caching.
+>Wanneer er een CDN (of een ander geheime voorgeheugen) vóór de Dispatcher is, dan zou u de caching kopballen dienovereenkomstig moeten plaatsen zodat CDN niet de privé inhoud in het voorgeheugen onderbrengt. Bijvoorbeeld: `Header always set Cache-Control private`.
+>Voor AEM as a Cloud Service, zie [Caching](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) voor meer informatie over het instellen van headers voor persoonlijke caching.
 
 ## De servlet Auth Checker maken {#create-the-auth-checker-servlet}
 
@@ -82,7 +78,7 @@ Maak en implementeer een servlet die de verificatie en autorisatie uitvoert van 
 
 De servlet moet toegankelijk zijn voor alle gebruikers. Daarom moet uw servlet de `org.apache.sling.api.servlets.SlingSafeMethodsServlet` klasse, die alleen-lezen toegang tot het systeem biedt.
 
-servlet ontvangt slechts HEAD- verzoeken van teruggeeft, zodat moet u slechts uitvoeren `doHead` methode.
+servlet ontvangt slechts HEAD- verzoeken van teruggeven, zodat moet u slechts uitvoeren `doHead` methode.
 
 Renderen omvat URI van het gevraagde middel als parameter van het HTTP- verzoek. Een verificatieserver is bijvoorbeeld toegankelijk via `/bin/permissioncheck`. Als u een beveiligingscontrole wilt uitvoeren op de pagina /content/geometrixx-outdoors/en.html, bevat de render de volgende URL in de HTTP-aanvraag:
 
@@ -92,7 +88,7 @@ Het servlet-antwoordbericht moet de volgende HTTP-statuscodes bevatten:
 
 * 200: Verificatie en autorisatie geslaagd.
 
-Het volgende voorbeeldservlet verkrijgt URL van het gevraagde middel van het HTTP- verzoek. De code gebruikt SCR van de Felix `Property` aantekening om de waarde van de `sling.servlet.paths` eigenschap naar /bin/permissioncheck. In de `doHead` methode, verkrijgt servlet het zittingsvoorwerp en gebruikt `checkPermission` methode om de juiste responscode te bepalen.
+Het volgende voorbeeldservlet verkrijgt URL van het gevraagde middel van het HTTP- verzoek. De code gebruikt SCR Felix `Property` aantekening om de waarde van de `sling.servlet.paths` eigenschap naar /bin/permissioncheck. In de `doHead` methode, verkrijgt servlet het zittingsvoorwerp en gebruikt `checkPermission` methode om de juiste responscode te bepalen.
 
 >[!NOTE]
 >
@@ -151,7 +147,7 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 
 >[!NOTE]
 >
->Als uw vereisten het caching van voor authentiek verklaarde documenten toestaan, plaats het /allowAuthorized bezit onder de /cache sectie aan `/allowAuthorized 1`. Zie [In cache plaatsen wanneer verificatie wordt gebruikt](/help/using/dispatcher-configuration.md) voor meer informatie .
+>Als uw vereisten het caching van voor authentiek verklaarde documenten toestaan, plaats het /allowAuthorized bezit onder de /cache sectie aan `/allowAuthorized 1`. Zie het onderwerp [In cache plaatsen wanneer verificatie wordt gebruikt](/help/using/dispatcher-configuration.md) voor meer informatie .
 
 De sectie auth_checker van de dispatcher.any file controleert het gedrag van toestemming-gevoelige caching. De sectie auth_checker bevat de volgende subsecties:
 
@@ -165,7 +161,7 @@ Wanneer de Verzender begint, omvat het het logboekdossier van de Verzender het v
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-De volgende voorbeeldauth_checker sectie vormt Dispatcher om servlet van het vorige onderwerp te gebruiken. De filtersectie veroorzaakt toestemmingscontroles die slechts op veilige middelen van HTML worden uitgevoerd.
+De volgende voorbeeldsectie auth_checker vormt Dispatcher om servlet van het vorige onderwerp te gebruiken. De filtersectie veroorzaakt toestemmingscontroles die slechts op veilige middelen van HTML worden uitgevoerd.
 
 ### Voorbeeldconfiguratie {#example-configuration}
 

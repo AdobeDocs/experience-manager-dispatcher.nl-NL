@@ -1,19 +1,15 @@
 ---
 title: Dispatcher gebruiken met meerdere domeinen
-seo-title: Using Dispatcher with Multiple Domains
 description: Leer hoe u Dispatcher gebruikt om paginaaanvragen in meerdere webdomeinen te verwerken.
-seo-description: Learn how to use Dispatcher to process page requests in multiple web domains.
-uuid: 7342a1c2-fe61-49be-a240-b487d53c7ec1
 contentOwner: User
 cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: 40d91d66-c99b-422d-8e61-c0ced23272ef
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: c7af1a042b0106fa0a559448398a8dd636d920c2
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '2968'
+source-wordcount: '2918'
 ht-degree: 0%
 
 ---
@@ -29,7 +25,7 @@ Met Dispatcher kunt u paginaaanvragen in meerdere webdomeinen verwerken en tegel
 * De inhoud van het Web voor beide domeinen wordt opgeslagen in één enkele AEM bewaarplaats.
 * De bestanden in de Dispatcher-cache kunnen voor elk domein afzonderlijk ongeldig worden gemaakt.
 
-Een bedrijf publiceert bijvoorbeeld websites voor twee van hun merken: Merk A en merk B. De inhoud van de websitepagina&#39;s wordt in AEM geschreven en in dezelfde werkruimte van de opslagplaats opgeslagen:
+Een bedrijf publiceert bijvoorbeeld websites voor twee van hun merken: merk A en merk B. De inhoud van de websitepagina&#39;s wordt in AEM geschreven en in dezelfde werkruimte van de opslagplaats opgeslagen:
 
 ```
 /
@@ -40,9 +36,9 @@ Een bedrijf publiceert bijvoorbeeld websites voor twee van hun merken: Merk A en
        | - content nodes
 ```
 
-Pagina&#39;s voor `BrandA.com` worden hieronder opgeslagen `/content/sitea`. Clientaanvragen voor de URL `https://BrandA.com/en.html` worden de weergegeven pagina voor de `/content/sitea/en` knooppunt. Pagina&#39;s voor `BrandB.com` worden hieronder opgeslagen `/content/siteb`.
+Pagina&#39;s voor `BrandA.com` worden hieronder opgeslagen `/content/sitea`. Clientaanvragen voor de URL `https://BrandA.com/en.html` worden de weergegeven pagina geretourneerd voor de `/content/sitea/en` knooppunt. Pagina&#39;s voor `BrandB.com` worden hieronder opgeslagen `/content/siteb`.
 
-Wanneer u Dispatcher gebruikt om inhoud in cache te plaatsen, moet er een koppeling worden gemaakt tussen de pagina-URL in de HTTP-client-aanvraag, het pad van het corresponderende bestand in de cache en het pad van het corresponderende bestand in de opslagplaats.
+Wanneer u Dispatcher gebruikt om inhoud in cache te plaatsen, moet er een koppeling worden gemaakt tussen de pagina-URL in de HTTP-client-aanvraag, het pad van het corresponderende cachebestand en het pad van het corresponderende bestand in de opslagplaats.
 
 ## Clientverzoeken
 
@@ -66,7 +62,7 @@ Wanneer Dispatcher Flush-replicatiemiddelen vragen dat Dispatcher cachebestanden
 * b - De Dispatcher Flush Agent roept Dispatcher aan om de cache voor de gerepliceerde inhoud ongeldig te maken.
 * c - Dispatcher tikt een of meer .stat-bestanden aan om de cachebestanden ongeldig te maken.
 
-Als u Dispatcher met meerdere domeinen wilt gebruiken, moet u AEM, Dispatcher en uw webserver configureren. De oplossingen die op deze pagina worden beschreven zijn algemeen en zijn op de meeste milieu&#39;s van toepassing. Wegens de ingewikkeldheid van sommige AEM topologieën, kan uw oplossing verdere douaneconfiguraties vereisen om bepaalde kwesties op te lossen. U zult waarschijnlijk de voorbeelden moeten aanpassen om aan uw bestaand de infrastructuur en beheersbeleid van IT te voldoen.
+Als u Dispatcher met meerdere domeinen wilt gebruiken, moet u AEM, Dispatcher en uw webserver configureren. De oplossingen die op deze pagina worden beschreven zijn algemeen en zijn op de meeste milieu&#39;s van toepassing. Wegens de ingewikkeldheid van sommige AEM topologieën, kan uw oplossing verdere douaneconfiguraties vereisen om bepaalde kwesties op te lossen. U moet waarschijnlijk de voorbeelden aanpassen om aan uw bestaande IT-infrastructuur en beheerbeleid te voldoen.
 
 ## URL-toewijzing {#url-mapping}
 
@@ -75,7 +71,7 @@ Als u wilt dat domein-URL&#39;s en inhoudspaden kunnen worden omgezet in bestand
 * (Aanbevolen) De AEM publicatie-instantie gebruikt de toewijzing Sling voor resourceresolutie om interne URL-herschrijfregels te implementeren. Domein-URL&#39;s worden vertaald naar paden in de inhoudsopslagplaats. Zie [Inkomende URL&#39;s AEM herschrijven](#aem-rewrites-incoming-urls).
 * De webserver gebruikt interne URL-herschrijfregels die domeinURL&#39;s omzetten in cachepaden. Zie [De webserver herschrijft binnenkomende URL&#39;s](#the-web-server-rewrites-incoming-urls).
 
-Over het algemeen is het raadzaam korte URL&#39;s te gebruiken voor webpagina&#39;s. Pagina-URL&#39;s weerspiegelen doorgaans de structuur van de opslagmap die de webinhoud bevat. De URL&#39;s geven echter niet de bovenste knooppunten in de opslagplaats weer, zoals `/content`. De client is niet noodzakelijkerwijs op de hoogte van de structuur van de AEM opslagplaats.
+Het is raadzaam korte URL&#39;s te gebruiken voor webpagina&#39;s. Pagina-URL&#39;s weerspiegelen doorgaans de structuur van de opslagmap die de webinhoud bevat. De URL&#39;s geven echter niet de bovenste knooppunten in de opslagplaats weer, zoals `/content`. De client is niet noodzakelijkerwijs op de hoogte van de structuur van de AEM opslagplaats.
 
 ## Algemene vereisten {#general-requirements}
 
@@ -90,11 +86,11 @@ Uw omgeving moet de volgende configuraties implementeren ter ondersteuning van D
 
 De voorbeeldoplossingen die worden verstrekt zijn op een milieu met de volgende kenmerken van toepassing:
 
-* De AEM auteur- en publicatie-instanties worden geïmplementeerd op Linux-systemen.
-* Apache HTTPD is de webserver, geïmplementeerd op een Linux-systeem.
+* De AEM auteur- en publicatie-instanties worden geïmplementeerd op Linux®-systemen.
+* Apache HTTPD is de webserver die wordt geïmplementeerd op een Linux®-systeem.
 * De AEM-inhoudopslagplaats en de documenthoofdmap van de webserver gebruiken de volgende bestandsstructuren (de hoofdmap van het document van de Apache-webserver is /`usr/lib/apache/httpd-2.4.3/htdocs)`:
 
-   **Bewaarplaats**
+  **Bewaarplaats**
 
 ```
   | - /content  
@@ -127,7 +123,7 @@ Verzendingsaanvragen voor het renderen van pagina&#39;s identificeren de pagina 
 
 ![](assets/chlimage_1-10.png)
 
-Het cachegeheugen van Dispatcher spiegelt de structuur van de opslagpuntnode. Daarom wanneer paginaberichten optreden, vereisen de resulterende verzoeken om de pagina in de cache ongeldig te maken geen URL- of padvertalingen.
+Het cachegeheugen van Dispatcher spiegelt de structuur van de opslagpuntnode. Wanneer paginaberichten optreden, vereisen de resulterende verzoeken om de pagina in de cache ongeldig te maken daarom geen URL- of padvertalingen.
 
 ![](assets/chlimage_1-11.png)
 
@@ -141,14 +137,14 @@ Virtuele hosts op de webserver definiëren, zodat een andere hoofdmap van het do
 
 Het volgende voorbeeld `httpd.conf` Bestanden configureren twee virtuele domeinen voor een Apache-webserver:
 
-* De servernamen (die samenvallen met de domeinnamen) zijn branda.com (lijn 16) en brandb.com (lijn 30).
+* De servernamen (die samenvallen met de domeinnamen) zijn branda.com (regel 16) en brandb.com (regel 30).
 * De documenthoofdmap van elk virtueel domein is de map in de Dispatcher-cache die de pagina&#39;s van de site bevat. (lijnen 17 en 31)
 
 Met deze configuratie voert de webserver de volgende handelingen uit wanneer deze een aanvraag ontvangt voor `https://branda.com/en/products.html`:
 
 * Koppelt de URL aan de virtuele host die een `ServerName` van `branda.com.`
 
-* Hiermee stuurt u de URL door naar Dispatcher.
+* Verstuurt de URL naar Dispatcher.
 
 ### httpd.conf {#httpd-conf}
 
@@ -198,7 +194,7 @@ LoadModule dispatcher_module modules/mod_dispatcher.so
 DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
-Merk op dat virtuele hosts de [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) bezitswaarde die in de belangrijkste serversectie wordt gevormd. Virtuele hosts kunnen hun eigen eigenschap DispatcherConfig opnemen om de hoofdserverconfiguratie te overschrijven.
+Virtuele hosts nemen de [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) bezitswaarde die in de belangrijkste serversectie wordt gevormd. Virtuele hosts kunnen hun eigen eigenschap DispatcherConfig opnemen om de hoofdserverconfiguratie te overschrijven.
 
 ### Dispatcher configureren om meerdere domeinen af te handelen {#configure-dispatcher-to-handle-multiple-domains}
 
@@ -211,12 +207,12 @@ Om URLs te steunen die domeinnamen en hun overeenkomstige virtuele gastheren omv
 
 De landbouwbedrijven voor virtuele gastheren moeten de volgende configuraties hebben zodat URLs in cliëntHTTP- verzoeken aan de correcte dossiers in het geheime voorgeheugen van de Verzender wordt opgelost:
 
-* De `/virtualhosts` wordt ingesteld op de domeinnaam. This property enables Dispatcher to associated the farm met het domein.
+* De `/virtualhosts` wordt ingesteld op de domeinnaam. Deze eigenschap laat Dispatcher toe om het landbouwbedrijf aan het domein te koppelen.
 * De `/filter` staat toegang tot het pad van de aanvraag-URL af na het domeinnaamdeel. Bijvoorbeeld voor `https://branda.com/en.html` URL, het pad wordt geïnterpreteerd als `/en.html`en moet het filter toegang tot dit pad toestaan.
 
-* De `/docroot` eigenschap wordt ingesteld op het pad van de hoofdmap van de site-inhoud van het domein in de Dispatcher-cache. Dit pad wordt gebruikt als voorvoegsel voor de samengevoegde URL van de oorspronkelijke aanvraag. Bijvoorbeeld de hoofdmap van `/usr/lib/apache/httpd-2.4.3/htdocs/sitea` veroorzaakt het verzoek om `https://branda.com/en.html` om `/usr/lib/apache/httpd-2.4.3/htdocs/sitea/en.html` bestand.
+* De `/docroot` eigenschap wordt ingesteld op het pad van de hoofdmap van de site-inhoud van het domein in de Dispatcher-cache. Dit pad wordt gebruikt als voorvoegsel voor de samengevoegde URL van de oorspronkelijke aanvraag. De hoofdmap van `/usr/lib/apache/httpd-2.4.3/htdocs/sitea` veroorzaakt het verzoek om `https://branda.com/en.html` om de `/usr/lib/apache/httpd-2.4.3/htdocs/sitea/en.html` bestand.
 
-Daarnaast moet de AEM publicatieinstantie worden aangewezen als de rendermethode voor de virtuele host. Vorm andere landbouwbedrijfeigenschappen zoals vereist. De volgende code is een afgekorte landbouwbedrijfconfiguratie voor het branda.com domein:
+Ook, moet de AEM publiceer instantie als teruggeven voor de virtuele gastheer worden aangewezen. Vorm andere landbouwbedrijfeigenschappen zoals vereist. De volgende code is een afgekorte landbouwbedrijfconfiguratie voor het branda.com domein:
 
 ```xml
 /farm_sitea  {     
@@ -244,12 +240,12 @@ Een landbouwbedrijf van de Verzender wordt vereist voor de behandeling van verzo
 
 Met de volgende eigenschappenconfiguraties kan Dispatcher bestanden in de opslagplaats voor AEM inhoud oplossen vanuit bestanden in de cache:
 
-* De `/docroot` wordt ingesteld op de standaardhoofdmap van de webserver. Dit is doorgaans de map waarin de `/content` wordt gemaakt. Een voorbeeldwaarde voor Apache in Linux is `/usr/lib/apache/httpd-2.4.3/htdocs`.
+* De `/docroot` wordt ingesteld op de standaardhoofdmap van de webserver. Dit is doorgaans de map waarin de `/content` wordt gemaakt. Een voorbeeldwaarde voor Apache op Linux® is `/usr/lib/apache/httpd-2.4.3/htdocs`.
 * De `/filter` eigenschap geeft toegang tot bestanden onder de `/content` directory.
 
-De `/statfileslevel`bezit moet hoog genoeg zijn zodat .stat dossiers in de wortelfolder van elke virtuele gastheer worden gecreeerd. Met deze eigenschap kan de cache van elk domein afzonderlijk ongeldig worden gemaakt. Voor de voorbeeldopstelling, a `/statfileslevel` waarde van `2` maakt .stat-bestanden in het dialoogvenster `*docroot*/content/sitea` en de `*docroot*/content/siteb` directory.
+De `/statfileslevel`eigenschap moet hoog genoeg zijn, zodat .stat-bestanden worden gemaakt in de hoofdmap van elke virtuele host. Met deze eigenschap kan de cache van elk domein afzonderlijk ongeldig worden gemaakt. Voor de voorbeeldopstelling, a `/statfileslevel` waarde van `2` maakt .stat-bestanden in het dialoogvenster `*docroot*/content/sitea` en de `*docroot*/content/siteb` directory.
 
-Daarnaast moet de publicatieinstantie worden aangewezen als de rendermethode voor de virtuele host. Vorm andere landbouwbedrijfeigenschappen zoals vereist. De volgende code is een afgekorte configuratie voor het landbouwbedrijf dat voor het ongeldig maken van het geheime voorgeheugen wordt gebruikt:
+Ook, moet de publiceer instantie als teruggeven voor de virtuele gastheer worden aangewezen. Vorm andere landbouwbedrijfeigenschappen zoals vereist. De volgende code is een afgekorte configuratie voor het landbouwbedrijf dat voor het ongeldig maken van het geheime voorgeheugen wordt gebruikt:
 
 ```xml
 /farm_flush {  
@@ -286,15 +282,15 @@ Dispatcher initializing (build 4.1.2)
 
 Gebruik de toewijzing van de Verschuiving voor middelresolutie zodat op domein-gebaseerde URLs aan inhoud op AEM publicatieinstantie oplossen. De middelafbeelding zet inkomende URLs van Verzender (oorspronkelijk van cliëntHTTP- verzoeken) aan inhoudsknooppunten om.
 
-Om over het Verdelen van middelafbeelding te leren, zie [Toewijzingen voor resolutie van bronnen](https://sling.apache.org/site/mappings-for-resource-resolution.html) in de documentatie van Sling.
+Om over het Verdelen van middelafbeelding te leren, zie [Toewijzingen voor resolutie van bronnen](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html) in de documentatie van Sling.
 
-Typisch, worden de afbeeldingen vereist voor de volgende middelen, hoewel de extra afbeeldingen kunnen noodzakelijk zijn:
+Typisch, worden de afbeeldingen vereist voor de volgende middelen, hoewel andere afbeeldingen kunnen noodzakelijk zijn:
 
 * Het hoofdknooppunt van de inhoudspagina (onder `/content`)
 * Het ontwerpknooppunt dat door de pagina&#39;s wordt gebruikt (onder `/etc/designs`)
 * De `/libs` map
 
-Nadat u de toewijzing voor de inhoudspagina creeert, om extra vereiste afbeeldingen te ontdekken gebruik Webbrowser om een pagina op de Webserver te openen. Zoek in het bestand error.log van de instantie publish berichten over bronnen die niet zijn gevonden. Het volgende voorbeeldbericht geeft aan dat een toewijzing voor `/etc/clientlibs` is vereist:
+Nadat u de toewijzing voor de inhoudspagina creeert, om meer vereiste afbeeldingen te ontdekken gebruik Webbrowser om een pagina op de Webserver te openen. Zoek in het bestand error.log van de instantie publish berichten over bronnen die niet zijn gevonden. Het volgende voorbeeldbericht geeft aan dat een toewijzing voor `/etc/clientlibs` is vereist:
 
 ```shell
 01.11.2012 15:59:24.601 *INFO* [10.36.34.243 [1351799964599] GET /etc/clientlibs/foundation/jquery.js HTTP/1.1] org.apache.sling.engine.impl.SlingRequestProcessorImpl service: Resource /content/sitea/etc/clientlibs/foundation/jquery.js not found
@@ -302,23 +298,23 @@ Nadat u de toewijzing voor de inhoudspagina creeert, om extra vereiste afbeeldin
 
 >[!NOTE]
 >
->De koppelingencontrole-transformator van de standaard Apache Sling-rewriter wijzigt automatisch hyperlinks in de pagina om verbroken koppelingen te voorkomen. Het herschrijven van koppelingen wordt echter alleen uitgevoerd wanneer het doel van de koppeling een HTML- of HTML-bestand is. Als u koppelingen naar andere bestandstypen wilt bijwerken, maakt u een transformatorcomponent en voegt u deze toe aan een HTML rewriter-pijplijn.
+>De transformator van Linkercontrole van het gebrek Apache Sling rewriter wijzigt automatisch hyperlinks in de pagina om gebroken verbindingen te verhinderen. Het herschrijven van koppelingen wordt echter alleen uitgevoerd wanneer het doel van de koppeling een HTML- of HTML-bestand is. Als u koppelingen naar andere bestandstypen wilt bijwerken, maakt u een transformatorcomponent en voegt u deze toe aan een HTML rewriter-pijplijn.
 
-### Voorbeeld van toewijzingsknooppunten
+### Voorbeeld van knooppunten voor resource-mapping
 
-De volgende lijst maakt een lijst van de knopen die middelafbeelding voor het branda.com domein uitvoeren. Voor de `brandb.com` domein, zoals `/etc/map/http/brandb.com`. In alle gevallen zijn toewijzingen vereist wanneer verwijzingen in pagina HTML niet correct worden omgezet in de context van Sling.
+De volgende lijst maakt een lijst van de knopen die middelafbeelding voor het branda.com domein uitvoeren. Er worden vergelijkbare knooppunten gemaakt voor de `brandb.com` domein, zoals `/etc/map/http/brandb.com`. In alle gevallen zijn toewijzingen vereist wanneer verwijzingen in pagina HTML niet correct worden omgezet in de context van Sling.
 
 | Knooppuntpad | Type | Eigenschap |
 |--- |--- |--- |
-| `/etc/map/http/branda.com` | schuintrekken:toewijzen | Naam: sling:internalRedirect Type: Tekenreekswaarde: /content/site |
-| `/etc/map/http/branda.com/libs` | schuintrekken:toewijzen | Naam: sling:internalRedirect <br/>Type: String <br/>Waarde: /libs |
-| `/etc/map/http/branda.com/etc` | schuintrekken:toewijzen |  |
-| `/etc/map/http/branda.com/etc/designs` | schuintrekken:toewijzen | Naam: sling:internalRedirect <br/>VType: String <br/>Waarde: /etc/designs |
-| `/etc/map/http/branda.com/etc/clientlibs` | schuintrekken:toewijzen | Naam: sling:internalRedirect <br/>VType: String <br/>Waarde: /etc/clientlibs |
+| `/etc/map/http/branda.com` | `sling:Mapping` | `Name: sling:internalRedirect Type: String Value: /content/sitea` |
+| `/etc/map/http/branda.com/libs` | `sling:Mapping` | `Name: sling:internalRedirect <br/>Type: String <br/>Value: /libs` |
+| `/etc/map/http/branda.com/etc` | `sling:Mapping` | |
+| `/etc/map/http/branda.com/etc/designs` | `sling:Mapping` | `Name: sling:internalRedirect <br/>VType: String <br/>VValue: /etc/designs` |
+| `/etc/map/http/branda.com/etc/clientlibs` | `sling:Mapping` | `Name: sling:internalRedirect <br/>VType: String <br/>VValue: /etc/clientlibs` |
 
 ## De Dispatcher Flush-replicatieagent configureren {#configuring-the-dispatcher-flush-replication-agent}
 
-De de replicatieagent van de Vlek van de Dispatcher op AEM publiceer instantie moet verzoeken tot ongeldig maken naar het correcte landbouwbedrijf van de Verzender verzenden. Om een landbouwbedrijf te richten, gebruik het bezit van URI van de de replicatieagent van de Vlek van de Verzender (op het lusje van het Vervoer). De waarde van de `/virtualhost` bezit voor het landbouwbedrijf van de Verzender dat voor het ongeldig maken van het geheime voorgeheugen wordt gevormd:
+De de replicatieagent van de Vlek van de Dispatcher op AEM publiceer instantie moet verzoeken van de ongeldigverklaring naar het correcte landbouwbedrijf van de Verzender verzenden. Om een landbouwbedrijf te richten, gebruik het bezit van URI van de de replicatieagent van de Vlek van de Verzender (op het lusje van het Vervoer). De waarde van de `/virtualhost` bezit voor het landbouwbedrijf van de Verzender dat voor het ongeldig maken van het geheime voorgeheugen wordt gevormd:
 
 `https://*webserver_name*:*port*/*virtual_host*/dispatcher/invalidate.cache`
 
@@ -328,7 +324,7 @@ Als u bijvoorbeeld de opdracht `farm_flush` farm van het vorige voorbeeld, de UR
 
 ## De webserver herschrijft binnenkomende URL&#39;s {#the-web-server-rewrites-incoming-urls}
 
-Gebruik de functie voor het intern herschrijven van URL&#39;s van uw webserver om op domein gebaseerde URL&#39;s te converteren naar bestandspaden in de Dispatcher-cache. Client vraagt bijvoorbeeld om `https://brandA.com/en.html` pagina wordt vertaald naar de `content/sitea/en.html`in de hoofdmap van het document van de webserver.
+Als u op domein gebaseerde URL&#39;s wilt omzetten in bestandspaden in de Dispatcher-cache, gebruikt u de functie voor het intern herschrijven van URL&#39;s op uw webserver. Client vraagt bijvoorbeeld om `https://brandA.com/en.html` pagina wordt vertaald naar de `content/sitea/en.html`in de hoofdmap van het document van de webserver.
 
 ![](assets/chlimage_1-13.png)
 
@@ -336,7 +332,7 @@ Het cachegeheugen van Dispatcher spiegelt de structuur van de opslagpuntnode. Wa
 
 ![](assets/chlimage_1-14.png)
 
-## Virtuele gastheren bepalen en regels op de server van het Web herschrijven {#define-virtual-hosts-and-rewrite-rules-on-the-web-server}
+## Virtuele hosts definiëren en regels op de webserver herschrijven {#define-virtual-hosts-and-rewrite-rules-on-the-web-server}
 
 Configureer de volgende aspecten op de webserver:
 
@@ -358,7 +354,7 @@ De webserver voert bijvoorbeeld de volgende handelingen uit wanneer deze een aan
 
 * Koppelt de URL aan de virtuele host die een `ServerName` van `brandA.com.`
 * Hiermee herschrijft u de URL die u wilt instellen `/content/sitea/en/products.html.`
-* Hiermee stuurt u de URL door naar Dispatcher.
+* Verstuurt de URL naar Dispatcher.
 
 ### httpd.conf {#httpd-conf-1}
 
@@ -504,12 +500,12 @@ Zoals gewoonlijk is de hoofdmap van het cachedocument gelijk aan de hoofdmap van
 
 Om verwijzingen naar dossiers te herschrijven die uitbreidingen buiten .html of .htm hebben, creeer een Sling rewriter transformatorcomponent en voeg het aan de standaard rewriter pijpleiding toe.
 
-Verwijzingen herschrijven wanneer de middelwegen niet correct in de context van de Webserver oplossen. Een transformator is bijvoorbeeld vereist wanneer componenten die afbeeldingen genereren koppelingen maken, zoals /content/sitea/en/products.navimage.png. De bovenste component van de [Een volledig aanbevolen internetwebsite maken](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/the-basics.html) maakt dergelijke koppelingen.
+Verwijzingen herschrijven wanneer de middelwegen niet correct in de context van de Webserver oplossen. Een transformator is bijvoorbeeld vereist wanneer componenten die afbeeldingen genereren koppelingen maken, zoals /content/sitea/en/products.navimage.png. De `topnav` van de [Hoe te om een volledig Aanbevolen Website van Internet te creëren](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/introduction/the-basics) maakt dergelijke koppelingen.
 
 De [Sling rewriter](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) is een module die Sling-uitvoer nabewerkt. De de pijpleidingsimplementaties van SAX van rewriter bestaan uit een generator, één of meerdere transformatoren, en serializer:
 
 * **Generator:** Parseert de het Verschuiven outputstroom (het document van HTML) en produceert gebeurtenissen SAX wanneer het specifieke elementtypes ontmoet.
-* **Transformer:** Luistert naar SAX-gebeurtenissen en wijzigt zo het gebeurtenisdoel (een HTML-element). Een rewriter-pijplijn bevat nul of meer transformatoren. Transformatoren worden op volgorde uitgevoerd en geven de SAX-gebeurtenissen door aan de volgende transformator in de reeks.
+* **Transformer:** Luistert naar SAX-gebeurtenissen en wijzigt daarom het gebeurtenisdoel (een HTML-element). Een rewriter-pijplijn bevat nul of meer transformatoren. Transformatoren worden op volgorde uitgevoerd en geven de SAX-gebeurtenissen door aan de volgende transformator in de reeks.
 * **Serializer:** Serialiseert de output, met inbegrip van de wijzigingen van elke transformator.
 
 ![](assets/chlimage_1-15.png)
@@ -526,31 +522,30 @@ De `/libs/cq/config/rewriter/default` de knoop bepaalt de pijpleiding.
 
 ### Een transformator maken {#creating-a-transformer}
 
-Voer de volgende taken uit om een transformatorcomponent tot stand te brengen en het in een pijpleiding te gebruiken:
+Om een transformatorcomponent tot stand te brengen en het in een pijpleiding te gebruiken, voer de volgende taken uit:
 
 1. Implementeer de `org.apache.sling.rewriter.TransformerFactory` interface. Deze klasse maakt instanties van uw transformatorklasse. Geef waarden op voor de `transformer.type` bezit (de transformator alias) en vorm de klasse als OSGi de dienstcomponent.
-1. Implementeer de `org.apache.sling.rewriter.Transformer` interface. Om het werk te minimaliseren, kunt u het `org.apache.cocoon.xml.sax.AbstractSAXPipe` klasse. Hef de startElement-methode op om het herschrijfgedrag aan te passen. Deze methode wordt geroepen voor elke gebeurtenis van SAX die tot de transformator wordt overgegaan.
+1. Implementeer de `org.apache.sling.rewriter.Transformer` interface. Om het werk te minimaliseren, kunt u het `org.apache.cocoon.xml.sax.AbstractSAXPipe` klasse. Als u het herschrijfgedrag wilt aanpassen, overschrijft u de startElement-methode. Deze methode wordt geroepen voor elke gebeurtenis van SAX die tot de transformator wordt overgegaan.
 1. Bundel en implementeer de klassen.
-1. Voeg een configuratieknooppunt aan uw AEM toepassing toe om de transformator aan de pijpleiding toe te voegen.
+1. Om transformator aan de pijpleiding toe te voegen, voeg een configuratieknoop aan uw AEM toepassing toe.
 
 >[!TIP]
->In plaats daarvan kunt u TransformerFactory zodanig configureren dat de transformator in elke gedefinieerde rewriter wordt ingevoegd. Dientengevolge te hoeven u om geen pijpleiding te vormen:
+>In plaats daarvan kunt u TransformerFactory zodanig configureren dat de transformator in elke gedefinieerde rewriter wordt ingevoegd. Daarom te hoeven u om geen pijpleiding te vormen:
 >
 >* Stel de `pipeline.mode` eigenschap aan `global`.
 >* Stel de `service.ranking` eigenschap naar een positief geheel getal.
 >* Geen `pipeline.type` eigenschap.
 
-
 >[!NOTE]
 >
->Gebruik de [multimodule](https://helpx.adobe.com/experience-manager/aem-previous-versions.html) archetype van het Pakket van de Inhoud Geweven Insteekmodule om uw Geweven project tot stand te brengen. De POM&#39;s maken en installeren automatisch een inhoudspakket.
+>Als u een Maven-project wilt maken, gebruikt u de opdracht [multimodule](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions) archetype van de Content Package Maven Plugin. De POM&#39;s maken en installeren automatisch een inhoudspakket.
 
 In de volgende voorbeelden wordt een transformator geïmplementeerd die verwijzingen naar afbeeldingsbestanden herschrijft.
 
-* De MyRewriterTransformerFactory-klasse instantieert MyRewriterTransformer-objecten. De eigenschap pipe.type stelt de transformator-alias in op mytransformer. Om de alias in een pijpleiding te omvatten, omvat de knoop van de pijpleidingsconfiguratie deze alias in de lijst van transformatoren.
+* De MyRewriterTransformerFactory-klasse instantieert MyRewriterTransformer-objecten. De eigenschap pipe.type stelt de transformator-alias in op `mytransformer`. Om de alias in een pijpleiding te omvatten, zou de knoop van de pijpleidingsconfiguratie de alias in de lijst van transformatoren moeten omvatten.
 * De klasse MyRewriterTransformer negeert de startElement-methode van de klasse AbstractSAXTransformer. De startElement-methode herschrijft de waarde van src-kenmerken voor img-elementen.
 
-De voorbeelden zijn niet robuust en mogen niet worden gebruikt in een productieomgeving.
+De voorbeelden zijn niet robuust. Niet gebruiken in een productieomgeving.
 
 ### Voorbeeld TransformerFactory-implementatie {#example-transformerfactory-implementation}
 
@@ -652,7 +647,7 @@ Creeer een knoop JCR die een pijpleiding bepaalt die uw transformator gebruikt. 
 
 >[!NOTE]
 >
->Als u het bezit van de Transformer plaatst `pipeline.mode` tot `global`, te hoeven u om geen pijpleiding te vormen. De `global` De modus voegt de transformator in alle pijpleidingen in.
+>Als u het bezit van de Transformator plaatst `pipeline.mode` tot `global`, te hoeven u om geen pijpleiding te vormen. De `global` De modus voegt de transformator in alle pijpleidingen in.
 
 ### Rewriter configuration node - XML-representatie {#rewriter-configuration-node-xml-representation}
 

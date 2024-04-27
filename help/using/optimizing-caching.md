@@ -1,21 +1,17 @@
 ---
 title: Een website optimaliseren voor cacheprestaties
-seo-title: Optimizing a Website for Cache Performance
 description: Leer hoe u uw website ontwerpt om de voordelen van caching te maximaliseren.
-seo-description: Dispatcher offers a number of built-in mechanisms that you can use to optimize performance. Learn how to design your web site to maximize the benefits of caching.
-uuid: 2d4114d1-f464-4e10-b25c-a1b9a9c715d1
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: ba323503-1494-4048-941d-c1d14f2e85b2
 redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
-source-git-commit: 762f575a58f53d25565fb9f67537e372c760674f
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '1134'
+source-wordcount: '1125'
 ht-degree: 0%
 
 ---
@@ -37,7 +33,7 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 >
 >Dispatcher-versies zijn onafhankelijk van AEM. U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd die is ingesloten in de documentatie voor een vorige versie van AEM.
 
-Dispatcher biedt een aantal ingebouwde mechanismen die u kunt gebruiken om de prestaties te optimaliseren. In deze sectie wordt uitgelegd hoe u uw website kunt ontwerpen om de voordelen van caching te maximaliseren.
+Dispatcher biedt verschillende ingebouwde mechanismen waarmee u de prestaties kunt optimaliseren. In deze sectie wordt uitgelegd hoe u uw website kunt ontwerpen om de voordelen van caching te maximaliseren.
 
 >[!NOTE]
 >
@@ -46,14 +42,14 @@ Dispatcher biedt een aantal ingebouwde mechanismen die u kunt gebruiken om de pr
 >* kan alles opslaan dat u als pagina kunt opslaan en aanvragen via een URL
 >* kan geen andere dingen opslaan, zoals HTTP-headers, cookies, sessiegegevens en formuliergegevens.
 >
->In het algemeen, impliceren veel caching strategieën het selecteren van goede URLs en het verlaten van deze extra gegevens.
+>In het algemeen, impliceren vele caching strategieën het selecteren van goede URLs en het verlaten van deze extra gegevens.
 
 ## Consistente paginacodering gebruiken {#using-consistent-page-encoding}
 
-HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen en er kunnen zich dus problemen voordoen als u pagina-coderingsgegevens in de header opslaat. Als Dispatcher dan een pagina uit de cache bedient, wordt de standaardcodering van de webserver gebruikt voor de pagina. Dit probleem kan op twee manieren worden voorkomen:
+HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich dus problemen voordoen als u pagina-coderingsgegevens opslaat in de header. Als Dispatcher dan een pagina uit de cache bedient, wordt de standaardcodering van de webserver gebruikt voor de pagina. Dit probleem kan op twee manieren worden voorkomen:
 
 * Als u slechts één codering gebruikt, moet u ervoor zorgen dat de codering die op de webserver wordt gebruikt, gelijk is aan de standaardcodering van de AEM website.
-* Een `<META>` -tag in de HTML `head` -sectie om de codering in te stellen, zoals in het volgende voorbeeld:
+* Als u de codering wilt instellen, gebruikt u een `<META>` -tag in de HTML `head` , zoals in het volgende voorbeeld:
 
 ```xml
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
@@ -91,7 +87,7 @@ www.myCompany.com/news/main.large.html
 
 >[!NOTE]
 >
->Voor de meeste indelingsaspecten is het ook mogelijk stijlpagina&#39;s en/of clientscripts te gebruiken. Deze werken meestal heel goed met caching.
+>Voor de meeste indelingsaspecten is het ook mogelijk stijlpagina&#39;s en/of clientscripts te gebruiken. Deze werken meestal goed met caching.
 >
 >Dit is ook handig voor een afdrukversie, waarin u bijvoorbeeld een URL kunt gebruiken:
 >
@@ -101,9 +97,9 @@ www.myCompany.com/news/main.large.html
 
 ## Als titels gebruikte afbeeldingsbestanden ongeldig maken {#invalidating-image-files-used-as-titles}
 
-Als u paginatitels of andere tekst als afbeeldingen rendert, is het raadzaam de bestanden op te slaan, zodat deze worden verwijderd bij een update van de inhoud op de pagina:
+Als u paginatitels of andere tekst hebt weergegeven als afbeeldingen, slaat u de bestanden op zodat deze worden verwijderd bij een update van de inhoud op de pagina:
 
-1. Plaats het afbeeldingsbestand in dezelfde map als de pagina.
+1. Plaats de afbeelding in dezelfde map als de pagina.
 1. Gebruik de volgende naamgevingsindeling voor het afbeeldingsbestand:
 
    `<page file name>.<image file name>`
@@ -116,22 +112,22 @@ U kunt bijvoorbeeld de titel van de pagina myPage.html opslaan in het bestand my
 
 ## Beeldbestanden die voor navigatie worden gebruikt ongeldig maken {#invalidating-image-files-used-for-navigation}
 
-Als u foto&#39;s gebruikt voor de navigatie-items, is de methode in feite hetzelfde als bij titels, iets complexer. Sla alle navigatieafbeeldingen op de doelpagina&#39;s op. Als u twee afbeeldingen gebruikt voor normaal en actief, kunt u de volgende scripts gebruiken:
+Als u foto&#39;s gebruikt voor de navigatie-items, is de methode in principe hetzelfde als bij titels, maar dan is deze iets complexer. Sla alle navigatieafbeeldingen op de doelpagina&#39;s op. Als u twee afbeeldingen gebruikt voor normaal en actief, kunt u de volgende scripts gebruiken:
 
 * Een script waarmee de pagina als normaal wordt weergegeven.
 * Een script dat &quot;.normal&quot;-verzoeken verwerkt en het normale beeld retourneert.
 * Een script dat &quot;.active&quot;-aanvragen verwerkt en het geactiveerde beeld retourneert.
 
-Het is belangrijk dat u deze afbeeldingen maakt met dezelfde naamgevingsgreep als de pagina, zodat deze afbeeldingen en de pagina worden verwijderd door een update van de inhoud.
+Het is belangrijk dat u deze afbeeldingen maakt met dezelfde naamgevingsgreep als de pagina om ervoor te zorgen dat deze afbeeldingen en de pagina worden verwijderd bij het bijwerken van de inhoud.
 
-Voor pagina&#39;s die niet worden gewijzigd, blijven de afbeeldingen in het cachegeheugen staan, hoewel de pagina&#39;s zelf meestal automatisch ongeldig worden gemaakt.
+Voor pagina&#39;s die niet worden gewijzigd, blijven de afbeeldingen in het cachegeheugen staan, hoewel de pagina&#39;s zelf automatisch ongeldig worden gemaakt.
 
 ## Personalisatie {#personalization}
 
 Dispatcher kan geen gepersonaliseerde gegevens in het voorgeheugen onderbrengen, zodat wordt geadviseerd dat u verpersoonlijking beperkt tot waar het noodzakelijk is. Ter illustratie:
 
 * Als u een vrij aanpasbare startpagina gebruikt, moet die pagina telkens worden samengesteld wanneer een gebruiker erom vraagt.
-* Als u daarentegen 10 verschillende startpagina&#39;s kunt kiezen, kunt u elk van deze pagina&#39;s in cache plaatsen, waardoor de prestaties verbeteren.
+* Als u daarentegen een keuze hebt uit tien verschillende startpagina&#39;s, kunt u elk van deze in cache plaatsen, waardoor de prestaties verbeteren.
 
 >[!NOTE]
 >
@@ -139,25 +135,24 @@ Dispatcher kan geen gepersonaliseerde gegevens in het voorgeheugen onderbrengen,
 >
 >Als u dit echter moet doen, kunt u:
 >
->* Gebruik iFrames om de pagina op te splitsen in één onderdeel dat voor alle gebruikers hetzelfde is en één onderdeel dat voor alle pagina&#39;s van de gebruiker hetzelfde is. Vervolgens kunt u beide onderdelen in cache plaatsen.
->* gebruik client-side JavaScript om gepersonaliseerde informatie weer te geven. U moet er echter voor zorgen dat de pagina nog steeds correct wordt weergegeven als een gebruiker JavaScript uitschakelt.
+>* Gebruik iFrames om de pagina op te splitsen in één onderdeel dat voor alle gebruikers hetzelfde is en één onderdeel dat voor alle pagina&#39;s van de gebruiker hetzelfde is. Vervolgens kunt u beide onderdelen in de cache plaatsen.
+>* gebruik client-side JavaScript om persoonlijke gegevens weer te geven. U moet er echter voor zorgen dat de pagina nog steeds correct wordt weergegeven als een gebruiker JavaScript uitschakelt.
 >
-
 
 ## Vaste verbindingen {#sticky-connections}
 
-[Vaste verbindingen](dispatcher.md#TheBenefitsofLoadBalancing) Zorg ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map voor alle documenten die voor de website kleverige verbindingen vereisen. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
+[Vaste verbindingen](dispatcher.md#TheBenefitsofLoadBalancing) Zorg ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map zodat deze alle documenten kan bevatten waarvoor kleverige verbindingen voor de website nodig zijn. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
 
 ## MIME-typen {#mime-types}
 
 Er zijn twee manieren waarop een browser het type bestand kan bepalen:
 
-1. Door de uitbreiding (bijvoorbeeld .html, .gif, .jpg, enz.)
+1. Door de extensie (bijvoorbeeld .html, .gif en .jpg)
 1. Door het MIME-type dat de server met het bestand verzendt.
 
-Voor de meeste bestanden wordt het MIME-type geïmpliceerd in de bestandsextensie. i.e.:
+Voor de meeste bestanden wordt het MIME-type geïmpliceerd in de bestandsextensie. Dat wil zeggen:
 
-1. Door de uitbreiding (bijvoorbeeld .html, .gif, .jpg, enz.)
+1. Door de extensie (bijvoorbeeld .html, .gif en .jpg)
 1. Door het MIME-type dat de server met het bestand verzendt.
 
 Als de bestandsnaam geen extensie heeft, wordt deze weergegeven als onbewerkte tekst.
@@ -167,5 +162,5 @@ Het MIME-type maakt deel uit van de HTTP-header en wordt daarom niet in de cache
 Volg de onderstaande richtlijnen om ervoor te zorgen dat bestanden correct in het cachegeheugen worden opgeslagen:
 
 * Zorg ervoor dat bestanden altijd de juiste extensie hebben.
-* Vermijd generische de manuscripten van de dossierserver, die URLs zoals download.jsp?file=2214 hebben. Schrijf het script opnieuw om URL&#39;s te gebruiken die de bestandsspecificatie bevatten; voor het vorige voorbeeld is dit download.2214.pdf.
+* Vermijd generische de manuscripten van de dossierserver, die URLs zoals download.jsp?file=2214 hebben. Schrijf het script opnieuw, zodat het URL&#39;s gebruikt die de bestandsspecificatie bevatten. In het vorige voorbeeld is dit `download.2214.pdf`.
 

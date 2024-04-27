@@ -1,9 +1,6 @@
 ---
 title: Problemen met verzending van problemen oplossen
-seo-title: Troubleshooting AEM Dispatcher Problems
 description: Leer problemen met Dispatcher oplossen.
-seo-description: Learn to troubleshoot AEM Dispatcher issues.
-uuid: 9c109a48-d921-4b6e-9626-1158cebc41e7
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
@@ -11,11 +8,10 @@ contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: a612e745-f1e6-43de-b25a-9adcaadab5cf
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 26c8edbb142297830c7c8bd068502263c9f0e7eb
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '560'
+source-wordcount: '538'
 ht-degree: 0%
 
 ---
@@ -30,7 +26,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Controleer de [Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), [Problemen met het leegmaken van de Dispatcher oplossen](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]) en de [Veelgestelde vragen over de meest voorkomende problemen met Verzender](dispatcher-faq.md) voor nadere informatie.
+>Controleer de [Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), [Problemen met het leegmaken van de Dispatcher oplossen](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])en de [Veelgestelde vragen over de meest voorkomende problemen met Verzender](dispatcher-faq.md) voor nadere informatie.
 
 ## Controleer de basisconfiguratie {#check-the-basic-configuration}
 
@@ -44,10 +40,10 @@ Zoals altijd zijn de eerste stappen het controleren van de grondbeginselen:
    * Hebt u meerdere verzenders?
 
       * Hebt u bepaald welke Dispatcher de website/pagina verwerkt die u onderzoekt?
+
    * Hebt u filters geïmplementeerd?
 
       * Hebben deze filters invloed op de zaak die u onderzoekt?
-
 
 ## IIS Diagnostic Tools {#iis-diagnostic-tools}
 
@@ -62,8 +58,8 @@ Deze hulpmiddelen kunnen u helpen activiteit controleren.
 
 Wanneer u IIS gebruikt, kunt u `404 Not Found` teruggegeven in verschillende scenario&#39;s. Zo ja, zie de volgende artikelen in de Knowledge Base.
 
-* [IIS 6/7: De methode van de POST keert 404 terug](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
-* [IIS 6: Aanvragen van URL&#39;s die het basispad bevatten `/bin` een `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7: de methode van de POST keert 404 terug](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
+* [IIS 6: Verzoeken naar URL&#39;s die het basispad bevatten `/bin` een `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
 
 Controleer ook of de hoofdmap van de Dispatcher-cache en de hoofdmap van het IIS-document zijn ingesteld op dezelfde map.
 
@@ -76,7 +72,7 @@ Problemen bij het verwijderen van workflowmodellen wanneer een AEM auteur-instan
 **Stappen om te reproduceren:**
 
 1. Meld u aan bij de instantie van de auteur (bevestig dat aanvragen worden gerouteerd via de Dispatcher).
-1. Een workflow maken; bijvoorbeeld als Titel is ingesteld op workflowToDelete.
+1. Maak een workflow, bijvoorbeeld met Titel ingesteld op workflowToDelete.
 1. Controleer of de workflow is gemaakt.
 1. Selecteer en klik met de rechtermuisknop op de workflow en klik vervolgens op **Verwijderen**.
 
@@ -108,7 +104,7 @@ In dit proces wordt beschreven hoe de Dispatcher communiceert met `mod_dir` in d
 
 ### Apache 1.3 {#apache}
 
-In Apache 1.3 `mod_dir` handelt elke aanvraag af waar de URL wordt toegewezen aan een map in het bestandssysteem.
+In Apache 1.3: `mod_dir` handelt elke aanvraag af waar de URL wordt toegewezen aan een map in het bestandssysteem.
 
 Het zal ofwel:
 

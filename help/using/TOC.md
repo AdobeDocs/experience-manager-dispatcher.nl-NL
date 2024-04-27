@@ -10,10 +10,10 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: a21b527700b3a5c3a11eadaefc729e754ba2b37b
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '84'
-ht-degree: 29%
+source-wordcount: '78'
+ht-degree: 30%
 
 ---
 
@@ -28,9 +28,9 @@ ht-degree: 29%
 + Configureren {#configuring}
    + [Dispatcher configureren](dispatcher-configuration.md)
    + [In cache geplaatste pagina&#39;s ongeldig maken van AEM](page-invalidate.md)
-   + [Een website optimaliseren voor cacheprestaties](https://helpx.adobe.com/experience-manager/6-5/sites/deploying/using/configuring-performance.html)
+   + [Een website optimaliseren voor cacheprestaties](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [Beveiligde inhoud in cache plaatsen](permissions-cache.md)
-   + [Dispatcher gebruiken met meerdere domeinen ](dispatcher-domains.md)
+   + [Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md)
    + [SSL gebruiken met Dispatcher](dispatcher-ssl.md)
    + [Dispatcher configureren om CSRF-aanvallen te voorkomen](configuring-dispatcher-to-prevent-csrf.md)
 + Problemen oplossen {#troubleshooting}

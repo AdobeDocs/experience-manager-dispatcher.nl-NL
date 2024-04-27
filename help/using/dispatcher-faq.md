@@ -1,12 +1,10 @@
 ---
-title: Belangrijkste kwesties voor verzending
-seo-title: Top issues for AEM Dispatcher
-description: Frequente problemen met AEM Dispatcher
-seo-description: Top issues for Adobe AEM Dispatcher
+title: Meestvoorkomende problemen met Dispatcher
+description: Frequente problemen met Adobe Experience Manager Dispatcher.
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: f83b02d74a22e055b486305dfe5420e152efb452
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '1578'
+source-wordcount: '1542'
 ht-degree: 0%
 
 ---
@@ -19,7 +17,7 @@ ht-degree: 0%
 
 ### Wat is de Dispatcher?
 
-Dispatcher is een Adobe Experience Manager-programma voor het in cache plaatsen en/of taakverdeling dat helpt een snelle en dynamische webontwerpomgeving te realiseren. Voor caching, werkt de Dispatcher als deel van een server van HTTP, zoals Apache. Het heeft als doel de statische inhoud van de website zo veel mogelijk op te slaan (of in cache te plaatsen) en de lay-outengine van de website zo weinig mogelijk te openen. In een lading-in evenwicht brengende rol, verspreidt de Dispatcher gebruikersverzoeken (lading) over verschillende AEM instanties (teruggeeft).
+Dispatcher is een Adobe Experience Manager-programma voor het in cache plaatsen en/of taakverdeling dat helpt een snelle en dynamische webontwerpomgeving te realiseren. Voor caching, werkt de Dispatcher als deel van een server van HTTP, zoals Apache. Het heeft als doel de statische website-inhoud zo veel mogelijk op te slaan (of in cache te plaatsen) en zo weinig mogelijk toegang te krijgen tot de lay-out van de website-engine. In een lading-in evenwicht brengende rol, verspreidt de Dispatcher gebruikersverzoeken (lading) over verschillende AEM instanties (teruggeeft).
 
 Voor caching, gebruikt de module van de Verzender de capaciteit van de server van het Web om statische inhoud te dienen. De verzender plaatst de caching documenten in de documentwortel van de server van het Web.
 
@@ -27,19 +25,19 @@ Voor caching, gebruikt de module van de Verzender de capaciteit van de server va
 
 Dispatcher gebruikt de mogelijkheid van de webserver om statische inhoud te leveren. De Dispatcher slaat cachedocumenten op in de hoofdmap van het document van de webserver. De Dispatcher beschikt over twee primaire methoden voor het bijwerken van de cacheinhoud wanneer wijzigingen in de website worden aangebracht.
 
-* **Inhoud bijwerken** de gewijzigde pagina&#39;s en de bestanden die er direct aan zijn gekoppeld, verwijderen.
+* **Updates van inhoud** de gewijzigde pagina&#39;s en de bestanden die er direct aan zijn gekoppeld, verwijderen.
 * **Automatische validatie** maakt automatisch de delen van het cachegeheugen ongeldig die na een update mogelijk verouderd zijn. Zo worden relevante pagina&#39;s bijvoorbeeld als verouderd gemarkeerd zonder dat er iets wordt verwijderd.
 
 ### Wat zijn de voordelen van taakverdeling?
 
 Bij taakverdeling worden gebruikersverzoeken (load) over verschillende AEM verdeeld. In de volgende lijst worden de voordelen voor taakverdeling beschreven:
 
-* **Meer verwerkingskracht**: In de praktijk betekent deze methode dat de Dispatcher documentverzoeken deelt tussen verschillende instanties van AEM. Omdat elke instantie minder documenten te verwerken heeft, hebt u snellere reactietijden. Dispatcher houdt interne statistieken voor elke documentcategorie bij, zodat kan het lading schatten en de vragen efficiënt verspreiden.
+* **Verhoogde verwerkingskracht**: In de praktijk betekent deze methode dat de Dispatcher verzoeken om documenten deelt tussen verschillende instanties van AEM. Omdat elke instantie minder documenten te verwerken heeft, hebt u snellere reactietijden. Dispatcher houdt interne statistieken voor elke documentcategorie bij, zodat kan het lading schatten en de vragen efficiënt verspreiden.
 * **Verhoogde failover-veilige dekking**: Als de Dispatcher geen reacties van een instantie ontvangt, worden aanvragen automatisch doorgestuurd naar een van de andere instanties. Als een instantie dus niet beschikbaar is, is het enige effect een vertraging van de site, in verhouding tot de verloren computerkracht.
 
 >[!NOTE]
 >
->Zie voor meer informatie de [De pagina Overzicht van verzending](dispatcher.md)
+>Zie voor meer informatie de [De pagina Overzicht van de verzending](dispatcher.md)
 
 ## Installeren en configureren
 
@@ -82,9 +80,9 @@ Voor sommige toepassingen kan het mogelijk zijn om zowel kleverige verbindingen 
 
 ### Kunnen een Dispatcher en een AEM Publish instantie op de zelfde fysieke machine verblijven?
 
-Ja, als de machine voldoende krachtig is. Het wordt echter aanbevolen de Dispatcher en de AEM Publish-instantie op verschillende computers in te stellen.
+Ja, als de machine voldoende krachtig is. U moet echter de Dispatcher en de AEM Publish-instantie op verschillende computers instellen.
 
-Gewoonlijk, verblijft de Publish instantie binnen de firewall en Dispatcher in DMZ. Als u besluit om zowel de instantie Publiceren als de Verzender op de zelfde fysieke machine te hebben, zorg ervoor dat de firewallmontages directe toegang tot de Publish instantie van externe netwerken verbieden.
+Gewoonlijk, verblijft de het Publiceren instantie binnen de firewall en Dispatcher in DMZ. Als u besluit zowel de instantie Publishing als de Dispatcher op dezelfde fysieke computer te hebben, controleert u of de firewallinstellingen directe toegang tot de instantie Publishing via externe netwerken verbieden.
 
 ### Kan ik alleen bestanden met specifieke extensies in cache plaatsen?
 
@@ -117,13 +115,13 @@ Zie de [Beveiligde inhoud cachen](permissions-cache.md) pagina.
 
 ### Hoe kan ik communicatie tussen de instanties Dispatcher en CQ beveiligen?
 
-Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) en de [Beveiligingschecklist AEM](https://experienceleague.adobe.com/docs/experience-manager-64/administering/security/security-checklist.html?lang=en) pagina&#39;s.
+Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) en de [Beveiligingschecklist AEM](https://experienceleague.adobe.com/en/docs/experience-manager-64/administering/security/security-checklist) pagina&#39;s.
 
-### Verzendprobleem `jcr:content` gewijzigd in `jcr%3acontent`
+### Uitgave van verzending `jcr:content` gewijzigd in `jcr%3acontent`
 
 **Vraag**: De onderneming heeft onlangs een probleem op het niveau van de Verzender geconfronteerd. Een van de AJAX die gegevens van de CQ-gegevensopslagplaats kreeg, had `jcr:content` erin. Dat is gecodeerd naar `jcr%3acontent` resulterend in die verkeerde resultaatreeks.
 
-**Antwoord**: Gebruiken `ResourceResolver.map()` methode om een &#39;Vriendelijke&#39; URL te gebruiken/uitgegeven krijgen verzoeken van en ook om de caching kwestie met Dispatcher op te lossen. De methode map() codeert de `:` dubbelepunt naar onderstrepingstekens en de methode resolve() decodeert deze terug naar de leesbare indeling SLING JCR. Gebruik de methode map() om de URL te genereren die wordt gebruikt in de Ajax-aanroep.
+**Antwoord**: Gebruik `ResourceResolver.map()` methode om een &#39;Vriendelijke&#39; URL te gebruiken/uitgegeven krijgen verzoeken van en ook om de caching kwestie met Dispatcher op te lossen. De methode map() codeert de `:` dubbelepunt naar onderstrepingstekens en de methode resolve() decodeert deze terug naar de leesbare indeling SLING JCR. Gebruik de methode map() om de URL te genereren die wordt gebruikt in de Ajax-aanroep.
 
 Lees verder: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
@@ -131,24 +129,24 @@ Lees verder: [https://sling.apache.org/documentation/the-sling-engine/mappings-f
 
 ### Hoe vorm ik de agenten van de Dispatcher op een Publish instantie?
 
-Zie de [Replicatie](https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=en#configuring-your-replication-agents) pagina.
+Zie de [Replicatie](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents) pagina.
 
 ### Hoe los ik problemen op die Dispatcher opblazen?
 
 [Zie deze artikelen voor probleemoplossing](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]).
 
-Als de verrichtingen van de Schrapping de Dispatcher veroorzaken om te spoelen, [gebruik de tijdelijke oplossing in dit communityblogbericht van Sensei Martin](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
+Als de bewerkingen Verwijderen ertoe leiden dat de Dispatcher leegloopt, [gebruik de tijdelijke oplossing in dit blogbericht van Sensei Martin](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
 
 ### Hoe kan ik DAM-elementen uit de Dispatcher-cache verwijderen?
 
-U kunt de functie voor ketenreplicatie gebruiken. Met deze toegelaten eigenschap, verzendt de Dispatcher flush agent een spoelverzoek wanneer een replicatie van auteur wordt ontvangen.
+U kunt de functie voor ketenreplicatie gebruiken. Met deze toegelaten eigenschap, verzendt de de flush agent van de Verzender een spoelverzoek wanneer een replicatie van auteur wordt ontvangen.
 
 U schakelt dit als volgt in:
 
 1. [Voer hier de stappen uit](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) spoelmiddelen maken bij publicatie
 1. Ga naar de configuratie van elke agent en op **Triggers** tabblad, controleert u de **Bij ontvangst** doos.
 
-## Diversen
+## Overige
 
 Hoe bepaalt de Dispatcher of een document up-to-date is?
 Om te bepalen of een document bijgewerkt is, voert de Dispatcher de volgende handelingen uit:
