@@ -1,7 +1,7 @@
 ---
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
 workflow-type: tm+mt
-source-wordcount: '421'
+source-wordcount: '435'
 ht-degree: 0%
 
 ---
@@ -9,13 +9,13 @@ ht-degree: 0%
 
 ## Toezegging Adobe
 
-Om een open en welkome omgeving te bevorderen, verbinden zowel contribuanten als onderhoudsgerechtigden zich ertoe om van deelname aan een project en de gemeenschap een pesterijen-vrije ervaring voor iedereen te maken. Deze ervaring is onafhankelijk van leeftijd, lichaamsgrootte, handicap, etniciteit, genderidentiteit en expressie, niveau van ervaring, nationaliteit, persoonlijke verschijning, ras, godsdienst of seksuele identiteit en geaardheid.
+Om een open en welkome omgeving te bevorderen, verbinden zowel contribuanten als onderhoudsgerechtigden zich ertoe om van deelname aan een project en de gemeenschap een pesterijen-vrije ervaring voor iedereen te maken. Deze ervaring is onafhankelijk van leeftijd, lichaamsgrootte, handicap, etniciteit, genderidentiteit en expressie. Ongeacht het niveau van ervaring, nationaliteit, persoonlijke verschijning, ras, godsdienst of seksuele identiteit en geaardheid.
 
 ## Standaarden van de Adobe
 
 Voorbeelden van gedrag dat bijdraagt tot het maken van een positieve omgeving zijn:
 
-* Het gebruiken van verwelkomings en inclusieve taal
+* Een welkome en inclusieve taal gebruiken
 * Naleving van verschillende standpunten en ervaringen
 * Erg vriendelijk constructieve kritiek te aanvaarden
 * Focussen op wat het beste is voor de gemeenschap
@@ -33,11 +33,11 @@ Voorbeelden van onacceptabel gedrag van deelnemers zijn:
 
 Projectbeheerders zijn verantwoordelijk voor het verduidelijken van de normen voor aanvaardbaar gedrag en zullen naar verwachting passende en eerlijke corrigerende maatregelen nemen in geval van onaanvaardbare gedragingen.
 
-Projectbeheerders hebben het recht en de verantwoordelijkheid om opmerkingen, verbintenissen, code, wiki-bewerkingen, problemen of andere bijdragen die niet aan deze gedragscode zijn aangepast, te verwijderen, te bewerken of af te wijzen. Of u kunt een contribuant tijdelijk of permanent verbieden voor ander gedrag dat hij ongeschikt, bedreigend, aanstootgevend of schadelijk acht.
+Projectbeheerders hebben het recht en de verantwoordelijkheid om opmerkingen te verwijderen, te bewerken of af te wijzen. Dit overzicht omvat verplichtingen, code, wiki-bewerkingen, problemen of andere bijdragen die niet zijn afgestemd op deze gedragscode. Of u kunt een contribuant tijdelijk of permanent verbieden voor ander gedrag dat hij ongeschikt, bedreigend, aanstootgevend of schadelijk acht.
 
 ## Scope
 
-Deze gedragscode is zowel van toepassing binnen projectruimten als in openbare ruimten wanneer een individu het project of zijn gemeenschap vertegenwoordigt. Voorbeelden van het vertegenwoordigen van een project of gemeenschap zijn het gebruik van een officieel e-mailadres voor een project, het posten via een officiële sociale-mediaaccount of het optreden als een aangestelde vertegenwoordiger tijdens een online- of offlineevenement. De representatie van een project kan nader worden omschreven en verduidelijkt door de projectbeheerders.
+Deze gedragscode is zowel van toepassing binnen projectruimten als in openbare ruimten wanneer een individu het project of zijn gemeenschap vertegenwoordigt. Voorbeelden om een project of een gemeenschap te vertegenwoordigen omvatten het gebruiken van een officieel project e-mailadres. Het kan ook de terbeschikkingstelling via een officieel sociaal mediaaccount omvatten. Het kan ook het optreden als een aangewezen vertegenwoordiger tijdens een online- of offlinegebeurtenis omvatten. Projectbeheerders kunnen de representatie van een project nader definiëren en verduidelijken.
 
 ## Handhaving
 
@@ -48,4 +48,6 @@ Projectbeheerders die de gedragscode te goeder trouw niet naleven of handhaven, 
 ## Attributie
 
 Deze gedragscode is aangepast aan de [Medebijdrageovereenkomst](https://www.contributor-covenant.org/), versie 1.4, beschikbaar op [Medebijdrageovereenkomst](https://www.contributor-covenant.org/version/1/4/code-of-conduct/).
+
+
 

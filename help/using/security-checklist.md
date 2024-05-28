@@ -1,6 +1,6 @@
 ---
 title: De beveiligingscontrolelijst voor verzending
-description: Een lijst met beveiligingscontroles die moet worden ingevuld voordat de productie wordt voortgezet.
+description: Meer informatie over de controlelijst voor beveiliging van verzenders die moet worden voltooid voordat u verdergaat met de productie.
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
@@ -10,9 +10,9 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
 workflow-type: tm+mt
-source-wordcount: '591'
+source-wordcount: '590'
 ht-degree: 0%
 
 ---
@@ -38,11 +38,11 @@ Adobe raadt u aan de volgende checklist in te vullen voordat u verdergaat met de
 
 ## De nieuwste versie van Dispatcher gebruiken {#use-the-latest-version-of-dispatcher}
 
-Installeer de nieuwste versie die beschikbaar is voor uw platform. Zorg ervoor dat u de Dispatcher-instantie upgradet, zodat u de nieuwste versie gebruikt om te profiteren van de verbeteringen op het gebied van product en beveiliging. Zie [Dispatcher installeren](dispatcher-install.md).
+Installeer de nieuwste beschikbare versie die beschikbaar is voor uw platform. Voer een upgrade uit op uw Dispatcher-exemplaar om de nieuwste versie te gebruiken voor de verbetering van product en beveiliging. Zie [Dispatcher installeren](dispatcher-install.md).
 
 >[!NOTE]
 >
->Controleer de huidige versie van uw Dispatcher-installatie door het logboekbestand van Dispatcher te bekijken.
+>U kunt de huidige versie van uw Dispatcher-installatie controleren door het logboekbestand van Dispatcher te bekijken.
 >
 >`[Thu Apr 30 17:30:49 2015] [I] [23171(140735307338496)] Dispatcher initialized (build 4.1.9)`
 >
@@ -54,7 +54,7 @@ Adobe beveelt aan [beperkt de clients die uw cache kunnen leegmaken.](dispatcher
 
 ## HTTPS inschakelen voor beveiliging van transportlagen {#enable-https-for-transport-layer-security}
 
-Adobe raadt aan de HTTPS-transportlaag in te schakelen voor zowel de auteur als de publicatieversie.
+Adobe raadt aan de HTTPS-transportlaag in te schakelen voor zowel auteur- als publicatieinstanties.
 
 <!-- 
 
@@ -89,7 +89,7 @@ Lijsten van gewenste personen zijn een betere manier om toegangscontrole te verl
 
 ## Dispatcher uitvoeren met een specifieke systeemgebruiker {#run-dispatcher-with-a-dedicated-system-user}
 
-Wanneer het vormen van de Dispatcher, zou u moeten ervoor zorgen dat de Webserver door een specifieke gebruiker met minste voorrechten wordt in werking gesteld. Het wordt aanbevolen alleen schrijftoegang te verlenen tot de cachemap van Dispatcher.
+Wanneer het vormen van de Dispatcher, zorg ervoor dat de Webserver door een specifieke gebruiker met minste voorrechten wordt in werking gesteld. Het wordt aanbevolen alleen schrijftoegang te verlenen tot de cachemap van Dispatcher.
 
 IIS-gebruikers moeten hun website ook als volgt configureren:
 
@@ -100,11 +100,11 @@ IIS-gebruikers moeten hun website ook als volgt configureren:
 
 Een ontkenning van de dienst (Dos) aanval is een poging om een computermiddel niet beschikbaar te maken aan zijn voorgenomen gebruikers.
 
-Op het niveau van de Verzender, zijn er [twee methodes om aanvallen van Dos te verhinderen te vormen](https://experienceleaguecommunities.adobe.com/t5/adobe-experience-manager/configure-aem-dispatcher-to-prevent-dos-attacks-aem-community/m-p/447780).
+Op het niveau van de Verzender, zijn er twee methodes om aanvallen van Dos te vormen: [Filters](https://experienceleague.adobe.com/en/docs#/filter)
 
 * Gebruik de module mod_rewrite (bijvoorbeeld [Apache 2.4](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) om URL-validaties uit te voeren (als de URL-patroonregels niet te complex zijn).
 
-* Vermijd dat de Dispatcher URL&#39;s in cache plaatst met onjuiste extensies door [filters](dispatcher-configuration.md#configuring-access-to-conten-tfilter).\
+* Vermijd dat de Dispatcher URL&#39;s in cache plaatst met onjuiste extensies door [filters](dispatcher-configuration.md#configuring-access-to-content-filter).\
   Wijzig bijvoorbeeld de caching-regels om caching te beperken tot de verwachte mime-typen, zoals:
 
    * `.html`
@@ -116,9 +116,9 @@ Op het niveau van de Verzender, zijn er [twee methodes om aanvallen van Dos te v
    * `.pdf`
    * `.ppt`
 
-  Een voorbeeldconfiguratiebestand is zichtbaar voor [beperking van externe toegang](#restrict-access)Dit omvat beperkingen voor mime-typen.
+  Een voorbeeldconfiguratiebestand is zichtbaar voor [beperking van externe toegang](#restrict-access). Het bevat beperkingen voor mime-typen.
 
-Om volledige functionaliteit op de publiceer instanties veilig toe te laten, vorm filters om toegang tot de volgende knopen te verhinderen:
+Als u volledige functionaliteit wilt inschakelen voor de publicatie-instanties, configureert u filters om toegang tot de volgende knooppunten te voorkomen:
 
 * `/etc/`
 * `/libs/`
@@ -148,9 +148,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Dispatcher configureren om CSRF-aanvallen te voorkomen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM biedt [kader](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps) gericht op het voorkomen van aanvallen van smeedstukken tussen verschillende sites. Om dit kader behoorlijk te gebruiken, moet u symbolensteun CSRF in de Verzender lijsten van gewenste personen.
-<!-- OLD URL ABOVE USED TO BE https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#verification-steps -->
-U kunt dit bereiken door het volgende te doen:
+AEM biedt [kader](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps) gericht op het voorkomen van aanvallen van smeedstukken tussen verschillende sites. Om behoorlijk gebruik van dit kader te maken, de symbolische steun van CSRF van de lijst van gewenste personen in Dispatcher door het volgende te doen:
 
 1. Een filter maken om de `/libs/granite/csrf/token.json` pad;
 1. Voeg de `CSRF-Token` aan de `clientheaders` sectie van de configuratie van de Verzender.
@@ -163,4 +161,5 @@ Voor meer informatie over klikjacking, zie [OWASP-site](https://owasp.org/www-co
 
 ## Een beveiligingstest uitvoeren {#perform-a-penetration-test}
 
-Adobe raadt u aan een penetratietest van uw AEM uit te voeren voordat u verdergaat met de productie.
+Adobe beveelt ten zeerste aan om een penetratietest van uw AEM-infrastructuur uit te voeren voordat u verdergaat met de productie.
+

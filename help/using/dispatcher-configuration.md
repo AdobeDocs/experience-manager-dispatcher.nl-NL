@@ -1,10 +1,10 @@
 ---
-title: Dispatcher configureren
-description: Leer hoe u Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, noemend de instantie, bepalend landbouwbedrijven, identificerend virtuele gastheren, en meer.
+title: AEM Dispatcher configureren
+description: Leer hoe u de AEM Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, en het noemen van de instantie. Lees over het bepalen van landbouwbedrijven, het identificeren van virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
 workflow-type: tm+mt
-source-wordcount: '8854'
+source-wordcount: '8897'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Dispatcher-versies zijn onafhankelijk van AEM. U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd die is ingesloten in de documentatie voor een vorige versie van AEM.
+>Verzendversies zijn onafhankelijk van AEM (Adobe Experience Manager). U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd. Die koppeling is ingesloten in de documentatie voor een vorige versie van AEM.
 
 De volgende secties beschrijven hoe te om diverse aspecten van de Verzender te vormen.
 
@@ -25,7 +25,7 @@ Alle elementen van AEM en Dispatcher kunnen in zowel IPv4 als IPv6 netwerken wor
 
 Standaard wordt de Dispatcher-configuratie opgeslagen in de `dispatcher.any` tekstbestand, hoewel u de naam en locatie van dit bestand tijdens de installatie kunt wijzigen.
 
-Het configuratiedossier bevat een reeks enig-getaxeerde of multi-getaxeerde eigenschappen die het gedrag van Dispatcher controleren:
+Het configuratiedossier bevat een reeks enig-getaxeerde of multi-getaxeerde eigenschappen die het gedrag van de AEM Dispatcher controleren:
 
 * Namen van eigenschappen worden voorafgegaan door een slash `/`.
 * Met multi-getaxeerde eigenschappen worden onderliggende items tussen accolades geplaatst `{ }`.
@@ -103,7 +103,7 @@ U kunt andere dossiers omvatten die tot de configuratie bijdragen:
 * Als het configuratiebestand groot is, kunt u het opsplitsen in verschillende kleinere bestanden (die eenvoudiger te beheren zijn) en elk bestand opnemen.
 * Bestanden opnemen die automatisch worden gegenereerd.
 
-Bijvoorbeeld, om het dossier myFarm.any in de /farm configuratie te omvatten gebruik de volgende code:
+Als u bijvoorbeeld het bestand myFarm.any wilt opnemen in het dialoogvenster `/farms` de configuratie gebruikt de volgende code:
 
 ```xml
 /farms
@@ -133,7 +133,7 @@ Als het bestand dispatcher.any zich bijvoorbeeld in dezelfde map bevindt als de 
 /docroot "${PWD}/cache"
 ```
 
-Als ander voorbeeld, als u een milieuvariabele creeert die wordt genoemd `PUBLISH_IP` dat hostname van AEM publiceert instantie, de volgende configuratie van [/renders](#defining-page-renderers-renders) eigenschap kan worden gebruikt:
+Als ander voorbeeld, als u een milieuvariabele genoemd creeert `PUBLISH_IP` dat hostname van AEM publiceert instantie, de volgende configuratie van [`/renders`](#defining-page-renderers-renders) eigenschap kan worden gebruikt:
 
 ```xml
 /renders {
@@ -152,7 +152,7 @@ Gebruik de `/name` eigenschap om een unieke naam op te geven om uw instantie Dis
 
 De `/farms` Deze eigenschap definieert een of meer sets Dispatcher-gedrag, waarbij elke set aan verschillende websites of URL&#39;s is gekoppeld. De `/farms` de eigenschap kan bestaan uit één bedrijf of meerdere landbouwbedrijven :
 
-* Gebruik één landbouwbedrijf wanneer u Dispatcher al uw Web-pagina&#39;s of Websites op de zelfde manier wilt behandelen.
+* Gebruik één enkel landbouwbedrijf wanneer u de AEM Dispatcher alle Web-pagina&#39;s of Websites op de zelfde manier wilt behandelen.
 * Maak meerdere boerderijen wanneer verschillende gebieden van uw website of verschillende websites een ander Dispatcher-gedrag vereisen.
 
 De `/farms` bezit is een top-level bezit in de configuratiestructuur. Om een landbouwbedrijf te bepalen, voeg een kindbezit aan toe `/farms` eigenschap. Gebruik een bezitsnaam die uniek het landbouwbedrijf binnen de instantie van de Verzender identificeert.
@@ -197,7 +197,7 @@ Elk landbouwbedrijfbezit kan de volgende kindeigenschappen bevatten:
 | [/virtuele hosts](#identifying-virtual-hosts-virtualhosts) | De virtuele hosts van deze boerderij. |
 | [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | Ondersteuning voor sessiebeheer en verificatie. |
 | [/renders](#defining-page-renderers-renders) | De servers die gerenderde pagina&#39;s leveren (AEM gewoonlijk exemplaren publiceren). |
-| [/filter](#configuring-access-to-content-filter) | Bepaalt URLs waaraan de Verzender toegang toelaat. |
+| [/filter](#configuring-access-to-content-filter) | Bepaalt URLs waaraan de AEM Dispatcher toegang toelaat. |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | Vormt toegang tot vanity URLs. |
 | [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | Steun voor de doorzending van verzoeken om syndicatie. |
 | [/cache](#configuring-the-dispatcher-cache-cache) | Vormt caching gedrag. |
@@ -209,7 +209,7 @@ Elk landbouwbedrijfbezit kan de volgende kindeigenschappen bevatten:
 | [/failover](#using-the-failover-mechanism) | Verzend verzoeken opnieuw naar verschillende renders wanneer het oorspronkelijke verzoek ontbreekt. |
 | [/auth_checker](permissions-cache.md) | Voor toestemming-gevoelige caching, zie [Beveiligde inhoud in cache plaatsen](permissions-cache.md). |
 
-## Een standaardpagina opgeven (alleen IIS) - /homepage {#specify-a-default-page-iis-only-homepage}
+## Een standaardpagina opgeven (alleen IIS) - `/homepage` {#specify-a-default-page-iis-only-homepage}
 
 >[!CAUTION]
 >
@@ -259,7 +259,7 @@ Comment Type: draft
 
 De `/clientheaders` eigenschap definieert een lijst met HTTP-headers die door Dispatcher worden doorgegeven van de HTTP-client-aanvraag naar de renderer (AEM-instantie).
 
-Standaard verzendt Dispatcher de standaard HTTP-headers naar de AEM-instantie. In sommige gevallen wilt u mogelijk andere koppen doorsturen of specifieke koppen verwijderen:
+Standaard stuurt de AEM Dispatcher de standaard HTTP-headers door naar de AEM-instantie. In sommige gevallen wilt u mogelijk extra kopteksten doorsturen of specifieke koppen verwijderen:
 
 * Voeg kopballen, zoals douanekopballen, toe die uw AEM instantie in de HTTP- aanvraag verwacht.
 * Verwijder kopballen, zoals authentificatiekopballen die slechts relevant voor de Webserver zijn.
@@ -312,7 +312,7 @@ De volgende code is een voorbeeldconfiguratie voor `/clientheaders`:
 
 ## Virtuele hosts identificeren {#identifying-virtual-hosts-virtualhosts}
 
-De `/virtualhosts` eigenschap definieert een lijst met alle combinaties hostname/URI die Dispatcher accepteert voor dit farm. U kunt de asterisk (`*`) als jokerteken. Waarden voor de `virtualhosts` eigenschap gebruikt de volgende indeling:
+De `/virtualhosts` het bezit bepaalt een lijst van alle hostname en de combinaties van URI die de Ontvanger voor dit landbouwbedrijf goedkeurt. U kunt de asterisk (`*`) als jokerteken. Waarden voor de`virtualhosts` eigenschap gebruikt de volgende indeling:
 
 ```xml
 [scheme]host[uri][*]
@@ -355,7 +355,7 @@ Dispatcher vindt de best-passende virtuele gastheerwaarde op de volgende manier:
 * Indien niet `virtualhosts` waarden hebben `scheme` en `uri` onderdelen die overeenkomen met de `scheme` en `uri` van het verzoek, de eerste ontmoet virtuele gastheer die aanpast `host` van het verzoek wordt gebruikt.
 * Indien niet `virtualhosts` de waarden hebben een gastheerdeel dat de gastheer van het verzoek aanpast, wordt de hoogste virtuele gastheer van het hoogste landbouwbedrijf gebruikt.
 
-Daarom zou u uw standaard virtuele gastheer bij de bovenkant van moeten plaatsen `virtualhosts` bezit in het hoogste landbouwbedrijf van uw `dispatcher.any` bestand.
+Daarom zou u uw standaard virtuele gastheer bij de bovenkant van moeten plaatsen `virtualhosts` eigenschap. PLoor de bovenste boerderij van uw `dispatcher.any` bestand.
 
 ### Voorbeeld virtuele hostresolutie {#example-virtual-host-resolution}
 
@@ -398,7 +398,7 @@ Gebruikend dit voorbeeld, toont de volgende lijst de virtuele gastheren die voor
 | `https://www.mycompany.com/products/gloves.html` | `www.mycompany.com/products/` |
 | `https://www.mycompany.com/about.html` | `www.mycompany.com` |
 
-## Beveiligde sessies inschakelen - /sessionmanagement {#enabling-secure-sessions-sessionmanagement}
+## Beveiligde sessies inschakelen - `/sessionmanagement` {#enabling-secure-sessions-sessionmanagement}
 
 >[!CAUTION]
 >
@@ -455,7 +455,7 @@ Een voorbeeldconfiguratie ziet er als volgt uit:
 
 ## Paginarenderers definiëren {#defining-page-renderers-renders}
 
-De eigenschap /renders definieert de URL waarnaar de afzender een verzoek verzendt om een document te renderen. Het volgende voorbeeld `/renders` -sectie identificeert één AEM voor rendering:
+De `/renders` Deze eigenschap definieert de URL waarnaar de AEM Dispatcher een verzoek verzendt om een document te renderen. Het volgende voorbeeld `/renders` -sectie identificeert één AEM voor rendering:
 
 ```xml
 /renders
@@ -472,7 +472,7 @@ De eigenschap /renders definieert de URL waarnaar de afzender een verzoek verzen
   }
 ```
 
-De volgende voorbeeldsectie /renders identificeert een AEM instantie die op de zelfde computer zoals Dispatcher loopt:
+Het volgende voorbeeld `/renders` sectie identificeert een AEM instantie die op de zelfde computer zoals Dispatcher loopt:
 
 ```xml
 /renders
@@ -485,7 +485,7 @@ De volgende voorbeeldsectie /renders identificeert een AEM instantie die op de z
   }
 ```
 
-In het volgende voorbeeld /renders-gedeelte worden renderverzoeken gelijkelijk verdeeld over twee AEM:
+Het volgende voorbeeld `/renders` de sectie verdeelt teruggeven verzoeken gelijkelijk onder twee AEM instanties:
 
 ```xml
 /renders
@@ -511,7 +511,7 @@ Geeft de time-out van de verbinding op die de AEM instantie benadert, in millise
 
 **/receiveTimeout**
 
-Geeft de tijd op in milliseconden die een reactie mag afleggen. De standaardwaarde is `"600000"`, waardoor de Dispatcher 10 minuten wacht. Een instelling van `"0"` Hiermee wordt de time-out verwijderd.
+Geeft de tijd op in milliseconden die een reactie mag afleggen. De standaardwaarde is `"600000"`, waardoor de Dispatcher 10 minuten wacht. Een instelling van `"0"` elimineert de onderbreking.
 
 Wanneer de time-out wordt bereikt tijdens het parseren van responsheaders, wordt een HTTP-status van 504 (Bad Gateway) geretourneerd. Als de onderbreking wordt bereikt terwijl het antwoordlichaam wordt gelezen, keert de Dispatcher de onvolledige reactie op de cliënt terug. Het schrapt ook om het even welke caching dossiers die zouden kunnen zijn geschreven.
 
@@ -519,7 +519,7 @@ Wanneer de time-out wordt bereikt tijdens het parseren van responsheaders, wordt
 
 Hiermee wordt opgegeven of Dispatcher de opdracht `getaddrinfo` functie (voor IPv6) of de `gethostbyname` functie (voor IPv4) voor het verkrijgen van het IP adres van teruggeven. Een waarde van 0 oorzaken `getaddrinfo` te gebruiken. Een waarde van `1` oorzaken `gethostbyname` te gebruiken. De standaardwaarde is `0`.
 
-De `getaddrinfo` Deze functie retourneert een lijst met IP-adressen. Dispatcher herhaalt de lijst van adressen tot het een verbinding TCP/IP vestigt. Daarom `ipv4` Het bezit is belangrijk wanneer teruggeven hostname met veelvoudige IP adressen en de gastheer, in antwoord op wordt geassocieerd `getaddrinfo` functie, keert een lijst van IP adressen terug die altijd in de zelfde orde zijn. In deze situatie moet u de `gethostbyname` functie zodat het IP adres dat de Ontvanger met verbindt wordt willekeurig verdeeld.
+De `getaddrinfo` Deze functie retourneert een lijst met IP-adressen. Dispatcher herhaalt de lijst van adressen tot het een verbinding TCP/IP vestigt. Daarom `ipv4` bezit is belangrijk wanneer teruggeven hostname met veelvoudige IP adressen wordt geassocieerd. En, de gastheer, in antwoord op `getaddrinfo` functie, keert een lijst van IP adressen terug die altijd in de zelfde orde zijn. In deze situatie moet u de `gethostbyname` functie zodat het IP adres dat de Ontvanger met verbindt wordt willekeurig verdeeld.
 
 Amazon Elastic Load Balancing (ELB) is een service die reageert op getaddrinfo met een lijst met IP-adressen die mogelijk dezelfde volgorde heeft.
 
@@ -555,7 +555,7 @@ Gebruik de `/filter` om de HTTP-aanvragen op te geven die Dispatcher accepteert.
 
 >[!CAUTION]
 >
->Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend Dispatcher. Zie ook de [Beveiligingschecklist AEM](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) voor meer veiligheidsdetails betreffende uw AEM installatie.
+>Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend de AEM Dispatcher. Lees ook de [Beveiligingschecklist AEM](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) voor extra veiligheidsdetails betreffende uw AEM installatie.
 
 De `/filter` de sectie bestaat uit een reeks regels die of toegang tot inhoud volgens patronen in het verzoek-lijn deel van het HTTP- verzoek ontkennen of toestaan. Gebruik een strategie voor lijst van gewenste personen voor uw `/filter` sectie:
 
@@ -572,7 +572,7 @@ Elk item in het dialoogvenster `/filter` Deze sectie bevat een type en een patro
 
 * **Type**: De `/type` Hiermee wordt aangegeven of toegang wordt toegestaan of geweigerd voor de aanvragen die overeenkomen met het patroon. De waarde kan `allow` of `deny`.
 
-* **Element van de aanvraagregel:** Inclusief `/method`, `/url`, `/query`, of `/protocol` en een patroon voor het filtreren verzoeken volgens deze specifieke delen van het verzoek-lijn deel van het HTTP- verzoek. Filteren op elementen van de aanvraaglijn (eerder dan op de volledige verzoeklijn) is de aangewezen filtermethode.
+* **Element van de aanvraagregel:** Inclusief `/method`, `/url`, `/query`, of `/protocol`. Neem ook een patroon op voor het filteren van aanvragen. Filter ze op basis van specifieke delen van het request-line deel in de HTTP-aanvraag. Filteren op elementen van de aanvraaglijn (eerder dan op de volledige verzoeklijn) is de aangewezen filtermethode.
 
 * **Geavanceerde elementen van de aanvraagregel:** Vanaf Dispatcher 4.2.0 zijn er vier nieuwe filterelementen beschikbaar voor gebruik. Deze nieuwe elementen zijn `/path`, `/selectors`, `/extension`, en `/suffix` respectievelijk. Neem een of meer van deze items op om de URL-patronen verder te beheren.
 
@@ -618,7 +618,7 @@ Als de filters niet worden geactiveerd zoals u zou verwachten, schakelt u [Track
 
 #### Voorbeeldfilter: Alles weigeren {#example-filter-deny-all}
 
-In de volgende voorbeeldfiltersectie worden aanvragen voor alle bestanden door Dispatcher afgewezen. Ontken toegang tot alle bestanden en geef vervolgens toegang tot specifieke gebieden.
+In de volgende voorbeeldfiltersectie worden aanvragen voor alle bestanden door de AEM Dispatcher afgewezen. Ontken toegang tot alle bestanden en geef vervolgens toegang tot specifieke gebieden.
 
 ```xml
 /0001  { /type "deny" /url "*"  }
@@ -662,7 +662,7 @@ Als uw publicatie-instantie gebruikmaakt van een webtoepassingscontext (bijvoorb
 /0003   { /type "deny"  /url "/publish/libs/cq/workflow/content/console/archive*"  }
 ```
 
-Als u toegang moet hebben tot enkele pagina&#39;s binnen het beperkte gebied, kunt u deze toegankelijk maken. Voeg bijvoorbeeld de volgende sectie toe om toegang tot het tabblad Archiveren in de workflowconsole toe te staan:
+Als u toegang moet hebben tot enkele pagina&#39;s binnen het beperkte gebied, kunt u deze toegankelijk maken. Als u bijvoorbeeld toegang wilt verlenen tot het tabblad Archief in de Workflowconsole, voegt u de volgende sectie toe:
 
 ```xml
 /0004  { /type "allow"  /url "/libs/cq/workflow/content/console/archive*"   }
@@ -693,9 +693,9 @@ Hieronder ziet u een regelvoorbeeld waarin wordt voorkomen dat inhoud wordt opge
         }
 ```
 
-### Voorbeeld-/filtersectie {#example-filter-section}
+### Voorbeeld `/filter` sectie {#example-filter-section}
 
-Wanneer het vormen van Dispatcher, zou u externe toegang zoveel mogelijk moeten beperken. In het volgende voorbeeld wordt minimale toegang geboden aan externe bezoekers:
+Wanneer het vormen van de AEM Dispatcher, beperking externe toegang zoveel mogelijk. In het volgende voorbeeld wordt minimale toegang geboden aan externe bezoekers:
 
 * `/content`
 * diverse inhoud, zoals ontwerpen en clientbibliotheken. Bijvoorbeeld:
@@ -809,7 +809,7 @@ Afhankelijk van uw installatie kunnen er meer bronnen onder zijn `/libs`, `/apps
 
 ### Query-tekenreeksen beperken {#restricting-query-strings}
 
-Sinds Dispatcher versie 4.1.5 kunt u de `/filter` om querytekenreeksen te beperken. Het wordt hoogst geadviseerd uitdrukkelijk vraagkoorden toe te staan en generische toelage door uit te sluiten `allow` filterelementen.
+Sinds Dispatcher versie 4.1.5 kunt u de `/filter` om querytekenreeksen te beperken. Men adviseert uitdrukkelijk vraagkoorden toe te staan en generische toelage door uit te sluiten `allow` filterelementen.
 
 Eén item kan een van de volgende `glob` of een combinatie van `method`, `url`, `query`, en `version`, maar niet beide. In het volgende voorbeeld wordt het volgende `a=*` querytekenreeks en ontkent alle andere querytekenreeksen voor URL&#39;s die worden omgezet in de `/etc` knooppunt:
 
@@ -894,7 +894,7 @@ U ziet normale paginerendering voor `/content/add_valid_page.html?debug=layout`.
 * `/etc/cloudservices.html`
 * `/welcome`
 
-Om te bepalen of anonieme schrijf toegang wordt toegelaten, geef het volgende bevel in een terminal of bevelherinnering uit. U zou geen gegevens aan de knoop moeten kunnen schrijven.
+Om te bepalen of anonieme schrijf toegang wordt toegelaten, geef het volgende bevel in een terminal of bevelherinnering uit. Het schrijven van gegevens naar het knooppunt moet niet mogelijk zijn.
 
 `curl -X POST "https://anonymous:anonymous@hostname:port/content/usergenerated/mytestnode"`
 
@@ -914,7 +914,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">The "com.adobe.granite.dispatcher.vanityurl.content" package needs to be made public before publishing this contnet.</p>
  -->
 
-Configureer Dispatcher om toegang in te schakelen tot vanity URL&#39;s die zijn geconfigureerd voor uw AEM pagina&#39;s.
+Configureer de AEM Dispatcher om toegang in te schakelen tot vanity URL&#39;s die zijn geconfigureerd voor uw AEM pagina&#39;s.
 
 Wanneer toegang tot vanity URLs wordt toegelaten, roept de Verzender periodiek de dienst die op de teruggeeft instantie loopt om een lijst van vanity URLs te verkrijgen. Dispatcher slaat deze lijst op in een lokaal bestand. Wanneer een aanvraag voor een pagina wordt afgewezen vanwege een filter in het dialoogvenster `/filter` , raadpleegt Dispatcher de lijst met vanity URL&#39;s. Als de ontkende URL in de lijst staat, geeft Dispatcher toegang tot de vanity URL.
 
@@ -932,7 +932,7 @@ De `/vanity_urls` Deze sectie bevat de volgende eigenschappen:
 
 * `/url`: Het pad naar de service vanity URL die wordt uitgevoerd op de renderinstantie. De waarde van deze eigenschap moet `"/libs/granite/dispatcher/content/vanityUrls.html"`.
 
-* `/file`: Het pad naar het lokale bestand waarin Dispatcher de lijst met vanity URL&#39;s opslaat. Zorg ervoor dat Dispatcher schrijftoegang heeft tot dit bestand.
+* `/file`: Het pad naar het lokale bestand waarin Dispatcher de lijst met vanity URL&#39;s opslaat. Zorg ervoor dat de AEM Dispatcher schrijftoegang heeft tot dit bestand.
 * `/delay`: (Seconden) De tijd tussen vraag aan de dienst van vanity URL.
 
 >[!NOTE]
@@ -946,13 +946,13 @@ Gebruik de volgende procedure om toegang tot vanity URLs toe te laten.
 1. Voeg de `/vanity_urls` sectie hieronder `/farms`.
 1. Start Apache-webserver opnieuw.
 
-## Door:sturen de Verzoeken van de Syndicatie - /propagateSyndPost {#forwarding-syndication-requests-propagatesyndpost}
+## Verzoeken om synchronisatie verzenden - `/propagateSyndPost` {#forwarding-syndication-requests-propagatesyndpost}
 
 Syndicatieverzoeken zijn alleen bedoeld voor Dispatcher, zodat ze standaard niet naar de renderer worden verzonden (bijvoorbeeld een AEM-instantie).
 
 Indien nodig stelt u de `/propagateSyndPost` eigenschap aan `"1"` om synchronisatieverzoeken door te sturen naar Dispatcher. Indien ingesteld, moet u ervoor zorgen dat de aanvragen voor POSTEN niet worden afgewezen in de filtersectie.
 
-## Het vormen van het Geheime voorgeheugen van de Verzender - /cache {#configuring-the-dispatcher-cache-cache}
+## De Dispatcher-cache configureren - `/cache` {#configuring-the-dispatcher-cache-cache}
 
 De `/cache` sectie bepaalt hoe de Verzender documenten in cache plaatst. Vorm verscheidene subproperties om uw caching strategieën uit te voeren:
 
@@ -1003,7 +1003,7 @@ De `/docroot` eigenschap identificeert de map waarin in cache opgeslagen bestand
 
 >[!NOTE]
 >
->De waarde moet precies hetzelfde pad hebben als de hoofdmap van het document van de webserver, zodat de zender en de webserver dezelfde bestanden verwerken.\
+>De waarde moet hetzelfde pad hebben als de hoofdmap van het document van de webserver, zodat de AEM Dispatcher en de webserver dezelfde bestanden verwerken.\
 >De webserver is verantwoordelijk voor het leveren van de juiste statuscode wanneer het cachebestand van de Dispatcher wordt gebruikt. Daarom is het belangrijk dat deze ook kan worden gevonden.
 
 Als u veelvoudige landbouwbedrijven gebruikt, moet elk landbouwbedrijf een verschillende documentwortel gebruiken.
@@ -1012,7 +1012,7 @@ Als u veelvoudige landbouwbedrijven gebruikt, moet elk landbouwbedrijf een versc
 
 De `/statfile` eigenschap identificeert het bestand dat als statfile moet worden gebruikt. Dispatcher gebruikt dit bestand om de tijd van de meest recente inhoudsupdate te registreren. Het statusbestand kan elk bestand op de webserver zijn.
 
-De status heeft geen inhoud. Wanneer de inhoud wordt bijgewerkt, werkt Dispatcher de tijdstempel bij. De standaardstatus heet `.stat` en wordt opgeslagen in de hoofdmap van het document. Dispatcher blokkeert de toegang tot het statfile.
+De status heeft geen inhoud. Wanneer de inhoud wordt bijgewerkt, werkt de AEM Dispatcher de tijdstempel bij. De standaardstatus heet `.stat` en wordt opgeslagen in de hoofdmap van het document. Dispatcher blokkeert de toegang tot het statfile.
 
 >[!NOTE]
 >
@@ -1020,9 +1020,9 @@ De status heeft geen inhoud. Wanneer de inhoud wordt bijgewerkt, werkt Dispatche
 
 ### Stale documenten verzenden als er fouten optreden {#serving-stale-documents-when-errors-occur}
 
-De `/serveStaleOnError` property controls whether Dispatcher returns invalidate documents when the render server returns an error. Wanneer een statusbestand wordt aangeraakt en cacheinhoud ongeldig wordt gemaakt, verwijdert Dispatcher de inhoud in de cache de volgende keer dat deze wordt opgevraagd.
+De `/serveStaleOnError` property controls whether Dispatcher returns invalidate documents when the render server returns an error. Wanneer een statusbestand wordt aangeraakt en cacheinhoud ongeldig wordt gemaakt, verwijdert de AEM Dispatcher standaard de inhoud in de cache. Deze actie wordt gedaan de volgende tijd het wordt gevraagd.
 
-Indien `/serveStaleOnError` is ingesteld op `"1"`, Verwijdert Dispatcher geen ongeldig gemaakte inhoud uit het cachegeheugen, tenzij de renderserver een succesvol antwoord retourneert. Een 5xx-reactie van AEM of een verbindingstijd zorgt ervoor dat Dispatcher de verouderde inhoud levert en reageert met en HTTP-status van 111 (Revalidation Failed).
+Indien `/serveStaleOnError` is ingesteld op `"1"`, wordt ongeldig gemaakte inhoud niet verwijderd uit de cache. Dat wil zeggen, tenzij de renderserver een geslaagde reactie retourneert. Een 5xx-reactie van AEM of een verbindingstijd zorgt ervoor dat de AEM Dispatcher de verouderde inhoud levert en reageert met en HTTP-status 111 (Revalidation Failed).
 
 ### In cache plaatsen wanneer verificatie wordt gebruikt {#caching-when-authentication-is-used}
 
@@ -1064,7 +1064,7 @@ De `/rules` Deze eigenschap bepaalt welke documenten in de cache worden geplaats
 Elk item in het dialoogvenster `/rules` eigenschap omvat een [`glob`](#designing-patterns-for-glob-properties) patroon en tekst:
 
 * De `glob` wordt gebruikt om het pad van het document aan te passen.
-* Het type geeft aan of de documenten die overeenkomen met de `glob` patroon. De waarde kan `allow` (om het document in cache te plaatsen) of `deny` (om het document altijd weer te geven).
+* Het type geeft aan of de documenten die overeenkomen met de `glob` patroon. De waarde kan `allow` (het document in cache plaatsen) of `deny` (geef het document weer).
 
 Als u geen dynamische pagina&#39;s hebt (buiten die pagina&#39;s die reeds door de bovengenoemde regels worden uitgesloten), kunt u Dispatcher vormen om alles in het voorgeheugen onder te brengen. De sectie Regels ziet er als volgt uit:
 
@@ -1075,13 +1075,13 @@ Als u geen dynamische pagina&#39;s hebt (buiten die pagina&#39;s die reeds door 
   }
 ```
 
-Zie voor informatie over eigenschappen van glob [Patronen ontwerpen voor globale eigenschappen](#designing-patterns-for-glob-properties).
+Zie voor informatie over Glob-eigenschappen [Patronen ontwerpen voor Glob-eigenschappen](#designing-patterns-for-glob-properties).
 
 Als er gedeelten van de pagina dynamisch zijn (bijvoorbeeld een nieuwstoepassing) of zich in een gesloten gebruikersgroep bevinden, kunt u uitzonderingen definiëren:
 
 >[!NOTE]
 >
->Sluit gebruikersgroepen niet in cache plaatsen omdat gebruikersrechten niet zijn gecontroleerd op pagina&#39;s in de cache.
+>Sluit gebruikersgroepen niet in cache plaatsen. De reden hiervoor is dat gebruikersrechten niet zijn gecontroleerd op pagina&#39;s in de cache.
 
 ```xml
 /rules
@@ -1167,7 +1167,7 @@ Wanneer een bestand in `/content/myWebsite/xx` ongeldig is, dan elke `.stat` bes
 
 >[!NOTE]
 >
->Ongeldige validatie kan worden voorkomen door een extra koptekst te verzenden `CQ-Action-Scope:ResourceOnly`. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [deze pagina](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [De Dispatcher-cache handmatig ongeldig maken](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) voor meer informatie .
+>Ongeldige validatie kan worden voorkomen door een extra koptekst te verzenden `CQ-Action-Scope:ResourceOnly`. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [deze pagina](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [De Dispatcher-cache handmatig ongeldig maken](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) voor meer informatie.
 
 >[!NOTE]
 >
@@ -1189,13 +1189,13 @@ Automatische validatie wordt doorgaans gebruikt voor HTML-pagina&#39;s. HTML-pag
   }
 ```
 
-Zie voor informatie over eigenschappen van glob [Patronen ontwerpen voor globale eigenschappen](#designing-patterns-for-glob-properties).
+Zie voor informatie over Glob-eigenschappen [Patronen ontwerpen voor Glob-eigenschappen](#designing-patterns-for-glob-properties).
 
 Deze configuratie veroorzaakt de volgende activiteit wanneer `/content/wknd/us/en` is geactiveerd:
 
 * Alle bestanden met patroon en.* worden verwijderd uit de `/content/wknd/us` map.
 * De `/content/wknd/us/en./_jcr_content` map wordt verwijderd.
-* Alle andere bestanden die overeenkomen met de `/invalidate` configuratie niet onmiddellijk worden verwijderd. Deze bestanden worden verwijderd wanneer de volgende aanvraag wordt uitgevoerd. In het voorbeeld: `/content/wknd.html` wordt niet verwijderd. In plaats daarvan wordt deze verwijderd wanneer `/content/wknd.html` is aangevraagd.
+* Alle andere bestanden die overeenkomen met de `/invalidate` configuratie niet onmiddellijk worden verwijderd. Deze bestanden worden verwijderd wanneer de volgende aanvraag wordt uitgevoerd. In het voorbeeld: `/content/wknd.html` wordt niet geschrapt; het wordt geschrapt wanneer `/content/wknd.html` is aangevraagd.
 
 Als u automatisch gegenereerde PDF- en ZIP-bestanden aanbiedt om te downloaden, moet u deze bestanden mogelijk ook automatisch ongeldig maken. Een configuratievoorbeeld ziet er als volgt uit:
 
@@ -1219,7 +1219,7 @@ De AEM integratie met Adobe Analytics biedt configuratiegegevens in een `analyti
 
 ### Aangepaste validatiescripts gebruiken {#using-custom-invalidation-scripts}
 
-De `/invalidateHandler` staat u toe om een manuscript te bepalen dat voor elk ongeldigingsverzoek wordt geroepen dat door Dispatcher wordt ontvangen.
+De `/invalidateHandler` Met eigenschap kunt u een script definiëren dat wordt aangeroepen voor elk verzoek tot validatie dat door Dispatcher wordt ontvangen.
 
 De methode wordt aangeroepen met de volgende argumenten:
 
@@ -1260,7 +1260,7 @@ In het volgende voorbeeld:
   }
 ```
 
-Zie voor informatie over eigenschappen van glob [Patronen ontwerpen voor globale eigenschappen](#designing-patterns-for-glob-properties).
+Zie voor informatie over Glob-eigenschappen [Patronen ontwerpen voor Glob-eigenschappen](#designing-patterns-for-glob-properties).
 
 >[!CAUTION]
 >
@@ -1275,7 +1275,7 @@ De `ignoreUrlParams` In deze sectie wordt gedefinieerd welke URL-parameters word
 * Wanneer een aanvraag-URL parameters bevat die allemaal worden genegeerd, wordt de pagina in de cache geplaatst.
 * Wanneer een aanvraag-URL een of meer parameters bevat die niet worden genegeerd, wordt de pagina niet in de cache opgeslagen.
 
-Wanneer een parameter voor een pagina wordt genegeerd, wordt de pagina in de cache geplaatst de eerste keer dat de pagina wordt aangevraagd. Volgende aanvragen voor de pagina worden op de pagina in de cache geplaatst, ongeacht de waarde van de parameter in het verzoek.
+Wanneer een parameter voor een pagina wordt genegeerd, wordt de pagina in de cache geplaatst de eerste keer dat de pagina wordt aangevraagd. Volgende aanvragen voor de pagina worden naar de pagina in de cache verzonden, ongeacht de waarde van de parameter in het verzoek.
 
 >[!NOTE]
 >
@@ -1283,7 +1283,7 @@ Wanneer een parameter voor een pagina wordt genegeerd, wordt de pagina in de cac
 
 Om te specificeren welke parameters worden genegeerd, voeg glob regels aan toe `ignoreUrlParams` eigenschap:
 
-* Als u een pagina in het cachegeheugen wilt plaatsen ondanks het verzoek met een URL-parameter, maakt u een glob-eigenschap waarmee de parameter kan worden genegeerd.
+* Als u een pagina in het cachegeheugen wilt plaatsen, ongeacht de aanvraag die een URL-parameter bevat, maakt u een glob-eigenschap waarmee de parameter kan worden genegeerd.
 * Als u wilt voorkomen dat de pagina in de cache wordt opgeslagen, maakt u een glob-eigenschap die de parameter weigert (te negeren).
 
 >[!NOTE]
@@ -1291,7 +1291,7 @@ Om te specificeren welke parameters worden genegeerd, voeg glob regels aan toe `
 >Wanneer het vormen van het glob bezit, zou het de naam van de vraagparameter moeten aanpassen. Als u bijvoorbeeld de parameter &quot;p1&quot; van de volgende URL wilt negeren `http://example.com/path/test.html?p1=test&p2=v2`, dan zou de glob eigenschap moeten zijn:
 > `/0002 { /glob "p1" /type "allow" }`
 
-In het volgende voorbeeld worden door Dispatcher alle parameters genegeerd, behalve de parameters `nocache` parameter. Vraag daarom URL&#39;s aan die de `nocache` parameter nooit in cache geplaatst door de Dispatcher:
+In het volgende voorbeeld worden door Dispatcher alle parameters genegeerd, behalve de parameters `nocache` parameter. Als dusdanig, brengt de Dispatcher nooit verzoek URLs in het voorgeheugen onder die omvatten `nocache` parameter:
 
 ```xml
 /ignoreUrlParams
@@ -1309,14 +1309,14 @@ In de context van de `ignoreUrlParams` in het bovenstaande configuratievoorbeeld
 GET /mypage.html?willbecached=true
 ```
 
-In de context van de `ignoreUrlParams` in het configuratievoorbeeld leidt de volgende HTTP-aanvraag ertoe dat de pagina **niet** worden in cache geplaatst omdat de `nocache` parameter wordt niet genegeerd:
+In de context van de `ignoreUrlParams` configuratievoorbeeld, veroorzaakt het volgende HTTP- verzoek de pagina **niet** in cache worden geplaatst omdat de `nocache` parameter wordt niet genegeerd:
 
 ```xml
 GET /mypage.html?nocache=true
 GET /mypage.html?nocache=true&willbecached=true
 ```
 
-Zie voor informatie over eigenschappen van glob [Patronen ontwerpen voor globale eigenschappen](#designing-patterns-for-glob-properties).
+Zie voor informatie over Glob-eigenschappen [Patronen ontwerpen voor Glob-eigenschappen](#designing-patterns-for-glob-properties).
 
 ### HTTP-responsheaders in cache plaatsen {#caching-http-response-headers}
 
@@ -1324,7 +1324,7 @@ Zie voor informatie over eigenschappen van glob [Patronen ontwerpen voor globale
 >
 >Deze functie is beschikbaar bij versie **4.1.11.** van de verzender.
 
-De `/headers` staat u toe om de kopbaltypes te bepalen van HTTP die door de Dispatcher in het voorgeheugen zullen worden opgenomen. Op het eerste verzoek aan een middel uncached, worden alle kopballen die één van de gevormde waarden (zie de configuratiemonster hieronder) aanpassen opgeslagen in een afzonderlijk dossier, naast het geheim voorgeheugendossier. Bij verdere verzoeken aan het caching middel, worden de opgeslagen kopballen toegevoegd aan de reactie.
+De `/headers` Met eigenschap kunt u de HTTP-headertypen definiëren die Dispatcher in de cache gaat plaatsen. Op het eerste verzoek aan een middel uncached, worden alle kopballen die één van de gevormde waarden (zie de configuratiemonster hieronder) aanpassen opgeslagen in een afzonderlijk dossier, naast het geheim voorgeheugendossier. Bij verdere verzoeken aan het caching middel, worden de opgeslagen kopballen toegevoegd aan de reactie.
 
 Hieronder ziet u een voorbeeld van de standaardconfiguratie:
 
@@ -1345,11 +1345,11 @@ Hieronder ziet u een voorbeeld van de standaardconfiguratie:
 
 >[!NOTE]
 >
->Tekens voor het samenvoegen van bestanden zijn niet toegestaan. Zie voor meer informatie [Patronen ontwerpen voor globale eigenschappen](#designing-patterns-for-glob-properties).
+>Tekens voor het samenvoegen van bestanden zijn niet toegestaan. Zie voor meer informatie [Patronen ontwerpen voor Glob-eigenschappen](#designing-patterns-for-glob-properties).
 
 >[!NOTE]
 >
->Als u Dispatcher nodig hebt om de eBay-antwoordheaders van AEM op te slaan en te leveren, doet u het volgende:
+>Als u de AEM Dispatcher nodig hebt om de eBay-antwoordheaders van AEM op te slaan en te leveren, gaat u als volgt te werk:
 >
 >* Voeg de koptekstnaam toe in het dialoogvenster `/cache/headers`sectie.
 >* Voeg het volgende toe [Apache-richtlijn](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag) in het gedeelte Verzender:
@@ -1360,7 +1360,7 @@ Hieronder ziet u een voorbeeld van de standaardconfiguratie:
 
 ### Machtigingen voor cachebestanden voor verzending {#dispatcher-cache-file-permissions}
 
-De `mode` eigenschap bepaalt welke bestandsmachtigingen worden toegepast op nieuwe mappen en bestanden in de cache. Deze instelling wordt beperkt door de `umask` van het aanroepingsproces. Dit is een octaal getal dat wordt samengesteld uit de som van een of meer van de volgende waarden:
+De `mode` eigenschap bepaalt welke bestandsmachtigingen worden toegepast op nieuwe mappen en bestanden in de cache. De `umask` van het aanroepingsproces deze instelling beperkt. Dit is een octaal getal dat wordt samengesteld uit de som van een of meer van de volgende waarden:
 
 * `0400` Lezen door eigenaar toestaan.
 * `0200` Schrijven door eigenaar toestaan.
@@ -1372,7 +1372,7 @@ De `mode` eigenschap bepaalt welke bestandsmachtigingen worden toegepast op nieu
 * `0002` Schrijven door anderen toestaan.
 * `0001` Anderen toestaan in de map te zoeken.
 
-De standaardwaarde is `0755` waarmee de eigenaar de groep en anderen kan lezen, schrijven of doorzoeken.
+De standaardwaarde is `0755`, waarmee de eigenaar de groep en anderen kan lezen, schrijven of doorzoeken.
 
 ### Startbestand met Throttling .stat aanraken {#throttling-stat-file-touching}
 
@@ -1382,16 +1382,16 @@ De `/gracePeriod` eigenschap definieert het aantal seconden dat een standaard, a
 
 Zie voor meer informatie `/invalidate` en `/statfileslevel`eerder.
 
-### Het vormen tijd-Gebaseerde Invalidatie van het Geheime voorgeheugen - /enableTTL {#configuring-time-based-cache-invalidation-enablettl}
+### Op tijd gebaseerde invalidatie van cache configureren - `/enableTTL` {#configuring-time-based-cache-invalidation-enablettl}
 
 Op tijd gebaseerde cachevalidatie is afhankelijk van de `/enableTTL` en de aanwezigheid van normale verloopheaders van de HTTP-standaard. Als u de eigenschap instelt op 1 (`/enableTTL "1"`), worden de antwoordheaders vanaf de achtergrond geëvalueerd. Als de koppen een `Cache-Control`, `max-age` of `Expires` datum, wordt een hulpbestand gemaakt dat leeg is naast het bestand in de cache, waarbij de wijzigingstijd gelijk is aan de vervaldatum. Wanneer het cachebestand na de wijzigingstijd wordt opgevraagd, wordt het automatisch opnieuw opgevraagd vanaf de achtergrond.
 
 Vóór Dispatcher 4.3.5, was de logica van de annulering van TTL gebaseerd slechts op de gevormde waarde van TTL. Met Dispatcher 4.3.5 stelt u beide TTL in **en** de regels voor het ongeldig maken van het cachegeheugen van Dispatcher worden verwerkt. Voor een bestand in de cache:
 
 1. Indien `/enableTTL` is ingesteld op 1, wordt gecontroleerd of het bestand vervalt. Als het bestand volgens de set-TTL is verlopen, worden geen andere controles uitgevoerd en wordt het bestand in de cache opnieuw opgevraagd vanaf de back-end.
-2. Als het bestand niet is verlopen, of `/enableTTL` wordt niet gevormd, dan worden de standaardregels van de geheim voorgeheugenongeldigverklaring toegepast zoals die regels die door worden geplaatst [/statfileslevel](#invalidating-files-by-folder-level) en [/invalidate](#automatically-invalidating-cached-files). Deze stroom betekent dat Dispatcher bestanden waarvoor de TTL nog niet is verlopen, ongeldig kan maken.
+2. Als het bestand niet is verlopen, of `/enableTTL` wordt niet gevormd, dan worden de standaardregels van de geheim voorgeheugenongeldigverklaring toegepast zoals die regels die [`/statfileslevel`](#invalidating-files-by-folder-level) en [`/invalidate`](#automatically-invalidating-cached-files) set. Deze stroom betekent dat de AEM Dispatcher bestanden waarvoor de TTL niet is verlopen, ongeldig kan maken.
 
-Deze nieuwe implementatie steunt gebruiksgevallen waar de dossiers langere TTL (bijvoorbeeld, op CDN) hebben maar nog ongeldig kunnen zijn zelfs als TTL niet is verlopen. De Dispatcher geeft de voorkeur aan versheid van inhoud boven cache-hit verhouding.
+Deze nieuwe implementatie steunt gebruiksgevallen waar de dossiers langere TTL (bijvoorbeeld, op CDN) hebben. Maar dat dossier kan nog ongeldig worden verklaard zelfs als TTL niet is verlopen. De Dispatcher geeft de voorkeur aan versheid van inhoud boven cache-hit verhouding.
 
 Omgekeerd, voor het geval dat **alleen** de vervallogica die op een dossier wordt toegepast en dan reeks `/enableTTL` naar 1 en sluit dat bestand uit van het standaardmechanisme voor cachevalidatie. U kunt bijvoorbeeld:
 
@@ -1406,7 +1406,7 @@ Omgekeerd, voor het geval dat **alleen** de vervallogica die op een dossier word
   }
 ```
 
-* De inhoudsstructuur zodanig ontwerpen dat u een hoge waarde kunt instellen [/statfilelevel](#invalidating-files-by-folder-level) het bestand wordt dus niet automatisch ongeldig gemaakt.
+* De inhoudsstructuur zodanig ontwerpen dat u een hoge waarde kunt instellen [`/statfilelevel`](#invalidating-files-by-folder-level) het bestand wordt dus niet automatisch ongeldig gemaakt.
 
 Zo zorgt u ervoor dat `.stat` de bestandsinvalidatie wordt niet gebruikt en alleen de vervaldatum van TTL is actief voor de opgegeven bestanden.
 
@@ -1418,7 +1418,7 @@ Zo zorgt u ervoor dat `.stat` de bestandsinvalidatie wordt niet gebruikt en alle
 >
 >Deze functie is beschikbaar in versie **4.1.11.** of later van de Dispatcher.
 
-## Load Balancing configureren - /statistics {#configuring-load-balancing-statistics}
+## Taakverdeling configureren - `/statistics` {#configuring-load-balancing-statistics}
 
 De `/statistics` in deze sectie worden categorieën bestanden gedefinieerd waarvoor Dispatcher de responsiviteit van elke rendermethode scoort. Dispatcher gebruikt de scores om te bepalen welke renderen om een aanvraag te verzenden.
 
@@ -1431,7 +1431,7 @@ Dispatcher ondersteunt maximaal acht statistische categorieën. Als u meer dan a
 
 **Selectie renderen**
 
-Telkens wanneer Dispatcher een teruggegeven pagina vereist, gebruikt het het volgende algoritme om terug te selecteren:
+Telkens wanneer de AEM Dispatcher een gerenderde pagina vereist, gebruikt het het volgende algoritme om terug te selecteren:
 
 1. Als de aanvraag de rendernaam bevat in een `renderid` cookie, Dispatcher gebruikt die rendering.
 1. Als de aanvraag geen `renderid` cookie, Dispatcher vergelijkt de renderstatistieken:
@@ -1455,7 +1455,7 @@ Definieer een categorie voor elk type document waarvoor u statistieken wilt bijh
 
 De categorie `name` moet uniek zijn voor het bedrijf. De `pattern` wordt beschreven in [Patronen ontwerpen voor globale eigenschappen](#designing-patterns-for-glob-properties) sectie.
 
-Om de categorie van URI te bepalen, vergelijkt de Dispatcher URI met elk categoriepatroon tot een gelijke wordt gevonden. Dispatcher begint met de eerste categorie in de lijst en gaat in de juiste volgorde verder. Plaats daarom eerst categorieën met specifiekere patronen.
+Om de categorie van URI te bepalen, vergelijkt de AEM Dispatcher URI met elk categoriepatroon tot een gelijke wordt gevonden. Dispatcher begint met de eerste categorie in de lijst en gaat in de juiste volgorde verder. Plaats daarom eerst categorieën met specifiekere patronen.
 
 Bijvoorbeeld, verzend het gebrek `dispatcher.any` wordt een categorie HTML en een categorie Overige gedefinieerd. De categorie HTML is specifieker en verschijnt dus eerst:
 
@@ -1488,7 +1488,7 @@ In het volgende voorbeeld wordt ook een categorie voor zoekpagina&#39;s opgenome
 
 De `/unavailablePenalty` het bezit plaatst de tijd (in tiende van een seconde) die op teruggeeft statistieken wordt toegepast wanneer een verbinding aan teruggeeft ontbreekt. De verzender voegt de tijd aan de statistiekcategorie toe die gevraagde URI aanpast.
 
-Bijvoorbeeld, wordt de sanctie toegepast wanneer de verbinding TCP/IP aan aangewezen hostname/haven niet kan worden gevestigd, of omdat AEM niet loopt (en niet luistert) of wegens een netwerk-gerelateerd probleem.
+Bijvoorbeeld, wordt de sanctie toegepast wanneer de verbinding TCP/IP aan aangewezen hostname/haven niet kan worden gevestigd. De reden is of omdat AEM niet loopt (en niet luistert) of wegens een netwerk-verwant probleem.
 
 De `/unavailablePenalty` eigenschap is een rechtstreeks onderliggend element van het `/farm` deel (een verwant van de `/statistics` ).
 
@@ -1498,7 +1498,7 @@ Indien niet `/unavailablePenalty` eigenschap bestaat, een waarde van `"1"` wordt
 /unavailablePenalty "1"
 ```
 
-## Identificeer een Vaste Omslag van de Verbinding - /stickyConnectionsFor {#identifying-a-sticky-connection-folder-stickyconnectionsfor}
+## Identificatie van een gevoelige verbindingsmap - `/stickyConnectionsFor` {#identifying-a-sticky-connection-folder-stickyconnectionsfor}
 
 De `/stickyConnectionsFor` eigenschap definieert een map met plakke documenten. Deze eigenschap wordt benaderd via de URL. Dispatcher verzendt alle aanvragen, van één gebruiker in deze map, naar dezelfde renderinstantie. De stevige verbindingen zorgen ervoor dat de zittingsgegevens voor alle documenten aanwezig en verenigbaar zijn. Dit mechanisme gebruikt het `renderid` cookie.
 
@@ -1548,9 +1548,9 @@ Gebruik de `/health_check` eigenschap om een URL op te geven die wordt gecontrol
 
 ### De vertraging voor opnieuw proberen van pagina opgeven {#specifying-the-page-retry-delay}
 
-De `/retryDelay` het bezit plaatst de tijd (in seconden) dat de Verzender tussen ronde van verbindingspogingen met het landbouwbedrijf teruggeeft. Voor elke ronde, is het maximumaantal tijden de Verzender probeert een verbinding aan terug te geven het aantal teruggeeft in het landbouwbedrijf.
+De `/retryDelay` het bezit plaatst de tijd (in seconden) dat de Verzender tussen ronde van verbindingspogingen met het landbouwbedrijf teruggeeft. Voor elke ronde, is het maximumaantal tijden de AEM Dispatcher een verbinding aan teruggeeft probeert is het aantal teruggevende binnen het landbouwbedrijf.
 
-Dispatcher gebruikt de waarde van `"1"` indien `/retryDelay` is niet expliciet gedefinieerd. De standaardwaarde is geschikt.
+Dispatcher gebruikt de waarde van `"1"` indien `/retryDelay` is niet expliciet gedefinieerd. De standaardwaarde is meestal juist.
 
 ```xml
 /retryDelay "1"
@@ -1560,7 +1560,7 @@ Dispatcher gebruikt de waarde van `"1"` indien `/retryDelay` is niet expliciet g
 
 De `/numberOfRetries` eigenschap stelt het maximumaantal ronde verbindingspogingen in dat Dispatcher met de renders uitvoert. Als Dispatcher na dit aantal keren geen verbinding kan maken met een renderbewerking, retourneert Dispatcher een mislukte reactie.
 
-Voor elke ronde, is het maximumaantal tijden de Verzender probeert een verbinding aan terug te geven het aantal teruggeeft in het landbouwbedrijf. Daarom is het maximumaantal tijden dat de Verzender een verbinding probeert ( `/numberOfRetries`) x (het aantal renderingen).
+Voor elke ronde, is het maximumaantal tijden de AEM Dispatcher een verbinding aan teruggeeft probeert is het aantal teruggevende binnen het landbouwbedrijf. Daarom is het maximumaantal tijden dat de AEM Dispatcher een verbinding probeert ( `/numberOfRetries`) x (het aantal renderingen).
 
 Als de waarde niet expliciet wordt gedefinieerd, is de standaardwaarde `5`.
 
@@ -1572,10 +1572,10 @@ Als de waarde niet expliciet wordt gedefinieerd, is de standaardwaarde `5`.
 
 Om verzoeken aan verschillende terug te sturen geeft terug wanneer het originele verzoek ontbreekt, laat het failovermechanisme op uw landbouwbedrijf van de Verzender toe. Wanneer failover wordt toegelaten, heeft de Dispatcher het volgende gedrag:
 
-* Wanneer een verzoek aan teruggeeft HTTP status 503 (UNAVAILABLE) terugkeert, verzendt de Dispatcher het verzoek naar verschillend teruggeven.
-* Wanneer een verzoek aan teruggeeft de status van HTTP 50x (buiten 503) terugkeert, verzendt de Dispatcher een verzoek voor de pagina die voor wordt gevormd `health_check` eigenschap.
+* Wanneer een verzoek om terug te geven HTTP Status 503 (UNAVAILABLE) terugkeert, verzendt de Dispatcher het verzoek naar verschillend teruggeven.
+* Wanneer een verzoek aan teruggeeft de Status van HTTP 50x (buiten 503) terugkeert, verzendt de Ontvanger een verzoek voor de pagina die voor wordt gevormd `health_check` eigenschap.
    * Als de gezondheidscontrole 500 (INTERNAL_SERVER_ERROR) terugkeert, verzendt de Dispatcher het originele verzoek naar verschillende teruggeven.
-   * Als de gezondheidscontrole HTTP status 200 terugkeert, keert de Dispatcher de aanvankelijke fout van HTTP 500 aan de cliënt terug.
+   * Als de gezondheidscontrole HTTP Status 200 terugkeert, keert de AEM Dispatcher de aanvankelijke fout van HTTP 500 aan de cliënt terug.
 
 Om failover toe te laten, voeg de volgende lijn aan het landbouwbedrijf (of de website) toe:
 
@@ -1587,7 +1587,7 @@ Om failover toe te laten, voeg de volgende lijn aan het landbouwbedrijf (of de w
 >
 >Om HTTP- verzoeken opnieuw te proberen die een lichaam bevatten, verzendt de Dispatcher een `Expect: 100-continue` verzoek kopbal aan teruggeven alvorens de daadwerkelijke inhoud te spoolen. CQ 5.5 met CQSE beantwoordt dan onmiddellijk met of 100 (CONTINUE) of een foutencode. Ook andere servlet-containers worden ondersteund.
 
-## Onderbrekingsfouten negeren - /ignoreEINTR {#ignoring-interruption-errors-ignoreeintr}
+## Onderbrekingsfouten negeren - `/ignoreEINTR` {#ignoring-interruption-errors-ignoreeintr}
 
 >[!CAUTION]
 >
@@ -1609,7 +1609,7 @@ read more data
 }
 ```
 
-Dergelijke berichten kunnen worden geproduceerd wanneer `EINTR` komt voor in &quot; `read more data`&quot; en worden veroorzaakt door de ontvangst van een signaal voordat gegevens werden ontvangen.
+Dergelijke berichten kunnen worden geproduceerd wanneer `EINTR` komt voor in `read more data` sectie. De ontvangst van een signaal voordat er gegevens werden ontvangen, is de oorzaak.
 
 Als u dergelijke onderbrekingen wilt negeren, kunt u de volgende parameter toevoegen aan `dispatcher.any` (voor `/farms`):
 
@@ -1617,19 +1617,19 @@ Als u dergelijke onderbrekingen wilt negeren, kunt u de volgende parameter toevo
 
 Instelling `/ignoreEINTR` tot `"1"` zorgt ervoor dat Dispatcher blijft proberen gegevens te lezen totdat de volledige reactie is gelezen. De standaardwaarde is `0` en deactiveert de optie.
 
-## Patronen ontwerpen voor globale eigenschappen {#designing-patterns-for-glob-properties}
+## Patronen ontwerpen voor Glob-eigenschappen {#designing-patterns-for-glob-properties}
 
-Verschillende secties in het Dispatcher-configuratiebestand kunnen worden gebruikt `glob` eigenschappen als selectiecriteria voor cliëntverzoeken. De waarden van `glob` eigenschappen zijn patronen die de Verzender met een aspect van het verzoek, zoals de weg van het gevraagde middel, of het IP adres van de cliënt vergelijkt. De items in het dialoogvenster `/filter` sectiegebruik `glob` patronen om de paden te identificeren van de pagina&#39;s waarop Dispatcher reageert of deze weigert.
+Verschillende secties in het Dispatcher-configuratiebestand gebruiken het `glob` eigenschappen als selectiecriteria voor cliëntverzoeken. De waarden van `glob` eigenschappen zijn patronen die de Verzender met een aspect van het verzoek, zoals de weg van het gevraagde middel, of het IP adres van de cliënt vergelijkt. De items in het dialoogvenster `/filter` sectiegebruik `glob` patronen om de paden te identificeren van de pagina&#39;s waarop Dispatcher reageert of deze weigert.
 
 De `glob` Deze waarden kunnen jokertekens en alfanumerieke tekens bevatten om het patroon te definiëren.
 
 | Jokerteken | Beschrijving | Voorbeelden |
 |--- |--- |--- |
-| `*` | Komt overeen met nul of meer aaneengesloten instanties van een willekeurig teken in de tekenreeks. Het uiteindelijke teken van de overeenkomst wordt bepaald door een van de volgende situaties: <br/>Een teken in de tekenreeks komt overeen met het volgende teken in het patroon en het patroonteken heeft de volgende kenmerken:<br/><ul><li>Geen *</li><li>Niet een?</li><li>Een letterlijk teken (inclusief een spatie) of een tekenklasse.</li><li>Het einde van het patroon is bereikt.</li></ul>Binnen een tekenklasse wordt het teken letterlijk geïnterpreteerd. | `*/geo*` Komt overeen met elke pagina onder de `/content/geometrixx` en de `/content/geometrixx-outdoors` knooppunt. De volgende HTTP-aanvragen komen overeen met het globale patroon: <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*` <br/>Komt overeen met elke pagina onder de `/content/geometrixx-outdoors` knooppunt. De volgende HTTP-aanvraag komt bijvoorbeeld overeen met het glob-patroon: <br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
+| `*` | Komt overeen met nul of meer aaneengesloten instanties van een willekeurig teken in de tekenreeks. In een van de volgende situaties wordt het uiteindelijke teken van de overeenkomst bepaald: <br/>Een teken in de tekenreeks komt overeen met het volgende teken in het patroon en het patroonteken heeft de volgende kenmerken:<br/><ul><li>Geen `*`</li><li>Geen `?`</li><li>Een letterlijk teken (inclusief een spatie) of een tekenklasse.</li><li>Het einde van het patroon is bereikt.</li></ul>Binnen een tekenklasse wordt het teken letterlijk geïnterpreteerd. | `*/geo*` Komt overeen met elke pagina onder de `/content/geometrixx` en de `/content/geometrixx-outdoors` knooppunt. De volgende HTTP-aanvragen komen overeen met het globale patroon: <br/><ul><li>`"GET /content/geometrixx/en.html"`</li><li>`"GET /content/geometrixx-outdoors/en.html"` </li></ul><br/> `*outdoors/*` <br/>Komt overeen met elke pagina onder de `/content/geometrixx-outdoors` knooppunt. De volgende HTTP-aanvraag komt bijvoorbeeld overeen met het glob-patroon: <br/><ul><li>`"GET /content/geometrixx-outdoors/en.html"`</li></ul> |
 | `?` | Komt overeen met elk willekeurig enkel teken. Gebruik externe tekenklassen. Binnen een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | `*outdoors/??/*`<br/> Komt overeen met de pagina&#39;s voor elke taal in de geometrixx-outdoorsite. De volgende HTTP-aanvraag komt bijvoorbeeld overeen met het glob-patroon: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Het volgende verzoek komt niet overeen met het glob-patroon: <br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
-| `[ and ]` | Hiermee wordt het begin en einde van een tekenklasse gedemonstreerd. Tekenklassen kunnen een of meer tekenbereiken en enkele tekens bevatten.<br/>Een overeenkomst treedt op als het doelteken overeenkomt met een van de tekens in de tekenklasse of binnen een gedefinieerd bereik.<br/>Als de accolade sluiten niet is opgenomen, resulteert het patroon niet in overeenkomende waarden. | `*[o]men.html*`<br/> Komt overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>Komt niet overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` <br/>Komt overeen met de volgende HTTP-aanvragen: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `-` | Geeft een tekenbereik aan. Voor gebruik in tekenklassen. Buiten een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | `*[m-p]men.html*` Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>Komt niet overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | Hiermee wordt het volgende teken of de volgende tekenklasse genegeerd. Alleen gebruiken voor negerende tekens en tekenbereiken binnen tekenklassen. Equivalent met de `^ wildcard`. <br/>Buiten een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | `*[!o]men.html*`<br/> Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Komt niet overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> Komt niet overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` of `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
+| `[ and ]` | Hiermee wordt het begin en einde van een tekenklasse gedemonstreerd. Tekenklassen kunnen een of meer tekenbereiken en enkele tekens bevatten.<br/>Een overeenkomst treedt op als het doelteken overeenkomt met een van de tekens in de tekenklasse of binnen een gedefinieerd bereik.<br/>Als de accolade sluiten niet is opgenomen, resulteert het patroon niet in overeenkomende waarden. | `*[o]men.html*`<br/> Komt overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>Deze komt niet overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` <br/>Komt overeen met de volgende HTTP-aanvragen: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `-` | Er wordt een reeks tekens aangegeven. Voor gebruik in tekenklassen. Buiten een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | `*[m-p]men.html*` Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>Deze komt niet overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
+| `!` | Hiermee wordt het volgende teken of de volgende tekenklasse genegeerd. Alleen gebruiken voor negerende tekens en tekenbereiken binnen tekenklassen. Equivalent met de `^ wildcard`. <br/>Buiten een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | `*[!o]men.html*`<br/> Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>Deze komt niet overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> Deze komt niet overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` of `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | Hiermee wordt het volgende teken- of tekenbereik genegeerd. Alleen gebruiken voor negatie van tekens en tekenbereiken binnen tekenklassen. Equivalent met de `!` jokerteken. <br/>Buiten een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | De voorbeelden van de `!` jokerteken is van toepassing en vervangt het `!` tekens in voorbeeldpatronen met `^` tekens. |
 
 
@@ -1727,16 +1727,16 @@ The following table describes the wildcard characters.
 
 ## Logboekregistratie {#logging}
 
-In de webserverconfiguratie kunt u instellen:
+In de de serverconfiguratie van het Web, kunt u plaatsen:
 
 * De locatie van het logbestand voor de verzending.
 * Het logniveau.
 
 Raadpleeg de documentatie bij de webserver en het Lees mij-bestand van de Dispatcher-instantie voor meer informatie.
 
-**Apache geroteerd / Logbestanden met pijplijnen**
+**Apache-logbestanden met rotatie of pijpleiding**
 
-Als u een **Apache** Webserver, kunt u de standaardfunctionaliteit voor geroteerde logboeken, of door buizen geleide logboeken, of allebei gebruiken. Bijvoorbeeld met behulp van stammen met buizen:
+Als u een **Apache** Webserver, kunt u de standaardfunctionaliteit voor de Omwentelingen van het Logboek, of Pijlt Logboeken, of allebei gebruiken. Bijvoorbeeld, het gebruiken van Pijl Logboeken:
 
 `DispatcherLog "| /usr/apache/bin/rotatelogs logs/dispatcher.log%Y%m%d 604800"`
 
@@ -1745,7 +1745,7 @@ Deze functionaliteit roteert automatisch:
 * het Dispatcher-logbestand, met een tijdstempel in de extensie (`logs/dispatcher.log%Y%m%d`).
 * wekelijks (60 x 60 x 24 x 7 = 604800 seconden).
 
-Raadpleeg de documentatie bij de Apache-webserver over Log Rotation en Piped Logs. Bijvoorbeeld: [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
+Zie de documentatie van de Server van het Web Apache op de Omwenteling van het Logboek en Pijl-Logboeken. Bijvoorbeeld: [Apache 2.4](https://httpd.apache.org/docs/2.4/logs.html).
 
 >[!NOTE]
 >
@@ -1780,7 +1780,7 @@ Hieronder ziet u een voorbeeld van logboeken waarin overtrekken is ingeschakeld:
 [Thu Mar 03 16:05:38 2016] [T] [17183] request.headers[Server-Agent] = "Communique-Dispatcher"
 ```
 
-En een gebeurtenis die wordt geregistreerd wanneer een dossier dat een het blokkeren regel aanpast wordt gevraagd:
+En een gebeurtenis wordt geregistreerd wanneer een dossier dat een blokkerende regel aanpast wordt gevraagd:
 
 ```xml
 [Thu Mar 03 14:42:45 2016] [T] [11831] 'GET /content.infinity.json HTTP/1.1' was blocked because of /0082
@@ -1849,38 +1849,38 @@ curl -v -H "X-Dispatcher-Info: true" https://localhost/content/wknd/us/en.html
 
 Hieronder ziet u een lijst met de antwoordheaders die `X-Dispatcher-Info` retourneert:
 
-* **caching**\
+* **doelbestand in cache geplaatst**\
   Het doelbestand bevindt zich in de cache en de Dispatcher heeft vastgesteld dat het geldig is om het te leveren.
 * **caching**\
   Het doelbestand bevindt zich niet in de cache en de Dispatcher heeft bepaald dat het geldig is om de uitvoer in cache te plaatsen en te leveren.
 * **caching: statusbestand is recenter**
-Het doelbestand bevindt zich in de cache, maar wordt ongeldig gemaakt door een recentere statusbestand. Dispatcher verwijdert het doelbestand, maakt het opnieuw van de uitvoer en levert het.
-* **niet in cache geplaatst: geen hoofdmap van document**
+Het doelbestand bevindt zich in de cache. Een recentere statusbestand kan de validatie echter wel ongedaan maken. Dispatcher verwijdert het doelbestand, maakt het opnieuw van de uitvoer en levert het.
+* **niet in cache geplaatst: hoofdmap van document bestaat niet**
 De configuratie van het landbouwbedrijf bevat geen documentwortel (configuratieelement `cache.docroot`).
 * **niet in cache geplaatst: pad naar cachebestand is te lang**\
   Het doelbestand - de samenvoeging van het hoofdbestand van het document en het URL-bestand - overschrijdt de langst mogelijke bestandsnaam op het systeem.
 * **niet in cache geplaatst: tijdelijk bestandspad is te lang**\
   De sjabloon voor tijdelijke bestandsnamen overschrijdt de langst mogelijke bestandsnaam op het systeem. Dispatcher maakt eerst een tijdelijk bestand voordat het in de cache opgeslagen bestand wordt gemaakt of overschreven. De tijdelijke bestandsnaam is de naam van het doelbestand met de tekens `_YYYYXXXXXX` toegevoegd, waarbij de `Y` en `X` worden vervangen om een unieke naam te maken.
-* **niet in cache geplaatst: verzoek-URL heeft geen extensie**\
+* **niet in cache geplaatst: aanvraag-URL ontbreekt extensie**\
   De aanvraag-URL heeft geen extensie of er is een pad dat volgt op de bestandsextensie, bijvoorbeeld: `/test.html/a/path`.
-* **niet cacheable: verzoek was geen GET of HEAD**
+* **niet cacheable: verzoek moest een GET of een HEAD zijn**
 De HTTP-methode is geen GET of HEAD. Dispatcher gaat ervan uit dat de uitvoer dynamische gegevens bevat die niet in de cache mogen worden opgeslagen.
 * **niet in cache geplaatst: verzoek bevat een queryreeks**\
   Het verzoek bevatte een queryreeks. Dispatcher veronderstelt dat de output van het gegeven vraagkoord afhangt en daarom niet geheim voorgeheugen plaatst.
-* **niet in cache geplaatst: sessiemanager is niet geverifieerd**\
-  Het geheime voorgeheugen van het landbouwbedrijf wordt geregeerd door een zittingsmanager (de configuratie bevat een `sessionmanagement` knoop) en het verzoek bevatte niet de aangewezen authentificatieinformatie.
+* **niet in cache geplaatst: sessiebeheer moet worden geverifieerd**\
+  Een sessiemanager (de configuratie bevat een `sessionmanagement` knoop) regeert het geheime voorgeheugen van het landbouwbedrijf en het verzoek bevatte niet de aangewezen authentificatieinformatie.
 * **niet in cache te plaatsen: aanvraag bevat vergunning**\
   Het landbouwbedrijf wordt niet toegestaan output ( `allowAuthorized 0`) en het verzoek bevat verificatiegegevens.
 * **niet in cache geplaatst: doel is een map**\
   Het doelbestand is een map. Deze locatie kan wijzen op een conceptuele fout, waarbij een URL en een subURL beide cacheable-uitvoer bevatten. Als een aanvraag bijvoorbeeld `/test.html/a/file.ext` komt eerst en bevat cacheable output, kan de Dispatcher niet de output van een volgend verzoek in het voorgeheugen onderbrengen aan `/test.html`.
 * **niet in cache geplaatst: verzoek-URL heeft een slash aan het einde**\
   De aanvraag-URL heeft een slash.
-* **niet in cache geplaatst: verzoek-URL niet in cacheregels**\
+* **niet in cache geplaatst: verzoek-URL ontbreekt in cacheregels**\
   De het geheime voorgeheugenregels van het landbouwbedrijf ontkennen uitdrukkelijk caching de output van één of ander verzoek URL.
 * **niet in cache geplaatst: controle van de vergunning geweigerd toegang**\
   De de vergunningscontrole van het landbouwbedrijf ontkende toegang tot het caching dossier.
-* **niet in cache geplaatst: sessie is niet geldig**
-Het geheime voorgeheugen van het landbouwbedrijf wordt geregeerd door een zittingsmanager (de configuratie bevat een `sessionmanagement` en de sessie van de gebruiker is niet of niet meer geldig.
+* **niet in cache geplaatst: sessie is ongeldig**
+Een sessiemanager (configuratie bevat een `sessionmanagement` node) regelt het cachegeheugen van de farm en de sessie van de gebruiker is niet of niet langer geldig.
 * **niet in cache geplaatst: reactie bevat`no_cache`**
 De externe server heeft een `Dispatcher: no_cache` header, waarbij de Dispatcher wordt verboden de uitvoer in cache te plaatsen.
 * **niet in cache geplaatst: lengte van reactieinhoud is nul**

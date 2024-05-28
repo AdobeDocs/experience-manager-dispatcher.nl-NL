@@ -1,13 +1,13 @@
 ---
 title: Overzicht van verzending
-description: Leer Dispatcher te gebruiken voor verbeterde beveiliging, caching en meer op AEM Cloud Servicen.
+description: Leer de Adobe Experience Manager Dispatcher te gebruiken voor betere beveiliging, caching en meer op AEM Cloud Servicen.
 pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
 workflow-type: tm+mt
-source-wordcount: '3058'
+source-wordcount: '3083'
 ht-degree: 0%
 
 ---
@@ -16,11 +16,11 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Dispatcher-versies zijn onafhankelijk van AEM. U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd die is ingesloten in de documentatie voor een vorige versie van AEM.
+>Verzendversies zijn onafhankelijk van AEM (Adobe Experience Manager). U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd. Die koppeling is ingesloten in de documentatie voor een vorige versie van AEM.
 
 Dispatcher is een Adobe Experience Manager-programma voor caching en taakverdeling dat wordt gebruikt met een webserver op bedrijfsniveau.
 
-Het implementatieproces voor Dispatcher is onafhankelijk van de webserver en het gekozen besturingssysteem:
+Het implementatieproces van de AEM Dispatcher is onafhankelijk van de webserver en het gekozen besturingssysteem:
 
 1. Meer informatie over Dispatcher (deze pagina). Zie ook [vaak gestelde vragen over Dispatcher](/help/using/dispatcher-faq.md).
 1. Een [ondersteunde webserver](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements) volgens de documentatie van de webserver.
@@ -30,7 +30,7 @@ Het implementatieproces voor Dispatcher is onafhankelijk van de webserver en het
 
 >[!NOTE]
 >
->Voor een beter inzicht in de werking van Dispatcher met AEM:
+>Voor een beter inzicht in de werking van de AEM Dispatcher met AEM:
 >
 >* Zie [Vraag de AEM communautaire deskundigen naar juli 2017](https://communities.adobeconnect.com/pf0gem7igw1f/).
 >* Toegang [deze opslagplaats](https://github.com/adobe/aem-dispatcher-experiments). Het bevat een verzameling experimenten in een &quot;home&quot;-laboratoriumformaat.
@@ -41,7 +41,7 @@ Gebruik de volgende informatie zoals vereist:
 * [De beveiligingscontrolelijst voor verzending](security-checklist.md)
 * [De Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html)
 * [Een website optimaliseren voor cacheprestaties](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
-* [Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md)
+* [De AEM Dispatcher gebruiken met Meerdere domeinen](dispatcher-domains.md)
 * [SSL gebruiken met Dispatcher](dispatcher-ssl.md)
 * [Het uitvoeren van Toestemming-Gevoelige Caching](permissions-cache.md)
 * [Problemen met verzending van problemen oplossen](dispatcher-troubleshooting.md)
@@ -51,7 +51,7 @@ Gebruik de volgende informatie zoals vereist:
 >
 >**De meest gebruikte toepassing van Dispatcher** is om reacties van een AEM in cache te plaatsen **publish-instantie** om de responsiviteit en beveiliging van uw externe website te vergroten. Het grootste deel van de discussie gaat over deze zaak.
 >
->Maar de Dispatcher kan ook worden gebruikt om de reactiesnelheid van uw **auteurinstantie**, vooral als u een groot aantal gebruikers hebt die uw website bewerken en bijwerken. Zie voor meer informatie over dit geval [Een Dispatcher gebruiken met een Auteur-server](#using-a-dispatcher-with-an-author-server), hieronder.
+>Maar de Dispatcher kan ook worden gebruikt om de reactiesnelheid van uw **auteurinstantie**. Dit is waar, vooral als u een groot aantal gebruikers hebt die uw website uitgeven en bijwerken. Zie voor meer informatie over dit geval [Een Dispatcher gebruiken met een Auteur-server](#using-a-dispatcher-with-an-author-server), hieronder.
 
 ## Waarom Dispatcher gebruiken om Caching uit te voeren? {#why-use-dispatcher-to-implement-caching}
 
@@ -81,7 +81,7 @@ In dit gedeelte worden de beginselen van dit proces toegelicht.
 
 Een statische webserver, zoals Apache of IIS, dient statische HTML-bestanden voor bezoekers van uw website. Statische pagina&#39;s worden één keer gemaakt, zodat voor elke aanvraag dezelfde inhoud wordt geleverd.
 
-Dit proces is eenvoudig en efficiënt. Als een bezoeker een bestand zoals een HTML-pagina aanvraagt, wordt het bestand rechtstreeks uit het geheugen genomen. In het slechtste geval wordt het bestand vanaf het lokale station gelezen. Statische webservers zijn al geruime tijd beschikbaar, dus er zijn een groot aantal tools voor beheer en beveiligingsbeheer, en ze zijn goed geïntegreerd met de netwerkinfrastructuur.
+Dit proces is eenvoudig en efficiënt. Als een bezoeker een bestand zoals een HTML-pagina aanvraagt, wordt het bestand rechtstreeks uit het geheugen genomen. In het slechtste geval wordt het bestand vanaf het lokale station gelezen. Statische webservers zijn al geruime tijd beschikbaar. Er is dus een breed scala aan instrumenten voor beheer en beveiliging. Deze hulpmiddelen zijn goed geïntegreerd met netwerkinfrastructuur.
 
 ### Servers voor inhoudsbeheer {#content-management-servers}
 
@@ -95,7 +95,7 @@ Met deze workflow kunt u rijkere, dynamische inhoud maken die de flexibiliteit e
 
 ![](assets/chlimage_1-5.png)
 
-**De cachemap** Voor caching, gebruikt de module van de Verzender de capaciteit van de Webserver om statische inhoud te dienen. De verzender plaatst de cachedocumenten in de documenthoofdmap van de webserver.
+**De cachemap** Voor caching, gebruikt de module van de Verzender de capaciteit van de Webserver om statische inhoud te dienen. De verzender plaatst de caching documenten in de wortel van de server van het Web.
 
 >[!NOTE]
 >
@@ -123,13 +123,13 @@ De Dispatcher beschikt over twee primaire methoden voor het bijwerken van de cac
 In een inhoudsupdate veranderen een of meer AEM documenten. AEM verzendt een syndicatieverzoek naar de Dispatcher, die het geheime voorgeheugen dienovereenkomstig bijwerkt:
 
 1. De gewijzigde bestanden worden uit de cache verwijderd.
-1. Alle bestanden die met dezelfde greep beginnen, worden uit de cache verwijderd. Als het bestand /en/index.html bijvoorbeeld wordt bijgewerkt, worden alle bestanden die beginnen met /nl/index weergegeven. worden geschrapt. Met dit mechanisme kunt u cacheefficiënte sites ontwerpen, met name voor afbeeldingsnavigatie.
+1. Alle bestanden die met dezelfde greep beginnen, worden uit de cache verwijderd. Als het bestand `/en/index.html` wordt bijgewerkt, alle bestanden waarmee wordt gestart `/en/index.` worden geschrapt. Met dit mechanisme kunt u cacheefficiënte sites ontwerpen, met name voor beeldnavigatie.
 1. IT *aanrakingen* de zogenaamde **statfile**, die de tijdstempel van het statusbestand bijwerkt om de datum van de laatste wijziging aan te geven.
 
 Er zij op gewezen dat:
 
-* Updates van inhoud worden doorgaans gebruikt met een ontwerpsysteem dat weet wat moet worden vervangen.
-* Bestanden die worden beïnvloed door een update van de inhoud, worden verwijderd, maar niet onmiddellijk vervangen. De volgende keer dat een dergelijk bestand wordt aangevraagd, haalt de Dispatcher het nieuwe bestand op van de AEM instantie en plaatst het in de cache, waardoor de oude inhoud wordt overschreven.
+* De Updates van de inhoud worden typisch gebruikt met een auteurssysteem dat &quot;weet&quot;wat moet worden vervangen.
+* Een inhoudsupdates die van invloed zijn op bestanden worden verwijderd, maar niet onmiddellijk vervangen. De volgende keer dat een dergelijk bestand wordt aangevraagd, haalt de AEM Dispatcher het nieuwe bestand op van de AEM instantie en plaatst het in de cache, waardoor de oude inhoud wordt overschreven.
 * Gewoonlijk worden automatisch gegenereerde afbeeldingen die tekst van een pagina bevatten, opgeslagen in afbeeldingsbestanden die beginnen met dezelfde greep, zodat de koppeling bestaat voor verwijdering. U kunt bijvoorbeeld de titeltekst van de pagina mypage.html opslaan als de afbeelding mypage.titlePicture.gif in dezelfde map. Op deze manier wordt de afbeelding automatisch uit de cache verwijderd telkens wanneer de pagina wordt bijgewerkt, zodat u zeker weet dat de afbeelding altijd de huidige versie van de pagina weerspiegelt.
 * U hebt mogelijk meerdere statfiles, bijvoorbeeld één per taalmap. Als een pagina wordt bijgewerkt, zoekt AEM naar de volgende bovenliggende map die een bestand met status bevat, en *aanrakingen* dat bestand.
 
@@ -157,7 +157,7 @@ U kunt [bepalen welke documenten de Dispatcher in de cache plaatst in het config
 
 In de volgende gevallen wordt het document altijd rechtstreeks opgevraagd bij het AEM:
 
-* De aanvraag-URI bevat een vraagteken &quot;`?`&quot;. Dit scenario geeft meestal een dynamische pagina aan, zoals een zoekresultaat, dat niet in de cache hoeft te worden opgeslagen.
+* De aanvraag-URI bevat een vraagteken `?`. Dit scenario geeft meestal een dynamische pagina aan, zoals een zoekresultaat, dat niet in de cache hoeft te worden opgeslagen.
 * De bestandsextensie ontbreekt. De webserver heeft de extensie nodig om het documenttype (het MIME-type) te bepalen.
 * De verificatieheader wordt ingesteld (configureerbaar).
 
@@ -205,7 +205,7 @@ Als de Dispatcher geen reacties van een instantie ontvangt, worden aanvragen aut
 
 >[!CAUTION]
 >
->Hoewel één enkele Dispatcher de capaciteit van de beschikbare Publish instanties kan verzadigen, voor sommige zeldzame toepassingen kan het zinvol zijn om de lading tussen twee instanties van de Verzender ook in evenwicht te brengen. Configuraties met meerdere verzenders moeten zorgvuldig worden overwogen, omdat een extra verzender de belasting van de beschikbare publicatie-exemplaren kan verhogen en de prestaties in de meeste toepassingen gemakkelijk kan verlagen.
+>Hoewel één enkele Dispatcher de capaciteit van de beschikbare Publish instanties kan verzadigen, voor sommige zeldzame toepassingen kan het ook zinvol zijn om de lading tussen twee instanties van de Verzender in evenwicht te brengen. Configuraties met meerdere verzenders moeten zorgvuldig worden overwogen. De reden hiervoor is dat een extra Dispatcher de belasting van de beschikbare publicatie-exemplaren kan verhogen en de prestaties in de meeste toepassingen gemakkelijk kan verlagen.
 
 ## Hoe de Dispatcher de taakverdeling uitvoert {#how-the-dispatcher-performs-load-balancing}
 
@@ -221,7 +221,7 @@ Als u een uitgebreide zoekfunctie gebruikt, kunt u een categorie voor zoekopdrac
 
 De stevige verbindingen zorgen ervoor dat de documenten voor één gebruiker allen op de zelfde instantie van AEM samengesteld zijn. Dit punt is belangrijk als u gepersonaliseerde pagina&#39;s en zittingsgegevens gebruikt. De gegevens worden opgeslagen op de instantie, zodat de verdere verzoeken van de zelfde gebruiker aan die instantie moeten terugkeren of het gegeven wordt verloren.
 
-Omdat de kleverige verbindingen de capaciteit van de Dispatcher beperken om de verzoeken te optimaliseren, zou u hen slechts moeten gebruiken wanneer nodig. U kunt de map opgeven die de &quot;plakke&quot; documenten bevat, zodat alle documenten in die map op hetzelfde exemplaar voor elke gebruiker worden samengesteld.
+Omdat de kleverige verbindingen de capaciteit van de Dispatcher beperken om de verzoeken te optimaliseren, zou u hen slechts moeten gebruiken wanneer nodig. U kunt de map opgeven die de &quot;plakke&quot; documenten bevat, zodat alle documenten in die map in dezelfde instantie voor elke gebruiker worden samengesteld.
 
 >[!NOTE]
 >
@@ -245,12 +245,12 @@ Een CDN (Content Delivery Network), zoals Akamai Edge Delivery of Amazon Cloud F
 * zorgt voor snellere responstijden voor eindgebruikers
 * start het laden van uw servers
 
-Als de infrastructuurcomponent van HTTP, werkt een CDN heel erg zoals Dispatcher. Wanneer een knoop CDN een verzoek ontvangt, dient het het verzoek van zijn geheime voorgeheugen, indien mogelijk (het middel is beschikbaar in het geheime voorgeheugen en is geldig). Anders, bereikt het uit aan de volgende dichtstbijzijnde server om het middel terug te winnen en het voor verdere verzoeken in het voorgeheugen onder te brengen indien aangewezen.
+Als een HTTP-infrastructuurcomponent werkt een CDN ongeveer als een Dispatcher. Wanneer een knoop CDN een verzoek ontvangt, dient het het verzoek van zijn geheime voorgeheugen, indien mogelijk (het middel is beschikbaar in het geheime voorgeheugen en is geldig). Anders, bereikt het uit aan de volgende dichtstbijzijnde server om het middel terug te winnen en het voor verdere verzoeken in het voorgeheugen onder te brengen indien aangewezen.
 
 De &quot;eerstvolgende dichtstbijzijnde server&quot; is afhankelijk van uw specifieke installatie. In een Akamai-configuratie kan het verzoek bijvoorbeeld het volgende pad volgen:
 
 * Het Edge-knooppunt Akamai
-* De laag Akamai Midgres
+* De Midgress-laag van Akamai
 * Uw firewall
 * Uw taakverdelingsmechanisme
 * Dispatcher
@@ -273,9 +273,9 @@ Er zijn verscheidene manieren om te controleren hoe lang een CDN een middel in h
 1. Op API gebaseerde validatie\
    De meeste CDN&#39;s bieden ook een REST- en/of SOAP-API waarmee bronnen uit de cache kunnen worden verwijderd.
 
-In een typisch AEM opstelling, biedt de configuratie door uitbreiding, door weg, of door allebei-die door punten 1 en 2 hierboven kan worden bereikt mogelijkheden om redelijke caching periodes te plaatsen. Dit wordt gedaan voor vaak gebruikte middelen die niet vaak veranderen. Voorbeelden hiervan zijn ontwerpafbeeldingen en clientbibliotheken. Wanneer de nieuwe versies worden opgesteld, typisch wordt een handongeldigverklaring vereist.
+In een standaard AEM configuratie door uitbreiding, door weg, of door allebei - die door punten 1 en 2 hierboven kan worden bereikt - biedt mogelijkheden om redelijke caching periodes te plaatsen. Deze cacheperioden gelden voor vaak gebruikte bronnen die niet vaak worden gewijzigd, zoals ontwerpafbeeldingen en clientbibliotheken. Wanneer de nieuwe versies worden opgesteld, typisch wordt een handongeldigverklaring vereist.
 
-Als deze benadering wordt gebruikt om beheerde inhoud in het voorgeheugen onder te brengen, impliceert het dat de inhoudsveranderingen slechts aan eind zichtbaar zijn - gebruikers zodra de gevormde caching periode is verlopen en het document opnieuw van Dispatcher wordt opgehaald.
+Als deze benadering wordt gebruikt om beheerde inhoud in het voorgeheugen onder te brengen, impliceert het dat de inhoudsveranderingen slechts aan eind - gebruikers zichtbaar zijn zodra de gevormde caching periode is verlopen. En wanneer het document weer van Dispatcher wordt opgehaald.
 
 Voor fijnere controle, op API-Gebaseerde ongeldigheid laat u het geheime voorgeheugen van een CDN ongeldig maken aangezien het geheime voorgeheugen van de Verzender ongeldig wordt gemaakt. Gebaseerd op CDNs API, kunt u uw uitvoeren [ContentBuilder](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/ContentBuilder.html) en [TransportHandler](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/TransportHandler.html) (als de API niet op REST gebaseerd is), en opstelling een Agent van de Replicatie die deze stukken gebruikt om het geheime voorgeheugen van CDN ongeldig te maken.
 
@@ -301,7 +301,7 @@ Een Dispatcher kan vóór een auteurinstantie worden gebruikt om auteursprestati
 
 1. Een Dispatcher installeren op een webserver (een Apache- of IIS-webserver, zie [Dispatcher installeren](dispatcher-install.md)).
 1. Test de nieuw geïnstalleerde Dispatcher tegen een werkende AEM publicatieinstantie. Zo weet u zeker dat een correcte installatie op de basislijn is uitgevoerd.
-1. Zorg nu dat de Dispatcher via TCP/IP verbinding kan maken met uw auteurinstantie.
+1. Zorg ervoor dat de Dispatcher via TCP/IP verbinding kan maken met uw auteurinstantie.
 1. Het voorbeeld vervangen `dispatcher.any` met de `author_dispatcher.any` het dossier van [Downloaden van Dispatcher](release-notes.md#downloads).
 1. Open de `author_dispatcher.any` in een teksteditor en breng de volgende wijzigingen aan:
 
@@ -314,7 +314,7 @@ Een Dispatcher kan vóór een auteurinstantie worden gebruikt om auteursprestati
 
 >[!NOTE]
 >
->Met de verstrekte `author_dispatcher.any` configuratie, wanneer u een pakket met CQ5-functies, hotfix of toepassingscode installeert dat invloed heeft op inhoud onder `/libs` of `/apps`, moet u de cachebestanden onder deze mappen in de Dispatcher-cache verwijderen. Dit zorgt ervoor dat de volgende keer dat ze worden opgevraagd, de nieuw bijgewerkte bestanden worden opgehaald en niet de oude in de cache opgeslagen bestanden.
+>Met de verstrekte `author_dispatcher.any` configuratie, wanneer u een pakket met CQ5-functies, hotfix of toepassingscode installeert dat invloed heeft op inhoud onder `/libs` of `/apps`, moet u de cachebestanden verwijderen. De bestanden bevinden zich onder deze mappen in de cache van de Dispatcher. Dit zorgt ervoor dat de volgende keer dat ze worden opgevraagd, de nieuw bijgewerkte bestanden worden opgehaald en niet de oude in de cache opgeslagen bestanden.
 
 >[!CAUTION]
 >

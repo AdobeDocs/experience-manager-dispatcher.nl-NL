@@ -9,9 +9,9 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
 workflow-type: tm+mt
-source-wordcount: '538'
+source-wordcount: '539'
 ht-degree: 0%
 
 ---
@@ -20,9 +20,9 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->De versies van de Verzender zijn onafhankelijk van AEM, nochtans wordt de documentatie van de Verzender ingebed in de AEM documentatie. Gebruik altijd de Dispatcher-documentatie die is ingesloten in de documentatie voor de meest recente versie van AEM.
+>Dispatcher-versies zijn onafhankelijk van AEM. De Dispatcher-documentatie is echter ingesloten in de AEM documentatie. Gebruik altijd de Dispatcher-documentatie die is ingesloten in de documentatie voor de meest recente versie van AEM.
 >
->U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd die is ingesloten in de documentatie voor een vorige versie van AEM.
+>U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd. Deze koppeling is ingesloten in de documentatie voor een vorige versie van AEM.
 
 >[!NOTE]
 >
@@ -30,7 +30,7 @@ ht-degree: 0%
 
 ## Controleer de basisconfiguratie {#check-the-basic-configuration}
 
-Zoals altijd zijn de eerste stappen het controleren van de grondbeginselen:
+Zoals altijd, zijn de eerste stappen de grondbeginselen te controleren:
 
 * [Basisbewerking bevestigen](/help/using/dispatcher-configuration.md#confirming-basic-operation)
 * Controleer alle logbestanden op uw webserver en Dispatcher. Indien nodig, verhoog de dosis `loglevel` gebruikt voor de Dispatcher [logboekregistratie](/help/using/dispatcher-configuration.md#logging).
@@ -78,7 +78,7 @@ Problemen bij het verwijderen van workflowmodellen wanneer een AEM auteur-instan
 
 1. Klikken **Ja** ter bevestiging.
 1. Er wordt een foutbericht weergegeven met het volgende:\
-   &quot; `ERROR 'Could not delete workflow model!!`&quot;.
+   `ERROR 'Could not delete workflow model!!`.
 
 **Resolutie**
 
