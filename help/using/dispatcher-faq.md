@@ -2,9 +2,9 @@
 title: Meestvoorkomende problemen met Dispatcher
 description: Frequente problemen met Adobe Experience Manager Dispatcher.
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '1542'
+source-wordcount: '1547'
 ht-degree: 0%
 
 ---
@@ -17,13 +17,13 @@ ht-degree: 0%
 
 ### Wat is de Dispatcher?
 
-Dispatcher is een Adobe Experience Manager-programma voor het in cache plaatsen en/of taakverdeling dat helpt een snelle en dynamische webontwerpomgeving te realiseren. Voor caching, werkt de Dispatcher als deel van een server van HTTP, zoals Apache. Het heeft als doel de statische website-inhoud zo veel mogelijk op te slaan (of in cache te plaatsen) en zo weinig mogelijk toegang te krijgen tot de lay-out van de website-engine. In een lading-in evenwicht brengende rol, verspreidt de Dispatcher gebruikersverzoeken (lading) over verschillende AEM instanties (teruggeeft).
+Dispatcher is Adobe Experience Manager-caching, of taakverdelingsprogramma, of beide, die helpen een snelle en dynamische Web-authoringomgeving te realiseren. Voor caching, werkt de Dispatcher als deel van een server van HTTP, zoals Apache. Het heeft als doel om zoveel mogelijk statische website-inhoud op te slaan (of in cache te plaatsen). En de lay-out van de website-engine zo weinig mogelijk openen. In een lading-in evenwicht brengende rol, verspreidt de Dispatcher gebruikersverzoeken (lading) over verschillende AEM instanties (teruggeeft).
 
-Voor caching, gebruikt de module van de Verzender de capaciteit van de server van het Web om statische inhoud te dienen. De verzender plaatst de caching documenten in de documentwortel van de server van het Web.
+Voor caching, gebruikt de module van de Verzender de capaciteit van de server van het Web om statische inhoud te dienen. De verzender plaatst de caching documenten bij de documentwortel op de server van het Web.
 
 ### Hoe voert de Dispatcher caching uit?
 
-Dispatcher gebruikt de mogelijkheid van de webserver om statische inhoud te leveren. De Dispatcher slaat cachedocumenten op in de hoofdmap van het document van de webserver. De Dispatcher beschikt over twee primaire methoden voor het bijwerken van de cacheinhoud wanneer wijzigingen in de website worden aangebracht.
+Dispatcher gebruikt de mogelijkheid van de webserver om statische inhoud te leveren. Dispatcher slaat caching documenten bij de documentwortel op de server van het Web op. De Dispatcher beschikt over twee primaire methoden voor het bijwerken van de cacheinhoud wanneer wijzigingen in de website worden aangebracht.
 
 * **Updates van inhoud** de gewijzigde pagina&#39;s en de bestanden die er direct aan zijn gekoppeld, verwijderen.
 * **Automatische validatie** maakt automatisch de delen van het cachegeheugen ongeldig die na een update mogelijk verouderd zijn. Zo worden relevante pagina&#39;s bijvoorbeeld als verouderd gemarkeerd zonder dat er iets wordt verwijderd.
@@ -70,7 +70,7 @@ Lezen [Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md) voor n
 
 U kunt de [kleverige verbindingen](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor) -functie, die ervoor zorgt dat alle documenten voor een gebruiker op hetzelfde AEM worden verwerkt. Deze functie is belangrijk als u persoonlijke pagina&#39;s en sessiegegevens gebruikt. De gegevens worden opgeslagen op de instantie. Daarom moeten de verdere verzoeken van de zelfde gebruiker aan die instantie terugkeren of het gegeven wordt verloren.
 
-Omdat de kleverige verbindingen de capaciteit van de Verzender beperken om verzoeken te optimaliseren, zou u deze benadering slechts wanneer noodzakelijk moeten gebruiken. U kunt de map opgeven die de &quot;plakke&quot; documenten bevat, zodat alle documenten in die map op hetzelfde exemplaar voor een gebruiker worden verwerkt.
+Omdat de kleverige verbindingen de capaciteit van de Verzender beperken om verzoeken te optimaliseren, zou u deze benadering slechts wanneer noodzakelijk moeten gebruiken. U kunt de map opgeven die de &quot;plakke&quot; documenten bevat, zodat alle documenten in die map in hetzelfde exemplaar voor een gebruiker worden verwerkt.
 
 ### Kan ik kleverige verbindingen en caching in combinatie gebruiken?
 
@@ -119,7 +119,7 @@ Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) en 
 
 ### Uitgave van verzending `jcr:content` gewijzigd in `jcr%3acontent`
 
-**Vraag**: De onderneming heeft onlangs een probleem op het niveau van de Verzender geconfronteerd. Een van de AJAX die gegevens van de CQ-gegevensopslagplaats kreeg, had `jcr:content` erin. Dat is gecodeerd naar `jcr%3acontent` resulterend in die verkeerde resultaatreeks.
+**Vraag**: De onderneming heeft onlangs een probleem op het niveau van de Verzender geconfronteerd. Een van de AJAX die bepaalde gegevens van de CQ-gegevensopslagplaats kreeg, had `jcr:content` erin. Dat is gecodeerd naar `jcr%3acontent` resulterend in die verkeerde resultaatreeks.
 
 **Antwoord**: Gebruik `ResourceResolver.map()` methode om een &#39;Vriendelijke&#39; URL te gebruiken/uitgegeven krijgen verzoeken van en ook om de caching kwestie met Dispatcher op te lossen. De methode map() codeert de `:` dubbelepunt naar onderstrepingstekens en de methode resolve() decodeert deze terug naar de leesbare indeling SLING JCR. Gebruik de methode map() om de URL te genereren die wordt gebruikt in de Ajax-aanroep.
 
@@ -139,12 +139,13 @@ Als de bewerkingen Verwijderen ertoe leiden dat de Dispatcher leegloopt, [gebrui
 
 ### Hoe kan ik DAM-elementen uit de Dispatcher-cache verwijderen?
 
-U kunt de functie voor ketenreplicatie gebruiken. Met deze toegelaten eigenschap, verzendt de de flush agent van de Verzender een spoelverzoek wanneer een replicatie van auteur wordt ontvangen.
+U kunt de functie voor ketenreplicatie gebruiken. Met deze toegelaten eigenschap, verzendt de de flush agent van de Verzender een spoelverzoek wanneer een replicatie van de instantie van de Auteur wordt ontvangen.
 
 U schakelt dit als volgt in:
 
 1. [Voer hier de stappen uit](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) spoelmiddelen maken bij publicatie
-1. Ga naar de configuratie van elke agent en op **Triggers** tabblad, controleert u de **Bij ontvangst** doos.
+1. Ga naar de configuratie van elke agent.
+1. Op de **Triggers** tabblad, controleert u de **Bij ontvangst** doos.
 
 ## Overige
 

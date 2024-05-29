@@ -1,6 +1,6 @@
 ---
 title: SSL gebruiken met Dispatcher
-description: Leer hoe u Dispatcher configureert voor communicatie met AEM via SSL-verbindingen.
+description: Leer hoe te om de Dispatcher te vormen om met AEM te communiceren gebruikend SSL verbindingen.
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
@@ -9,16 +9,16 @@ index: y
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '1302'
+source-wordcount: '1310'
 ht-degree: 0%
 
 ---
 
 # SSL gebruiken met Dispatcher {#using-ssl-with-dispatcher}
 
-Gebruik SSL-verbindingen tussen Dispatcher en de renderingcomputer:
+Gebruik SSL-verbindingen tussen de Dispatcher en de renderingcomputer:
 
 * [Eenvoudige SSL](#use-ssl-when-dispatcher-connects-to-aem)
 * [Wederzijdse SSL](#configuring-mutual-ssl-between-dispatcher-and-aem)
@@ -29,7 +29,7 @@ Gebruik SSL-verbindingen tussen Dispatcher en de renderingcomputer:
 
 ## SSL gebruiken wanneer Dispatcher verbinding maakt met AEM {#use-ssl-when-dispatcher-connects-to-aem}
 
-Configureer Dispatcher voor communicatie met de AEM- of CQ-renderinstantie met behulp van SSL-verbindingen.
+Configureer de Dispatcher om te communiceren met de AEM- of CQ-renderinstantie met behulp van SSL-verbindingen.
 
 Voordat u Dispatcher configureert, configureert u AEM of CQ om SSL te gebruiken:
 
@@ -117,11 +117,11 @@ Het volgende voorbeeld `dispatcher.any` Het bestand bevat de eigenschapwaarden v
 Als u Wederzijdse SSL wilt gebruiken, configureert u de verbindingen tussen Dispatcher en de rendercomputer (doorgaans een AEM- of CQ-publicatie-instantie):
 
 * Dispatcher maakt verbinding met de renderinstantie via SSL.
-* De renderinstantie verifieert de geldigheid van het certificaat van Dispatcher.
+* De renderinstantie verifieert de geldigheid van het certificaat van de Verzender.
 * Dispatcher controleert of de CA van het certificaat van de renderinstantie vertrouwd is.
 * (Optioneel) Dispatcher controleert of het certificaat van de renderinstantie overeenkomt met het serveradres van de renderinstantie.
 
-Voor het configureren van wederzijdse SSL hebt u certificaten nodig die zijn ondertekend door een vertrouwde certificeringsinstantie (CA). Zelfondertekende certificaten zijn niet geschikt. U kunt of als CA dienst doen of de diensten van derde CA gebruiken om uw certificaten te ondertekenen. Voor het configureren van wederzijdse SSL hebt u de volgende items nodig:
+Voor het configureren van wederzijdse SSL hebt u certificaten nodig die zijn ondertekend met een vertrouwde certificeringsinstantie (CA). Zelfondertekende certificaten zijn niet geschikt. U kunt of als CA dienst doen of de diensten van derde CA gebruiken om uw certificaten te ondertekenen. Voor het configureren van wederzijdse SSL hebt u de volgende items nodig:
 
 * Ondertekende certificaten voor de renderinstantie en de Dispatcher
 * Het certificaat van CA (als u als CA dienst doet)
@@ -130,8 +130,8 @@ Voor het configureren van wederzijdse SSL hebt u certificaten nodig die zijn ond
 Voer de volgende stappen uit om wederzijdse SSL te configureren:
 
 1. [Installeren](dispatcher-install.md) de nieuwste versie van Dispatcher voor uw platform. Gebruik een binaire Dispatcher die SSL ondersteunt (SSL staat in de bestandsnaam), zoals `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`).
-1. [Certificaat met CA-handtekening maken of verkrijgen](dispatcher-ssl.md#main-pars-title-3) voor Dispatcher en de render-instantie.
-1. [Een sleutelarchief met een rendercertificaat maken](dispatcher-ssl.md#main-pars-title-6) en configureer de dienst van HTTP van render.
+1. [Een met CA ondertekend certificaat maken of verkrijgen](dispatcher-ssl.md#main-pars-title-3) voor de Dispatcher en de render-instantie.
+1. [Een sleutelarchief maken met het rendercertificaat](dispatcher-ssl.md#main-pars-title-6) en configureer de dienst van HTTP van render.
 1. [De webservermodule Dispatcher configureren](dispatcher-ssl.md#main-pars-title-4) voor wederzijdse SSL.
 
 ### Certificaten met CA-handtekening maken of verkrijgen {#creating-or-obtaining-ca-signed-certificates}
@@ -157,7 +157,7 @@ Als u als CA handelt, gebruik [OpenSSL](https://www.openssl.org/) om de certific
 
 Gebruik OpenSSL om de certificaataanvragen te maken die u naar de derde CA wilt verzenden of die u met uw CA wilt ondertekenen.
 
-Wanneer u een certificaat maakt, gebruikt OpenSSL de eigenschap Common Name om de certificaathouder te identificeren. Voor het certificaat van de renderinstantie, gebruik de de gastheernaam van de instantiecomputer als Gemeenschappelijke Naam als u Verzender vormt om het certificaat goed te keuren. Doe dit slechts als het hostname van de het Publiceren instantie aanpast. Zie de [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) eigenschap.
+Wanneer u een certificaat maakt, gebruikt OpenSSL de eigenschap Common Name om de certificaathouder te identificeren. Voor het certificaat van de renderinstantie, gebruik de de gastheernaam van de instantiecomputer als Gemeenschappelijke Naam als u Verzender vormt om het certificaat goed te keuren. Voer deze procedure alleen uit als deze overeenkomt met de hostnaam van de instantie Publishing. Zie de [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) eigenschap.
 
 1. Open een terminal en wijzig de huidige map in de map met het CH.sh-bestand van uw OpenSSL-bibliotheken.
 1. Voer de volgende opdracht in en geef waarden op wanneer u hierom wordt gevraagd. Indien nodig, gebruik de gastheernaam van de het publiceren instantie als Gemeenschappelijke Naam. De gastheernaam is DNS-oplosbare naam voor het IP adres van teruggeven:
@@ -286,7 +286,7 @@ Combineer het Dispatcher-certificaat en de niet-gecodeerde persoonlijke sleutel 
 Voeg de volgende eigenschappen toe aan de [Configuratie van de module Dispatcher](dispatcher-install.md#main-pars-55-35-1022) (in `httpd.conf`):
 
 * `DispatcherCertificateFile`: Het pad naar het uniforme certificaatbestand van Dispatcher dat het openbare certificaat en de niet-gecodeerde persoonlijke sleutel bevat. Dit bestand wordt gebruikt wanneer de SSL-server om het Dispatcher-clientcertificaat vraagt.
-* `DispatcherCACertificateFile`: Het pad naar het CA-certificaatbestand dat wordt gebruikt als de SSL-server een CA presenteert die niet wordt vertrouwd door een basisinstantie.
+* `DispatcherCACertificateFile`: Het pad naar het CA-certificaatbestand. Wordt gebruikt als de SSL-server een CA presenteert die een basisinstantie niet vertrouwt.
 * `DispatcherCheckPeerCN`: Of moet worden ingeschakeld ( `On`) of uitschakelen ( `Off`) hostnaam controleren op externe servercertificaten.
 
 De volgende code is een voorbeeldconfiguratie:

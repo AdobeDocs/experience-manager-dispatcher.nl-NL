@@ -1,13 +1,13 @@
 ---
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '72'
+source-wordcount: '70'
 ht-degree: 0%
 
 ---
-# Adobe Experience Manager Dispatcher Documentation
+# Adobe Experience Manager-patroondetectie
 
-Dit is de opslagplaats voor de documentatie van Adobe Experience Manager Dispatcher.
+Deze opslagplaats voor Adobe Experience Manager Pattern Detection.
 
 Uw bijdragen aan de documentatie zijn welkom. Zie de volgende bronnen:
 

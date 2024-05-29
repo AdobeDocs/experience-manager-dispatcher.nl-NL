@@ -9,9 +9,9 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '1411'
+source-wordcount: '1407'
 ht-degree: 0%
 
 ---
@@ -124,11 +124,11 @@ Na het vormen, wanneer u een pagina van auteur activeert om te publiceren, stelt
 
 Als u de Dispatcher-cache ongeldig wilt maken (of wilt leegmaken) zonder een pagina te activeren, kunt u een HTTP-aanvraag naar de Dispatcher verzenden. U kunt bijvoorbeeld een AEM maken waarmee beheerders of andere toepassingen de cache kunnen leegmaken.
 
-Door de HTTP-aanvraag verwijdert de AEM Dispatcher specifieke bestanden uit de cache. De Dispatcher vernieuwt desgewenst de cache met een nieuwe kopie.
+De HTTP-aanvraag zorgt ervoor dat de Dispatcher specifieke bestanden uit de cache verwijdert. De Dispatcher vernieuwt desgewenst de cache met een nieuwe kopie.
 
 ### In cache opgeslagen bestanden verwijderen {#delete-cached-files}
 
-Geef een HTTP- verzoek uit dat de AEM Dispatcher ertoe brengt om dossiers van het geheime voorgeheugen te schrappen. Dispatcher plaatst de bestanden alleen opnieuw in het cachegeheugen als het een clientverzoek voor de pagina ontvangt. Het verwijderen van cachebestanden op deze manier is geschikt voor websites die waarschijnlijk geen gelijktijdige aanvragen voor dezelfde pagina ontvangen.
+Geef een HTTP- verzoek uit dat de Dispatcher ertoe brengt om dossiers van het geheime voorgeheugen te schrappen. Dispatcher plaatst de bestanden alleen opnieuw in het cachegeheugen als het een clientverzoek voor de pagina ontvangt. Het verwijderen van cachebestanden op deze manier is geschikt voor websites die waarschijnlijk geen gelijktijdige aanvragen voor dezelfde pagina ontvangen.
 
 De HTTP-aanvraag heeft de volgende vorm:
 
@@ -151,7 +151,7 @@ De ongeldigmaking (namelijk het aanraken van .stat dossiers) kan worden verhinde
 
 ### Bestanden verwijderen en opnieuw plaatsen {#delete-and-recache-files}
 
-Geef een HTTP-aanvraag uit die ervoor zorgt dat de AEM Dispatcher cachebestanden verwijdert en het bestand direct ophaalt en opnieuw plaatst. U kunt bestanden verwijderen en onmiddellijk opnieuw in cache plaatsen wanneer websites waarschijnlijk gelijktijdige clientverzoeken voor dezelfde pagina ontvangen. Onmiddellijk het recaching zorgt ervoor dat de Dispatcher de pagina terugwint en in het voorgeheugen onderbrengt slechts één keer, in plaats van één voor elk van de gelijktijdige cliëntverzoeken.
+Geef een HTTP-aanvraag uit die ervoor zorgt dat de Dispatcher in het cachebestand opgeslagen bestanden verwijdert en het bestand direct ophaalt en opnieuw plaatst. U kunt bestanden verwijderen en onmiddellijk opnieuw in cache plaatsen wanneer websites waarschijnlijk gelijktijdige clientverzoeken voor dezelfde pagina ontvangen. Onmiddellijk het recaching zorgt ervoor dat de Dispatcher de pagina terugwint en in het voorgeheugen onderbrengt slechts één keer, in plaats van één voor elk van de gelijktijdige cliëntverzoeken.
 
 **Opmerking:** Het verwijderen en in de cache plaatsen van bestanden mag alleen op de publicatie-instantie worden uitgevoerd. Wanneer uitgevoerd vanaf de auteurinstantie, komen de rasvoorwaarden voor wanneer pogingen om middelen terug te winnen voorkomen alvorens zij zijn gepubliceerd.
 
@@ -185,7 +185,7 @@ Content-Length: 36
 
 De volgende code implementeert een servlet die een validatieverzoek naar Dispatcher verzendt. servlet ontvangt een verzoekbericht dat bevat `handle` en `page` parameters. Deze parameters geven de waarde van de `CQ-Handle` en het pad van de pagina naar de rechthoek. De servlet gebruikt de waarden om de HTTP- aanvraag voor Dispatcher samen te stellen.
 
-Wanneer servlet aan de publicatieinstantie wordt opgesteld, veroorzaakt volgende URL de AEM Dispatcher om de /content/geometrixx-outdoors/en.html pagina te schrappen en dan een nieuw exemplaar in het voorgeheugen onder te brengen.
+Wanneer servlet aan de publicatieinstantie wordt opgesteld, veroorzaakt volgende URL de Dispatcher om de /content/geometrixx-outdoors/en.html pagina te schrappen en dan een nieuw exemplaar in het voorgeheugen onder te brengen.
 
 `10.36.79.223:4503/bin/flushcache/html?page=/content/geometrixx-outdoors/en.html&handle=/content/geometrixx-outdoors/en/men.html`
 

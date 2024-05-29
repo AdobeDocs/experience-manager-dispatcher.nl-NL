@@ -5,9 +5,9 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '3083'
+source-wordcount: '3079'
 ht-degree: 0%
 
 ---
@@ -20,7 +20,7 @@ ht-degree: 0%
 
 Dispatcher is een Adobe Experience Manager-programma voor caching en taakverdeling dat wordt gebruikt met een webserver op bedrijfsniveau.
 
-Het implementatieproces van de AEM Dispatcher is onafhankelijk van de webserver en het gekozen besturingssysteem:
+Het implementatieproces van de Dispatcher is onafhankelijk van de webserver en het gekozen besturingssysteem:
 
 1. Meer informatie over Dispatcher (deze pagina). Zie ook [vaak gestelde vragen over Dispatcher](/help/using/dispatcher-faq.md).
 1. Een [ondersteunde webserver](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements) volgens de documentatie van de webserver.
@@ -30,7 +30,7 @@ Het implementatieproces van de AEM Dispatcher is onafhankelijk van de webserver 
 
 >[!NOTE]
 >
->Voor een beter inzicht in de werking van de AEM Dispatcher met AEM:
+>Voor een beter inzicht in de manier waarop de Dispatcher werkt met AEM:
 >
 >* Zie [Vraag de AEM communautaire deskundigen naar juli 2017](https://communities.adobeconnect.com/pf0gem7igw1f/).
 >* Toegang [deze opslagplaats](https://github.com/adobe/aem-dispatcher-experiments). Het bevat een verzameling experimenten in een &quot;home&quot;-laboratoriumformaat.
@@ -41,7 +41,7 @@ Gebruik de volgende informatie zoals vereist:
 * [De beveiligingscontrolelijst voor verzending](security-checklist.md)
 * [De Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html)
 * [Een website optimaliseren voor cacheprestaties](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
-* [De AEM Dispatcher gebruiken met Meerdere domeinen](dispatcher-domains.md)
+* [Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md)
 * [SSL gebruiken met Dispatcher](dispatcher-ssl.md)
 * [Het uitvoeren van Toestemming-Gevoelige Caching](permissions-cache.md)
 * [Problemen met verzending van problemen oplossen](dispatcher-troubleshooting.md)
@@ -129,7 +129,7 @@ In een inhoudsupdate veranderen een of meer AEM documenten. AEM verzendt een syn
 Er zij op gewezen dat:
 
 * De Updates van de inhoud worden typisch gebruikt met een auteurssysteem dat &quot;weet&quot;wat moet worden vervangen.
-* Een inhoudsupdates die van invloed zijn op bestanden worden verwijderd, maar niet onmiddellijk vervangen. De volgende keer dat een dergelijk bestand wordt aangevraagd, haalt de AEM Dispatcher het nieuwe bestand op van de AEM instantie en plaatst het in de cache, waardoor de oude inhoud wordt overschreven.
+* Een inhoudsupdates die van invloed zijn op bestanden worden verwijderd, maar niet onmiddellijk vervangen. De volgende keer dat een dergelijk bestand wordt aangevraagd, haalt de Dispatcher het nieuwe bestand op van de AEM instantie en plaatst het in de cache, waardoor de oude inhoud wordt overschreven.
 * Gewoonlijk worden automatisch gegenereerde afbeeldingen die tekst van een pagina bevatten, opgeslagen in afbeeldingsbestanden die beginnen met dezelfde greep, zodat de koppeling bestaat voor verwijdering. U kunt bijvoorbeeld de titeltekst van de pagina mypage.html opslaan als de afbeelding mypage.titlePicture.gif in dezelfde map. Op deze manier wordt de afbeelding automatisch uit de cache verwijderd telkens wanneer de pagina wordt bijgewerkt, zodat u zeker weet dat de afbeelding altijd de huidige versie van de pagina weerspiegelt.
 * U hebt mogelijk meerdere statfiles, bijvoorbeeld één per taalmap. Als een pagina wordt bijgewerkt, zoekt AEM naar de volgende bovenliggende map die een bestand met status bevat, en *aanrakingen* dat bestand.
 

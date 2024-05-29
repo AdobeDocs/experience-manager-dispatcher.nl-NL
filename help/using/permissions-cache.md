@@ -6,9 +6,9 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '910'
+source-wordcount: '924'
 ht-degree: 0%
 
 ---
@@ -42,7 +42,7 @@ De volgende diagrammen illustreren de orde van gebeurtenissen die voorkomen wann
 
 1. Dispatcher bepaalt dat de inhoud niet in het cachegeheugen is opgeslagen of moet worden bijgewerkt.
 1. Verzender stuurt het oorspronkelijke verzoek door naar de rendermethode.
-1. Renderen roept AEM autorisator servlet (dit is niet de servlet van AuthChcker van de Dispatcher) om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
+1. Renderen roept AEM autorisator servlet (dit servlet is niet de server van AuthChcker van de Verzender) om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
 1. De verzender stuurt de reactie door naar de browser. Dispatcher voegt de hoofdtekst van het reactiebericht van de render aan het geheime voorgeheugen toe.
 
 ## Gebruiker is niet geautoriseerd {#user-is-not-authorized}
@@ -51,9 +51,9 @@ De volgende diagrammen illustreren de orde van gebeurtenissen die voorkomen wann
 
 1. Dispatcher controleert de cache.
 1. Dispatcher verstuurt een aanvraagbericht naar de render die alle koptekstregels uit de browseraanvraag bevat.
-1. Renderen roept de server van de Controleur van de Auth om een veiligheidscontrole uit te voeren die ontbreekt, en teruggeeft door:sturen het originele verzoek aan Dispatcher.
+1. Renderen roept servlet van de Controleur van de Auth om een veiligheidscontrole uit te voeren, die ontbreekt, en teruggeeft door:sturen het originele verzoek aan Dispatcher.
 1. Verzender stuurt het oorspronkelijke verzoek door naar de rendermethode.
-1. Renderen roept AEM autorisator servlet (dit is niet de servlet van AuthChcker van de Dispatcher) om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
+1. Renderen roept AEM autorisator servlet (dit servlet is niet de server van AuthChcker van de Verzender) om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
 1. De verzender stuurt de reactie door naar de browser. Dispatcher voegt de hoofdtekst van het reactiebericht van de render aan het geheime voorgeheugen toe.
 
 ## Het uitvoeren van toestemming-gevoelige caching {#implementing-permission-sensitive-caching}
@@ -74,7 +74,7 @@ Om toestemming-gevoelig caching uit te voeren, voer de volgende taken uit:
 
 ## De servlet Auth Checker maken {#create-the-auth-checker-servlet}
 
-Maak en implementeer een servlet die de verificatie en autorisatie uitvoert van de gebruiker die de webinhoud aanvraagt. servlet kan om het even welke authentificatie en vergunningsmethode, zoals de AEM gebruikersrekening en bewaarplaats ACLs, of een opzoekdienst gebruiken LDAP. U stelt servlet aan de AEM instantie op die Dispatcher als teruggeeft gebruikt.
+Maak en implementeer een servlet die de verificatie en autorisatie uitvoert van de gebruiker die de webinhoud aanvraagt. De servlet kan om het even welke authentificatie gebruiken. Zij kan ook elke vergunningsmethode gebruiken. Bijvoorbeeld, kan het de AEM gebruikersrekening en bewaarplaats ACLs gebruiken. Of u kunt hiervoor een LDAP-opzoekservice gebruiken. U stelt servlet aan de AEM instantie op die Dispatcher als teruggeeft gebruikt.
 
 De servlet moet toegankelijk zijn voor alle gebruikers. Daarom moet uw servlet de `org.apache.sling.api.servlets.SlingSafeMethodsServlet` klasse, die alleen-lezen toegang tot het systeem biedt.
 
@@ -161,7 +161,7 @@ Wanneer de Verzender begint, omvat het het logboekdossier van de Verzender het v
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-De volgende voorbeeldsectie auth_checker vormt Dispatcher om servlet van het vorige onderwerp te gebruiken. De filtersectie veroorzaakt toestemmingscontroles die slechts op veilige middelen van HTML worden uitgevoerd.
+De volgende voorbeeldauth_checker sectie vormt de Dispatcher om servlet van het vorige onderwerp te gebruiken. De filtersectie veroorzaakt toestemmingscontroles die slechts op veilige middelen van HTML worden uitgevoerd.
 
 ### Voorbeeldconfiguratie {#example-configuration}
 
