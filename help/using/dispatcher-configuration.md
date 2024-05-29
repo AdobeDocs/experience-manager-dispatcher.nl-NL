@@ -2,9 +2,9 @@
 title: AEM Dispatcher configureren
 description: Leer hoe u de AEM Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, en het noemen van de instantie. Lees over het bepalen van landbouwbedrijven, het identificeren van virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: 0189feaf345495ba2f992d91eccf5690ec7581ce
 workflow-type: tm+mt
-source-wordcount: '8897'
+source-wordcount: '8898'
 ht-degree: 0%
 
 ---
@@ -1229,7 +1229,7 @@ De methode wordt aangeroepen met de volgende argumenten:
 
 Deze methode kan worden gebruikt voor verschillende gebruiksgevallen. Bijvoorbeeld het ongeldig maken van andere toepassingsspecifieke geheime voorgeheugens, of het behandelen van gevallen waar extern URL van een pagina, en zijn plaats in het docroot, niet de inhoudspad aanpast.
 
-In het onderstaande voorbeeld wordt elk ongeldig verzoek in een bestand geregistreerd.
+In het volgende voorbeeldscript worden alle ongeldig gemaakte aanvragen naar een bestand genoteerd.
 
 ```xml
 /invalidateHandler "/opt/dispatcher/scripts/invalidate.sh"

@@ -9,9 +9,9 @@ redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/u
 index: y
 internal: n
 snippet: y
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
+source-git-commit: 0189feaf345495ba2f992d91eccf5690ec7581ce
 workflow-type: tm+mt
-source-wordcount: '1125'
+source-wordcount: '1129'
 ht-degree: 0%
 
 ---
@@ -31,7 +31,7 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 
 >[!NOTE]
 >
->Dispatcher-versies zijn onafhankelijk van AEM. U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd die is ingesloten in de documentatie voor een vorige versie van AEM.
+>Dispatcher-versies zijn onafhankelijk van AEM. U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd. Die koppeling is ingesloten in de documentatie voor een vorige versie van AEM.
 
 Dispatcher biedt verschillende ingebouwde mechanismen waarmee u de prestaties kunt optimaliseren. In deze sectie wordt uitgelegd hoe u uw website kunt ontwerpen om de voordelen van caching te maximaliseren.
 
@@ -46,7 +46,7 @@ Dispatcher biedt verschillende ingebouwde mechanismen waarmee u de prestaties ku
 
 ## Consistente paginacodering gebruiken {#using-consistent-page-encoding}
 
-HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich dus problemen voordoen als u pagina-coderingsgegevens opslaat in de header. Als Dispatcher dan een pagina uit de cache bedient, wordt de standaardcodering van de webserver gebruikt voor de pagina. Dit probleem kan op twee manieren worden voorkomen:
+HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich dus problemen voordoen als u pagina-coderingsgegevens opslaat in de header. Wanneer Dispatcher dan een pagina uit de cache bedient, wordt de standaardcodering van de webserver gebruikt voor de pagina. Dit probleem kan op twee manieren worden voorkomen:
 
 * Als u slechts één codering gebruikt, moet u ervoor zorgen dat de codering die op de webserver wordt gebruikt, gelijk is aan de standaardcodering van de AEM website.
 * Als u de codering wilt instellen, gebruikt u een `<META>` -tag in de HTML `head` , zoals in het volgende voorbeeld:
@@ -57,7 +57,7 @@ HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich
 
 ## URL-parameters vermijden {#avoid-url-parameters}
 
-Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Als u bijvoorbeeld een fotogalerie hebt, wordt de volgende URL nooit in de cache opgeslagen (tenzij Dispatcher wordt verzonden) [dienovereenkomstig geconfigureerd](dispatcher-configuration.md#main-pars_title_24)):
+Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Als u bijvoorbeeld een fotogalerie hebt, wordt de volgende URL nooit in de cache geplaatst (tenzij de AEM Dispatcher is ingesteld [dienovereenkomstig geconfigureerd](dispatcher-configuration.md#main-pars_title_24)):
 
 ```xml
 www.myCompany.com/pictures/gallery.html?event=christmas&amp;page=1
@@ -87,9 +87,9 @@ www.myCompany.com/news/main.large.html
 
 >[!NOTE]
 >
->Voor de meeste indelingsaspecten is het ook mogelijk stijlpagina&#39;s en/of clientscripts te gebruiken. Deze werken meestal goed met caching.
+>Voor de meeste lay-outaspecten is het ook mogelijk om stijlbladen, of cliënt-zijmanuscripten, of allebei te gebruiken. Of beide werken goed met caching.
 >
->Dit is ook handig voor een afdrukversie, waarin u bijvoorbeeld een URL kunt gebruiken:
+>Deze methode is ook handig voor een afdrukversie, waar u bijvoorbeeld een URL kunt gebruiken:
 >
 >`www.myCompany.com/news/main.print.html`
 >
@@ -108,15 +108,15 @@ U kunt bijvoorbeeld de titel van de pagina myPage.html opslaan in het bestand my
 
 >[!NOTE]
 >
->Het afbeeldingsbestand bestaat niet noodzakelijkerwijs fysiek op de AEM. U kunt een script gebruiken waarmee het afbeeldingsbestand dynamisch wordt gemaakt. Dispatcher slaat het bestand vervolgens op de webserver op.
+>Het afbeeldingsbestand bestaat niet noodzakelijkerwijs op de AEM. U kunt een script gebruiken waarmee het afbeeldingsbestand dynamisch wordt gemaakt. Dispatcher slaat het bestand vervolgens op de webserver op.
 
 ## Beeldbestanden die voor navigatie worden gebruikt ongeldig maken {#invalidating-image-files-used-for-navigation}
 
 Als u foto&#39;s gebruikt voor de navigatie-items, is de methode in principe hetzelfde als bij titels, maar dan is deze iets complexer. Sla alle navigatieafbeeldingen op de doelpagina&#39;s op. Als u twee afbeeldingen gebruikt voor normaal en actief, kunt u de volgende scripts gebruiken:
 
 * Een script waarmee de pagina als normaal wordt weergegeven.
-* Een script dat &quot;.normal&quot;-verzoeken verwerkt en het normale beeld retourneert.
-* Een script dat &quot;.active&quot;-aanvragen verwerkt en het geactiveerde beeld retourneert.
+* Een script dat verwerkt `.normal` vraagt en retourneert het normale beeld.
+* Een script dat verwerkt `.active` vraagt en retourneert het geactiveerde beeld.
 
 Het is belangrijk dat u deze afbeeldingen maakt met dezelfde naamgevingsgreep als de pagina om ervoor te zorgen dat deze afbeeldingen en de pagina worden verwijderd bij het bijwerken van de inhoud.
 
@@ -133,7 +133,7 @@ Dispatcher kan geen gepersonaliseerde gegevens in het voorgeheugen onderbrengen,
 >
 >Als u elke pagina personaliseert (bijvoorbeeld door de naam van de gebruiker in de titelbalk te plaatsen) kunt u deze niet in cache plaatsen, wat een grote invloed op de prestaties kan hebben.
 >
->Als u dit echter moet doen, kunt u:
+>U kunt echter wel het volgende doen:
 >
 >* Gebruik iFrames om de pagina op te splitsen in één onderdeel dat voor alle gebruikers hetzelfde is en één onderdeel dat voor alle pagina&#39;s van de gebruiker hetzelfde is. Vervolgens kunt u beide onderdelen in de cache plaatsen.
 >* gebruik client-side JavaScript om persoonlijke gegevens weer te geven. U moet er echter voor zorgen dat de pagina nog steeds correct wordt weergegeven als een gebruiker JavaScript uitschakelt.
@@ -150,14 +150,14 @@ Er zijn twee manieren waarop een browser het type bestand kan bepalen:
 1. Door de extensie (bijvoorbeeld .html, .gif en .jpg)
 1. Door het MIME-type dat de server met het bestand verzendt.
 
-Voor de meeste bestanden wordt het MIME-type geïmpliceerd in de bestandsextensie. Dat wil zeggen:
+Voor de meeste bestanden wordt het MIME-type geïmpliceerd in de bestandsextensie:
 
 1. Door de extensie (bijvoorbeeld .html, .gif en .jpg)
 1. Door het MIME-type dat de server met het bestand verzendt.
 
 Als de bestandsnaam geen extensie heeft, wordt deze weergegeven als onbewerkte tekst.
 
-Het MIME-type maakt deel uit van de HTTP-header en wordt daarom niet in de cache opgeslagen. Als uw AEM bestanden retourneert die geen herkend bestand hebben dat eindigt, maar in plaats daarvan afhankelijk zijn van het MIME-type, worden deze bestanden mogelijk onjuist weergegeven.
+Het MIME-type maakt deel uit van de HTTP-header en wordt daarom niet in de cache opgeslagen. Uw AEM toepassing kan bestanden retourneren die geen herkende bestandsextensie hebben. Als de bestanden in plaats daarvan afhankelijk zijn van het MIME-type, worden deze bestanden mogelijk onjuist weergegeven.
 
 Volg de onderstaande richtlijnen om ervoor te zorgen dat bestanden correct in het cachegeheugen worden opgeslagen:
 
