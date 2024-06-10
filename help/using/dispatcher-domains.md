@@ -7,7 +7,7 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: 3b24e3eb54aa48c4891943b7458c57525897517f
 workflow-type: tm+mt
 source-wordcount: '2929'
 ht-degree: 0%
@@ -348,7 +348,7 @@ In het volgende voorbeeld wordt het bestand httpd.conf geconfigureerd voor twee 
 
 * De documenthoofdmap van elk virtueel domein is de map in de Dispatcher-cache die de pagina&#39;s van de site bevat. (Regels 20 en 33)
 * De URL herschrijft regel voor elk virtueel domein is een regelmatige uitdrukking. Met de reguliere expressie wordt het pad van de opgevraagde pagina vooraf vastgelegd. Het pad naar de pagina&#39;s in de cache staat vooraf. (Regels 19 en 35)
-* De `DispatherUseProcessedURL` eigenschap is ingesteld op `1`. (regel 10)
+* De `DispatcherUseProcessedURL` eigenschap is ingesteld op `1`. (regel 10)
 
 De webserver voert bijvoorbeeld de volgende handelingen uit wanneer deze een aanvraag ontvangt met de `https://brandA.com/en/products.html` URL:
 
