@@ -18,17 +18,17 @@ ht-degree: 0%
 
 # In cache geplaatste pagina&#39;s ongeldig maken van AEM {#invalidating-cached-pages-from-aem}
 
-Wanneer u Dispatcher gebruikt met AEM, moet de interactie zodanig zijn geconfigureerd dat een effectief cachebeheer wordt gegarandeerd. Afhankelijk van uw milieu, kan de configuratie prestaties ook verhogen.
+Wanneer u Dispatcher gebruikt met AEM, moet de interactie zo worden geconfigureerd dat een effectief cachebeheer wordt gegarandeerd. Afhankelijk van uw milieu, kan de configuratie prestaties ook verhogen.
 
 ## AEM gebruikersaccounts instellen {#setting-up-aem-user-accounts}
 
-De standaardwaarde `admin` de gebruikersrekening wordt gebruikt om de replicatieagenten voor authentiek te verklaren die door gebrek geïnstalleerd zijn. Creeer een specifieke gebruikersrekening voor gebruik met replicatieagenten.
+De standaard `admin` gebruikersrekening wordt gebruikt om de replicatieagenten voor authentiek te verklaren die door gebrek worden geïnstalleerd. Creeer een specifieke gebruikersrekening voor gebruik met replicatieagenten.
 
-Zie de klasse [Replicatie- en transportgebruikers configureren](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de lijst AEM beveiligingscontrole.
+Voor meer informatie, zie [ de sectie van de Gebruikers van de Replicatie en van het Vervoer ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de Controlelijst van de Veiligheid van de AEM vormen.
 
 <!-- OLD URL from above https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
-## Dispatcher Cache van de ontwerpomgeving ongeldig maken {#invalidating-dispatcher-cache-from-the-authoring-environment}
+## Dispatcher Cache ongeldig maken vanuit de ontwerpomgeving {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
 Een replicatieagent op de AEM auteurinstantie verzendt een verzoek van de geheim voorgeheugenongeldigheid naar Dispatcher wanneer een pagina wordt gepubliceerd. Dispatcher vernieuwt het bestand uiteindelijk in de cache wanneer nieuwe inhoud wordt gepubliceerd.
 
@@ -50,39 +50,39 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
  -->
 
-Gebruik de volgende procedure om een replicatieagent op de AEM auteursinstantie te vormen. De configuratie maakt de Dispatcher-cache ongeldig na activering van de pagina:
+Gebruik de volgende procedure om een replicatieagent op de AEM auteursinstantie te vormen. De configuratie maakt het Dispatcher-cachegeheugen ongeldig na activering van de pagina:
 
 1. Open de console AEM Tools. (`https://localhost:4502/miscadmin#/etc`)
 1. Open de vereiste replicatieagent onder Hulpmiddelen/replicatie/Agenten op auteur. U kunt de Dispatcher Flush-agent gebruiken die standaard is geïnstalleerd.
-1. Klik op Bewerken en controleer of op het tabblad Instellingen **Ingeschakeld** is geselecteerd.
+1. Klik uitgeven, en op het lusje van Montages zorgen ervoor dat **Toegelaten** wordt geselecteerd.
 
-1. (optioneel) Selecteer de optie **Alias-update** -optie.
-1. Voor het lusje van het Vervoer, ga tot Dispatcher door URI in te gaan.
+1. (facultatief) om alias of verzoeken van de de ongeldig wordingsweg van de ijl toe te laten selecteren de **optie van de Update van de Alias**.
+1. Ga op het tabblad Vervoer naar Dispatcher door de URI in te voeren.
 
-   Als u de standaard Dispatcher Flush-agent gebruikt, werkt u de hostnaam en poort bij, bijvoorbeeld https://&lt;*dispatcherHost*>:&lt;*portApache*>/dispatcher/invalidate.cache
+   Als u de standaardDispatcher Flush agent gebruikt, werk hostname en haven bij; bijvoorbeeld, https://&lt;*dispatcherHost*>:&lt;*portApache*>/dispatcher/invalidate.cache
 
-   **Opmerking:** Voor de agenten van de Vlek van de Verzender, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*`. U kunt een URL gebruiken van `/path1/invalidate.cache` om de eerste boerderij te richten en `/path2/invalidate.cache` om de tweede boerderij te richten. Zie voor meer informatie [Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md).
+   **Nota:** voor de Uitlijningsagenten van Dispatcher, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*` . U kunt een URL van `/path1/invalidate.cache` gebruiken om het eerste landbouwbedrijf te richten en `/path2/invalidate.cache` om het tweede landbouwbedrijf te richten. Voor meer informatie, zie [ Gebruikend Dispatcher met Veelvoudige Domeinen ](dispatcher-domains.md).
 
 1. Configureer desgewenst andere parameters.
 1. Klik op OK om de agent te activeren.
 
-U kunt ook de Dispatcher Flush-agent openen en configureren vanuit de [AEM Touch UI](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent).
+Alternatief, kunt u tot de Vlek van Dispatcher agent van de [ AEM Aanraakinterface ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent) ook toegang hebben en vormen.
 
-Voor meer informatie over hoe te om toegang tot ijdelheid URLs toe te laten, zie [Toegang tot URL&#39;s met Vanity inschakelen](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
+Voor meer details op hoe te om toegang tot ijdelheid URLs toe te laten, zie [ Toelatend Toegang tot Vanity URLs ](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
 >[!NOTE]
 >
->De agent voor het leegmaken van het geheime voorgeheugen van de Verzender vereist geen gebruikersnaam en wachtwoord, maar als gevormd worden zij verzonden met basisauthentificatie.
+>De agent voor het leegmaken van het geheime voorgeheugen van Dispatcher vereist geen gebruikersnaam en wachtwoord, maar als gevormd worden zij verzonden met basisauthentificatie.
 
 Er zijn twee mogelijke problemen met deze aanpak:
 
 * De Dispatcher moet bereikbaar zijn vanuit de ontwerpinstantie. Als uw netwerk (bijvoorbeeld, de firewall) dusdanig wordt gevormd dat de toegang tussen twee beperkt is, kan deze situatie niet het geval zijn.
 
-* De openbaarmaking en de ongeldigmaking van de cache vinden tegelijkertijd plaats. Afhankelijk van de timing kan een gebruiker een pagina aanvragen vlak nadat deze uit de cache is verwijderd en vlak voordat de nieuwe pagina wordt gepubliceerd. AEM retourneert nu de oude pagina en de Dispatcher slaat deze opnieuw in het cachegeheugen op. Deze situatie is eerder een probleem voor grote sites.
+* De openbaarmaking en de ongeldigmaking van de cache vinden tegelijkertijd plaats. Afhankelijk van de timing kan een gebruiker een pagina aanvragen vlak nadat deze uit de cache is verwijderd en vlak voordat de nieuwe pagina wordt gepubliceerd. AEM keert nu de oude pagina terug, en de Dispatcher bewaart het opnieuw. Deze situatie is eerder een probleem voor grote sites.
 
 ## Dispatcher Cache van een publicatie-instantie ongeldig maken {#invalidating-dispatcher-cache-from-a-publishing-instance}
 
-Onder bepaalde omstandigheden kunnen de prestaties worden verbeterd door cachebeheer over te brengen van de ontwerpomgeving naar een publicatie-instantie. Het is dan het het publiceren milieu (niet het AEM auteursmilieu) dat een verzoek van de geheim voorgeheugenongeldigverklaring naar Dispatcher verzendt wanneer een gepubliceerde pagina wordt ontvangen.
+Onder bepaalde omstandigheden kunnen de prestaties worden verbeterd door cachebeheer over te brengen van de ontwerpomgeving naar een publicatie-instantie. Het is dan de het publiceren milieu (niet het AEM auteursmilieu) die een verzoek van de geheim voorgeheugenongeldigverklaring naar Dispatcher verzendt wanneer een gepubliceerde pagina wordt ontvangen.
 
 Deze omstandigheden omvatten:
 
@@ -94,23 +94,23 @@ Comment Type: draft
 
  -->
 
-* Mogelijke timingconflicten tussen AEM Dispatcher en het publicatieexemplaar voorkomen (zie [De Dispatcher-cache ongeldig maken vanuit de ontwerpomgeving](#invalidating-dispatcher-cache-from-the-authoring-environment)).
+* Het verhinderen van mogelijke timingconflicten tussen AEM Dispatcher en publiceer instantie (zie [ het ongeldig maken van het geheime voorgeheugen van Dispatcher van het Authoring Milieu ](#invalidating-dispatcher-cache-from-the-authoring-environment)).
 * Het systeem bevat verschillende publicatieinstanties die zich op servers met hoge prestaties bevinden, en slechts één ontwerpinstantie.
 
 >[!NOTE]
 >
 >Een ervaren AEM beheerder zou het besluit moeten nemen om deze methode te gebruiken.
 
-Een replicatieagent die op publiceert instantie werkt controleert de Dispatcher flush. Nochtans, wordt de configuratie gemaakt in het auteursmilieu en dan overgebracht door de agent te activeren:
+Een replicatieagent die op de publicatieinstantie werkt, bestuurt de Dispatcher flush. Nochtans, wordt de configuratie gemaakt in het auteursmilieu en dan overgebracht door de agent te activeren:
 
 1. Open de console AEM Tools.
 1. Open de vereiste replicatieagent onder Hulpmiddelen/replicatie/Agenten bij publiceren. U kunt de Dispatcher Flush-agent gebruiken die standaard is geïnstalleerd.
-1. Klik op Bewerken en controleer of op het tabblad Instellingen **Ingeschakeld** is geselecteerd.
-1. (optioneel) Selecteer de optie **Alias-update** -optie.
-1. Voor het lusje van het Vervoer, ga tot Dispatcher door nodig URI in te gaan.\
-   Als u de standaard Dispatcher Flush agent gebruikt, werk hostname en haven bij; bijvoorbeeld `http://<dispatcherHost>:<portApache>/dispatcher/invalidate.cache`
+1. Klik uitgeven, en op het lusje van Montages zorgen ervoor dat **Toegelaten** wordt geselecteerd.
+1. (facultatief) om alias of verzoeken van de de ongeldig wordingsweg van de ijl toe te laten selecteren de **optie van de Update van de Alias**.
+1. Ga op het tabblad Vervoer naar Dispatcher door de benodigde URI in te voeren.\
+   Als u de standaard Dispatcher Flush-agent gebruikt, werkt u de hostnaam en -poort bij, bijvoorbeeld `http://<dispatcherHost>:<portApache>/dispatcher/invalidate.cache`
 
-   **Opmerking:** Voor de agenten van de Vlek van de Verzender, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*`. U kunt een URL gebruiken van `/path1/invalidate.cache` om de eerste boerderij te richten en `/path2/invalidate.cache` om de tweede boerderij te richten. Zie voor meer informatie [Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md).
+   **Nota:** voor de Uitlijningsagenten van Dispatcher, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*` . U kunt een URL van `/path1/invalidate.cache` gebruiken om het eerste landbouwbedrijf te richten en `/path2/invalidate.cache` om het tweede landbouwbedrijf te richten. Voor meer informatie, zie [ Gebruikend Dispatcher met Veelvoudige Domeinen ](dispatcher-domains.md).
 
 1. Configureer desgewenst andere parameters.
 1. Meld u aan bij de publicatieinstantie en valideer de configuratie van de spoelagent. Zorg er ook voor dat deze functie is ingeschakeld.
@@ -120,15 +120,15 @@ Na het vormen, wanneer u een pagina van auteur activeert om te publiceren, stelt
 
 1. `<publishserver> 13:29:47 127.0.0.1 POST /dispatcher/invalidate.cache 200`
 
-## De Dispatcher-cache handmatig ongeldig maken {#manually-invalidating-the-dispatcher-cache}
+## Dispatcher Cache handmatig ongeldig maken {#manually-invalidating-the-dispatcher-cache}
 
 Als u de Dispatcher-cache ongeldig wilt maken (of wilt leegmaken) zonder een pagina te activeren, kunt u een HTTP-aanvraag naar de Dispatcher verzenden. U kunt bijvoorbeeld een AEM maken waarmee beheerders of andere toepassingen de cache kunnen leegmaken.
 
-De HTTP-aanvraag zorgt ervoor dat de Dispatcher specifieke bestanden uit de cache verwijdert. De Dispatcher vernieuwt desgewenst de cache met een nieuwe kopie.
+Door de HTTP-aanvraag verwijdert de Dispatcher specifieke bestanden uit de cache. De Dispatcher vernieuwt desgewenst de cache met een nieuwe kopie.
 
 ### In cache opgeslagen bestanden verwijderen {#delete-cached-files}
 
-Geef een HTTP- verzoek uit dat de Dispatcher ertoe brengt om dossiers van het geheime voorgeheugen te schrappen. Dispatcher plaatst de bestanden alleen opnieuw in het cachegeheugen als het een clientverzoek voor de pagina ontvangt. Het verwijderen van cachebestanden op deze manier is geschikt voor websites die waarschijnlijk geen gelijktijdige aanvragen voor dezelfde pagina ontvangen.
+Geef een HTTP- verzoek uit dat de Dispatcher veroorzaakt om dossiers van het geheime voorgeheugen te schrappen. Dispatcher plaatst de bestanden alleen opnieuw in cache wanneer het een clientverzoek voor de pagina ontvangt. Het verwijderen van cachebestanden op deze manier is geschikt voor websites die waarschijnlijk geen gelijktijdige aanvragen voor dezelfde pagina ontvangen.
 
 De HTTP-aanvraag heeft de volgende vorm:
 
@@ -139,21 +139,21 @@ CQ-Handle: path-pattern
 Content-Length: 0
 ```
 
-Dispatcher spoelt (verwijdert) de cachebestanden en mappen met namen die overeenkomen met de waarde van de `CQ-Handler` header. Bijvoorbeeld een `CQ-Handle` van `/content/geomtrixx-outdoors/en` komt overeen met de volgende items:
+Dispatcher verwijdert (verwijdert) de bestanden en mappen in de cache die een naam hebben die overeenkomt met de waarde van de header `CQ-Handler` . Een `CQ-Handle` van `/content/geomtrixx-outdoors/en` komt bijvoorbeeld overeen met de volgende items:
 
-* Alle bestanden (van een willekeurige bestandsextensie) met de naam `en` in de `geometrixx-outdoors` directory
+* Alle bestanden (van een willekeurige bestandsextensie) met de naam `en` in de map `geometrixx-outdoors`
 
-* Elke benoemde map `_jcr_content` onder de `en` map (die, indien aanwezig, in cache opgeslagen renderingen van subknooppunten van de pagina bevat)
+* Elke map met de naam `_jcr_content` onder de map `en` (die, indien aanwezig, in de cache opgeslagen renderingen van subknooppunten van de pagina bevat)
 
-Alle andere bestanden in de Dispatcher-cache (of tot een bepaald niveau, afhankelijk van de `/statfileslevel` instellen) ongeldig worden gemaakt door het `.stat` bestand. De laatste wijzigingsdatum van dit bestand wordt vergeleken met de laatste wijzigingsdatum van een document in de cache en het document wordt opnieuw opgehaald als het `.stat` is nieuwer. Zie [Bestanden op mapniveau ongeldig maken](dispatcher-configuration.md#main-pars_title_26) voor meer informatie.
+Alle andere bestanden in de Dispatcher-cache (of tot een bepaald niveau, afhankelijk van de instelling `/statfileslevel` ) worden ongeldig gemaakt door op het `.stat` -bestand te tikken. De laatste wijzigingsdatum van dit bestand wordt vergeleken met de laatste wijzigingsdatum van een document in de cache en het document wordt opnieuw opgehaald als het `.stat` -bestand nieuwer is. Zie [ het Invalideren van Dossiers door het Niveau van de Omslag ](dispatcher-configuration.md#main-pars_title_26) voor details.
 
-De ongeldigmaking (namelijk het aanraken van .stat dossiers) kan worden verhinderd door een extra Kopbal te verzenden `CQ-Action-Scope: ResourceOnly`. Deze functionaliteit kan worden gebruikt om bepaalde bronnen te leegmaken. Alles zonder andere delen van de cache ongeldig te maken, zoals JSON-gegevens. Deze gegevens worden dynamisch gemaakt en moeten regelmatig worden leeggemaakt, onafhankelijk van de cache. Bijvoorbeeld, die gegevens vertegenwoordigen die van een derdesysteem worden verkregen om nieuws, voorraadtikkers, etc. te tonen.
+Ongeldige validatie (dat wil zeggen het aanraken van .stat-bestanden) kan worden voorkomen door een extra koptekst te verzenden `CQ-Action-Scope: ResourceOnly` . Deze functionaliteit kan worden gebruikt om bepaalde bronnen te leegmaken. Alles zonder andere delen van de cache ongeldig te maken, zoals JSON-gegevens. Deze gegevens worden dynamisch gemaakt en moeten regelmatig worden leeggemaakt, onafhankelijk van de cache. Bijvoorbeeld, die gegevens vertegenwoordigen die van een derdesysteem worden verkregen om nieuws, voorraadtikkers, etc. te tonen.
 
 ### Bestanden verwijderen en opnieuw plaatsen {#delete-and-recache-files}
 
-Geef een HTTP-aanvraag uit die ervoor zorgt dat de Dispatcher in het cachebestand opgeslagen bestanden verwijdert en het bestand direct ophaalt en opnieuw plaatst. U kunt bestanden verwijderen en onmiddellijk opnieuw in cache plaatsen wanneer websites waarschijnlijk gelijktijdige clientverzoeken voor dezelfde pagina ontvangen. Onmiddellijk het recaching zorgt ervoor dat de Dispatcher de pagina terugwint en in het voorgeheugen onderbrengt slechts één keer, in plaats van één voor elk van de gelijktijdige cliëntverzoeken.
+Geef een HTTP-aanvraag uit die ervoor zorgt dat de Dispatcher cachebestanden verwijdert en het bestand direct ophaalt en opnieuw plaatst. U kunt bestanden verwijderen en onmiddellijk opnieuw in cache plaatsen wanneer websites waarschijnlijk gelijktijdige clientverzoeken voor dezelfde pagina ontvangen. Met Direct recaching zorgt Dispatcher ervoor dat de pagina slechts één keer wordt opgehaald en in cache wordt geplaatst in plaats van één keer voor elk van de gelijktijdige clientverzoeken.
 
-**Opmerking:** Het verwijderen en in de cache plaatsen van bestanden mag alleen op de publicatie-instantie worden uitgevoerd. Wanneer uitgevoerd vanaf de auteurinstantie, komen de rasvoorwaarden voor wanneer pogingen om middelen terug te winnen voorkomen alvorens zij zijn gepubliceerd.
+**Nota:** het schrappen en het in het voorgeheugen onderbrengen van dossiers zou op de het publiceren instantie slechts moeten worden uitgevoerd. Wanneer uitgevoerd vanaf de auteurinstantie, komen de rasvoorwaarden voor wanneer pogingen om middelen terug te winnen voorkomen alvorens zij zijn gepubliceerd.
 
 De HTTP-aanvraag heeft de volgende vorm:
 
@@ -169,7 +169,7 @@ page_path1
 page_pathn
 ```
 
-De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` Dit is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te tekenen. (Zie de `/statfileslevel` parameter van de [Cache](dispatcher-configuration.md#main-pars_146_44_0010) configuratie-item.) In het volgende voorbeeld wordt het HTTP-aanvraagbericht verwijderd en wordt de `/content/geometrixx-outdoors/en.html page`:
+De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te worden gemaakt. (Zie de `/statfileslevel` parameter van het [ 2} configuratiepunt van het Geheime voorgeheugen {.) ](dispatcher-configuration.md#main-pars_146_44_0010) In het volgende voorbeeld verwijdert en doorloopt het HTTP-aanvraagbericht `/content/geometrixx-outdoors/en.html page` :
 
 ```xml
 POST /dispatcher/invalidate.cache HTTP/1.1  
@@ -183,7 +183,7 @@ Content-Length: 36
 
 ### Voorbeeld spoelservlet {#example-flush-servlet}
 
-De volgende code implementeert een servlet die een validatieverzoek naar Dispatcher verzendt. servlet ontvangt een verzoekbericht dat bevat `handle` en `page` parameters. Deze parameters geven de waarde van de `CQ-Handle` en het pad van de pagina naar de rechthoek. De servlet gebruikt de waarden om de HTTP- aanvraag voor Dispatcher samen te stellen.
+De volgende code implementeert een servlet die een verzoek tot validatie naar Dispatcher verzendt. De servlet ontvangt een aanvraagbericht dat `handle` en `page` parameters bevat. Deze parameters geven respectievelijk de waarde van de header `CQ-Handle` en het pad van de pagina die moet worden teruggedraaid. De servlet gebruikt de waarden om de HTTP-aanvraag voor Dispatcher samen te stellen.
 
 Wanneer servlet aan de publicatieinstantie wordt opgesteld, veroorzaakt volgende URL de Dispatcher om de /content/geometrixx-outdoors/en.html pagina te schrappen en dan een nieuw exemplaar in het voorgeheugen onder te brengen.
 

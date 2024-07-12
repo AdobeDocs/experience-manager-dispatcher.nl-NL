@@ -31,7 +31,7 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 
 >[!NOTE]
 >
->Dispatcher-versies zijn onafhankelijk van AEM. U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de Dispatcher-documentatie hebt gevolgd. Die koppeling is ingesloten in de documentatie voor een vorige versie van AEM.
+>Dispatcher-versies zijn onafhankelijk van AEM. U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de documentatie van Dispatcher hebt gevolgd. Die koppeling is ingesloten in de documentatie voor een vorige versie van AEM.
 
 Dispatcher biedt verschillende ingebouwde mechanismen waarmee u de prestaties kunt optimaliseren. In deze sectie wordt uitgelegd hoe u uw website kunt ontwerpen om de voordelen van caching te maximaliseren.
 
@@ -46,10 +46,10 @@ Dispatcher biedt verschillende ingebouwde mechanismen waarmee u de prestaties ku
 
 ## Consistente paginacodering gebruiken {#using-consistent-page-encoding}
 
-HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich dus problemen voordoen als u pagina-coderingsgegevens opslaat in de header. Wanneer Dispatcher dan een pagina uit de cache bedient, wordt de standaardcodering van de webserver gebruikt voor de pagina. Dit probleem kan op twee manieren worden voorkomen:
+HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich dus problemen voordoen als u pagina-coderingsgegevens opslaat in de header. Wanneer Dispatcher dan een pagina uit het cachegeheugen bedient, wordt de standaardcodering van de webserver gebruikt voor de pagina. Dit probleem kan op twee manieren worden voorkomen:
 
 * Als u slechts één codering gebruikt, moet u ervoor zorgen dat de codering die op de webserver wordt gebruikt, gelijk is aan de standaardcodering van de AEM website.
-* Als u de codering wilt instellen, gebruikt u een `<META>` -tag in de HTML `head` , zoals in het volgende voorbeeld:
+* Als u de codering wilt instellen, gebruikt u een `<META>` -tag in de sectie HTML `head` , zoals in het volgende voorbeeld:
 
 ```xml
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
@@ -57,7 +57,7 @@ HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich
 
 ## URL-parameters vermijden {#avoid-url-parameters}
 
-Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Als u bijvoorbeeld een fotogalerie hebt, wordt de volgende URL nooit in de cache geplaatst (tenzij de Dispatcher is [dienovereenkomstig geconfigureerd](dispatcher-configuration.md#main-pars_title_24)):
+Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Bijvoorbeeld, als u een beeldgalerij hebt, wordt volgende URL nooit in het voorgeheugen ondergebracht (tenzij Dispatcher dienovereenkomstig [ wordt gevormd ](dispatcher-configuration.md#main-pars_title_24)):
 
 ```xml
 www.myCompany.com/pictures/gallery.html?event=christmas&amp;page=1
@@ -115,16 +115,16 @@ U kunt bijvoorbeeld de titel van de pagina myPage.html opslaan in het bestand my
 Als u foto&#39;s gebruikt voor de navigatie-items, is de methode in principe hetzelfde als bij titels, maar dan is deze iets complexer. Sla alle navigatieafbeeldingen op de doelpagina&#39;s op. Als u twee afbeeldingen gebruikt voor normaal en actief, kunt u de volgende scripts gebruiken:
 
 * Een script waarmee de pagina als normaal wordt weergegeven.
-* Een script dat verwerkt `.normal` vraagt en retourneert het normale beeld.
-* Een script dat verwerkt `.active` vraagt en retourneert het geactiveerde beeld.
+* Een script dat `.normal` verwerkt, vraagt om het normale beeld en retourneert dit.
+* Een script dat `.active` verwerkt, vraagt om het geactiveerde beeld en retourneert dit.
 
 Het is belangrijk dat u deze afbeeldingen maakt met dezelfde naamgevingsgreep als de pagina om ervoor te zorgen dat deze afbeeldingen en de pagina worden verwijderd bij het bijwerken van de inhoud.
 
 Voor pagina&#39;s die niet worden gewijzigd, blijven de afbeeldingen in het cachegeheugen staan, hoewel de pagina&#39;s zelf automatisch ongeldig worden gemaakt.
 
-## Personalisatie {#personalization}
+## Personalization {#personalization}
 
-Dispatcher kan geen gepersonaliseerde gegevens in het voorgeheugen onderbrengen, zodat wordt geadviseerd dat u verpersoonlijking beperkt tot waar het noodzakelijk is. Ter illustratie:
+De Dispatcher kan gepersonaliseerde gegevens niet in het cachegeheugen opslaan. Het wordt daarom aangeraden de personalisatie te beperken tot waar dat nodig is. Ter illustratie:
 
 * Als u een vrij aanpasbare startpagina gebruikt, moet die pagina telkens worden samengesteld wanneer een gebruiker erom vraagt.
 * Als u daarentegen een keuze hebt uit tien verschillende startpagina&#39;s, kunt u elk van deze in cache plaatsen, waardoor de prestaties verbeteren.
@@ -141,7 +141,7 @@ Dispatcher kan geen gepersonaliseerde gegevens in het voorgeheugen onderbrengen,
 
 ## Vaste verbindingen {#sticky-connections}
 
-[Vaste verbindingen](dispatcher.md#TheBenefitsofLoadBalancing) Zorg ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map zodat deze alle documenten kan bevatten waarvoor kleverige verbindingen voor de website nodig zijn. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
+[ de Vaste verbindingen ](dispatcher.md#TheBenefitsofLoadBalancing) zorgen ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map zodat deze alle documenten kan bevatten waarvoor kleverige verbindingen voor de website nodig zijn. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
 
 ## MIME-typen {#mime-types}
 
@@ -157,10 +157,10 @@ Voor de meeste bestanden wordt het MIME-type geïmpliceerd in de bestandsextensi
 
 Als de bestandsnaam geen extensie heeft, wordt deze weergegeven als onbewerkte tekst.
 
-Het MIME-type maakt deel uit van de HTTP-header en wordt daarom niet in de cache opgeslagen. Uw AEM toepassing kan bestanden retourneren die geen herkende bestandsextensie hebben. Als de bestanden in plaats daarvan afhankelijk zijn van het MIME-type, worden deze bestanden mogelijk onjuist weergegeven.
+Het MIME-type maakt deel uit van de HTTP-header en wordt daarom niet in de cache opgeslagen door Dispatcher. Uw AEM toepassing kan bestanden retourneren die geen herkende bestandsextensie hebben. Als de bestanden in plaats daarvan afhankelijk zijn van het MIME-type, worden deze bestanden mogelijk onjuist weergegeven.
 
 Volg de onderstaande richtlijnen om ervoor te zorgen dat bestanden correct in het cachegeheugen worden opgeslagen:
 
 * Zorg ervoor dat bestanden altijd de juiste extensie hebben.
-* Vermijd generische de manuscripten van de dossierserver, die URLs zoals download.jsp?file=2214 hebben. Schrijf het script opnieuw, zodat het URL&#39;s gebruikt die de bestandsspecificatie bevatten. In het vorige voorbeeld is dit `download.2214.pdf`.
+* Vermijd generische de manuscripten van de dossierserver, die URLs zoals download.jsp?file=2214 hebben. Schrijf het script opnieuw, zodat het URL&#39;s gebruikt die de bestandsspecificatie bevatten. Voor het vorige voorbeeld is dit `download.2214.pdf` .
 

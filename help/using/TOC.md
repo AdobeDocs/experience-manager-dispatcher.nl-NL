@@ -23,16 +23,16 @@ ht-degree: 29%
 + [Overzicht](dispatcher.md)
 + Aan de slag {#getting-started}
    + [Dispatcher installeren](dispatcher-install.md)
-   + [De beveiligingscontrolelijst voor verzending](security-checklist.md)
-   + [Opmerkingen bij de release AEM Dispatcher](release-notes.md)
+   + [De Dispatcher-beveiligingscontrolelijst](security-checklist.md)
+   + [Opmerkingen bij de release van Dispatcher AEM](release-notes.md)
 + Configureren {#configuring}
    + [De Dispatcher configureren](dispatcher-configuration.md)
    + [In cache geplaatste pagina&#39;s ongeldig maken van AEM](page-invalidate.md)
-   + [Een website optimaliseren voor cacheprestaties](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [ Optimizing een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [Beveiligde inhoud in cache plaatsen](permissions-cache.md)
-   + [AEM Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md)
+   + [Dispatcher AEM met meerdere domeinen gebruiken](dispatcher-domains.md)
    + [SSL gebruiken met AEM Dispatcher](dispatcher-ssl.md)
-   + [AEM Dispatcher configureren om CSRF-aanvallen te voorkomen](configuring-dispatcher-to-prevent-csrf.md)
+   + [Dispatcher configureren om CSRF-aanvallen te voorkomen](configuring-dispatcher-to-prevent-csrf.md)
 + Problemen oplossen {#troubleshooting}
-   + [Problemen met verzending van problemen oplossen](dispatcher-troubleshooting.md)
-   + [Veelgestelde vragen over de meest voorkomende problemen met Verzender](dispatcher-faq.md)
+   + [Problemen met Dispatcher oplossen](dispatcher-troubleshooting.md)
+   + [Veelgestelde vragen over Dispatcher Top Issues](dispatcher-faq.md)

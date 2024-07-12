@@ -1,6 +1,6 @@
 ---
-title: Meestvoorkomende problemen met Dispatcher
-description: Frequente problemen met Adobe Experience Manager Dispatcher.
+title: Meestvoorkomende problemen voor Dispatcher
+description: Meestvoorkomende problemen voor Adobe Experience Manager Dispatcher.
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
@@ -9,68 +9,68 @@ ht-degree: 0%
 
 ---
 
-# Veelgestelde vragen over AEM belangrijkste problemen met Verzender
+# Veelgestelde vragen over Dispatcher-topproblemen AEM
 
-![Dispatcher configureren](assets/CQDispatcher_workflow_v2.png)
+![ het Vormen Dispatcher ](assets/CQDispatcher_workflow_v2.png)
 
 ## Inleiding
 
 ### Wat is de Dispatcher?
 
-Dispatcher is Adobe Experience Manager-caching, of taakverdelingsprogramma, of beide, die helpen een snelle en dynamische Web-authoringomgeving te realiseren. Voor caching, werkt de Dispatcher als deel van een server van HTTP, zoals Apache. Het heeft als doel om zoveel mogelijk statische website-inhoud op te slaan (of in cache te plaatsen). En de lay-out van de website-engine zo weinig mogelijk openen. In een lading-in evenwicht brengende rol, verspreidt de Dispatcher gebruikersverzoeken (lading) over verschillende AEM instanties (teruggeeft).
+De Dispatcher is ook Adobe Experience Manager in cache plaatsen, of taakverdelingsprogramma&#39;s, of beide, die helpen een snelle en dynamische webontwerpomgeving te realiseren. Voor caching, werkt de Dispatcher als deel van een server van HTTP, zoals Apache. Het heeft als doel om zoveel mogelijk statische website-inhoud op te slaan (of in cache te plaatsen). En de lay-out van de website-engine zo weinig mogelijk openen. In een load-balancing rol, verspreidt de Dispatcher gebruikersverzoeken (load) over verschillende AEM instanties (renders).
 
-Voor caching, gebruikt de module van de Verzender de capaciteit van de server van het Web om statische inhoud te dienen. De verzender plaatst de caching documenten bij de documentwortel op de server van het Web.
+Voor caching, gebruikt de module van Dispatcher de capaciteit van de server van het Web om statische inhoud te dienen. De Dispatcher plaatst de in het cachegeheugen opgeslagen documenten in de hoofdmap van het document op de webserver.
 
 ### Hoe voert de Dispatcher caching uit?
 
-Dispatcher gebruikt de mogelijkheid van de webserver om statische inhoud te leveren. Dispatcher slaat caching documenten bij de documentwortel op de server van het Web op. De Dispatcher beschikt over twee primaire methoden voor het bijwerken van de cacheinhoud wanneer wijzigingen in de website worden aangebracht.
+De Dispatcher gebruikt de mogelijkheid van de webserver om statische inhoud te bedienen. Dispatcher slaat caching documenten bij de documentwortel op de server van het Web op. De Dispatcher beschikt over twee primaire methoden om de cacheinhoud bij te werken wanneer wijzigingen in de website worden aangebracht.
 
-* **Updates van inhoud** de gewijzigde pagina&#39;s en de bestanden die er direct aan zijn gekoppeld, verwijderen.
-* **Automatische validatie** maakt automatisch de delen van het cachegeheugen ongeldig die na een update mogelijk verouderd zijn. Zo worden relevante pagina&#39;s bijvoorbeeld als verouderd gemarkeerd zonder dat er iets wordt verwijderd.
+* **Updates van de Inhoud** verwijderen de pagina&#39;s die, en dossiers zijn veranderd die direct met hen worden geassocieerd.
+* **auto-Invalidation** maakt automatisch die delen van het geheime voorgeheugen ongeldig die uit datum na een update kunnen zijn. Zo worden relevante pagina&#39;s bijvoorbeeld als verouderd gemarkeerd zonder dat er iets wordt verwijderd.
 
 ### Wat zijn de voordelen van taakverdeling?
 
 Bij taakverdeling worden gebruikersverzoeken (load) over verschillende AEM verdeeld. In de volgende lijst worden de voordelen voor taakverdeling beschreven:
 
-* **Verhoogde verwerkingskracht**: In de praktijk betekent deze methode dat de Dispatcher verzoeken om documenten deelt tussen verschillende instanties van AEM. Omdat elke instantie minder documenten te verwerken heeft, hebt u snellere reactietijden. Dispatcher houdt interne statistieken voor elke documentcategorie bij, zodat kan het lading schatten en de vragen efficiënt verspreiden.
-* **Verhoogde failover-veilige dekking**: Als de Dispatcher geen reacties van een instantie ontvangt, worden aanvragen automatisch doorgestuurd naar een van de andere instanties. Als een instantie dus niet beschikbaar is, is het enige effect een vertraging van de site, in verhouding tot de verloren computerkracht.
+* **Verhoogde verwerkingsmacht**: In praktijk, betekent deze methode dat Dispatcher documentverzoeken tussen verscheidene instanties van AEM deelt. Omdat elke instantie minder documenten te verwerken heeft, hebt u snellere reactietijden. Dispatcher houdt interne statistieken voor elke documentcategorie bij, zodat kan het de lading schatten en de vragen efficiënt verspreiden.
+* **Verhoogde mislukken-veilige dekking**: Als Dispatcher geen reacties van een instantie ontvangt, geeft het automatisch verzoeken aan één van de andere instanties terug. Als een instantie dus niet beschikbaar is, is het enige effect een vertraging van de site, in verhouding tot de verloren computerkracht.
 
 >[!NOTE]
 >
->Zie voor meer informatie de [De pagina Overzicht van de verzending](dispatcher.md)
+>Voor verdere details, zie de [ pagina van het Overzicht van Dispatcher ](dispatcher.md)
 
 ## Installeren en configureren
 
 ### Waar kan ik de Dispatcher-module downloaden?
 
-U kunt de nieuwste Dispatcher-module downloaden via de [Opmerkingen bij de release Dispatcher](release-notes.md) pagina.
+U kunt de recentste module van Dispatcher van de [ pagina van de Nota&#39;s van de Versie van Dispatcher ](release-notes.md) downloaden.
 
-### Hoe installeer ik de module Dispatcher?
+### Hoe installeer ik de Dispatcher-module?
 
-Zie de [Dispatcher installeren](dispatcher-install.md) page
+Verwijs naar [ het Installeren van Dispatcher ](dispatcher-install.md) pagina
 
-### Hoe vorm ik de module van de Verzender?
+### Hoe configureer ik de Dispatcher-module?
 
-Zie de [Dispatcher configureren](dispatcher-configuration.md) pagina.
+Zie [ het Vormen Dispatcher ](dispatcher-configuration.md) pagina.
 
-### Hoe vorm ik de Dispatcher voor de auteursinstantie?
+### Hoe configureer ik de Dispatcher voor de auteurinstantie?
 
-Zie [Dispatcher gebruiken met een Auteur-instantie](dispatcher.md#using-a-dispatcher-with-an-author-server) voor de gedetailleerde stappen.
+Zie [ Gebruikend Dispatcher met een Instantie van de Auteur ](dispatcher.md#using-a-dispatcher-with-an-author-server) voor de gedetailleerde stappen.
 
-### Hoe vorm ik de Dispatcher met veelvoudige domeinen?
+### Hoe configureer ik de Dispatcher met meerdere domeinen?
 
-U kunt CQ Dispatcher met veelvoudige domeinen vormen, op voorwaarde dat de domeinen aan de volgende voorwaarden voldoen:
+U kunt de CQ Dispatcher configureren met meerdere domeinen, op voorwaarde dat de domeinen aan de volgende voorwaarden voldoen:
 
 * De inhoud van het Web voor beide domeinen wordt opgeslagen in één enkele AEM bewaarplaats
 * De bestanden in de Dispatcher-cache kunnen voor elk domein afzonderlijk ongeldig worden gemaakt
 
-Lezen [Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md) voor nadere bijzonderheden.
+Lees [ Gebruikend Dispatcher met Veelvoudige Domeinen ](dispatcher-domains.md) voor verdere details.
 
-### Hoe vorm ik de Dispatcher, zodat alle verzoeken van een gebruiker aan de zelfde Publish instantie worden verpletterd?
+### Hoe vorm ik Dispatcher, zodat alle verzoeken van een gebruiker aan de zelfde instantie van Publish worden verpletterd?
 
-U kunt de [kleverige verbindingen](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor) -functie, die ervoor zorgt dat alle documenten voor een gebruiker op hetzelfde AEM worden verwerkt. Deze functie is belangrijk als u persoonlijke pagina&#39;s en sessiegegevens gebruikt. De gegevens worden opgeslagen op de instantie. Daarom moeten de verdere verzoeken van de zelfde gebruiker aan die instantie terugkeren of het gegeven wordt verloren.
+U kunt de [ kleverige verbindingen ](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor) eigenschap gebruiken, die ervoor zorgt dat alle documenten voor een gebruiker op de zelfde instantie van AEM worden verwerkt. Deze functie is belangrijk als u persoonlijke pagina&#39;s en sessiegegevens gebruikt. De gegevens worden opgeslagen op de instantie. Daarom moeten de verdere verzoeken van de zelfde gebruiker aan die instantie terugkeren of het gegeven wordt verloren.
 
-Omdat de kleverige verbindingen de capaciteit van de Verzender beperken om verzoeken te optimaliseren, zou u deze benadering slechts wanneer noodzakelijk moeten gebruiken. U kunt de map opgeven die de &quot;plakke&quot; documenten bevat, zodat alle documenten in die map in hetzelfde exemplaar voor een gebruiker worden verwerkt.
+Omdat de kleverige verbindingen de capaciteit van Dispatcher beperken om verzoeken te optimaliseren, zou u deze benadering slechts wanneer nodig moeten gebruiken. U kunt de map opgeven die de &quot;plakke&quot; documenten bevat, zodat alle documenten in die map in hetzelfde exemplaar voor een gebruiker worden verwerkt.
 
 ### Kan ik kleverige verbindingen en caching in combinatie gebruiken?
 
@@ -78,11 +78,11 @@ Voor de meeste pagina&#39;s die kleverige verbindingen gebruiken, zou u caching 
 
 Voor sommige toepassingen kan het mogelijk zijn om zowel kleverige verbindingen als caching te gebruiken. Als u bijvoorbeeld een formulier weergeeft waarin gegevens naar een sessie worden geschreven, kunt u naast elkaar kleverige verbindingen gebruiken en in cache plaatsen.
 
-### Kunnen een Dispatcher en een AEM Publish instantie op de zelfde fysieke machine verblijven?
+### Kunnen een Dispatcher en een AEM Publish-instantie zich op dezelfde fysieke machine bevinden?
 
 Ja, als de machine voldoende krachtig is. U moet echter de Dispatcher en de AEM Publish-instantie op verschillende computers instellen.
 
-Gewoonlijk, verblijft de het Publiceren instantie binnen de firewall en Dispatcher in DMZ. Als u besluit zowel de instantie Publishing als de Dispatcher op dezelfde fysieke computer te hebben, controleert u of de firewallinstellingen directe toegang tot de instantie Publishing via externe netwerken verbieden.
+Gewoonlijk bevindt de instantie Publishing zich in de firewall en bevindt de Dispatcher zich in de DMZ. Als u besluit om zowel de instantie Publishing als Dispatcher op dezelfde fysieke computer te plaatsen, moet u ervoor zorgen dat de firewallinstellingen directe toegang tot de instantie Publishing via externe netwerken verbieden.
 
 ### Kan ik alleen bestanden met specifieke extensies in cache plaatsen?
 
@@ -90,7 +90,7 @@ Ja. Als u bijvoorbeeld alleen GIF-bestanden in de cache wilt plaatsen, geeft u *
 
 ### Hoe kan ik bestanden uit de cache verwijderen?
 
-U kunt bestanden uit de cache verwijderen met behulp van een HTTP-aanvraag. Wanneer de HTTP-aanvraag wordt ontvangen, verwijdert Dispatcher de bestanden uit de cache. Dispatcher plaatst de bestanden alleen opnieuw in het cachegeheugen als het een clientverzoek voor de pagina ontvangt. Het verwijderen van cachebestanden op deze manier is geschikt voor websites die waarschijnlijk geen gelijktijdige aanvragen voor dezelfde pagina ontvangen.
+U kunt bestanden uit de cache verwijderen met behulp van een HTTP-aanvraag. Wanneer de HTTP-aanvraag wordt ontvangen, verwijdert Dispatcher de bestanden uit de cache. Dispatcher plaatst de bestanden alleen opnieuw in cache wanneer het een clientverzoek voor de pagina ontvangt. Het verwijderen van cachebestanden op deze manier is geschikt voor websites die waarschijnlijk geen gelijktijdige aanvragen voor dezelfde pagina ontvangen.
 
 De HTTP-aanvraag heeft de volgende syntaxis:
 
@@ -101,51 +101,51 @@ CQ-Handle: path-pattern
 Content-Length: 0
 ```
 
-Dispatcher verwijdert de cachebestanden en mappen met namen die overeenkomen met de waarde van de CQ-Handle-header. Bijvoorbeeld een CQ-Handle van `/content/geomtrixx-outdoors/en` komt overeen met de volgende items:
+Dispatcher verwijdert de in de cache opgeslagen bestanden en mappen met namen die overeenkomen met de waarde van de CQ-Handle-header. Een CQ-handgreep van `/content/geomtrixx-outdoors/en` komt bijvoorbeeld overeen met de volgende items:
 
 Alle bestanden (van een willekeurige bestandsextensie) die en in de map geometrixx-outdoor zijn genoemd.
-Elke benoemde map `_jcr_content` onder de map en (die, indien aanwezig, in de cache opgeslagen renderingen van subknooppunten van de pagina bevat).
-De map `en` wordt alleen verwijderd als de `CQ-Action` is `Delete` of `Deactivate`.
+Elke map met de naam `_jcr_content` onder de map en (die, indien aanwezig, in de cache opgeslagen renderingen van subknooppunten van de pagina bevat).
+De map `en` wordt alleen verwijderd als de map `CQ-Action` is `Delete` of `Deactivate` .
 
-Zie voor meer informatie over dit onderwerp [De Dispatcher-cache handmatig ongeldig maken](page-invalidate.md).
+Voor verdere details over dit onderwerp, zie [ manueel het Valideren van het Geheime voorgeheugen van Dispatcher ](page-invalidate.md).
 
 ### Hoe implementeer ik toestemming-gevoelige caching?
 
-Zie de [Beveiligde inhoud cachen](permissions-cache.md) pagina.
+Zie [ Caching Veilige Inhoud ](permissions-cache.md) pagina.
 
-### Hoe kan ik communicatie tussen de instanties Dispatcher en CQ beveiligen?
+### Hoe kan ik communicatie tussen de Dispatcher- en CQ-instanties beveiligen?
 
-Zie de [Controlelijst voor beveiliging van verzender](security-checklist.md) en de [Beveiligingschecklist AEM](https://experienceleague.adobe.com/en/docs/experience-manager-64/administering/security/security-checklist) pagina&#39;s.
+Zie de [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) en de [ controlelijst van de Veiligheid AEM ](https://experienceleague.adobe.com/en/docs/experience-manager-64/administering/security/security-checklist) pagina&#39;s.
 
-### Uitgave van verzending `jcr:content` gewijzigd in `jcr%3acontent`
+### Dispatcher-probleem `jcr:content` gewijzigd in `jcr%3acontent`
 
-**Vraag**: De onderneming heeft onlangs een probleem op het niveau van de Verzender geconfronteerd. Een van de AJAX die bepaalde gegevens van de CQ-gegevensopslagplaats kreeg, had `jcr:content` erin. Dat is gecodeerd naar `jcr%3acontent` resulterend in die verkeerde resultaatreeks.
+**Vraag**: De zaken hebben onlangs een probleem op het niveau van Dispatcher geconfronteerd. Een van de AJAX die bepaalde gegevens van de CQ-opslagplaats ophaalde, had er `jcr:content` in. Dat werd gecodeerd naar `jcr%3acontent` , wat resulteerde in die verkeerde resultaatset.
 
-**Antwoord**: Gebruik `ResourceResolver.map()` methode om een &#39;Vriendelijke&#39; URL te gebruiken/uitgegeven krijgen verzoeken van en ook om de caching kwestie met Dispatcher op te lossen. De methode map() codeert de `:` dubbelepunt naar onderstrepingstekens en de methode resolve() decodeert deze terug naar de leesbare indeling SLING JCR. Gebruik de methode map() om de URL te genereren die wordt gebruikt in de Ajax-aanroep.
+**Antwoord**: Gebruik `ResourceResolver.map()` methode om &quot;Vriendelijk&quot;te gebruiken URL te krijgen/uitgegeven krijgt verzoeken van en ook om de caching kwestie met Dispatcher op te lossen. De methode map() codeert de `:` dubbelepunt naar onderstrepingstekens en de methode resolve() decodeert deze terug naar de leesbare indeling van SLING JCR. Gebruik de methode map() om de URL te genereren die wordt gebruikt in de Ajax-aanroep.
 
-Lees verder: [https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
+Lees verder: [ https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
-## De Dispatcher verwijderen
+## Spoel de Dispatcher
 
-### Hoe vorm ik de agenten van de Dispatcher op een Publish instantie?
+### Hoe configureer ik Dispatcher flush-agents op een Publish-instantie?
 
-Zie de [Replicatie](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents) pagina.
+Zie de [ pagina van de Replicatie ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents).
 
-### Hoe los ik problemen op die Dispatcher opblazen?
+### Hoe los ik problemen met het flushing in Dispatcher op?
 
-[Zie deze artikelen voor probleemoplossing](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]).
+[ zie deze het oplossen van problemenartikelen ](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]).
 
-Als de bewerkingen Verwijderen ertoe leiden dat de Dispatcher leegloopt, [gebruik de tijdelijke oplossing in dit blogbericht van Sensei Martin](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
+Als de verrichtingen van de Schrapping de Dispatcher veroorzaken om te spoelen, [ gebruiken de tijdelijke oplossing in deze communautaire blogpost door Sensei Martin ](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
 
-### Hoe kan ik DAM-elementen uit de Dispatcher-cache verwijderen?
+### Hoe kan ik DAM-middelen uit de Dispatcher-cache verwijderen?
 
-U kunt de functie voor ketenreplicatie gebruiken. Met deze toegelaten eigenschap, verzendt de de flush agent van de Verzender een spoelverzoek wanneer een replicatie van de instantie van de Auteur wordt ontvangen.
+U kunt de functie voor ketenreplicatie gebruiken. Als deze functie is ingeschakeld, verzendt de Dispatcher-instantie flush een aanvraag voor uitspoelen wanneer een replicatie wordt ontvangen van de Author-instantie.
 
 U schakelt dit als volgt in:
 
-1. [Voer hier de stappen uit](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) spoelmiddelen maken bij publicatie
+1. [ volg hier de stappen ](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) om het spoelen agenten bij te creëren publiceren
 1. Ga naar de configuratie van elke agent.
-1. Op de **Triggers** tabblad, controleert u de **Bij ontvangst** doos.
+1. Op het **Trekkers** lusje, controleer **op ontvangen** doos.
 
 ## Overige
 
@@ -153,13 +153,13 @@ Hoe bepaalt de Dispatcher of een document up-to-date is?
 Om te bepalen of een document bijgewerkt is, voert de Dispatcher de volgende handelingen uit:
 
 Hiermee wordt gecontroleerd of het document automatisch wordt ongeldig gemaakt. Als dat niet het geval is, wordt het document als bijgewerkt beschouwd.
-Als het document is geconfigureerd voor automatische validatie, controleert de Dispatcher of het ouder of nieuwer is dan de laatste beschikbare wijziging. Als deze ouder is, vraagt de Dispatcher de huidige versie van de AEM instantie en vervangt de versie in het geheime voorgeheugen.
+Als het document is geconfigureerd voor automatische validatie, controleert de Dispatcher of het ouder of nieuwer is dan de laatste beschikbare wijziging. Als het ouder is, vraagt de Dispatcher de huidige versie van de AEM instantie en vervangt de versie in het geheime voorgeheugen.
 
 ### Hoe retourneert de Dispatcher documenten?
 
-U kunt bepalen of de Dispatcher een document in een cache plaatst met behulp van de [Dispatcher-configuratie](dispatcher-configuration.md) bestand, `dispatcher.any`. De verzender controleert het verzoek aan de lijst van cacheable documenten. Als het document niet in deze lijst staat, wordt het document door de Dispatcher opgevraagd bij het AEM.
+U kunt bepalen of Dispatcher een document in cache plaatst door het [ de configuratiedossier van Dispatcher ](dispatcher-configuration.md) te gebruiken, `dispatcher.any`. De Dispatcher controleert het verzoek aan de lijst van cacheable documenten. Als het document zich niet in deze lijst bevindt, vraagt de Dispatcher het document op bij het AEM.
 
-De `/rules` Deze eigenschap bepaalt welke documenten in de cache worden geplaatst op basis van het documentpad. Ongeacht de `/rules` eigenschap, Dispatcher plaatst een document nooit in de cache in de volgende omstandigheden:
+De eigenschap `/rules` bepaalt welke documenten in de cache worden geplaatst op basis van het documentpad. Ongeacht de eigenschap `/rules` plaatst Dispatcher een document nooit in cache in de volgende omstandigheden:
 
 * De aanvraag-URI bevat een `(?)` vraagteken.
 * Het geeft een dynamische pagina aan, zoals een zoekresultaat dat niet in de cache hoeft te worden opgeslagen.
@@ -171,11 +171,11 @@ De `/rules` Deze eigenschap bepaalt welke documenten in de cache worden geplaats
    * no-store
    * moet opnieuw valideren
 
-De Dispatcher slaat cachebestanden op de webserver op alsof ze deel uitmaken van een statische website. Als een gebruiker een document in de cache opvraagt, controleert de Dispatcher of het document bestaat in het bestandssysteem van de webserver. Als dit het geval is, retourneert de Dispatcher de documenten. Als dat niet het geval is, vraagt de Dispatcher het document op bij de AEM instantie.
+De Dispatcher slaat cachebestanden op de webserver op alsof ze deel uitmaken van een statische website. Als een gebruiker een document in de cache opvraagt, controleert de Dispatcher of het document bestaat in het bestandssysteem van de webserver. Als dat het geval is, retourneert de Dispatcher de documenten. Als dat niet het geval is, vraagt de Dispatcher het document op bij het AEM.
 
 >[!NOTE]
 >
->De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Zie voor meer informatie over het in cache plaatsen van responsheaders de [HTTP-responsheaders in cache plaatsen](dispatcher-configuration.md#caching-http-response-headers) sectie.
+>De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Voor extra informatie over reactiekopbal caching, zie de [ Caching sectie van de Kopballen van de Reactie van HTTP ](dispatcher-configuration.md#caching-http-response-headers).
 
 ### Kan ik veelvoudige Dispatchers in een opstelling uitvoeren?
 
