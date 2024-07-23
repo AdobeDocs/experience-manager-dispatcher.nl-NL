@@ -9,9 +9,9 @@ index: y
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: 971cffd4f7ba8b1fa88a8af620a723ce59957007
 workflow-type: tm+mt
-source-wordcount: '1310'
+source-wordcount: '1305'
 ht-degree: 0%
 
 ---
@@ -31,11 +31,10 @@ Gebruik SSL-verbindingen tussen de Dispatcher en de renderingcomputer:
 
 Configureer de Dispatcher voor communicatie met de AEM- of CQ-renderinstantie met behulp van SSL-verbindingen.
 
-Voordat u Dispatcher configureert, configureert u AEM of CQ zodanig dat SSL wordt gebruikt:
+Voordat u Dispatcher configureert, configureert u AEM of CQ om SSL te gebruiken. Zie voor meer informatie:
 
-* AEM 6.2: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
-* AEM 6.1: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
-* Oudere AEM versies: zie [ deze pagina ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions).
+* [ SSL/TLS door Standaard ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/ssl-by-default)
+* [ Gebruik de SSL Tovenaar in AEM ](https://experienceleague.adobe.com/en/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
 
 ### SSL-gerelateerde aanvraagheaders {#ssl-related-request-headers}
 
