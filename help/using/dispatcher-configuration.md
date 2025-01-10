@@ -2,9 +2,9 @@
 title: AEM Dispatcher configureren
 description: Leer hoe u de Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, en het noemen van de instantie. Lees over het bepalen van landbouwbedrijven, het identificeren van virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: 23dde3b2ebc6a63d5e1c50e5877338c3bd09d5d2
 workflow-type: tm+mt
-source-wordcount: '8876'
+source-wordcount: '8938'
 ht-degree: 0%
 
 ---
@@ -945,6 +945,21 @@ Gebruik de volgende procedure om toegang tot vanity URLs toe te laten.
 1. Voor elke vanity-URL die u voor een AEM- of CQ-pagina hebt geconfigureerd, controleert u of de URL in de configuratie [`/filter`](#configuring-access-to-content-filter) wordt geweigerd. Voeg zo nodig een filter toe dat de URL weigert.
 1. Voeg de sectie `/vanity_urls` onder `/farms` toe.
 1. Start Apache-webserver opnieuw.
+
+Met Dispatcher **versie 4.3.6** is een nieuwe `/loadOnStartup` parameter toegevoegd. Door deze parameter te gebruiken, kunt u het laden van vanity URLs bij opstarten als volgt vormen:
+
+Door `/loadOnStartup 0` toe te voegen (zie het voorbeeld hieronder) kunt u het laden van vanity-URL&#39;s bij het opstarten uitschakelen.
+
+```
+/vanity_urls {
+        /url "/libs/granite/dispatcher/content/vanityUrls.html"
+        /file "/tmp/vanity_urls"
+        /loadOnStartup 0
+        /delay 60
+      } 
+```
+
+Terwijl `/loadOnStartup 1` de vanity-URL&#39;s laadt bij het opstarten. Onthoud dat `/loadOnStartup 1` de huidige standaardwaarde voor deze parameter is.
 
 ## Verzoeken om synchronisatie verzenden - `/propagateSyndPost` {#forwarding-syndication-requests-propagatesyndpost}
 
