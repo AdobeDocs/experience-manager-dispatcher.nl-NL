@@ -2,7 +2,7 @@
 title: AEM Dispatcher configureren
 description: Leer hoe u de Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, en het noemen van de instantie. Lees over het bepalen van landbouwbedrijven, het identificeren van virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 23dde3b2ebc6a63d5e1c50e5877338c3bd09d5d2
+source-git-commit: da9bf0c1f4cceccfc6be9f4871a21d2bb703f0a4
 workflow-type: tm+mt
 source-wordcount: '8938'
 ht-degree: 0%
@@ -355,7 +355,7 @@ Dispatcher vindt de best-passende virtuele gastheerwaarde op de volgende manier:
 * Als er geen `virtualhosts` -waarden zijn met `scheme` - en `uri` -onderdelen die beide overeenkomen met `scheme` en `uri` van de aanvraag, wordt de eerst aangetroffen virtuele host gebruikt die overeenkomt met `host` van de aanvraag.
 * Als geen `virtualhosts` waarden een gastheerdeel hebben dat de gastheer van het verzoek aanpast, wordt de hoogste virtuele gastheer van het hoogste landbouwbedrijf gebruikt.
 
-Plaats daarom de standaard virtuele host boven aan de eigenschap `virtualhosts` . PLoze bevindt zich op de bovenste boerderij van uw `dispatcher.any` -bestand.
+Plaats daarom de standaard virtuele host boven aan de eigenschap `virtualhosts` . Plaats het in het hoogste landbouwbedrijf van uw `dispatcher.any` dossier.
 
 ### Voorbeeld virtuele hostresolutie {#example-virtual-host-resolution}
 
