@@ -2,9 +2,9 @@
 title: AEM Dispatcher configureren
 description: Leer hoe u de Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, en het noemen van de instantie. Lees over het bepalen van landbouwbedrijven, het identificeren van virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: da9bf0c1f4cceccfc6be9f4871a21d2bb703f0a4
+source-git-commit: a9ef9d7d2fe5c421cd8039579fd84961ea901def
 workflow-type: tm+mt
-source-wordcount: '8938'
+source-wordcount: '8941'
 ht-degree: 0%
 
 ---
@@ -133,7 +133,7 @@ Bijvoorbeeld, als het dispatcher.any- dossier in de zelfde folder zoals de gehei
 /docroot "${PWD}/cache"
 ```
 
-Als een ander voorbeeld: als u een omgevingsvariabele met de naam `PUBLISH_IP` maakt die de hostnaam van de AEM-publicatie-instantie opslaat, kunt u de volgende configuratie van de eigenschap [`/renders`](#defining-page-renderers-renders) gebruiken:
+Als ander voorbeeld kunt u de volgende configuratie van de eigenschap [`/renders`](#defining-page-renderers-renders) gebruiken wanneer u een omgevingsvariabele met de naam `PUBLISH_IP` maakt die de hostnaam van de publicatieinstantie van AEM opslaat:
 
 ```xml
 /renders {
@@ -160,7 +160,7 @@ De eigenschap `/farms` is een eigenschap op hoofdniveau in de configuratiestruct
 De eigenschap `/farmname` is multiwaardeerd en bevat andere eigenschappen die het gedrag van Dispatcher definiëren:
 
 * De URL&#39;s van de pagina&#39;s waarop het landbouwbedrijf van toepassing is.
-* Een of meer service-URL&#39;s (doorgaans van AEM publicatieinstanties) die moeten worden gebruikt voor het weergeven van documenten.
+* Een of meer service-URL&#39;s (doorgaans van AEM-publicatie-instanties) die moeten worden gebruikt voor het weergeven van documenten.
 * De statistische gegevens die moeten worden gebruikt voor meerdere renderers van documenten die een taakverdeling hebben.
 * Verschillende andere gedragingen, zoals welke bestanden in cache moeten worden geplaatst en waar ze moeten worden opgeslagen.
 
@@ -196,7 +196,7 @@ Elk landbouwbedrijfbezit kan de volgende kindeigenschappen bevatten:
 | [ /clientheaders ](#specifying-the-http-headers-to-pass-through-clientheaders) | De headers van de HTTP-client-aanvraag die moeten worden doorgegeven. |
 | [/virtualhosts ](#identifying-virtual-hosts-virtualhosts) | De virtuele hosts van deze boerderij. |
 | [ /sessionmanagement ](#enabling-secure-sessions-sessionmanagement) | Ondersteuning voor sessiebeheer en verificatie. |
-| [/renders ](#defining-page-renderers-renders) | De servers die gerenderde pagina&#39;s leveren (AEM gewoonlijk exemplaren publiceren). |
+| [/renders ](#defining-page-renderers-renders) | De servers die gerenderde pagina&#39;s leveren (AEM publiceert instanties doorgaans). |
 | [/filter ](#configuring-access-to-content-filter) | Hiermee definieert u de URL&#39;s waartoe de Dispatcher toegang biedt. |
 | [/vanity_urls ](#enabling-access-to-vanity-urls-vanity-urls) | Vormt toegang tot vanity URLs. |
 | [/propagateSyndPost ](#forwarding-syndication-requests-propagatesyndpost) | Steun voor de doorzending van verzoeken om syndicatie. |
@@ -261,7 +261,7 @@ De eigenschap `/clientheaders` definieert een lijst met HTTP-headers die Dispatc
 
 Standaard stuurt de Dispatcher de standaard HTTP-headers door naar de AEM-instantie. In sommige gevallen wilt u mogelijk extra kopteksten doorsturen of specifieke koppen verwijderen:
 
-* Voeg kopballen, zoals douanekopballen, toe die uw AEM instantie in de HTTP- aanvraag verwacht.
+* Voeg kopballen, zoals douanekopballen, toe die uw instantie van AEM in de HTTP- aanvraag verwacht.
 * Verwijder kopballen, zoals authentificatiekopballen die slechts relevant voor de Webserver zijn.
 
 Als u de reeks kopballen aanpast om over te gaan, moet u een uitvoerige lijst van kopballen, met inbegrip van die kopballen specificeren die normaal inbegrepen door gebrek zijn.
@@ -455,7 +455,7 @@ Een voorbeeldconfiguratie ziet er als volgt uit:
 
 ## Paginarenderers definiëren {#defining-page-renderers-renders}
 
-De eigenschap `/renders` definieert de URL waarnaar de Dispatcher een verzoek verzendt om een document te renderen. In de volgende voorbeeldsectie `/renders` wordt één AEM voor rendering geïdentificeerd:
+De eigenschap `/renders` definieert de URL waarnaar de Dispatcher een verzoek verzendt om een document te renderen. In de volgende voorbeeldsectie `/renders` wordt één AEM-instantie voor rendering geïdentificeerd:
 
 ```xml
 /renders
@@ -472,7 +472,7 @@ De eigenschap `/renders` definieert de URL waarnaar de Dispatcher een verzoek ve
   }
 ```
 
-In de volgende voorbeeldsectie `/renders` wordt een AEM instantie geïdentificeerd die op dezelfde computer als Dispatcher wordt uitgevoerd:
+In de volgende voorbeeldsectie `/renders` wordt een AEM-instantie geïdentificeerd die op dezelfde computer als Dispatcher wordt uitgevoerd:
 
 ```xml
 /renders
@@ -485,7 +485,7 @@ In de volgende voorbeeldsectie `/renders` wordt een AEM instantie geïdentificee
   }
 ```
 
-In de volgende voorbeeldsectie `/renders` worden renderverzoeken gelijkelijk verdeeld over twee AEM:
+In de volgende voorbeeldsectie `/renders` worden renderverzoeken gelijkelijk verdeeld over twee AEM-instanties:
 
 ```xml
 /renders
@@ -507,7 +507,7 @@ In de volgende voorbeeldsectie `/renders` worden renderverzoeken gelijkelijk ver
 
 **/timeout**
 
-Geeft de time-out van de verbinding op die de AEM instantie benadert, in milliseconden. De standaardwaarde is `"0"` , zodat de Dispatcher oneindig wacht.
+Geeft de time-out van de verbinding aan die de AEM-instantie benadert, in milliseconden. De standaardwaarde is `"0"` , zodat de Dispatcher oneindig wacht.
 
 **/receiveTimeout**
 
@@ -525,7 +525,7 @@ Amazon Elastic Load Balancing (ELB) is een service die reageert op getaddrinfo m
 
 **/secure**
 
-Als de eigenschap `/secure` de waarde `"1"` heeft, gebruikt Dispatcher HTTPS om te communiceren met de AEM instantie. Voor meer details, zie [ Vormend Dispatcher om SSL ](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl) te gebruiken.
+Als de eigenschap `/secure` de waarde `"1"` heeft, gebruikt Dispatcher HTTPS om te communiceren met de instantie AEM. Voor meer details, zie [ Vormend Dispatcher om SSL ](dispatcher-ssl.md#configuring-dispatcher-to-use-ssl) te gebruiken.
 
 **/always-resolve**
 
@@ -555,7 +555,7 @@ Gebruik de sectie `/filter` om de HTTP-aanvragen op te geven die Dispatcher acce
 
 >[!CAUTION]
 >
->Zie [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend AEM Dispatcher. Ook, lees de [ Controlelijst van de Veiligheid AEM ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) voor extra veiligheidsdetails betreffende uw AEM installatie.
+>Zie [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend AEM Dispatcher. Ook, lees de [ Controlelijst van de Veiligheid van AEM ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) voor extra veiligheidsdetails betreffende uw installatie van AEM.
 
 De sectie `/filter` bestaat uit een reeks regels die of toegang tot inhoud volgens patronen in het verzoek-lijn deel van het HTTP- verzoek ontkennen of toestaan. Gebruik een strategie voor de lijst van gewenste personen van uw `/filter` sectie:
 
@@ -634,9 +634,9 @@ Met filters kunt u ook toegang tot verschillende elementen weigeren, zoals ASP-p
 /0002  { /type "deny" /url "*.asp"  }
 ```
 
-#### Voorbeeldfilter: aanvragen voor POSTEN inschakelen {#example-filter-enable-post-requests}
+#### Voorbeeldfilter: POST-verzoeken inschakelen {#example-filter-enable-post-requests}
 
-Met het volgende voorbeeldfilter kunt u formuliergegevens verzenden met de methode POST:
+Met het volgende voorbeeldfilter kunt u formuliergegevens verzenden via de POST-methode:
 
 ```xml
 /filter {
@@ -703,7 +703,7 @@ Wanneer het vormen van de Dispatcher, beperking externe toegang zoveel mogelijk.
    * `/etc/designs/default*`
    * `/etc/designs/mydesign*`
 
-Nadat u filters creeert, [ de toegang van de testpagina ](#testing-dispatcher-security) om ervoor te zorgen dat uw AEM instantie veilig is.
+Nadat u filters creeert, [ de toegang van de testpagina ](#testing-dispatcher-security) om ervoor te zorgen dat uw instantie van AEM veilig is.
 
 De volgende `/filter` sectie van het `dispatcher.any` dossier kan als basis in uw [ configuratiedossier van Dispatcher worden gebruikt.](#dispatcher-configuration-files)
 
@@ -838,7 +838,7 @@ Een enkel item kan `glob` of een combinatie van `method` , `url` , `query` en `v
 
 ### Dispatcher Security testen {#testing-dispatcher-security}
 
-Dispatcher-filters blokkeren de toegang tot de volgende pagina&#39;s en scripts bij AEM publicatie-instanties. Gebruik een webbrowser om te proberen de volgende pagina&#39;s te openen zoals een bezoeker van de site zou doen en om te controleren of code 404 wordt geretourneerd. Pas de filters aan als er andere resultaten worden verkregen.
+Dispatcher-filters moeten de toegang tot de volgende pagina&#39;s en scripts in AEM-publicatieexemplaren blokkeren. Gebruik een webbrowser om te proberen de volgende pagina&#39;s te openen zoals een bezoeker van de site zou doen en om te controleren of code 404 wordt geretourneerd. Pas de filters aan als er andere resultaten worden verkregen.
 
 U moet de normale rendering van pagina&#39;s zien voor `/content/add_valid_page.html?debug=layout` .
 
@@ -914,7 +914,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">The "com.adobe.granite.dispatcher.vanityurl.content" package needs to be made public before publishing this contnet.</p>
  -->
 
-Configureer de Dispatcher om toegang in te schakelen tot URL&#39;s met ijdelheid die zijn geconfigureerd voor uw AEM.
+Configureer de Dispatcher om toegang in te schakelen tot URL&#39;s met ijdelheid die zijn geconfigureerd voor uw AEM-pagina&#39;s.
 
 Wanneer toegang tot vanity URLs wordt toegelaten, roept Dispatcher periodiek de dienst die op de teruggeeft instantie loopt om een lijst van vanity URLs te verkrijgen. Dispatcher slaat deze lijst op in een lokaal bestand. Wanneer een aanvraag voor een pagina wordt afgewezen vanwege een filter in de `/filter` -sectie, raadpleegt Dispatcher de lijst met URL&#39;s met een ijdelheid. Als de ontkende URL in de lijst staat, verleent Dispatcher toegang tot de vanity URL.
 
@@ -941,7 +941,7 @@ De sectie `/vanity_urls` bevat de volgende eigenschappen:
 
 Gebruik de volgende procedure om toegang tot vanity URLs toe te laten.
 
-1. Als uw renderservice een AEM instantie is, installeert u het `com.adobe.granite.dispatcher.vanityurl.content` -pakket op de publicatie-instantie (zie de opmerking hierboven).
+1. Als uw renderservice een AEM-instantie is, installeert u het `com.adobe.granite.dispatcher.vanityurl.content` -pakket op de publicatie-instantie (zie de opmerking hierboven).
 1. Voor elke vanity-URL die u voor een AEM- of CQ-pagina hebt geconfigureerd, controleert u of de URL in de configuratie [`/filter`](#configuring-access-to-content-filter) wordt geweigerd. Voeg zo nodig een filter toe dat de URL weigert.
 1. Voeg de sectie `/vanity_urls` onder `/farms` toe.
 1. Start Apache-webserver opnieuw.
@@ -965,7 +965,7 @@ Terwijl `/loadOnStartup 1` de vanity-URL&#39;s laadt bij het opstarten. Onthoud 
 
 Syndicatieverzoeken zijn alleen bedoeld voor Dispatcher, zodat ze standaard niet naar de renderer worden verzonden (bijvoorbeeld een AEM-instantie).
 
-Stel, indien nodig, de eigenschap `/propagateSyndPost` in op `"1"` om synchronisatieverzoeken door te sturen naar Dispatcher. Indien ingesteld, moet u ervoor zorgen dat de aanvragen voor POSTEN niet worden afgewezen in de filtersectie.
+Stel, indien nodig, de eigenschap `/propagateSyndPost` in op `"1"` om synchronisatieverzoeken door te sturen naar Dispatcher. Indien ingesteld, moet u ervoor zorgen dat POST-aanvragen niet worden afgewezen in de filtersectie.
 
 ## Dispatcher Cache configureren - `/cache` {#configuring-the-dispatcher-cache-cache}
 
@@ -1037,7 +1037,7 @@ De status heeft geen inhoud. Wanneer de inhoud wordt bijgewerkt, werkt de Dispat
 
 De eigenschap `/serveStaleOnError` bepaalt of Dispatcher ongeldig gemaakte documenten retourneert wanneer de renderserver een fout retourneert. Wanneer een statusbestand wordt aangeraakt en cacheinhoud ongeldig wordt gemaakt, verwijdert de Dispatcher de inhoud in de cache standaard. Deze actie wordt gedaan de volgende tijd het wordt gevraagd.
 
-Als `/serveStaleOnError` is ingesteld op `"1"` , verwijdert Dispatcher geen ongeldig gemaakte inhoud uit de cache. Dat wil zeggen, tenzij de renderserver een geslaagde reactie retourneert. Een 5xx-reactie van AEM of een verbindingstijd zorgt ervoor dat de Dispatcher de verouderde inhoud aanbiedt en reageert met en HTTP-status 111 (Revalidation Failed).
+Als `/serveStaleOnError` is ingesteld op `"1"` , verwijdert Dispatcher geen ongeldig gemaakte inhoud uit de cache. Dat wil zeggen, tenzij de renderserver een geslaagde reactie retourneert. Een 502-, 503- of 504-reactie van AEM of een verbindingstijd zorgt ervoor dat de Dispatcher de verouderde inhoud aanbiedt en reageert met en HTTP-status 111 (Revalidation Failed).
 
 ### In cache plaatsen wanneer verificatie wordt gebruikt {#caching-when-authentication-is-used}
 
@@ -1066,7 +1066,7 @@ De eigenschap `/rules` bepaalt welke documenten in de cache worden geplaatst op 
 * De bestandsextensie ontbreekt.
    * De webserver heeft de extensie nodig om het documenttype (het MIME-type) te bepalen.
 * De verificatieheader wordt ingesteld (configureerbaar).
-* Als de AEM instantie met de volgende kopballen antwoordt:
+* Als de AEM-instantie reageert met de volgende headers:
 
    * `no-cache`
    * `no-store`
@@ -1194,7 +1194,7 @@ De eigenschap `/invalidate` definieert de documenten die automatisch ongeldig wo
 
 Met automatische ongeldigmaking verwijdert Dispatcher geen in het cachegeheugen opgeslagen bestanden nadat de inhoud is bijgewerkt, maar controleert het of deze geldig zijn wanneer ze de volgende keer worden aangevraagd. Documenten in de cache die niet automatisch ongeldig worden gemaakt, blijven in de cache totdat een inhoudsupdate deze expliciet verwijdert.
 
-Automatische validatie wordt doorgaans gebruikt voor HTML-pagina&#39;s. HTML-pagina&#39;s bevatten vaak koppelingen naar andere pagina&#39;s, waardoor het moeilijk is om vast te stellen of een update van de inhoud van invloed is op een pagina. Als u ervoor wilt zorgen dat alle relevante pagina&#39;s ongeldig worden gemaakt wanneer de inhoud wordt bijgewerkt, maakt u automatisch alle HTML-pagina&#39;s ongeldig. De volgende configuratie maakt alle HTML pagina&#39;s ongeldig:
+Automatische validatie wordt meestal gebruikt voor HTML-pagina&#39;s. HTML-pagina&#39;s bevatten vaak koppelingen naar andere pagina&#39;s, waardoor het moeilijk is om te bepalen of een update van de inhoud van invloed is op een pagina. Als u ervoor wilt zorgen dat alle relevante pagina&#39;s ongeldig worden gemaakt wanneer de inhoud wordt bijgewerkt, maakt u automatisch alle HTML-pagina&#39;s ongeldig. De volgende configuratie maakt alle HTML-pagina&#39;s ongeldig:
 
 ```xml
   /invalidate
@@ -1224,7 +1224,7 @@ Als u automatisch gegenereerde PDF- en ZIP-bestanden aanbiedt om te downloaden, 
   }
 ```
 
-De AEM integratie met Adobe Analytics levert configuratiegegevens in een `analytics.sitecatalyst.js` -bestand op uw website. Het voorbeeldbestand `dispatcher.any` dat bij Dispatcher wordt geleverd, bevat de volgende regel voor het ongeldig maken van dit bestand:
+De AEM-integratie met Adobe Analytics levert configuratiegegevens in een `analytics.sitecatalyst.js` -bestand op uw website. Het voorbeeldbestand `dispatcher.any` dat bij Dispatcher wordt geleverd, bevat de volgende regel voor het ongeldig maken van dit bestand:
 
 ```xml
 {
@@ -1472,7 +1472,7 @@ De categorie `name` moet uniek zijn voor de farm. `pattern` wordt beschreven in 
 
 Om de categorie van URI te bepalen, vergelijkt Dispatcher URI met elk categoriepatroon tot een gelijke wordt gevonden. Dispatcher begint met de eerste categorie in de lijst en gaat door in de juiste volgorde. Plaats daarom eerst categorieën met specifiekere patronen.
 
-In Dispatcher definieert het standaard `dispatcher.any` -bestand bijvoorbeeld een categorie HTML en een categorie Overige. De categorie HTML is specifieker en verschijnt dus eerst:
+In Dispatcher definieert het standaard `dispatcher.any` -bestand bijvoorbeeld een HTML-categorie en een andere categorie. De categorie HTML is specifieker en wordt dus eerst weergegeven:
 
 ```xml
 /statistics
@@ -1503,7 +1503,7 @@ In het volgende voorbeeld wordt ook een categorie voor zoekpagina&#39;s opgenome
 
 De eigenschap `/unavailablePenalty` stelt de tijd (in tiende van een seconde) in die wordt toegepast op de renderstatistieken wanneer een verbinding met de renderbewerking mislukt. Dispatcher voegt de tijd toe aan de statistische categorie die overeenkomt met de aangevraagde URI.
 
-Bijvoorbeeld, wordt de sanctie toegepast wanneer de verbinding TCP/IP aan aangewezen hostname/haven niet kan worden gevestigd. De reden is of omdat AEM niet loopt (en niet luistert) of wegens een netwerk-verwant probleem.
+Bijvoorbeeld, wordt de sanctie toegepast wanneer de verbinding TCP/IP aan aangewezen hostname/haven niet kan worden gevestigd. De reden is of omdat AEM niet wordt uitgevoerd (en niet luistert) of vanwege een netwerkgerelateerd probleem.
 
 De eigenschap `/unavailablePenalty` is een rechtstreeks onderliggend element van de sectie `/farm` (een neveneffect van de sectie `/statistics` ).
 
@@ -1616,7 +1616,7 @@ Gebruik de parameter `/ignoreEINTR` als uw instantie een dergelijke configuratie
 
 `Error while reading response: Interrupted system call`
 
-Intern leest Dispatcher de reactie van de externe server (dat wil zeggen AEM) met een lus die kan worden weergegeven als:
+Intern leest Dispatcher de reactie van de externe server (AEM) met een lus die kan worden weergegeven als:
 
 ```text
 while (response not finished) {  
@@ -1803,19 +1803,19 @@ En een gebeurtenis wordt geregistreerd wanneer een dossier dat een blokkerende r
 
 ## Basisbewerking bevestigen {#confirming-basic-operation}
 
-U kunt de volgende stappen gebruiken om de basiswerking en interactie van de webserver, Dispatcher en AEM te bevestigen:
+U kunt de volgende stappen uitvoeren om de basiswerking en interactie van de webserver, de Dispatcher- en AEM-instantie te bevestigen:
 
 1. Stel de waarde `loglevel` in op `3` .
 
 1. Start de webserver. Zo begint ook de Dispatcher.
-1. Start de AEM.
+1. Start de AEM-instantie.
 1. Controleer het logboek en de foutendossiers voor uw Webserver en Dispatcher.
    * Afhankelijk van uw webserver worden berichten weergegeven zoals:
       * `[Thu May 30 05:16:36 2002] [notice] Apache/2.0.50 (Unix) configured` en
       * `[Fri Jan 19 17:22:16 2001] [I] [19096] Dispatcher initialized (build XXXX)`
 
 1. Surf op de website via de webserver. Bevestig dat de inhoud naar wens wordt weergegeven.\
-   Op een lokale installatie waar AEM wordt uitgevoerd op poort `4502` en de webserver op `80` , hebt u bijvoorbeeld toegang tot de websiteconsole met behulp van:
+   Op een lokale installatie waar AEM op poort `4502` wordt uitgevoerd en de webserver op `80` toegang heeft tot de websiteconsole via beide:
    * `https://localhost:4502/libs/wcm/core/content/siteadmin.html`
    * `https://localhost:80/libs/wcm/core/content/siteadmin.html`
    * De resultaten moeten identiek zijn. Bevestig toegang tot andere pagina&#39;s met het zelfde mechanisme.
@@ -1831,7 +1831,7 @@ In complexe instellingen kunt u meerdere verzenders gebruiken. U kunt bijvoorbee
 * één Dispatcher om een website op het Intranet te publiceren
 * een tweede Dispatcher, onder een ander adres en met verschillende beveiligingsinstellingen, om dezelfde inhoud op internet te publiceren.
 
-In dat geval moet u ervoor zorgen dat elke aanvraag slechts door één Dispatcher wordt behandeld. Een Dispatcher behandelt geen verzoeken die afkomstig zijn van een andere Dispatcher. Zorg er daarom voor dat beide verzenders de AEM website rechtstreeks openen.
+In dat geval moet u ervoor zorgen dat elke aanvraag slechts door één Dispatcher wordt behandeld. Een Dispatcher behandelt geen verzoeken die afkomstig zijn van een andere Dispatcher. Zorg er daarom voor dat beide verzenders de AEM-website rechtstreeks openen.
 
 ## Foutopsporing {#debugging}
 
@@ -1878,7 +1878,7 @@ De configuratie van het landbouwbedrijf bevat geen documentwortel (configuratiee
   De sjabloon voor tijdelijke bestandsnamen overschrijdt de langst mogelijke bestandsnaam op het systeem. De Dispatcher maakt eerst een tijdelijk bestand voordat het in de cache opgeslagen bestand wordt gemaakt of overschreven. De tijdelijke bestandsnaam is de naam van het doelbestand met de tekens `_YYYYXXXXXX` eraan toegevoegd, waarbij de tekens `Y` en `X` worden vervangen om een unieke naam te maken.
 * **niet cacheable: verzoek URL mist uitbreiding**\
   De aanvraag-URL heeft geen extensie of er is een pad dat volgt op de bestandsextensie, bijvoorbeeld: `/test.html/a/path` .
-* **niet cacheable: verzoek moest een GET of HEAD** zijn
+* **niet cacheable: verzoek moest GET of HEAD zijn**
 De HTTP-methode is geen GET of HEAD. De Dispatcher gaat ervan uit dat de uitvoer dynamische gegevens bevat die niet in de cache mogen worden opgeslagen.
 * **niet cacheable: het verzoek bevatte een vraagkoord**\
   Het verzoek bevatte een queryreeks. De Dispatcher gaat ervan uit dat de uitvoer afhankelijk is van de opgegeven querytekenreeks en dus niet in cache wordt geplaatst.
