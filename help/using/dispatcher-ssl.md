@@ -55,7 +55,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 
 ### Dispatcher configureren voor gebruik van SSL {#configuring-dispatcher-to-use-ssl}
 
-Om Dispatcher te vormen om met AEM of CQ over SSL te verbinden, vereist uw {](dispatcher-configuration.md) dossier 0} dispatcher.any de volgende eigenschappen:[
+Om Dispatcher te vormen om met AEM of CQ over SSL te verbinden, vereist uw {[&#128279;](dispatcher-configuration.md) dossier 0} dispatcher.any de volgende eigenschappen:
 
 * Een virtuele host die HTTPS-aanvragen afhandelt.
 * Het gedeelte `renders` van de virtuele host bevat een item dat de hostnaam en -poort aangeeft van de CQ- of AEM-instantie die gebruikmaakt van HTTPS.

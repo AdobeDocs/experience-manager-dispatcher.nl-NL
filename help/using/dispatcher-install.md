@@ -190,7 +190,7 @@ Gebruik de volgende procedure om de Dispatcher ISAPI module aan IIS toe te voege
    * Uitvoerbaar: het absolute pad van het bestand disp_is.dll, bijvoorbeeld `C:\inetpub\Scripts\disp_iis.dll` .
    * Naam: een beschrijvende naam voor de handlertoewijzing, bijvoorbeeld `Dispatcher` .
 
-1. In de dialoogdoos die verschijnt, om de bibliotheek disp_is.dll aan de lijst van Beperkingen ISAPI en CGI toe te voegen, klik ja ****.
+1. In de dialoogdoos die verschijnt, om de bibliotheek disp_is.dll aan de lijst van Beperkingen ISAPI en CGI toe te voegen, klik ja **&#x200B;**.
 
    Voor IIS 7.0 en 7.5, is de configuratie volledig. Ga met de resterende stappen verder als u IIS 8.0 vormt.
 
@@ -241,8 +241,8 @@ Gebruik de volgende procedure om Dispatcher-logberichten naar een logbestand te 
 1. Gebruik Windows Verkenner om een map met de naam `dispatcher` onder de logboekmap van de IIS-installatie te maken. Het pad van deze map voor een standaardinstallatie is `C:\inetpub\logs\dispatcher` .
 
 1. Klik de omslag van Dispatcher met de rechtermuisknop aan en klik **Eigenschappen**.
-1. Voor het lusje van de Veiligheid, geeft de klik **** uit.
-1. In het de dialoogvakje van Toestemmingen, voegt de klik **** toe. Er wordt een dialoogvenster geopend waarin u gebruikersaccounts kunt selecteren. Klik op de knop Locaties, selecteer de naam van de computer en klik op OK.
+1. Voor het lusje van de Veiligheid, geeft de klik **&#x200B;**&#x200B;uit.
+1. In het de dialoogvakje van Toestemmingen, voegt de klik **&#x200B;**&#x200B;toe. Er wordt een dialoogvenster geopend waarin u gebruikersaccounts kunt selecteren. Klik op de knop Locaties, selecteer de naam van de computer en klik op OK.
 
    Zorg dat dit dialoogvenster geopend blijft terwijl u de volgende stap uitvoert.
 
@@ -505,7 +505,7 @@ Na **SetHandler** verklaring, zou u ook de **ModMimeUsePathInfo** definitie moet
 >
 >Dispatcher versie 4.0.9 is in 2011 uitgebracht. Als u een oudere versie gebruikt, kunt u een upgrade naar een recente Dispatcher-versie uitvoeren.
 
-De **parameter 0} ModMimeUsePathInfo `On` zou voor alle configuraties Apache moeten worden geplaatst:**
+De **parameter 0&rbrace; ModMimeUsePathInfo `On` zou voor alle configuraties Apache moeten worden geplaatst:**
 
 `ModMimeUsePathInfo On`
 
@@ -641,7 +641,7 @@ Waarbij:
 |--- |--- |
 | `config` | Locatie en naam van het configuratiebestand `dispatcher.any.` |
 | `logfile` | Locatie en naam van het logbestand. |
-| `loglevel` | Het niveau van het logboek voor wanneer het schrijven van berichten aan het logboekdossier: <br/>**0** Fouten <br/>**1** Waarschuwing <br/>**2** Info <br/>**** zuivert <br/>**Nota:** plaats het logboekniveau aan 3 tijdens installatie en het testen en aan 0 wanneer het lopen in een productiemilieu. |
+| `loglevel` | Het niveau van het logboek voor wanneer het schrijven van berichten aan het logboekdossier: <br/>**0** Fouten <br/>**1** Waarschuwing <br/>**2** Info <br/>**&#x200B;** zuivert <br/>**Nota:** plaats het logboekniveau aan 3 tijdens installatie en het testen en aan 0 wanneer het lopen in een productiemilieu. |
 | `keepalivetimeout` | Geeft de time-out bij &#39;houden in leven&#39; in seconden aan. Vanaf Dispatcher versie 4.2.0 is de standaardwaarde voor het in leven houden 60. Met de waarde 0 wordt het in leven houden uitgeschakeld. |
 
 Afhankelijk van uw vereisten kunt u de Dispatcher definiëren als service voor uw objecten. Als u de Dispatcher voor uw gehele website wilt configureren, bewerkt u het standaardobject:
