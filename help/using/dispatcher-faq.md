@@ -115,7 +115,7 @@ Zie [ Caching Veilige Inhoud ](permissions-cache.md) pagina.
 
 ### Hoe kan ik communicatie tussen de Dispatcher- en CQ-instanties beveiligen?
 
-Zie de [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) en de [ controlelijst van de Veiligheid AEM ](https://experienceleague.adobe.com/en/docs/experience-manager-64/administering/security/security-checklist) pagina&#39;s.
+Zie de [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) en de [ controlelijst van de Veiligheid AEM ](https://experienceleague.adobe.com/nl/docs/experience-manager-64/administering/security/security-checklist) pagina&#39;s.
 
 ### Dispatcher-probleem `jcr:content` gewijzigd in `jcr%3acontent`
 
@@ -129,11 +129,11 @@ Lees verder: [ https://sling.apache.org/documentation/the-sling-engine/mappings-
 
 ### Hoe configureer ik Dispatcher flush-agents op een Publish-instantie?
 
-Zie de [ pagina van de Replicatie ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents).
+Zie de [ pagina van de Replicatie ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents).
 
 ### Hoe los ik problemen met het flushing in Dispatcher op?
 
-[ zie deze het oplossen van problemenartikelen ](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]).
+[ zie deze het oplossen van problemenartikelen ](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]).
 
 Als de verrichtingen van de Schrapping de Dispatcher veroorzaken om te spoelen, [ gebruiken de tijdelijke oplossing in deze communautaire blogpost door Sensei Martin ](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
 

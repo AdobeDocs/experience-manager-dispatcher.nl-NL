@@ -28,7 +28,7 @@ ht-degree: 29%
 + Configureren {#configuring}
    + [De Dispatcher configureren](dispatcher-configuration.md)
    + [In cache geplaatste pagina&#39;s ongeldig maken van AEM](page-invalidate.md)
-   + [ Optimizing een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [ Optimizing een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [Beveiligde inhoud in cache plaatsen](permissions-cache.md)
    + [Dispatcher AEM met meerdere domeinen gebruiken](dispatcher-domains.md)
    + [SSL gebruiken met AEM Dispatcher](dispatcher-ssl.md)

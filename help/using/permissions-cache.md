@@ -70,7 +70,7 @@ Om toestemming-gevoelig caching uit te voeren, voer de volgende taken uit:
 >[!NOTE]
 >
 >Wanneer er een CDN (of een ander geheime voorgeheugen) vóór de Dispatcher is, dan zou u de in het voorgeheugen onderbrengende kopballen dienovereenkomstig moeten plaatsen zodat CDN niet de privé inhoud in het voorgeheugen onderbrengt. Bijvoorbeeld: `Header always set Cache-Control private` .
->Voor AEM as a Cloud Service, zie de [ Caching ](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) pagina voor meer details over hoe te om privé caching kopballen te plaatsen.
+>Voor AEM as a Cloud Service, zie de [ Caching ](https://experienceleague.adobe.com/nl/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) pagina voor meer details over hoe te om privé caching kopballen te plaatsen.
 
 ## De servlet Auth Checker maken {#create-the-auth-checker-servlet}
 

@@ -26,7 +26,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Controleer de [ Kennisbank van Dispatcher ](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), [ het Oplossen van problemen van Dispatcher die ](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]), en [ Veelgestelde Veelgestelde vragen van de Kwesties van Dispatcher Hoogste ](dispatcher-faq.md) voor verdere informatie leegmaken.
+>Controleer de [ Kennisbank van Dispatcher ](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), [ het Oplossen van problemen van Dispatcher die ](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]), en [ Veelgestelde Veelgestelde vragen van de Kwesties van Dispatcher Hoogste ](dispatcher-faq.md) voor verdere informatie leegmaken.
 
 ## Controleer de basisconfiguratie {#check-the-basic-configuration}
 

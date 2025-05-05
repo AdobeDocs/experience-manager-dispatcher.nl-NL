@@ -504,7 +504,7 @@ Zoals gewoonlijk is de hoofdmap van het document in de cache gelijk aan de hoofd
 
 Om verwijzingen naar dossiers te herschrijven die uitbreidingen buiten .html of .htm hebben, creeer een Sling rewriter transformatorcomponent en voeg het aan de standaard rewriter pijpleiding toe.
 
-Verwijzingen herschrijven wanneer de middelwegen niet correct in de context van de Webserver oplossen. Een transformator is bijvoorbeeld vereist wanneer componenten die afbeeldingen genereren koppelingen maken, zoals /content/sitea/en/products.navimage.png. De `topnav` component van [ hoe te om tot een Volledig Aanbevolen Website van Internet ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/introduction/the-basics) te leiden leidt tot dergelijke verbindingen.
+Verwijzingen herschrijven wanneer de middelwegen niet correct in de context van de Webserver oplossen. Een transformator is bijvoorbeeld vereist wanneer componenten die afbeeldingen genereren koppelingen maken, zoals /content/sitea/en/products.navimage.png. De `topnav` component van [ hoe te om tot een Volledig Aanbevolen Website van Internet ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/the-basics) te leiden leidt tot dergelijke verbindingen.
 
 [ het Verschuiven herschrijver ](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) is een module die post-verwerkt het Schuiven output. De de pijpleidingsimplementaties van SAX van rewriter bestaan uit een generator, één of meerdere transformatoren, en serializer:
 
@@ -542,7 +542,7 @@ Om een transformatorcomponent tot stand te brengen en het in een pijpleiding te 
 
 >[!NOTE]
 >
->Om uw Gemaakt project tot stand te brengen, gebruik [ multimodule ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions) archetype van het Inhoudspakket Gemaakt Insteekmodule. De POM&#39;s maken en installeren automatisch een inhoudspakket.
+>Om uw Gemaakt project tot stand te brengen, gebruik [ multimodule ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions) archetype van het Inhoudspakket Gemaakt Insteekmodule. De POM&#39;s maken en installeren automatisch een inhoudspakket.
 
 In de volgende voorbeelden wordt een transformator geïmplementeerd die verwijzingen naar afbeeldingsbestanden herschrijft.
 

@@ -23,7 +23,7 @@ Dispatcher is een Adobe Experience Manager-programma voor caching en taakverdeli
 Het implementatieproces van de Dispatcher is onafhankelijk van de webserver en het gekozen besturingssysteem:
 
 1. Meer informatie over Dispatcher (deze pagina). Ook, zie [ vaak gestelde vragen over Dispatcher ](/help/using/dispatcher-faq.md).
-1. Installeer a [ gesteunde Webserver ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements) volgens de documentatie van de Webserver.
+1. Installeer a [ gesteunde Webserver ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements) volgens de documentatie van de Webserver.
 1. [ installeer de module van Dispatcher ](dispatcher-install.md) op uw Webserver en vorm dienovereenkomstig de Webserver.
 1. [ vorm Dispatcher ](dispatcher-configuration.md) (het dispatcher.om het even welk dossier).
 1. [ vorm AEM ](page-invalidate.md) zodat de inhoudsupdates het geheime voorgeheugen ongeldig maken.
@@ -40,7 +40,7 @@ Gebruik de volgende informatie zoals vereist:
 
 * [De Dispatcher-beveiligingscontrolelijst](security-checklist.md)
 * [ De Kennisbank van Dispatcher ](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html)
-* [ Optimizing een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+* [ Optimizing een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
 * [Dispatcher met meerdere domeinen gebruiken](dispatcher-domains.md)
 * [SSL gebruiken met Dispatcher](dispatcher-ssl.md)
 * [Het uitvoeren van Toestemming-Gevoelige Caching](permissions-cache.md)
@@ -99,7 +99,7 @@ Met deze workflow kunt u rijkere, dynamische inhoud maken die de flexibiliteit e
 
 >[!NOTE]
 >
->Als de configuratie voor HTTP-koptekstcache ontbreekt, slaat de Dispatcher alleen de HTML-code van de pagina op - de HTTP-headers worden niet opgeslagen. Dit scenario kan een probleem zijn als u verschillende coderingen binnen uw website gebruikt, omdat deze pagina&#39;s mogelijk verloren gaan. Om HTTP toe te laten Kopbal Caching, zie [ Vormend het Geheime voorgeheugen van Dispatcher.](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)
+>Als de configuratie voor HTTP-koptekstcache ontbreekt, slaat de Dispatcher alleen de HTML-code van de pagina op - de HTTP-headers worden niet opgeslagen. Dit scenario kan een probleem zijn als u verschillende coderingen binnen uw website gebruikt, omdat deze pagina&#39;s mogelijk verloren gaan. Om HTTP toe te laten Kopbal Caching, zie [ Vormend het Geheime voorgeheugen van Dispatcher.](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)
 
 >[!NOTE]
 >
@@ -153,7 +153,7 @@ Ook hier moeten enkele punten worden vermeld:
 
 ### Bepalen of een document in cache moet worden geplaatst
 
-U kunt [ bepalen welke documenten de geheime voorgeheugens van Dispatcher in het configuratiedossier ](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration). De Dispatcher controleert het verzoek aan de lijst van cacheable documenten. Als het document zich niet in deze lijst bevindt, vraagt de Dispatcher het document op bij het AEM.
+U kunt [ bepalen welke documenten de geheime voorgeheugens van Dispatcher in het configuratiedossier ](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration). De Dispatcher controleert het verzoek aan de lijst van cacheable documenten. Als het document zich niet in deze lijst bevindt, vraagt de Dispatcher het document op bij het AEM.
 
 In de volgende gevallen vraagt de Dispatcher het document altijd rechtstreeks van het AEM exemplaar aan:
 
@@ -163,7 +163,7 @@ In de volgende gevallen vraagt de Dispatcher het document altijd rechtstreeks va
 
 >[!NOTE]
 >
->De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Voor extra informatie over reactiekopbal caching, zie de [ Caching sectie van de Kopballen van de Reactie van HTTP ](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration).
+>De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Voor extra informatie over reactiekopbal caching, zie de [ Caching sectie van de Kopballen van de Reactie van HTTP ](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration).
 
 ### Bepalen of een document in de cache is geplaatst
 
@@ -281,13 +281,13 @@ Voor fijnere besturing kunt u met API-gebaseerde validatie de cache van een CDN 
 
 >[!NOTE]
 >
->Zie ook [ AEM (CQ) Veiligheid van Dispatcher en CDN+Browser Caching ](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) en geregistreerde presentatie op [ Dispatcher Caching ](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/gems2015/aem-dispatcher-caching-new-features-and-optimizations).
+>Zie ook [ AEM (CQ) Veiligheid van Dispatcher en CDN+Browser Caching ](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) en geregistreerde presentatie op [ Dispatcher Caching ](https://experienceleague.adobe.com/nl/docs/events/experience-manager-gems-recordings/gems2015/aem-dispatcher-caching-new-features-and-optimizations).
 
 ## Dispatcher gebruiken met een auteurserver {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->Als u [ AEM met Aanraakinterface ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, **niet** inhoud van de geheim voorgeheugenauteursinstantie. Als caching voor de auteursinstantie werd toegelaten, moet u het onbruikbaar maken en de inhoud van de geheim voorgeheugenfolder schrappen. Als u caching wilt uitschakelen, bewerkt u het `author_dispatcher.any` -bestand en wijzigt u de eigenschap `/rule` van de sectie `/cache` als volgt:
+>Als u [ AEM met Aanraakinterface ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, **niet** inhoud van de geheim voorgeheugenauteursinstantie. Als caching voor de auteursinstantie werd toegelaten, moet u het onbruikbaar maken en de inhoud van de geheim voorgeheugenfolder schrappen. Als u caching wilt uitschakelen, bewerkt u het `author_dispatcher.any` -bestand en wijzigt u de eigenschap `/rule` van de sectie `/cache` als volgt:
 
 ```xml
 /rules
@@ -306,7 +306,7 @@ Een Dispatcher kan vóór een auteurinstantie worden gebruikt om auteursprestati
 1. Open `author_dispatcher.any` in een teksteditor en breng de volgende wijzigingen aan:
 
    1. Wijzig de sectie `/hostname` en `/port` van de sectie `/renders` zodat ze naar de instantie van de auteur verwijzen.
-   1. Wijzig de `/docroot` van de `/cache` -sectie zodat deze naar een cachemap verwijzen. Voor het geval u [ AEM met Aanraakinterface ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, zie de bovenstaande waarschuwing.
+   1. Wijzig de `/docroot` van de `/cache` -sectie zodat deze naar een cachemap verwijzen. Voor het geval u [ AEM met Aanraakinterface ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, zie de bovenstaande waarschuwing.
    1. Sla de wijzigingen op.
 
 1. Verwijder alle bestaande bestanden in de map `/cache` > `/docroot` die u hierboven hebt geconfigureerd.
