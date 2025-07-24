@@ -169,7 +169,7 @@ page_path1
 page_pathn
 ```
 
-De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te worden gemaakt. (Zie de `/statfileslevel` parameter van het [ 2} configuratiepunt van het Geheime voorgeheugen {.) In het volgende voorbeeld wordt het HTTP-aanvraagbericht verwijderd en doorgehaald ](dispatcher-configuration.md#main-pars_146_44_0010) :`/content/geometrixx-outdoors/en.html page`
+De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te worden gemaakt. (Zie de `/statfileslevel` parameter van het [ 2&rbrace; configuratiepunt van het Geheime voorgeheugen &lbrace;.) In het volgende voorbeeld wordt het HTTP-aanvraagbericht verwijderd en doorgehaald ](dispatcher-configuration.md#main-pars_146_44_0010) :`/content/geometrixx-outdoors/en.html page`
 
 ```xml
 POST /dispatcher/invalidate.cache HTTP/1.1  

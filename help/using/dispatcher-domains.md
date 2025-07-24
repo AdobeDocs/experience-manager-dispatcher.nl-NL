@@ -196,7 +196,7 @@ LoadModule dispatcher_module modules/mod_dispatcher.so
 DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
-De virtuele gastheren erven de [ bezitswaarde 0} DispatcherConfig {die in de belangrijkste serversectie wordt gevormd. ](dispatcher-install.md#main-pars-67-table-7) Virtuele hosts kunnen hun eigen eigenschap DispatcherConfig opnemen om de hoofdserverconfiguratie te overschrijven.
+De virtuele gastheren erven de [ bezitswaarde 0&rbrace; DispatcherConfig &lbrace;die in de belangrijkste serversectie wordt gevormd. ](dispatcher-install.md#main-pars-67-table-7) Virtuele hosts kunnen hun eigen eigenschap DispatcherConfig opnemen om de hoofdserverconfiguratie te overschrijven.
 
 >[!NOTE]
 >
