@@ -24,9 +24,9 @@ Wanneer u Dispatcher gebruikt met AEM, moet de interactie zo worden geconfiguree
 
 De standaard `admin` gebruikersrekening wordt gebruikt om de replicatieagenten voor authentiek te verklaren die door gebrek worden geïnstalleerd. Creeer een specifieke gebruikersrekening voor gebruik met replicatieagenten.
 
-Voor meer informatie, zie de sectie [ replicatie en vervoergebruikers ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de Controlelijst van de Veiligheid van AEM vormen.
+Voor meer informatie, zie de sectie [ replicatie en vervoergebruikers ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de Controlelijst van de Veiligheid van AEM vormen.
 
-<!-- OLD URL from above https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
+<!-- OLD URL from above https://helpx.adobe.com/nl/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
 ## De Dispatcher-cache ongeldig maken vanuit de ontwerpomgeving {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
@@ -66,7 +66,7 @@ Gebruik de volgende procedure om een replicatieagent op de auteursinstantie van 
 1. Configureer desgewenst andere parameters.
 1. Klik op OK om de agent te activeren.
 
-Alternatief, kunt u tot de Vlek van Dispatcher agent van de [ Aanraak UI van AEM ook toegang hebben en vormen ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent).
+Alternatief, kunt u tot de Vlek van Dispatcher agent van de [ Aanraak UI van AEM ook toegang hebben en vormen ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent).
 
 Voor meer details op hoe te om toegang tot ijdelheid URLs toe te laten, zie [ Toelatend Toegang tot Vanity URLs ](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 

@@ -33,8 +33,8 @@ Configureer de Dispatcher voor communicatie met de AEM- of CQ-renderinstantie me
 
 Voordat u Dispatcher configureert, configureert u AEM of CQ zodanig dat SSL wordt gebruikt. Zie voor meer informatie:
 
-* [ SSL/TLS door Standaard ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/ssl-by-default)
-* [ Gebruik de SSL Tovenaar in AEM ](https://experienceleague.adobe.com/en/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
+* [ SSL/TLS door Standaard ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/ssl-by-default)
+* [ Gebruik de SSL Tovenaar in AEM ](https://experienceleague.adobe.com/nl/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
 
 ### Aan SSL gerelateerde aanvraagheaders {#ssl-related-request-headers}
 
@@ -248,9 +248,9 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 Als u de HTTP-service van de renderinstantie wilt configureren voor het gebruik van SSL, gebruikt u het rendercertificaat met de instructies in de sectie *`Enable SSL on the Publish Instance`* :
 
-* AEM 6.2: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
-* AEM 6.1: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
-* Oudere versies van AEM: zie [ deze pagina.](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.2: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.1: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* Oudere versies van AEM: zie [ deze pagina.](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
 
 ### SSL configureren voor de Dispatcher-module {#configuring-ssl-for-the-dispatcher-module}
 

@@ -34,7 +34,7 @@ Adobe raadt je aan de volgende checklist in te vullen voordat je gaat produceren
 
 >[!CAUTION]
 >
->Voltooi de lijst Beveiligingscontrole van je versie van AEM voordat je live gaat. Zie de overeenkomstige [ documentatie van Adobe Experience Manager ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist).
+>Voltooi de lijst Beveiligingscontrole van je versie van AEM voordat je live gaat. Zie de overeenkomstige [ documentatie van Adobe Experience Manager ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/security-checklist).
 
 ## De nieuwste versie van Dispatcher gebruiken {#use-the-latest-version-of-dispatcher}
 
@@ -100,7 +100,7 @@ IIS-gebruikers moeten hun website ook als volgt configureren:
 
 Een ontkenning van de dienst (Dos) aanval is een poging om een computermiddel niet beschikbaar te maken aan zijn voorgenomen gebruikers.
 
-Op het niveau van Dispatcher, zijn er twee methodes om aanvallen van Dos te verhinderen: [ Filters ](https://experienceleague.adobe.com/en/docs#/filter)
+Op het niveau van Dispatcher, zijn er twee methodes om aanvallen van Dos te verhinderen: [ Filters ](https://experienceleague.adobe.com/nl/docs#/filter)
 
 * Gebruik mod_rewrite module (bijvoorbeeld, [ Apache 2.4 ](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) om URL validaties uit te voeren (als de URL patroonregels niet te complex zijn).
 
@@ -148,7 +148,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Dispatcher configureren om CSRF-aanvallen te voorkomen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM verstrekt a [ kader ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps) gericht op het verhinderen van de aanvallen van het Verzoek van de Versmederij van de Depositovergangen van de Depositovergangen. Om dit kader goed te gebruiken, lijst van gewenste personen symbolische steun CSRF in Dispatcher door het volgende te doen:
+AEM verstrekt a [ kader ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps) gericht op het verhinderen van de aanvallen van het Verzoek van de Versmederij van de Depositovergangen van de Depositovergangen. Om dit kader goed te gebruiken, lijst van gewenste personen symbolische steun CSRF in Dispatcher door het volgende te doen:
 
 1. Een filter maken om het `/libs/granite/csrf/token.json` -pad toe te staan;
 1. Voeg de header `CSRF-Token` toe aan de sectie `clientheaders` van de Dispatcher-configuratie.
