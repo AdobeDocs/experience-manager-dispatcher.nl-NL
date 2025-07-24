@@ -6,9 +6,9 @@ converted: true
 topic-tags: dispatcher
 content-type: reference
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '3748'
+source-wordcount: '3720'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ Comment Type: draft
 
  -->
 
-Gebruik de [ pagina van de Nota&#39;s van de Versie van Dispatcher ](release-notes.md) om het recentste de installatiedossier van Dispatcher voor uw werkend systeem en Webserver te verkrijgen. Dispatcher-releasenummers zijn onafhankelijk van de Adobe Experience Manager-releasenummers en zijn compatibel met Adobe Experience Manager 6.x-, 5.x- en Adobe CQ 5.x-releases.
+Gebruik de [ pagina van de Nota&#39;s van de Versie van Dispatcher ](release-notes.md) om het recentste de installatiedossier van Dispatcher voor uw werkend systeem en Webserver te verkrijgen. Dispatcher-releasenummers zijn onafhankelijk van de Adobe Experience Manager-releasenummers en zijn compatibel met Adobe Experience Manager 6.x, 5.x en Adobe CQ 5.x-releases.
 
 >[!NOTE]
 >
@@ -39,9 +39,9 @@ De volgende tabel bevat de id van de webserver die wordt gebruikt in bestandsnam
 
 | Webserver | Installatiekit |
 |--- |--- |
-| Apache 2.4 | dispatcher-apache **2.4** -&lt;other parameters> |
-| Microsoft® Internet Information Server 7.5, 8, 8.5, 10 | dispatcher-**is** -&lt;other parameters> |
-| Sun Java™ Web Server iPlanet | verzender-**ns** -&lt;other parameters> |
+| Apache 2.4 | `dispatcher-apache**2.4**-<other parameters>` |
+| Microsoft® Internet Information Server 7.5, 8, 8.5, 10 | `dispatcher-**iis**-<other parameters>` |
+| Sun Java™ Web Server iPlanet | `dispatcher-**ns**-<other parameters>` |
 
 >[!CAUTION]
 >
@@ -126,11 +126,11 @@ Gebruik de volgende procedure om de Dispatcher-bestanden naar de juiste locatie 
 
    * `disp_iis.dll`
    * `disp_iis.ini`
-   * Een van de volgende bestanden is afhankelijk van het feit of de Dispatcher werkt met een AEM instantie van de auteur of een publicatie-instantie:
+   * Een van de volgende bestanden is afhankelijk van het feit of de Dispatcher werkt met een instantie van AEM-auteurs of een publicatieexemplaar:
       * Instantie van auteur: `author_dispatcher.any`
-      * Publish-instantie: `dispatcher.any`
+      * Publicatie-instantie: `dispatcher.any`
 
-## Microsoft® IIS - Dispatcher INI-bestand configureren {#microsoft-iis-configure-the-dispatcher-ini-file}
+## Microsoft® IIS - Het Dispatcher INI-bestand configureren {#microsoft-iis-configure-the-dispatcher-ini-file}
 
 Bewerk het `disp_iis.ini` -bestand om de Dispatcher-installatie te configureren. De basisindeling van het `.ini` -bestand is als volgt:
 
@@ -150,7 +150,7 @@ In de volgende tabel wordt elke eigenschap beschreven.
 | `logfile` | De locatie van het `dispatcher.log` -bestand. Als deze plaats niet wordt geplaatst, dan gaan de logboekberichten naar het de gebeurtenislogboek van Vensters. |
 | `loglevel` | Definieert het logniveau dat wordt gebruikt voor het uitvoeren van berichten naar het gebeurtenislogboek. De volgende waarden kunnen op het logboekniveau voor het logboekdossier worden gespecificeerd: <br/> 0 - foutenmeldingen slechts. <br/> 1 - fouten en waarschuwingen. <br/> 2 - fouten, waarschuwingen, en informatieberichten <br/> 3 - fouten, waarschuwingen, informatieberichten, en zuivert berichten. <br/>**Nota**: Plaats het logboekniveau aan 3 tijdens installatie en het testen, toen aan 0 wanneer het lopen in een productiemilieu. |
 | `replaceauthorization` | Geeft aan hoe machtigingsheaders in de HTTP-aanvraag worden verwerkt. De volgende waarden zijn geldig:<br/> 0 - de kopballen van de Vergunning worden niet gewijzigd. <br/> 1 - vervangt om het even welke kopbal genoemd &quot;Vergunning&quot;buiten &quot;Basis&quot;met zijn `Basic <IIS:LOGON\_USER>` equivalent.<br/> |
-| `servervariables` | Definieert hoe servervariabelen worden verwerkt.<br/> 0 - De IIS servervariabelen worden niet verzonden naar Dispatcher of AEM. <br/> 1 - alle Iis servervariabelen (zoals `LOGON\_USER, QUERY\_STRING, ...`) worden verzonden naar Dispatcher, samen met de verzoekkopballen (en ook naar de AEM instantie als niet caching).  <br/> de variabelen van de Server omvatten `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` en vele anderen. Zie de documentatie IIS voor de volledige lijst van variabelen, met details. |
+| `servervariables` | Definieert hoe servervariabelen worden verwerkt.<br/> 0 - De IIS servervariabelen worden niet verzonden naar Dispatcher of AEM. <br/> 1 - alle Iis servervariabelen (zoals `LOGON\_USER, QUERY\_STRING, ...`) worden verzonden naar Dispatcher, samen met de gevraagde kopballen (en ook naar de instantie van AEM als niet caching).  <br/> de variabelen van de Server omvatten `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` en vele anderen. Zie de documentatie IIS voor de volledige lijst van variabelen, met details. |
 | `enable_chunked_transfer` | Bepaalt of (1) of (0) segmentoverdracht voor de cliëntreactie toelaten onbruikbaar te maken. De standaardwaarde is 0. |
 
 Een voorbeeldconfiguratie:
@@ -167,17 +167,17 @@ replaceauthorization=0
 
 Configureer IIS om de Dispatcher ISAPI-module te integreren. In IIS gebruikt u toewijzing van jokertekens voor toepassingen.
 
-### Het vormen Anonieme Toegang - IIS 8.5 en 10 {#configuring-anonymous-access-iis-and}
+### Vorm anonieme toegang - IIS 8.5 en 10 {#configuring-anonymous-access-iis-and}
 
-De standaard Flush replicatieagent op de instantie van de Auteur wordt gevormd zodat het geen veiligheidsgeloofsbrieven met flush verzoeken verzendt. Daarom moet de website waarop u het Dispatcher-cachegeheugen gebruikt anonieme toegang toestaan.
+De standaard `Flush` replicatieagent op de instantie Auteur wordt gevormd zodat het geen veiligheidsgeloofsbrieven met spoelverzoeken verzendt. Daarom moet de website waarop u de Dispatcher-cache gebruikt anonieme toegang toestaan.
 
-Als uw website een authentificatiemethode gebruikt, moet de Flush replicatieagent dienovereenkomstig worden gevormd.
+Als uw website een verificatiemethode gebruikt, moet de replicatieagent van `Flush` dienovereenkomstig worden geconfigureerd.
 
 1. Open IIS Manager en selecteer de website die u als Dispatcher-cache gebruikt.
 1. Gebruikend de wijze van de Mening van Eigenschappen, in de sectie IIS tweemaal klikken Authentificatie.
 1. Als Anonieme verificatie niet is ingeschakeld, selecteert u Anonieme verificatie en klikt u in het gedeelte Handelingen op Inschakelen.
 
-### De Dispatcher ISAPI Module integreren - IIS 8.5 en 10 {#integrating-the-dispatcher-isapi-module-iis-and}
+### Integreer de Dispatcher ISAPI-module - IIS 8.5 en 10 {#integrating-the-dispatcher-isapi-module-iis-and}
 
 Gebruik de volgende procedure om de Dispatcher ISAPI module aan IIS toe te voegen.
 
@@ -190,7 +190,7 @@ Gebruik de volgende procedure om de Dispatcher ISAPI module aan IIS toe te voege
    * Uitvoerbaar: het absolute pad van het bestand disp_is.dll, bijvoorbeeld `C:\inetpub\Scripts\disp_iis.dll` .
    * Naam: een beschrijvende naam voor de handlertoewijzing, bijvoorbeeld `Dispatcher` .
 
-1. In de dialoogdoos die verschijnt, om de bibliotheek disp_is.dll aan de lijst van Beperkingen ISAPI en CGI toe te voegen, klik ja **&#x200B;**.
+1. In de dialoogdoos die verschijnt, om de bibliotheek disp_is.dll aan de lijst van Beperkingen ISAPI en CGI toe te voegen, klik ja ****.
 
    Voor IIS 7.0 en 7.5, is de configuratie volledig. Ga met de resterende stappen verder als u IIS 8.0 vormt.
 
@@ -199,7 +199,7 @@ Gebruik de volgende procedure om de Dispatcher ISAPI module aan IIS toe te voege
 1. (IIS 8.0) om ervoor te zorgen dat de manager voor dossiers en omslagen wordt gebruikt die nog niet in het voorgeheugen onder worden gebracht, schrap **aanhaalt slechts Behandelaar als het Verzoek aan** wordt toegewezen. Klik **OK**.
 1. (IIS 8.0) Klik in het dialoogvenster Scripttoewijzing bewerken op OK.
 
-### Het vormen Toegang tot het geheime voorgeheugen - IIS 8.5 en 10 {#configuring-access-to-the-cache-iis-and}
+### Vorm toegang tot het geheime voorgeheugen - IIS 8.5 en 10 {#configuring-access-to-the-cache-iis-and}
 
 Geef de standaardgebruiker van de App Pool schrijftoegang tot de map die wordt gebruikt als de Dispatcher-cache.
 
@@ -217,7 +217,7 @@ Geef de standaardgebruiker van de App Pool schrijftoegang tot de map die wordt g
 1. Klik op de knop Namen controleren. Klik op OK als Windows het gebruikersaccount oplost.
 1. In het de dialoogvakje van Toestemmingen voor de omslag van Dispatcher, selecteer de rekening die u enkel toevoegde, laat alle toestemmingen voor de rekening **behalve Volledige Controle** toe en klik O.K. Klik op OK om het dialoogvenster Eigenschappen van map te sluiten.
 
-### Registreren van het JSON Mime-type - IIS 8.5 en 10 {#registering-the-json-mime-type-iis-and}
+### Registreer het JSON mime-type - IIS 8.5 en 10 {#registering-the-json-mime-type-iis-and}
 
 Gebruik de volgende procedure om het JSON MIME-type te registreren wanneer u wilt dat de Dispatcher JSON-aanroepen toestaat.
 
@@ -227,22 +227,22 @@ Gebruik de volgende procedure om het JSON MIME-type te registreren wanneer u wil
    * Bestandsnaamextensie: `.json`
    * MIME-type: `application/json`
 
-### Het verborgen segment van de bin verwijderen - IIS 8.5 en 10 {#removing-the-bin-hidden-segment-iis-and}
+### Verwijder het bin verborgen segment - IIS 8.5 en 10 {#removing-the-bin-hidden-segment-iis-and}
 
 Gebruik de volgende procedure om het verborgen segment `bin` te verwijderen. Websites die niet nieuw zijn, kunnen dit verborgen segment bevatten.
 
 1. Selecteer in IIS Manager uw website en gebruik de weergave Functies en dubbelklik op Verzoek filteren.
 1. Selecteer het `bin` -segment, klik op Verwijderen en klik in het bevestigingsdialoogvenster op Ja.
 
-### Het registreren IIS Berichten aan een Dossier - IIS 8.5 en 10 {#logging-iis-messages-to-a-file-iis-and}
+### Logboek IIS berichten aan een dossier - IIS 8.5 en 10 {#logging-iis-messages-to-a-file-iis-and}
 
 Gebruik de volgende procedure om Dispatcher-logberichten naar een logbestand te schrijven in plaats van naar het Windows-gebeurtenislogboek. Configureer de Dispatcher om het logbestand te gebruiken en geef IIS schrijftoegang tot het bestand.
 
 1. Gebruik Windows Verkenner om een map met de naam `dispatcher` onder de logboekmap van de IIS-installatie te maken. Het pad van deze map voor een standaardinstallatie is `C:\inetpub\logs\dispatcher` .
 
 1. Klik de omslag van Dispatcher met de rechtermuisknop aan en klik **Eigenschappen**.
-1. Voor het lusje van de Veiligheid, geeft de klik **&#x200B;**&#x200B;uit.
-1. In het de dialoogvakje van Toestemmingen, voegt de klik **&#x200B;**&#x200B;toe. Er wordt een dialoogvenster geopend waarin u gebruikersaccounts kunt selecteren. Klik op de knop Locaties, selecteer de naam van de computer en klik op OK.
+1. Voor het lusje van de Veiligheid, geeft de klik **** uit.
+1. In het de dialoogvakje van Toestemmingen, voegt de klik **** toe. Er wordt een dialoogvenster geopend waarin u gebruikersaccounts kunt selecteren. Klik op de knop Locaties, selecteer de naam van de computer en klik op OK.
 
    Zorg dat dit dialoogvenster geopend blijft terwijl u de volgende stap uitvoert.
 
@@ -274,7 +274,7 @@ Voordat u de Dispatcher kunt gaan gebruiken, moet u het volgende weten:
 >
 >De instructies voor installatie onder zowel **Vensters** als **UNIX®** zijn hier behandeld. Wees voorzichtig wanneer u de stappen uitvoert.
 
-### Apache Web Server installeren {#installing-apache-web-server}
+### Apache-webserver installeren {#installing-apache-web-server}
 
 Voor Informatie over hoe te om een Server van het Web te installeren Apache leest de installatiehandleiding - of [ online ](https://httpd.apache.org/) of in de distributie.
 
@@ -286,7 +286,7 @@ Voor Informatie over hoe te om een Server van het Web te installeren Apache lees
 
 Zie ook de Server van Apache HTTP [ Tips van de Veiligheid ](https://httpd.apache.org/docs/2.4/misc/security_tips.html) en [ Rapporten van de Veiligheid ](https://httpd.apache.org/security_report.html).
 
-### Apache-webserver - Voeg de Dispatcher-module toe {#apache-web-server-add-the-dispatcher-module}
+### Apache Web Server - Voeg de Dispatcher-module toe {#apache-web-server-add-the-dispatcher-module}
 
 De Dispatcher is als volgt:
 
@@ -297,13 +297,13 @@ De archiefbestanden van de installatie bevatten de volgende bestanden, afhankeli
 
 | Bestand | Beschrijving |
 |--- |--- |
-| disp_apache&lt;x.y>.dll | Windows: Het Dispatcher-bibliotheekbestand voor dynamische koppelingen. |
-| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | UNIX®: Het bibliotheekbestand voor gezamenlijke Dispatcher-objecten. |
-| mod_dispatcher.so | UNIX®: Een voorbeeldkoppeling. |
-| http.conf.disp&lt;x> | Een voorbeeldconfiguratiebestand voor de Apache-server. |
-| dispatcher.any | Een voorbeeldconfiguratiebestand voor de Dispatcher. |
-| README | Leesmij-bestand met installatie-instructies en informatie van het laatste moment. **Nota**: Controleer dit dossier alvorens de installatie te beginnen. |
-| WIJZIGINGEN | Hiermee wijzigt u een bestand waarin de problemen worden vermeld die zijn opgelost in de huidige en vorige versie. |
+| d`isp_apache<x.y>.dll` | Windows: Het Dispatcher-bibliotheekbestand voor dynamische koppelingen. |
+| `dispatcher-apacheM<x.y>-<rel-nr>.so` | UNIX®: Het bibliotheekbestand voor gezamenlijke Dispatcher-objecten. |
+| `mod_dispatcher.so` | UNIX®: Een voorbeeldkoppeling. |
+| `http.conf.disp<x>` | Een voorbeeldconfiguratiebestand voor de Apache-server. |
+| `dispatcher.any` | Een voorbeeldconfiguratiebestand voor de Dispatcher. |
+| `README` | Leesmij-bestand met installatie-instructies en informatie van het laatste moment. **Nota**: Controleer dit dossier alvorens de installatie te beginnen. |
+| C`HANGES` | Hiermee wijzigt u een bestand waarin de problemen worden vermeld die zijn opgelost in de huidige en vorige versie. |
 
 Ga als volgt te werk om de Dispatcher aan uw Apache Web Server toe te voegen:
 
@@ -409,7 +409,7 @@ De individuele configuratieparameters:
 | DispatcherConfig | Locatie en naam van het Dispatcher-configuratiebestand. <br/> wanneer dit bezit in de belangrijkste serverconfiguratie is, erven alle virtuele gastheren de bezitswaarde. Virtuele hosts kunnen echter een eigenschap DispatcherConfig opnemen om de hoofdserverconfiguratie te overschrijven. |
 | DispatcherLog | Locatie en naam van het logbestand. |
 | DispatcherLogLevel | Het niveau van het logboek voor het logboekdossier: <br/> 0 - Fouten <br/> 1 - Waarschuwingen <br/> 2 - <br/> <br/>**Nota** zuiveren: Plaats het logboekniveau aan 3 tijdens installatie en het testen, toen aan 0 wanneer het lopen in een productiemilieu. |
-| DispatcherNoServerHeader | *Deze parameter wordt afgekeurd en inefficiënt.*<br/><br/> Definieert de serverkoptekst die moet worden gebruikt: <br/><ul><li>ongedefinieerd of 0 - De HTTP-serverheader bevat de AEM versie. </li><li>1 - De header van de Apache-server wordt gebruikt.</li></ul> |
+| DispatcherNoServerHeader | *Deze parameter wordt afgekeurd en inefficiënt.*<br/><br/> Definieert de serverkoptekst die moet worden gebruikt: <br/><ul><li>undefined of 0 - De HTTP-serverheader bevat de AEM-versie. </li><li>1 - De header van de Apache-server wordt gebruikt.</li></ul> |
 | DispatcherDeclineRoot | Bepaalt of om verzoeken aan de wortel &quot;/&quot; te verwerpen: <br/>**0** - keur verzoeken aan / <br/>**1** goed - Dispatcher behandelt geen verzoeken aan /. Gebruik in plaats daarvan mod_alias voor de juiste toewijzing. |
 | DispatcherUseProcessURL | Bepaalt of om voorverwerkte URLs voor al verdere verwerking door Dispatcher te gebruiken: <br/>**0** - gebruik originele URL die tot de Webserver wordt overgegaan. <br/>**1** - Dispatcher gebruikt reeds URL die door de managers wordt verwerkt die Dispatcher (namelijk `mod_rewrite`) voorafgaan in plaats van originele URL die tot de Webserver wordt overgegaan. Het origineel of de verwerkte URL komt bijvoorbeeld overeen met Dispatcher-filters. De URL wordt ook gebruikt als basis voor de structuur van het cachebestand. Raadpleeg de documentatie bij de Apache-website voor informatie over mod_rewrite, bijvoorbeeld Apache 2.4. Wanneer het gebruiken van mod_rewrite, gebruik de vlag &quot;passthrough&quot;(ga door tot de volgende manager) om de herschrijfmotor te dwingen om het gebied van URI van de interne request_rec structuur aan de waarde van het filename gebied te plaatsen. |
 | DispatcherPassError | Bepaalt hoe te om foutencodes voor ErrorDocument behandeling te steunen: <br/>**0** - Dispatcher spoelt alle foutenreacties aan de cliënt. <br/>**1** - Dispatcher spool geen foutenreactie aan de cliënt (waar de statuscode groter of gelijk is dan 400). In plaats daarvan wordt de statuscode doorgegeven aan Apache, waardoor een ErrorDocument-instructie een dergelijke statuscode kan verwerken. <br/>**Waaier van de Code** - specificeer een waaier van foutencodes waarvoor de reactie aan Apache wordt overgegaan. Andere foutcodes worden doorgegeven aan de client. De volgende configuratie geeft bijvoorbeeld reacties voor fout 412 door aan de client en alle andere fouten worden doorgegeven aan Apache: DispatcherPassError 400-411,413-417 |
@@ -505,7 +505,7 @@ Na **SetHandler** verklaring, zou u ook de **ModMimeUsePathInfo** definitie moet
 >
 >Dispatcher versie 4.0.9 is in 2011 uitgebracht. Als u een oudere versie gebruikt, kunt u een upgrade naar een recente Dispatcher-versie uitvoeren.
 
-De **parameter 0&rbrace; ModMimeUsePathInfo `On` zou voor alle configuraties Apache moeten worden geplaatst:**
+De **parameter 0} ModMimeUsePathInfo** zou voor alle configuraties Apache moeten worden geplaatst:`On`
 
 `ModMimeUsePathInfo On`
 
@@ -550,7 +550,7 @@ Dispatcher gebruikt OpenSSL om veilige communicatie via HTTP te implementeren. B
 
 >[!NOTE]
 >
->Als u een aangepaste versie van Apache gebruikt, zorg ervoor Apache en Dispatcher gebruikend de zelfde versie van [ OpenSSL ](https://www.openssl.org/source/) worden gecompileerd.
+>Als u een aangepaste versie van Apache gebruikt, moet u ervoor zorgen dat Apache en Dispatcher zijn gecompileerd met dezelfde versie van OpenSSL. <!-- URL has connection error [OpenSSL] (https://www.openssl.org/source/). -->
 
 ### Volgende stappen {#next-steps-1}
 
@@ -641,7 +641,7 @@ Waarbij:
 |--- |--- |
 | `config` | Locatie en naam van het configuratiebestand `dispatcher.any.` |
 | `logfile` | Locatie en naam van het logbestand. |
-| `loglevel` | Het niveau van het logboek voor wanneer het schrijven van berichten aan het logboekdossier: <br/>**0** Fouten <br/>**1** Waarschuwing <br/>**2** Info <br/>**&#x200B;** zuivert <br/>**Nota:** plaats het logboekniveau aan 3 tijdens installatie en het testen en aan 0 wanneer het lopen in een productiemilieu. |
+| `loglevel` | Het niveau van het logboek voor wanneer het schrijven van berichten aan het logboekdossier: <br/>**0** Fouten <br/>**1** Waarschuwing <br/>**2** Info <br/>**** zuivert <br/>**Nota:** plaats het logboekniveau aan 3 tijdens installatie en het testen en aan 0 wanneer het lopen in een productiemilieu. |
 | `keepalivetimeout` | Geeft de time-out bij &#39;houden in leven&#39; in seconden aan. Vanaf Dispatcher versie 4.2.0 is de standaardwaarde voor het in leven houden 60. Met de waarde 0 wordt het in leven houden uitgeschakeld. |
 
 Afhankelijk van uw vereisten kunt u de Dispatcher definiëren als service voor uw objecten. Als u de Dispatcher voor uw gehele website wilt configureren, bewerkt u het standaardobject:

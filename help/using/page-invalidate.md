@@ -1,5 +1,5 @@
 ---
-title: In cache geplaatste pagina's ongeldig maken van AEM
+title: In cache geplaatste pagina's ongeldig maken vanuit AEM
 description: Leer hoe u de interactie tussen Dispatcher en AEM configureert voor een effectief cachebeheer.
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -9,28 +9,28 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
 source-wordcount: '1407'
 ht-degree: 0%
 
 ---
 
-# In cache geplaatste pagina&#39;s ongeldig maken van AEM {#invalidating-cached-pages-from-aem}
+# Pagina&#39;s in cache ongeldig maken vanuit AEM {#invalidating-cached-pages-from-aem}
 
 Wanneer u Dispatcher gebruikt met AEM, moet de interactie zo worden geconfigureerd dat een effectief cachebeheer wordt gegarandeerd. Afhankelijk van uw milieu, kan de configuratie prestaties ook verhogen.
 
-## AEM gebruikersaccounts instellen {#setting-up-aem-user-accounts}
+## AEM-gebruikersaccounts instellen {#setting-up-aem-user-accounts}
 
 De standaard `admin` gebruikersrekening wordt gebruikt om de replicatieagenten voor authentiek te verklaren die door gebrek worden geïnstalleerd. Creeer een specifieke gebruikersrekening voor gebruik met replicatieagenten.
 
-Voor meer informatie, zie [ de sectie van de Gebruikers van de Replicatie en van het Vervoer ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de Controlelijst van de Veiligheid van de AEM vormen.
+Voor meer informatie, zie de sectie [ replicatie en vervoergebruikers ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de Controlelijst van de Veiligheid van AEM vormen.
 
-<!-- OLD URL from above https://helpx.adobe.com/nl/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
+<!-- OLD URL from above https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
-## Dispatcher Cache ongeldig maken vanuit de ontwerpomgeving {#invalidating-dispatcher-cache-from-the-authoring-environment}
+## De Dispatcher-cache ongeldig maken vanuit de ontwerpomgeving {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
-Een replicatieagent op de AEM auteurinstantie verzendt een verzoek van de geheim voorgeheugenongeldigheid naar Dispatcher wanneer een pagina wordt gepubliceerd. Dispatcher vernieuwt het bestand uiteindelijk in de cache wanneer nieuwe inhoud wordt gepubliceerd.
+Een replicatieagent op de AEM-auteurinstantie verzendt een verzoek tot ongeldigmaking van het cachegeheugen naar Dispatcher wanneer een pagina wordt gepubliceerd. Dispatcher vernieuwt het bestand uiteindelijk in de cache wanneer nieuwe inhoud wordt gepubliceerd.
 
 <!-- 
 
@@ -50,9 +50,9 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
  -->
 
-Gebruik de volgende procedure om een replicatieagent op de AEM auteursinstantie te vormen. De configuratie maakt het Dispatcher-cachegeheugen ongeldig na activering van de pagina:
+Gebruik de volgende procedure om een replicatieagent op de auteursinstantie van AEM te vormen. De configuratie maakt het Dispatcher-cachegeheugen ongeldig na activering van de pagina:
 
-1. Open de console AEM Tools. (`https://localhost:4502/miscadmin#/etc`)
+1. Open de AEM Tools Console. (`https://localhost:4502/miscadmin#/etc`)
 1. Open de vereiste replicatieagent onder Hulpmiddelen/replicatie/Agenten op auteur. U kunt de Dispatcher Flush-agent gebruiken die standaard is geïnstalleerd.
 1. Klik uitgeven, en op het lusje van Montages zorgen ervoor dat **Toegelaten** wordt geselecteerd.
 
@@ -66,7 +66,7 @@ Gebruik de volgende procedure om een replicatieagent op de AEM auteursinstantie 
 1. Configureer desgewenst andere parameters.
 1. Klik op OK om de agent te activeren.
 
-Alternatief, kunt u tot de Vlek van Dispatcher agent van de [ AEM Aanraakinterface ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent) ook toegang hebben en vormen.
+Alternatief, kunt u tot de Vlek van Dispatcher agent van de [ Aanraak UI van AEM ook toegang hebben en vormen ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent).
 
 Voor meer details op hoe te om toegang tot ijdelheid URLs toe te laten, zie [ Toelatend Toegang tot Vanity URLs ](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
@@ -78,11 +78,11 @@ Er zijn twee mogelijke problemen met deze aanpak:
 
 * De Dispatcher moet bereikbaar zijn vanuit de ontwerpinstantie. Als uw netwerk (bijvoorbeeld, de firewall) dusdanig wordt gevormd dat de toegang tussen twee beperkt is, kan deze situatie niet het geval zijn.
 
-* De openbaarmaking en de ongeldigmaking van de cache vinden tegelijkertijd plaats. Afhankelijk van de timing kan een gebruiker een pagina aanvragen vlak nadat deze uit de cache is verwijderd en vlak voordat de nieuwe pagina wordt gepubliceerd. AEM keert nu de oude pagina terug, en de Dispatcher bewaart het opnieuw. Deze situatie is eerder een probleem voor grote sites.
+* De openbaarmaking en de ongeldigmaking van de cache vinden tegelijkertijd plaats. Afhankelijk van de timing kan een gebruiker een pagina aanvragen vlak nadat deze uit de cache is verwijderd en vlak voordat de nieuwe pagina wordt gepubliceerd. AEM retourneert nu de oude pagina en de Dispatcher plaatst deze opnieuw in het cachegeheugen. Deze situatie is eerder een probleem voor grote sites.
 
-## Dispatcher Cache van een publicatie-instantie ongeldig maken {#invalidating-dispatcher-cache-from-a-publishing-instance}
+## De Dispatcher-cache ongeldig maken via een instantie Publish {#invalidating-dispatcher-cache-from-a-publishing-instance}
 
-Onder bepaalde omstandigheden kunnen de prestaties worden verbeterd door cachebeheer over te brengen van de ontwerpomgeving naar een publicatie-instantie. Het is dan de het publiceren milieu (niet het AEM auteursmilieu) die een verzoek van de geheim voorgeheugenongeldigverklaring naar Dispatcher verzendt wanneer een gepubliceerde pagina wordt ontvangen.
+Onder bepaalde omstandigheden kunnen de prestaties worden verbeterd door cachebeheer over te brengen van de ontwerpomgeving naar een publicatie-instantie. Het is dan de publicatieomgeving (niet de AEM-ontwerpomgeving) die een verzoek tot het ongeldig maken van de cache naar Dispatcher verzendt wanneer een gepubliceerde pagina wordt ontvangen.
 
 Deze omstandigheden omvatten:
 
@@ -99,11 +99,11 @@ Comment Type: draft
 
 >[!NOTE]
 >
->Een ervaren AEM beheerder zou het besluit moeten nemen om deze methode te gebruiken.
+>Een ervaren beheerder van AEM zou het besluit moeten nemen om deze methode te gebruiken.
 
 Een replicatieagent die op de publicatieinstantie werkt, bestuurt de Dispatcher flush. Nochtans, wordt de configuratie gemaakt in het auteursmilieu en dan overgebracht door de agent te activeren:
 
-1. Open de console AEM Tools.
+1. Open de AEM Tools Console.
 1. Open de vereiste replicatieagent onder Hulpmiddelen/replicatie/Agenten bij publiceren. U kunt de Dispatcher Flush-agent gebruiken die standaard is geïnstalleerd.
 1. Klik uitgeven, en op het lusje van Montages zorgen ervoor dat **Toegelaten** wordt geselecteerd.
 1. (facultatief) om alias of verzoeken van de de ongeldig wordingsweg van de ijl toe te laten selecteren de **optie van de Update van de Alias**.
@@ -120,9 +120,9 @@ Na het vormen, wanneer u een pagina van auteur activeert om te publiceren, stelt
 
 1. `<publishserver> 13:29:47 127.0.0.1 POST /dispatcher/invalidate.cache 200`
 
-## Dispatcher Cache handmatig ongeldig maken {#manually-invalidating-the-dispatcher-cache}
+## De Dispatcher-cache handmatig ongeldig maken {#manually-invalidating-the-dispatcher-cache}
 
-Als u de Dispatcher-cache ongeldig wilt maken (of wilt leegmaken) zonder een pagina te activeren, kunt u een HTTP-aanvraag naar de Dispatcher verzenden. U kunt bijvoorbeeld een AEM maken waarmee beheerders of andere toepassingen de cache kunnen leegmaken.
+Als u de Dispatcher-cache ongeldig wilt maken (of wilt leegmaken) zonder een pagina te activeren, kunt u een HTTP-aanvraag naar de Dispatcher verzenden. U kunt bijvoorbeeld een AEM-toepassing maken waarmee beheerders of andere toepassingen de cache kunnen leegmaken.
 
 Door de HTTP-aanvraag verwijdert de Dispatcher specifieke bestanden uit de cache. De Dispatcher vernieuwt desgewenst de cache met een nieuwe kopie.
 
@@ -169,7 +169,7 @@ page_path1
 page_pathn
 ```
 
-De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te worden gemaakt. (Zie de `/statfileslevel` parameter van het [ 2&rbrace; configuratiepunt van het Geheime voorgeheugen &lbrace;.) ](dispatcher-configuration.md#main-pars_146_44_0010) In het volgende voorbeeld verwijdert en doorloopt het HTTP-aanvraagbericht `/content/geometrixx-outdoors/en.html page` :
+De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te worden gemaakt. (Zie de `/statfileslevel` parameter van het [ 2} configuratiepunt van het Geheime voorgeheugen {.) In het volgende voorbeeld wordt het HTTP-aanvraagbericht verwijderd en doorgehaald ](dispatcher-configuration.md#main-pars_146_44_0010) :`/content/geometrixx-outdoors/en.html page`
 
 ```xml
 POST /dispatcher/invalidate.cache HTTP/1.1  

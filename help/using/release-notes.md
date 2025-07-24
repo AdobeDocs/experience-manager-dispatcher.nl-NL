@@ -1,18 +1,18 @@
 ---
-title: Opmerkingen bij de release van Dispatcher AEM
+title: Opmerkingen bij de release AEM Dispatcher
 description: Opmerkingen bij de release specifiek voor Adobe Experience Manager Dispatcher
 topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 5f743be9c143e1e720e59304feebaa2e272dad87
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
 source-wordcount: '1062'
 ht-degree: 1%
 
 ---
 
-# Opmerkingen bij de release van Dispatcher AEM{#aem-dispatcher-release-notes}
+# Opmerkingen bij de release van AEM Dispatcher{#aem-dispatcher-release-notes}
 
 ## Gegevens vrijgeven {#release-information}
 
@@ -27,7 +27,7 @@ ht-degree: 1%
 
 ## Systeemvereisten en -vereisten {#system-requirements-and-prerequisites}
 
-Zie [ Gesteunde Platforms ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#dispatcher-platforms-web-servers) voor meer informatie over vereisten en eerste vereisten.
+Zie [ Gesteunde Platforms ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#dispatcher-platforms-web-servers) voor meer informatie over vereisten en eerste vereisten.
 
 Adobe raadt aan de nieuwste versie van AEM Dispatcher te gebruiken om te profiteren van de nieuwste functionaliteit, de meest recente opgeloste problemen en de best mogelijke prestaties.
 
@@ -50,7 +50,7 @@ Voor gedetailleerde instructies, zie [ Installerend Dispatcher ](dispatcher-inst
 
 **Verbeteringen**:
 
-* DISP-911 AEM-05 - X-Edge-Key kan in disp_apache2.c worden gelekt.
+* DISP-911 AEM-05 - X-Edge-Key kan worden gelekt in disp_apache2.c.
 * DISP-937 het registreren van alle selecteurs.
 * DISP-998 makend lading van ijdelheid urls bij opstarten configureerbaar.
 
@@ -59,7 +59,7 @@ Voor gedetailleerde instructies, zie [ Installerend Dispatcher ](dispatcher-inst
 **Verbeteringen**:
 
 * DISP-954 - De ongeldigverklaring van de steun zelfs als het verlopen niet is overgegaan
-* DISP-949 - Dispatcher keert 200 in plaats van 404 terug zelfs als de filter het verzoek van de POST blokkeert
+* DISP-949 - Dispatcher keert 200 in plaats van 404 terug zelfs als de filter POST verzoek blokkeert
 
 ### Release 4.3.4 (2021-nov-29) {#nov}
 
@@ -170,7 +170,7 @@ Voor gedetailleerde instructies, zie [ Installerend Dispatcher ](dispatcher-inst
 
 ## Nuttige bronnen {#helpful-resources}
 
-* [Dispatcher-overzicht AEM](dispatcher.md)
+* [AEM Dispatcher - Overzicht](dispatcher.md)
 
 ## Downloads {#downloads}
 

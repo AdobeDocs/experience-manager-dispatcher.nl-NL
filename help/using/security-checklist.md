@@ -1,5 +1,5 @@
 ---
-title: De Dispatcher-beveiligingscontrolelijst
+title: Dispatcher Security Checklist
 description: Klik hier als je wilt weten wat de Dispatcher Security Checklist is die moet worden voltooid voordat je gaat produceren.
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -10,14 +10,14 @@ index: y
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '590'
+source-wordcount: '582'
 ht-degree: 0%
 
 ---
 
-# De Dispatcher-beveiligingscontrolelijst{#the-dispatcher-security-checklist}
+# Dispatcher Security Checklist{#the-dispatcher-security-checklist}
 
 <!-- 
 
@@ -30,11 +30,11 @@ Last Modified Date: 2015-06-05T05:14:35.365-0400
 
  -->
 
-Adobe raadt u aan de volgende checklist in te vullen voordat u verdergaat met de productie.
+Adobe raadt je aan de volgende checklist in te vullen voordat je gaat produceren.
 
 >[!CAUTION]
 >
->Vul de lijst Beveiligingscontrole van uw versie van AEM in voordat u live gaat. Zie de overeenkomstige [ documentatie van Adobe Experience Manager ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/security-checklist).
+>Voltooi de lijst Beveiligingscontrole van je versie van AEM voordat je live gaat. Zie de overeenkomstige [ documentatie van Adobe Experience Manager ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist).
 
 ## De nieuwste versie van Dispatcher gebruiken {#use-the-latest-version-of-dispatcher}
 
@@ -48,7 +48,7 @@ Installeer de nieuwste beschikbare versie die beschikbaar is voor uw platform. V
 >
 >Als u het logbestand wilt zoeken, controleert u de Dispatcher-configuratie in uw `httpd.conf` .
 
-## Clients beperken die uw cache kunnen leegmaken {#restrict-clients-that-can-flush-your-cache}
+## Beperk clients die uw cache kunnen leegmaken {#restrict-clients-that-can-flush-your-cache}
 
 Adobe adviseert dat u [ de cliënten beperkt die uw geheime voorgeheugen kunnen leegmaken.](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
@@ -87,9 +87,9 @@ Zie [ het Testen de Veiligheid van Dispatcher ](dispatcher-configuration.md#test
 
 Lijsten van gewenste personen zijn een betere manier om toegangscontrole te verlenen aangezien zij inherent, veronderstellen zij dat alle toegangsverzoeken zouden moeten worden ontkend tenzij zij uitdrukkelijk deel van de lijst van gewenste personen uitmaken. Dit model verstrekt meer restrictieve controle over nieuwe verzoeken die nog niet zouden kunnen zijn herzien of tijdens een bepaalde configuratiestadium overwogen.
 
-## Dispatcher uitvoeren met een specifieke systeemgebruiker {#run-dispatcher-with-a-dedicated-system-user}
+## Dispatcher uitvoeren met een toegewezen systeemgebruiker {#run-dispatcher-with-a-dedicated-system-user}
 
-Zorg er bij het configureren van de Dispatcher voor dat de webserver wordt uitgevoerd door een toegewijde gebruiker met de minste toegangsrechten. U wordt aangeraden alleen schrijftoegang te verlenen tot de Dispatcher-cachemap.
+Configureer de Dispatcher zodanig dat een toegewijde, minst geprivilegieerde gebruikersaccount de webserver uitvoert. Adobe raadt u aan alleen schrijftoegang te verlenen tot de cachemap van Dispatcher.
 
 IIS-gebruikers moeten hun website ook als volgt configureren:
 
@@ -100,7 +100,7 @@ IIS-gebruikers moeten hun website ook als volgt configureren:
 
 Een ontkenning van de dienst (Dos) aanval is een poging om een computermiddel niet beschikbaar te maken aan zijn voorgenomen gebruikers.
 
-Op het niveau van Dispatcher, zijn er twee methodes om aanvallen van Dos te verhinderen: [ Filters ](https://experienceleague.adobe.com/nl/docs#/filter)
+Op het niveau van Dispatcher, zijn er twee methodes om aanvallen van Dos te verhinderen: [ Filters ](https://experienceleague.adobe.com/en/docs#/filter)
 
 * Gebruik mod_rewrite module (bijvoorbeeld, [ Apache 2.4 ](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)) om URL validaties uit te voeren (als de URL patroonregels niet te complex zijn).
 
@@ -148,18 +148,18 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## Dispatcher configureren om CSRF-aanvallen te voorkomen {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM verstrekt a [ kader ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps) gericht op het verhinderen van de aanvallen van de Versmeding van het Verzoek van de Depositovergangen van de Depositovergangen. Om dit kader goed te gebruiken, lijst van gewenste personen symbolische steun CSRF in Dispatcher door het volgende te doen:
+AEM verstrekt a [ kader ](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps) gericht op het verhinderen van de aanvallen van het Verzoek van de Versmederij van de Depositovergangen van de Depositovergangen. Om dit kader goed te gebruiken, lijst van gewenste personen symbolische steun CSRF in Dispatcher door het volgende te doen:
 
 1. Een filter maken om het `/libs/granite/csrf/token.json` -pad toe te staan;
 1. Voeg de header `CSRF-Token` toe aan de sectie `clientheaders` van de Dispatcher-configuratie.
 
 ## Klikaanvallen voorkomen {#prevent-clickjacking}
 
-Om klikaanvallen te voorkomen, adviseert de Adobe dat u uw webserver vormt om `X-FRAME-OPTIONS` kopbal te verstrekken die aan `SAMEORIGIN` wordt geplaatst.
+Om te voorkomen dat wordt geklikt, raadt Adobe u aan uw webserver te configureren om de `X-FRAME-OPTIONS` HTTP-header die is ingesteld op `SAMEORIGIN` , op te geven.
 
 Voor meer informatie bij klikjacking, zie de [ plaats van OWASP ](https://owasp.org/www-community/attacks/Clickjacking).
 
-## Een beveiligingstest uitvoeren {#perform-a-penetration-test}
+## Een penetratietest uitvoeren {#perform-a-penetration-test}
 
-Adobe beveelt ten zeerste aan om een penetratietest van uw AEM-infrastructuur uit te voeren voordat u verdergaat met de productie.
+Adobe raadt u aan een penetratietest van uw AEM-infrastructuur uit te voeren voordat u verdergaat met de productie.
 

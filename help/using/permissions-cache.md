@@ -1,25 +1,25 @@
 ---
-title: Beveiligde inhoud in cache plaatsen
+title: Beveiligde inhoud in cache opslaan
 description: Leer hoe plaatsen met toestemming werkt in Dispatcher.
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '924'
+source-wordcount: '923'
 ht-degree: 0%
 
 ---
 
-# Beveiligde inhoud in cache plaatsen {#caching-secured-content}
+# Beveiligde inhoud in cache opslaan {#caching-secured-content}
 
 Met machtigingsgevoelige caching kunt u beveiligde pagina&#39;s in het cachegeheugen plaatsen. Dispatcher controleert de toegangsmachtigingen van de gebruiker voor een pagina voordat de pagina in de cache wordt geleverd.
 
-Dispatcher omvat de module AuthChecker die toestemming-gevoelig caching uitvoert. Wanneer de module wordt geactiveerd, roept de Dispatcher een AEM servlet aan om gebruikersauthentificatie en vergunning voor de gevraagde inhoud uit te voeren. De servletreactie bepaalt of de inhoud aan Webbrowser van het geheime voorgeheugen of niet wordt geleverd.
+Dispatcher omvat de module AuthChecker die toestemming-gevoelig caching uitvoert. Wanneer de module wordt geactiveerd, roept de Dispatcher een servlet van AEM aan om gebruikersauthentificatie en vergunning voor de gevraagde inhoud uit te voeren. De servletreactie bepaalt of de inhoud aan Webbrowser van het geheime voorgeheugen of niet wordt geleverd.
 
-Omdat de methodes van authentificatie en vergunning voor de AEM plaatsing specifiek zijn, wordt u vereist om servlet tot stand te brengen.
+Omdat de methodes van authentificatie en vergunning voor de plaatsing van AEM specifiek zijn, wordt u vereist om servlet te creëren.
 
 >[!NOTE]
 >
@@ -42,7 +42,7 @@ De volgende diagrammen illustreren de orde van gebeurtenissen die voorkomen wann
 
 1. Dispatcher bepaalt dat de inhoud niet in de cache wordt geplaatst of moet worden bijgewerkt.
 1. Dispatcher stuurt het oorspronkelijke verzoek door naar de rendermethode.
-1. Renderen roept AEM autorisator servlet (dit servlet is niet de servlet van Dispatcher AuthChcker) om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
+1. Renderen roept AEM authorizer servlet (dit servlet is niet de servlet van Dispatcher AuthChcker) aan om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
 1. Dispatcher stuurt de reactie door naar de browser. Dispatcher voegt de hoofdtekst van het antwoordbericht van de renderbewerking toe aan de cache.
 
 ## Gebruiker is niet geautoriseerd {#user-is-not-authorized}
@@ -53,10 +53,10 @@ De volgende diagrammen illustreren de orde van gebeurtenissen die voorkomen wann
 1. Dispatcher verzendt een aanvraagbericht naar de rendermethode die alle headerregels uit het verzoek van de browser bevat.
 1. Renderen roept de server van de Controleur van de Auth om een veiligheidscontrole uit te voeren, die ontbreekt, en teruggeeft door:sturen het originele verzoek aan Dispatcher.
 1. Dispatcher stuurt het oorspronkelijke verzoek door naar de rendermethode.
-1. Renderen roept AEM autorisator servlet (dit servlet is niet de servlet van Dispatcher AuthChcker) om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
+1. Renderen roept AEM authorizer servlet (dit servlet is niet de servlet van Dispatcher AuthChcker) aan om een veiligheidscontrole uit te voeren. Wanneer de gebruiker wordt geautoriseerd, omvat teruggeven de teruggegeven pagina in het lichaam van het antwoordbericht.
 1. Dispatcher stuurt de reactie door naar de browser. Dispatcher voegt de hoofdtekst van het antwoordbericht van de renderbewerking toe aan de cache.
 
-## Het uitvoeren van toestemming-gevoelige caching {#implementing-permission-sensitive-caching}
+## Voer toestemmingsgevoelige caching uit {#implementing-permission-sensitive-caching}
 
 Om toestemming-gevoelig caching uit te voeren, voer de volgende taken uit:
 
@@ -70,15 +70,15 @@ Om toestemming-gevoelig caching uit te voeren, voer de volgende taken uit:
 >[!NOTE]
 >
 >Wanneer er een CDN (of een ander geheime voorgeheugen) vóór de Dispatcher is, dan zou u de in het voorgeheugen onderbrengende kopballen dienovereenkomstig moeten plaatsen zodat CDN niet de privé inhoud in het voorgeheugen onderbrengt. Bijvoorbeeld: `Header always set Cache-Control private` .
->Voor AEM as a Cloud Service, zie de [ Caching ](https://experienceleague.adobe.com/nl/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) pagina voor meer details over hoe te om privé caching kopballen te plaatsen.
+>>Voor AEM as a Cloud Service, zie de [ Caching ](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) pagina voor meer details over hoe te om privé caching kopballen te plaatsen.
 
 ## De servlet Auth Checker maken {#create-the-auth-checker-servlet}
 
-Maak en implementeer een servlet die de verificatie en autorisatie uitvoert van de gebruiker die de webinhoud aanvraagt. De servlet kan om het even welke authentificatie gebruiken. Zij kan ook elke vergunningsmethode gebruiken. Bijvoorbeeld, kan het de AEM gebruikersrekening en bewaarplaats ACLs gebruiken. Of u kunt hiervoor een LDAP-opzoekservice gebruiken. U implementeert de servlet op de AEM instantie die Dispatcher gebruikt als de render.
+Maak en implementeer een servlet die de verificatie en autorisatie uitvoert van de gebruiker die de webinhoud aanvraagt. De servlet kan om het even welke authentificatie gebruiken. Zij kan ook elke vergunningsmethode gebruiken. Het kan bijvoorbeeld de AEM-gebruikersaccount en ACL&#39;s in de gegevensopslagruimte gebruiken. Of u kunt hiervoor een LDAP-opzoekservice gebruiken. U implementeert de servlet op de AEM-instantie die Dispatcher gebruikt als de render.
 
 De servlet moet toegankelijk zijn voor alle gebruikers. Daarom moet uw servlet de klasse `org.apache.sling.api.servlets.SlingSafeMethodsServlet` uitbreiden, die alleen-lezen toegang tot het systeem biedt.
 
-De servlet ontvangt alleen HEAD-aanvragen van de rendermethode, dus u moet de methode `doHead` alleen implementeren.
+De servlet ontvangt alleen HEAD-aanvragen van de render, dus u moet de methode `doHead` alleen implementeren.
 
 Renderen omvat URI van het gevraagde middel als parameter van het HTTP- verzoek. Een verificatieserver is bijvoorbeeld toegankelijk via `/bin/permissioncheck` . Als u een beveiligingscontrole wilt uitvoeren op de pagina /content/geometrixx-outdoors/en.html, bevat de render de volgende URL in de HTTP-aanvraag:
 
@@ -92,7 +92,7 @@ Het volgende voorbeeldservlet verkrijgt URL van het gevraagde middel van het HTT
 
 >[!NOTE]
 >
->De waarde van de eigenschap sling.servlet.paths moet zijn ingeschakeld in de service Sling Servlet Resolver (org.apache.sling.servlets.resolver.SlingServletResolver).
+>De waarde van de eigenschap sling.servlet.paths moet zijn ingeschakeld in de service `Sling` Servlet Resolver (org.apache.sling.servlets.resolver.SlingServletResolver).
 
 ### Voorbeeld-servlet {#example-servlet}
 
@@ -161,7 +161,7 @@ Wanneer Dispatcher wordt gestart, bevat het Dispatcher-logbestand het volgende b
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-De volgende voorbeeldsectie auth_checker vormt Dispatcher om servlet van het vorige onderwerp te gebruiken. De filtersectie veroorzaakt toestemmingscontroles die slechts op veilige middelen van HTML worden uitgevoerd.
+De volgende voorbeeldsectie auth_checker vormt Dispatcher om servlet van het vorige onderwerp te gebruiken. De filtersectie zorgt ervoor dat machtigingscontroles alleen worden uitgevoerd op beveiligde HTML-bronnen.
 
 ### Voorbeeldconfiguratie {#example-configuration}
 

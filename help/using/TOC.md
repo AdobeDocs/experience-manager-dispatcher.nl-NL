@@ -10,29 +10,29 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '82'
-ht-degree: 29%
+source-wordcount: '81'
+ht-degree: 25%
 
 ---
 
 
-# Help bij AEM Dispatcher {#using}
+# AEM Dispatcher Help {#using}
 
 + [Overzicht](dispatcher.md)
 + Aan de slag {#getting-started}
    + [Dispatcher installeren](dispatcher-install.md)
-   + [De Dispatcher-beveiligingscontrolelijst](security-checklist.md)
-   + [Opmerkingen bij de release van Dispatcher AEM](release-notes.md)
+   + [Dispatcher Security Checklist](security-checklist.md)
+   + [Opmerkingen bij de release AEM Dispatcher](release-notes.md)
 + Configureren {#configuring}
    + [De Dispatcher configureren](dispatcher-configuration.md)
-   + [In cache geplaatste pagina&#39;s ongeldig maken van AEM](page-invalidate.md)
-   + [ Optimizing een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
-   + [Beveiligde inhoud in cache plaatsen](permissions-cache.md)
-   + [Dispatcher AEM met meerdere domeinen gebruiken](dispatcher-domains.md)
+   + [In cache geplaatste pagina&#39;s ongeldig maken vanuit AEM](page-invalidate.md)
+   + [ optimaliseer een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [Beveiligde inhoud in cache opslaan](permissions-cache.md)
+   + [AEM Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md)
    + [SSL gebruiken met AEM Dispatcher](dispatcher-ssl.md)
-   + [Dispatcher configureren om CSRF-aanvallen te voorkomen](configuring-dispatcher-to-prevent-csrf.md)
+   + [AEM Dispatcher configureren om CSRF-aanvallen te voorkomen](configuring-dispatcher-to-prevent-csrf.md)
 + Problemen oplossen {#troubleshooting}
    + [Problemen met Dispatcher oplossen](dispatcher-troubleshooting.md)
    + [Veelgestelde vragen over Dispatcher Top Issues](dispatcher-faq.md)

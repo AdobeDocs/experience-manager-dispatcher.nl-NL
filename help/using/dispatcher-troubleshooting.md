@@ -9,26 +9,26 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '539'
+source-wordcount: '472'
 ht-degree: 0%
 
 ---
 
-# Problemen met Dispatcher oplossen {#troubleshooting-dispatcher-problems}
+# Dispatcher-problemen oplossen {#troubleshooting-dispatcher-problems}
 
 >[!NOTE]
 >
->Dispatcher-versies zijn onafhankelijk van AEM. De Dispatcher-documentatie is echter ingesloten in de AEM documentatie. Gebruik altijd de Dispatcher-documentatie die is ingesloten in de documentatie voor de meest recente versie van AEM.
+>Dispatcher-versies zijn onafhankelijk van AEM. De Dispatcher-documentatie is echter ingesloten in de AEM-documentatie. Gebruik altijd de Dispatcher-documentatie die is ingesloten in de documentatie voor de nieuwste versie van AEM.
 >
 >U bent mogelijk omgeleid naar deze pagina als u een koppeling naar de documentatie van Dispatcher hebt gevolgd. Deze koppeling is ingesloten in de documentatie voor een vorige versie van AEM.
 
 >[!NOTE]
 >
->Controleer de [ Kennisbank van Dispatcher ](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), [ het Oplossen van problemen van Dispatcher die ](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager]), en [ Veelgestelde Veelgestelde vragen van de Kwesties van Dispatcher Hoogste ](dispatcher-faq.md) voor verdere informatie leegmaken.
+>Controleer <!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[ het Oplossen van problemen van Dispatcher het Flushing Kwesties ](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]), en [ Veelgestelde Veelgestelde vragen van Dispatcher ](dispatcher-faq.md) voor meer informatie.
 
-## Controleer de basisconfiguratie {#check-the-basic-configuration}
+## De basisconfiguratie controleren {#check-the-basic-configuration}
 
 Zoals altijd, zijn de eerste stappen de grondbeginselen te controleren:
 
@@ -45,7 +45,7 @@ Zoals altijd, zijn de eerste stappen de grondbeginselen te controleren:
 
       * Hebben deze filters invloed op de zaak die u onderzoekt?
 
-## IIS Diagnostic Tools {#iis-diagnostic-tools}
+## IIS-diagnostische gereedschappen {#iis-diagnostic-tools}
 
 IIS verstrekt diverse spoorhulpmiddelen, afhankelijk van de daadwerkelijke versie:
 
@@ -54,20 +54,21 @@ IIS verstrekt diverse spoorhulpmiddelen, afhankelijk van de daadwerkelijke versi
 
 Deze hulpmiddelen kunnen u helpen activiteit controleren.
 
-## IIS en 404 niet gevonden {#iis-and-not-found}
+<!-- Both URLs in this topic 404! >
+## IIS and 404 Not Found {#iis-and-not-found}
 
-Wanneer u IIS gebruikt, kan het zijn dat `404 Not Found` in verschillende scenario&#39;s wordt geretourneerd. Zo ja, zie de volgende artikelen in de Knowledge Base.
+When using IIS, you might experience `404 Not Found` being returned in various scenarios. If so, see the following Knowledge Base articles.
 
-* [ IIS 6/7: De methode van de POST keert 404 ](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html) terug
-* [ IIS 6: Verzoeken aan URLs die de basisweg `/bin` bevatten terugkeer a `404 Not Found` ](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7: POST method returns 404](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
+* [IIS 6: Requests to URLs that contain the base path `/bin` return a `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-Controleer ook of de Dispatcher cache-hoofdmap en de hoofdmap van het IIS-document op dezelfde map zijn ingesteld.
+Also check that the Dispatcher cache root and the IIS document root are set to the same directory. -->
 
 ## Problemen bij het verwijderen van workflowmodellen {#problems-deleting-workflow-models}
 
 **Symptomen**
 
-Problemen bij het verwijderen van workflowmodellen bij het openen van een AEM auteur-instantie via de Dispatcher.
+Problemen bij het verwijderen van workflowmodellen bij het openen van een AEM-auteurinstantie via de Dispatcher.
 
 **Stappen om te reproduceren:**
 

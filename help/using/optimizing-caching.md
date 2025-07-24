@@ -5,11 +5,11 @@ contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-redirecttarget: https://helpx.adobe.com/nl/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
 source-wordcount: '1128'
 ht-degree: 0%
@@ -44,18 +44,18 @@ Dispatcher biedt verschillende ingebouwde mechanismen waarmee u de prestaties ku
 >
 >In het algemeen, impliceren vele caching strategieën het selecteren van goede URLs en het verlaten van deze extra gegevens.
 
-## Consistente paginacodering gebruiken {#using-consistent-page-encoding}
+## Codering van pagina&#39;s consistent gebruiken {#using-consistent-page-encoding}
 
 HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich dus problemen voordoen als u pagina-coderingsgegevens opslaat in de header. Wanneer Dispatcher dan een pagina uit het cachegeheugen bedient, wordt de standaardcodering van de webserver gebruikt voor de pagina. Dit probleem kan op twee manieren worden voorkomen:
 
-* Als u slechts één codering gebruikt, moet u ervoor zorgen dat de codering die op de webserver wordt gebruikt, gelijk is aan de standaardcodering van de AEM website.
+* Als u slechts één codering gebruikt, moet u ervoor zorgen dat de codering die op de webserver wordt gebruikt, gelijk is aan de standaardcodering van de AEM-website.
 * Als u de codering wilt instellen, gebruikt u een `<META>` -tag in de sectie HTML `head` , zoals in het volgende voorbeeld:
 
 ```xml
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
 ```
 
-## URL-parameters vermijden {#avoid-url-parameters}
+## Gebruik geen URL-parameters {#avoid-url-parameters}
 
 Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Bijvoorbeeld, als u een beeldgalerij hebt, wordt volgende URL nooit in het voorgeheugen ondergebracht (tenzij Dispatcher dienovereenkomstig [ wordt gevormd ](dispatcher-configuration.md#main-pars_title_24)):
 
@@ -95,7 +95,7 @@ www.myCompany.com/news/main.large.html
 >
 >Met behulp van de scriptglobling van de sjabloondefinitie kunt u een afzonderlijk script opgeven dat de afdrukpagina&#39;s rendert.
 
-## Als titels gebruikte afbeeldingsbestanden ongeldig maken {#invalidating-image-files-used-as-titles}
+## Afbeeldingsbestanden die als titels worden gebruikt, ongeldig maken {#invalidating-image-files-used-as-titles}
 
 Als u paginatitels of andere tekst hebt weergegeven als afbeeldingen, slaat u de bestanden op zodat deze worden verwijderd bij een update van de inhoud op de pagina:
 
@@ -108,9 +108,9 @@ U kunt bijvoorbeeld de titel van de pagina myPage.html opslaan in het bestand my
 
 >[!NOTE]
 >
->Het afbeeldingsbestand bestaat niet noodzakelijkerwijs op de AEM. U kunt een script gebruiken waarmee het afbeeldingsbestand dynamisch wordt gemaakt. Dispatcher slaat het bestand vervolgens op de webserver op.
+>Het afbeeldingsbestand bestaat niet noodzakelijkerwijs in de AEM-instantie. U kunt een script gebruiken waarmee het afbeeldingsbestand dynamisch wordt gemaakt. Dispatcher slaat het bestand vervolgens op de webserver op.
 
-## Beeldbestanden die voor navigatie worden gebruikt ongeldig maken {#invalidating-image-files-used-for-navigation}
+## De voor navigatie gebruikte afbeeldingsbestanden ongeldig maken {#invalidating-image-files-used-for-navigation}
 
 Als u foto&#39;s gebruikt voor de navigatie-items, is de methode in principe hetzelfde als bij titels, maar dan is deze iets complexer. Sla alle navigatieafbeeldingen op de doelpagina&#39;s op. Als u twee afbeeldingen gebruikt voor normaal en actief, kunt u de volgende scripts gebruiken:
 
@@ -157,7 +157,7 @@ Voor de meeste bestanden wordt het MIME-type geïmpliceerd in de bestandsextensi
 
 Als de bestandsnaam geen extensie heeft, wordt deze weergegeven als onbewerkte tekst.
 
-Het MIME-type maakt deel uit van de HTTP-header en wordt daarom niet in de cache opgeslagen door Dispatcher. Uw AEM toepassing kan bestanden retourneren die geen herkende bestandsextensie hebben. Als de bestanden in plaats daarvan afhankelijk zijn van het MIME-type, worden deze bestanden mogelijk onjuist weergegeven.
+Het MIME-type maakt deel uit van de HTTP-header en wordt daarom niet in de cache opgeslagen door Dispatcher. Uw AEM-toepassing kan bestanden retourneren die geen herkende bestandsextensie hebben. Als de bestanden in plaats daarvan afhankelijk zijn van het MIME-type, worden deze bestanden mogelijk onjuist weergegeven.
 
 Volg de onderstaande richtlijnen om ervoor te zorgen dat bestanden correct in het cachegeheugen worden opgeslagen:
 
