@@ -2,9 +2,9 @@
 title: AEM Dispatcher configureren
 description: Leer hoe u de Dispatcher configureert. Leer over steun voor IPv4 en IPv6, configuratiedossiers, omgevingsvariabelen, en het noemen van de instantie. Lees over het bepalen van landbouwbedrijven, het identificeren van virtuele gastheren, en meer.
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
+source-git-commit: fbfbe76b730d4037cccb400b70619fbe24b3b1bc
 workflow-type: tm+mt
-source-wordcount: '8937'
+source-wordcount: '8938'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ In de volgende secties wordt beschreven hoe u verschillende aspecten van de Disp
 
 ## Ondersteuning voor IPv4 en IPv6 {#support-for-ipv-and-ipv}
 
-Alle elementen van AEM en Dispatcher kunnen in zowel IPv4 als IPv6 netwerken worden geïnstalleerd. Zie [ IPV4 en IPV6 ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#ipv-and-ipv).
+Alle elementen van AEM en Dispatcher kunnen in zowel IPv4 als IPv6 netwerken worden geïnstalleerd. Zie [ IPV4 en IPV6 ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#ipv-and-ipv).
 
 ## Dispatcher-configuratiebestanden {#dispatcher-configuration-files}
 
@@ -209,7 +209,7 @@ Elk landbouwbedrijfbezit kan de volgende kindeigenschappen bevatten:
 | [/failover ](#using-the-failover-mechanism) | Verzend verzoeken opnieuw naar verschillende renders wanneer het oorspronkelijke verzoek ontbreekt. |
 | [/auth_checker ](permissions-cache.md) | Voor toestemming-gevoelig caching, zie [ In het voorgeheugen onderbrengend Beveiligde Inhoud ](permissions-cache.md). |
 
-## Een standaardpagina opgeven (alleen IIS) - `/homepage` {#specify-a-default-page-iis-only-homepage}
+## Een standaardpagina opgeven (alleen IIS) - /homepage {#specify-a-default-page-iis-only-homepage}
 
 >[!CAUTION]
 >
@@ -402,9 +402,9 @@ Gebruikend dit voorbeeld, toont de volgende lijst de virtuele gastheren die voor
 
 >[!CAUTION]
 >
->`/allowAuthorized` Stel dit in op `"0"` in de sectie `/cache` om deze functie in te schakelen. Zoals gedetailleerd in de sectie [ &quot;Caching wanneer de authentificatie wordt gebruikt&quot;](#caching-when-authentication-is-used) sectie, wanneer u `/allowAuthorized 0 ` verzoeken plaatst die authentificatieinformatie omvatten **niet** caching is. Als toestemming-gevoelig caching wordt vereist, zie de [ In het voorgeheugen onderbrengende Beveiligde Inhoud ](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/permissions-cache) pagina.
+>`/allowAuthorized` Stel dit in op `"0"` in de sectie `/cache` om deze functie in te schakelen. Zoals gedetailleerd in de sectie [ &quot;Caching wanneer de authentificatie wordt gebruikt&quot;](#caching-when-authentication-is-used) sectie, wanneer u `/allowAuthorized 0 ` verzoeken plaatst die authentificatieinformatie omvatten **niet** caching is. Als toestemming-gevoelig caching wordt vereist, zie de [ In het voorgeheugen onderbrengende Beveiligde Inhoud ](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/permissions-cache) pagina.
 
-Creeer een veilige zitting voor toegang tot teruggeven landbouwbedrijf zodat de gebruikers moeten login om het even welke pagina in het landbouwbedrijf toegang hebben. Na het programma openen, kunnen de gebruikers tot pagina&#39;s in het landbouwbedrijf toegang hebben. Zie [ Creërend een Gesloten Groep van de Gebruiker ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used) voor informatie over het gebruiken van deze eigenschap met CUGs. Ook, zie Dispatcher [ Controlelijst van de Veiligheid ](/help/using/security-checklist.md) alvorens levend te gaan.
+Creeer een veilige zitting voor toegang tot teruggeven landbouwbedrijf zodat de gebruikers moeten login om het even welke pagina in het landbouwbedrijf toegang hebben. Na het programma openen, kunnen de gebruikers tot pagina&#39;s in het landbouwbedrijf toegang hebben. Zie [ Creërend een Gesloten Groep van de Gebruiker ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used) voor informatie over het gebruiken van deze eigenschap met CUGs. Ook, zie Dispatcher [ Controlelijst van de Veiligheid ](/help/using/security-checklist.md) alvorens levend te gaan.
 
 De eigenschap `/sessionmanagement` is een subeigenschap van `/farms` .
 
@@ -555,7 +555,7 @@ Gebruik de sectie `/filter` om de HTTP-aanvragen op te geven die Dispatcher acce
 
 >[!CAUTION]
 >
->Zie [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend AEM Dispatcher. Ook, lees de [ Controlelijst van de Veiligheid van AEM ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/security-checklist#security) voor extra veiligheidsdetails betreffende uw installatie van AEM.
+>Zie [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend AEM Dispatcher. Ook, lees de [ Controlelijst van de Veiligheid van AEM ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) voor extra veiligheidsdetails betreffende uw installatie van AEM.
 
 De sectie `/filter` bestaat uit een reeks regels die of toegang tot inhoud volgens patronen in het verzoek-lijn deel van het HTTP- verzoek ontkennen of toestaan. Gebruik een strategie voor de lijst van gewenste personen van uw `/filter` sectie:
 
@@ -805,7 +805,7 @@ Afhankelijk van de installatie kunnen er meer bronnen onder `/libs` , `/apps` of
 
 >[!CAUTION]
 >
->Als u [ gebruikend rapporten in publiceert milieu ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/sites/administering/operations/reporting#using-reports-in-a-publish-environment) bent, zou u Dispatcher moeten vormen om toegang tot `/etc/reports` voor externe bezoekers te ontkennen.
+>Als u [ gebruikend rapporten in publiceert milieu ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/operations/reporting#using-reports-in-a-publish-environment) bent, zou u Dispatcher moeten vormen om toegang tot `/etc/reports` voor externe bezoekers te ontkennen.
 
 ### Query-tekenreeksen beperken {#restricting-query-strings}
 
@@ -937,7 +937,7 @@ De sectie `/vanity_urls` bevat de volgende eigenschappen:
 
 >[!NOTE]
 >
->Als uw teruggeven een geval van AEM is, moet u het [ VanityURLS-Components- pakket van de Distributie van de Software ](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) installeren om de dienst van vanityURL toe te laten. (Zie [ Distributie van de Software ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution) voor meer details.)
+>Als uw teruggeven een geval van AEM is, moet u het [ VanityURLS-Components- pakket van de Distributie van de Software ](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) installeren om de dienst van vanityURL toe te laten. (Zie [ Distributie van de Software ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution) voor meer details.)
 
 Gebruik de volgende procedure om toegang tot vanity URLs toe te laten.
 
@@ -1182,7 +1182,7 @@ Wanneer een bestand in `/content/myWebsite/xx` ongeldig wordt gemaakt, wordt elk
 
 >[!NOTE]
 >
->Ongeldige validatie kan worden voorkomen door een extra koptekst `CQ-Action-Scope:ResourceOnly` te verzenden. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [ deze pagina ](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [ manueel het Valideren van het Geheime voorgeheugen van Dispatcher ](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) voor extra details.
+>Ongeldige validatie kan worden voorkomen door een extra koptekst `CQ-Action-Scope:ResourceOnly` te verzenden. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [ deze pagina ](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [ manueel het Valideren van het Geheime voorgeheugen van Dispatcher ](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) voor extra details.
 
 >[!NOTE]
 >
@@ -1304,7 +1304,7 @@ Als u wilt opgeven welke parameters worden genegeerd, voegt u glob-regels toe aa
 >[!NOTE]
 >
 >Wanneer het vormen van het glob bezit, zou het de naam van de vraagparameter moeten aanpassen. Als u bijvoorbeeld de parameter &quot;p1&quot; van de volgende URL wilt negeren `http://example.com/path/test.html?p1=test&p2=v2` , moet de eigenschap glob als volgt zijn:
->&#x200B;> `/0002 { /glob "p1" /type "allow" }`
+>> `/0002 { /glob "p1" /type "allow" }`
 
 In het volgende voorbeeld negeert Dispatcher alle parameters, behalve de parameter `nocache` . Als zodanig vraagt Dispatcher nooit URL&#39;s die de parameter `nocache` bevatten, in cache op:
 
@@ -1644,7 +1644,7 @@ De `glob` -waarden kunnen jokertekens en alfanumerieke tekens bevatten om het pa
 | `?` | Komt overeen met elk willekeurig enkel teken. Gebruik externe tekenklassen. Binnen een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | `*outdoors/??/*`<br/> Komt overeen met de pagina&#39;s voor elke taal in de geometrixx-outdoorsite. De volgende HTTP-aanvraag komt bijvoorbeeld overeen met het glob-patroon: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> De volgende aanvraag komt niet overeen met het glob-patroon: <br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
 | `[ and ]` | Hiermee wordt het begin en einde van een tekenklasse gedemonstreerd. Tekenklassen kunnen een of meer tekenbereiken en enkele tekens bevatten.<br/> de gelijke van A komt voor als het doelkarakter om het even welke karakters in de karakterklasse, of binnen een bepaalde waaier aanpast.<br/> als de sluitende steun niet inbegrepen is, veroorzaakt het patroon geen gelijken. | `*[o]men.html*`<br/> Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/> het past niet het volgende HTTP- verzoek aan:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` <br/> Komt overeen met de volgende HTTP-aanvragen: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | Er wordt een reeks tekens aangegeven. Voor gebruik in tekenklassen. Buiten een tekenklasse wordt dit teken letterlijk geïnterpreteerd. | `*[m-p]men.html*` Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>Deze komt niet overeen met de volgende HTTP-aanvraag:<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | Hiermee wordt het volgende teken of de volgende tekenklasse genegeerd. Alleen gebruiken voor negerende tekens en tekenbereiken binnen tekenklassen. Gelijk aan de `^ wildcard` . <br/> buiten een karakterklasse, wordt dit karakter letterlijk geïnterpreteerd. | `*[ !o]men.html*`<br/> Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> Deze komt niet overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[ !o!/]men.html*`<br/> Deze komt niet overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` of `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
+| `!` | Hiermee wordt het volgende teken of de volgende tekenklasse genegeerd. Alleen gebruiken voor negerende tekens en tekenbereiken binnen tekenklassen. Gelijk aan de `^ wildcard` . <br/> buiten een karakterklasse, wordt dit karakter letterlijk geïnterpreteerd. | `*[!o]men.html*`<br/> Komt overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> Deze komt niet overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/> Deze komt niet overeen met de volgende HTTP-aanvraag: <br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` of `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | Hiermee wordt het volgende teken- of tekenbereik genegeerd. Alleen gebruiken voor negatie van tekens en tekenbereiken binnen tekenklassen. Komt overeen met het jokerteken `!` . <br/> buiten een karakterklasse, wordt dit karakter letterlijk geïnterpreteerd. | De voorbeelden van het jokerteken `!` zijn van toepassing, waarbij de `!` -tekens in de voorbeeldpatronen worden vervangen door `^` -tekens. |
 
 
