@@ -70,8 +70,8 @@ Als u Dispatcher met meerdere domeinen wilt gebruiken, moet u AEM, Dispatcher en
 
 Als u wilt dat domein-URL&#39;s en inhoudspaden worden omgezet in bestanden in de cache, moet tijdens het proces een bestandspad of pagina-URL worden vertaald. Er worden beschrijvingen gegeven van de volgende gemeenschappelijke strategieën, waarbij pad- of URL-vertalingen op verschillende punten in het proces plaatsvinden:
 
-* (Aanbevolen) De AEM-publicatie-instantie gebruikt de Sling-toewijzing voor resourceresolutie om interne URL-herschrijfregels te implementeren. Domein-URL&#39;s worden vertaald naar paden in de inhoudsopslagplaats. Zie [ AEM herschrijft Binnenkomende URLs ](#aem-rewrites-incoming-urls).
-* De webserver gebruikt interne URL-herschrijfregels die domein-URL&#39;s omzetten in cachepaden. Zie [ de Server van het Web binnen URLs ](#the-web-server-rewrites-incoming-urls) herschrijft.
+* (Aanbevolen) De AEM-publicatie-instantie gebruikt de Sling-toewijzing voor resourceresolutie om interne URL-herschrijfregels te implementeren. Domein-URL&#39;s worden vertaald naar paden in de inhoudsopslagplaats. Zie [&#x200B; AEM herschrijft Binnenkomende URLs &#x200B;](#aem-rewrites-incoming-urls).
+* De webserver gebruikt interne URL-herschrijfregels die domein-URL&#39;s omzetten in cachepaden. Zie [&#x200B; de Server van het Web binnen URLs &#x200B;](#the-web-server-rewrites-incoming-urls) herschrijft.
 
 Het is raadzaam korte URL&#39;s te gebruiken voor webpagina&#39;s. Pagina-URL&#39;s weerspiegelen doorgaans de structuur van de opslagmap die de webinhoud bevat. De URL&#39;s geven echter niet de bovenste knooppunten in de opslagplaats weer, zoals `/content` . De klant is niet noodzakelijkerwijs op de hoogte van de structuur van de AEM-opslagplaats.
 
@@ -80,7 +80,7 @@ Het is raadzaam korte URL&#39;s te gebruiken voor webpagina&#39;s. Pagina-URL&#3
 Uw omgeving moet de volgende configuraties implementeren om Dispatcher te ondersteunen bij het werken met meerdere domeinen:
 
 * Inhoud voor elk domein bevindt zich in afzonderlijke vertakkingen van de repository (zie de voorbeeldomgeving hieronder).
-* De Dispatcher Flush-replicatieagent is geconfigureerd op de AEM-publicatie-instantie. (Zie [ het Invalideren van het Geheime voorgeheugen van Dispatcher van een het Publiceren Instantie ](page-invalidate.md).)
+* De Dispatcher Flush-replicatieagent is geconfigureerd op de AEM-publicatie-instantie. (Zie [&#x200B; het Invalideren van het Geheime voorgeheugen van Dispatcher van een het Publiceren Instantie &#x200B;](page-invalidate.md).)
 * Het domeinnaamsysteem lost de domeinnamen op naar het IP-adres van de webserver.
 * Het Dispatcher-cachegeheugen weerspiegelt de mapstructuur van de AEM-inhoudsopslagplaats. De bestandspaden onder de hoofdmap van het document van de webserver zijn gelijk aan de paden van de bestanden in de opslagplaats.
 
@@ -135,7 +135,7 @@ Virtuele hosts op de webserver definiëren, zodat een andere hoofdmap van het do
 
 * De webserver moet een virtueel domein definiëren voor elk van uw webdomeinen.
 * Configureer voor elk domein de hoofdmap van het document zo dat deze overeenkomt met de map in de opslagplaats die de webinhoud van het domein bevat.
-* Elk virtueel domein moet op Dispatcher betrekking hebbende configuraties ook omvatten, zoals die op [ worden beschreven Installing Dispatcher ](dispatcher-install.md) pagina.
+* Elk virtueel domein moet op Dispatcher betrekking hebbende configuraties ook omvatten, zoals die op [&#x200B; worden beschreven Installing Dispatcher &#x200B;](dispatcher-install.md) pagina.
 
 In het volgende voorbeeld `httpd.conf` -bestand worden twee virtuele domeinen geconfigureerd voor een Apache-webserver:
 
@@ -196,7 +196,7 @@ LoadModule dispatcher_module modules/mod_dispatcher.so
 DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
-De virtuele gastheren erven de [ bezitswaarde 0&rbrace; DispatcherConfig &lbrace;die in de belangrijkste serversectie wordt gevormd. ](dispatcher-install.md#main-pars-67-table-7) Virtuele hosts kunnen hun eigen eigenschap DispatcherConfig opnemen om de hoofdserverconfiguratie te overschrijven.
+De virtuele gastheren erven de [&#x200B; bezitswaarde 0&rbrace; DispatcherConfig &lbrace;die in de belangrijkste serversectie wordt gevormd. &#x200B;](dispatcher-install.md#main-pars-67-table-7) Virtuele hosts kunnen hun eigen eigenschap DispatcherConfig opnemen om de hoofdserverconfiguratie te overschrijven.
 
 >[!NOTE]
 >
@@ -288,7 +288,7 @@ Dispatcher initializing (build 4.1.2)
 
 Gebruik `Sling` mapping voor resourceresolutie zodat op domein gebaseerde URL&#39;s worden omgezet in inhoud op de AEM-publicatie-instantie. De middelafbeelding zet inkomende URLs van Dispatcher (oorspronkelijk van cliëntHTTP- verzoeken) aan inhoudsknopen om.
 
-Om over `Sling` middelafbeelding te leren, zie [ Toewijzingen voor de Resolutie van het Middel ](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html) in de `Sling` documentatie.
+Om over `Sling` middelafbeelding te leren, zie [&#x200B; Toewijzingen voor de Resolutie van het Middel &#x200B;](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html) in de `Sling` documentatie.
 
 Typisch, worden de afbeeldingen vereist voor de volgende middelen, hoewel andere afbeeldingen kunnen noodzakelijk zijn:
 
@@ -345,8 +345,8 @@ Configureer de volgende aspecten op de webserver:
 * Definieer een virtuele host voor elk van uw webdomeinen.
 * Configureer voor elk domein de hoofdmap van het document zo dat deze overeenkomt met de map in de opslagplaats die de webinhoud van het domein bevat.
 * Voor elk virtueel domein, creeer een URL die anders noemt regel die inkomende URL aan de weg van het caching dossier vertaalt.
-* Elk virtueel domein moet op Dispatcher betrekking hebbende configuraties ook omvatten, zoals die op [ worden beschreven Installing Dispatcher ](dispatcher-install.md) pagina.
-* De Dispatcher-module moet zijn geconfigureerd voor het gebruik van de URL die de webserver heeft herschreven. (Zie het `DispatcherUseProcessedURL` bezit in [ Installerend Dispatcher ](dispatcher-install.md).)
+* Elk virtueel domein moet op Dispatcher betrekking hebbende configuraties ook omvatten, zoals die op [&#x200B; worden beschreven Installing Dispatcher &#x200B;](dispatcher-install.md) pagina.
+* De Dispatcher-module moet zijn geconfigureerd voor het gebruik van de URL die de webserver heeft herschreven. (Zie het `DispatcherUseProcessedURL` bezit in [&#x200B; Installerend Dispatcher &#x200B;](dispatcher-install.md).)
 
 In het volgende voorbeeld wordt het bestand httpd.conf geconfigureerd voor twee virtuele hosts voor een Apache-webserver:
 
@@ -416,7 +416,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 ### Een Dispatcher-farm configureren {#configure-a-dispatcher-farm}
 
-Wanneer de Webserver URLs herschrijft, vereist Dispatcher één enkel landbouwbedrijf dat volgens [ wordt bepaald die Dispatcher ](dispatcher-configuration.md) vormt. De volgende configuraties zijn vereist om de virtuele hosts van de webserver en de regels voor het wijzigen van de naam van URL&#39;s te ondersteunen:
+Wanneer de Webserver URLs herschrijft, vereist Dispatcher één enkel landbouwbedrijf dat volgens [&#x200B; wordt bepaald die Dispatcher &#x200B;](dispatcher-configuration.md) vormt. De volgende configuraties zijn vereist om de virtuele hosts van de webserver en de regels voor het wijzigen van de naam van URL&#39;s te ondersteunen:
 
 * De eigenschap `/virtualhosts` moet de ServerName-waarden voor alle VirtualHost-definities bevatten.
 * De eigenschap `/statfileslevel` moet hoog genoeg zijn om .stat-bestanden te maken in de mappen die de inhoudsbestanden voor elk domein bevatten.
@@ -506,9 +506,9 @@ Zoals gewoonlijk is de hoofdmap van het document in de cache gelijk aan de hoofd
 
 Om verwijzingen naar dossiers te herschrijven die uitbreidingen buiten .html of .htm hebben, creeer een Sling rewriter transformatorcomponent en voeg het aan de standaard rewriter pijpleiding toe.
 
-Verwijzingen herschrijven wanneer de middelwegen niet correct in de context van de Webserver oplossen. Een transformator is bijvoorbeeld vereist wanneer componenten die afbeeldingen genereren koppelingen maken, zoals /content/sitea/en/products.navimage.png. De `topnav` component van [ hoe te om tot een Volledig Aanbevolen Website van Internet ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/the-basics) te leiden leidt tot dergelijke verbindingen.
+Verwijzingen herschrijven wanneer de middelwegen niet correct in de context van de Webserver oplossen. Een transformator is bijvoorbeeld vereist wanneer componenten die afbeeldingen genereren koppelingen maken, zoals /content/sitea/en/products.navimage.png. De `topnav` component van [&#x200B; hoe te om tot een Volledig Aanbevolen Website van Internet &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/the-basics) te leiden leidt tot dergelijke verbindingen.
 
-[`Sling` rewriter ](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) is een module die `Sling` output post-verwerkt. De de pijpleidingsimplementaties van SAX van rewriter bestaan uit een generator, één of meerdere transformatoren, en serializer:
+[`Sling` rewriter &#x200B;](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html) is een module die `Sling` output post-verwerkt. De de pijpleidingsimplementaties van SAX van rewriter bestaan uit een generator, één of meerdere transformatoren, en serializer:
 
 * **Generator:** ontleedt de `Sling` outputstroom (het document van HTML) en produceert de gebeurtenissen van SAX wanneer het specifieke elementtypes ontmoet.
 * **Transformer:** luistert naar de gebeurtenissen van SAX en wijzigt daarom het gebeurtenisdoel (een element van HTML). Een rewriter-pijplijn bevat nul of meer transformatoren. Transformatoren worden op volgorde uitgevoerd en geven de SAX-gebeurtenissen door aan de volgende transformator in de reeks.
@@ -544,7 +544,7 @@ Om een transformatorcomponent tot stand te brengen en het in een pijpleiding te 
 
 >[!NOTE]
 >
->Om uw Gemaakt project tot stand te brengen, gebruik [ multimodule ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions) archetype van het Inhoudspakket Gemaakt Insteekmodule. De POM&#39;s maken en installeren automatisch een inhoudspakket.
+>Om uw Gemaakt project tot stand te brengen, gebruik [&#x200B; multimodule &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions) archetype van het Inhoudspakket Gemaakt Insteekmodule. De POM&#39;s maken en installeren automatisch een inhoudspakket.
 
 In de volgende voorbeelden wordt een transformator geïmplementeerd die verwijzingen naar afbeeldingsbestanden herschrijft.
 

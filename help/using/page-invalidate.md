@@ -24,7 +24,7 @@ Wanneer u Dispatcher gebruikt met AEM, moet de interactie zo worden geconfiguree
 
 De standaard `admin` gebruikersrekening wordt gebruikt om de replicatieagenten voor authentiek te verklaren die door gebrek worden geïnstalleerd. Creeer een specifieke gebruikersrekening voor gebruik met replicatieagenten.
 
-Voor meer informatie, zie de sectie [ replicatie en vervoergebruikers ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de Controlelijst van de Veiligheid van AEM vormen.
+Voor meer informatie, zie de sectie [&#x200B; replicatie en vervoergebruikers &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps) van de Controlelijst van de Veiligheid van AEM vormen.
 
 <!-- OLD URL from above https://helpx.adobe.com/nl/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
@@ -61,14 +61,14 @@ Gebruik de volgende procedure om een replicatieagent op de auteursinstantie van 
 
    Als u de standaardDispatcher Flush agent gebruikt, werk hostname en haven bij; bijvoorbeeld, https://&lt;*dispatcherHost*>:&lt;*portApache*>/dispatcher/invalidate.cache
 
-   **Nota:** voor de Uitlijningsagenten van Dispatcher, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*` . U kunt een URL van `/path1/invalidate.cache` gebruiken om het eerste landbouwbedrijf te richten en `/path2/invalidate.cache` om het tweede landbouwbedrijf te richten. Voor meer informatie, zie [ Gebruikend Dispatcher met Veelvoudige Domeinen ](dispatcher-domains.md).
+   **Nota:** voor de Uitlijningsagenten van Dispatcher, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*` . U kunt een URL van `/path1/invalidate.cache` gebruiken om het eerste landbouwbedrijf te richten en `/path2/invalidate.cache` om het tweede landbouwbedrijf te richten. Voor meer informatie, zie [&#x200B; Gebruikend Dispatcher met Veelvoudige Domeinen &#x200B;](dispatcher-domains.md).
 
 1. Configureer desgewenst andere parameters.
 1. Klik op OK om de agent te activeren.
 
-Alternatief, kunt u tot de Vlek van Dispatcher agent van de [ Aanraak UI van AEM ook toegang hebben en vormen ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent).
+Alternatief, kunt u tot de Vlek van Dispatcher agent van de [&#x200B; Aanraak UI van AEM ook toegang hebben en vormen &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-a-dispatcher-flush-agent).
 
-Voor meer details op hoe te om toegang tot ijdelheid URLs toe te laten, zie [ Toelatend Toegang tot Vanity URLs ](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
+Voor meer details op hoe te om toegang tot ijdelheid URLs toe te laten, zie [&#x200B; Toelatend Toegang tot Vanity URLs &#x200B;](dispatcher-configuration.md#enabling-access-to-vanity-urls-vanity-urls).
 
 >[!NOTE]
 >
@@ -94,7 +94,7 @@ Comment Type: draft
 
  -->
 
-* Het verhinderen van mogelijke timingconflicten tussen AEM Dispatcher en publiceer instantie (zie [ het ongeldig maken van het geheime voorgeheugen van Dispatcher van het Authoring Milieu ](#invalidating-dispatcher-cache-from-the-authoring-environment)).
+* Het verhinderen van mogelijke timingconflicten tussen AEM Dispatcher en publiceer instantie (zie [&#x200B; het ongeldig maken van het geheime voorgeheugen van Dispatcher van het Authoring Milieu &#x200B;](#invalidating-dispatcher-cache-from-the-authoring-environment)).
 * Het systeem bevat verschillende publicatieinstanties die zich op servers met hoge prestaties bevinden, en slechts één ontwerpinstantie.
 
 >[!NOTE]
@@ -110,7 +110,7 @@ Een replicatieagent die op de publicatieinstantie werkt, bestuurt de Dispatcher 
 1. Ga op het tabblad Vervoer naar Dispatcher door de benodigde URI in te voeren.\
    Als u de standaard Dispatcher Flush-agent gebruikt, werkt u de hostnaam en -poort bij, bijvoorbeeld `http://<dispatcherHost>:<portApache>/dispatcher/invalidate.cache`
 
-   **Nota:** voor de Uitlijningsagenten van Dispatcher, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*` . U kunt een URL van `/path1/invalidate.cache` gebruiken om het eerste landbouwbedrijf te richten en `/path2/invalidate.cache` om het tweede landbouwbedrijf te richten. Voor meer informatie, zie [ Gebruikend Dispatcher met Veelvoudige Domeinen ](dispatcher-domains.md).
+   **Nota:** voor de Uitlijningsagenten van Dispatcher, wordt het bezit van URI gebruikt slechts als u op weg-gebaseerde virtuele gastheeringangen gebruikt om tussen landbouwbedrijven te onderscheiden. U gebruikt dit gebied om het landbouwbedrijf te richten om ongeldig te maken. farm #1 heeft bijvoorbeeld een virtuele host van `www.mysite.com/path1/*` en farm #2 heeft een virtuele host van `www.mysite.com/path2/*` . U kunt een URL van `/path1/invalidate.cache` gebruiken om het eerste landbouwbedrijf te richten en `/path2/invalidate.cache` om het tweede landbouwbedrijf te richten. Voor meer informatie, zie [&#x200B; Gebruikend Dispatcher met Veelvoudige Domeinen &#x200B;](dispatcher-domains.md).
 
 1. Configureer desgewenst andere parameters.
 1. Meld u aan bij de publicatieinstantie en valideer de configuratie van de spoelagent. Zorg er ook voor dat deze functie is ingeschakeld.
@@ -145,7 +145,7 @@ Dispatcher verwijdert (verwijdert) de bestanden en mappen in de cache die een na
 
 * Elke map met de naam `_jcr_content` onder de map `en` (die, indien aanwezig, in de cache opgeslagen renderingen van subknooppunten van de pagina bevat)
 
-Alle andere bestanden in de Dispatcher-cache (of tot een bepaald niveau, afhankelijk van de instelling `/statfileslevel` ) worden ongeldig gemaakt door op het `.stat` -bestand te tikken. De laatste wijzigingsdatum van dit bestand wordt vergeleken met de laatste wijzigingsdatum van een document in de cache en het document wordt opnieuw opgehaald als het `.stat` -bestand nieuwer is. Zie [ het Invalideren van Dossiers door het Niveau van de Omslag ](dispatcher-configuration.md#main-pars_title_26) voor details.
+Alle andere bestanden in de Dispatcher-cache (of tot een bepaald niveau, afhankelijk van de instelling `/statfileslevel` ) worden ongeldig gemaakt door op het `.stat` -bestand te tikken. De laatste wijzigingsdatum van dit bestand wordt vergeleken met de laatste wijzigingsdatum van een document in de cache en het document wordt opnieuw opgehaald als het `.stat` -bestand nieuwer is. Zie [&#x200B; het Invalideren van Dossiers door het Niveau van de Omslag &#x200B;](dispatcher-configuration.md#main-pars_title_26) voor details.
 
 Ongeldige validatie (dat wil zeggen het aanraken van .stat-bestanden) kan worden voorkomen door een extra koptekst te verzenden `CQ-Action-Scope: ResourceOnly` . Deze functionaliteit kan worden gebruikt om bepaalde bronnen te leegmaken. Alles zonder andere delen van de cache ongeldig te maken, zoals JSON-gegevens. Deze gegevens worden dynamisch gemaakt en moeten regelmatig worden leeggemaakt, onafhankelijk van de cache. Bijvoorbeeld, die gegevens vertegenwoordigen die van een derdesysteem worden verkregen om nieuws, voorraadtikkers, etc. te tonen.
 
@@ -169,7 +169,7 @@ page_path1
 page_pathn
 ```
 
-De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te worden gemaakt. (Zie de `/statfileslevel` parameter van het [ 2&rbrace; configuratiepunt van het Geheime voorgeheugen &lbrace;.) In het volgende voorbeeld wordt het HTTP-aanvraagbericht verwijderd en doorgehaald ](dispatcher-configuration.md#main-pars_146_44_0010) :`/content/geometrixx-outdoors/en.html page`
+De paginapaden die onmiddellijk opnieuw in cache moeten worden geplaatst, worden weergegeven op afzonderlijke regels in de berichttekst. De waarde van `CQ-Handle` is het pad van een pagina die de pagina&#39;s ongeldig maakt om opnieuw te worden gemaakt. (Zie de `/statfileslevel` parameter van het [&#x200B; 2&rbrace; configuratiepunt van het Geheime voorgeheugen &lbrace;.) In het volgende voorbeeld wordt het HTTP-aanvraagbericht verwijderd en doorgehaald &#x200B;](dispatcher-configuration.md#main-pars_146_44_0010) :`/content/geometrixx-outdoors/en.html page`
 
 ```xml
 POST /dispatcher/invalidate.cache HTTP/1.1  

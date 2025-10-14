@@ -11,7 +11,7 @@ ht-degree: 0%
 
 # Veelgestelde vragen over AEM Dispatcher Top
 
-![ het Vormen Dispatcher ](assets/CQDispatcher_workflow_v2.png)
+![&#x200B; het Vormen Dispatcher &#x200B;](assets/CQDispatcher_workflow_v2.png)
 
 ## Inleiding
 
@@ -37,25 +37,25 @@ Bij taakverdeling worden gebruikersaanvragen (load) over verschillende AEM-insta
 
 >[!NOTE]
 >
->Voor verdere details, zie de [ pagina van het Overzicht van Dispatcher ](dispatcher.md)
+>Voor verdere details, zie de [&#x200B; pagina van het Overzicht van Dispatcher &#x200B;](dispatcher.md)
 
 ## Installeren en configureren
 
 ### Waar kan ik de Dispatcher-module downloaden?
 
-U kunt de recentste module van Dispatcher van de [ pagina van de Nota&#39;s van de Versie van Dispatcher ](release-notes.md) downloaden.
+U kunt de recentste module van Dispatcher van de [&#x200B; pagina van de Nota&#39;s van de Versie van Dispatcher &#x200B;](release-notes.md) downloaden.
 
 ### Hoe installeer ik de Dispatcher-module?
 
-Verwijs naar [ het Installeren van Dispatcher ](dispatcher-install.md) pagina
+Verwijs naar [&#x200B; het Installeren van Dispatcher &#x200B;](dispatcher-install.md) pagina
 
 ### Hoe configureer ik de Dispatcher-module?
 
-Zie [ het Vormen Dispatcher ](dispatcher-configuration.md) pagina.
+Zie [&#x200B; het Vormen Dispatcher &#x200B;](dispatcher-configuration.md) pagina.
 
 ### Hoe configureer ik de Dispatcher voor de auteurinstantie?
 
-Zie [ Gebruikend Dispatcher met een Instantie van de Auteur ](dispatcher.md#using-a-dispatcher-with-an-author-server) voor de gedetailleerde stappen.
+Zie [&#x200B; Gebruikend Dispatcher met een Instantie van de Auteur &#x200B;](dispatcher.md#using-a-dispatcher-with-an-author-server) voor de gedetailleerde stappen.
 
 ### Hoe configureer ik de Dispatcher met meerdere domeinen?
 
@@ -64,11 +64,11 @@ U kunt de CQ Dispatcher configureren met meerdere domeinen, op voorwaarde dat de
 * De webinhoud voor beide domeinen wordt opgeslagen in één AEM-opslagplaats
 * De bestanden in de Dispatcher-cache kunnen voor elk domein afzonderlijk ongeldig worden gemaakt
 
-Lees [ Gebruikend Dispatcher met Veelvoudige Domeinen ](dispatcher-domains.md) voor verdere details.
+Lees [&#x200B; Gebruikend Dispatcher met Veelvoudige Domeinen &#x200B;](dispatcher-domains.md) voor verdere details.
 
 ### Hoe vorm ik Dispatcher, zodat alle verzoeken van een gebruiker aan de zelfde Publish instantie worden verpletterd?
 
-U kunt de [ kleverige verbindings ](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor) eigenschap gebruiken, die ervoor zorgt dat alle documenten voor een gebruiker op de zelfde instantie van AEM worden verwerkt. Deze functie is belangrijk als u persoonlijke pagina&#39;s en sessiegegevens gebruikt. De gegevens worden opgeslagen op de instantie. Daarom moeten de verdere verzoeken van de zelfde gebruiker aan die instantie terugkeren of het gegeven wordt verloren.
+U kunt de [&#x200B; kleverige verbindings &#x200B;](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor) eigenschap gebruiken, die ervoor zorgt dat alle documenten voor een gebruiker op de zelfde instantie van AEM worden verwerkt. Deze functie is belangrijk als u persoonlijke pagina&#39;s en sessiegegevens gebruikt. De gegevens worden opgeslagen op de instantie. Daarom moeten de verdere verzoeken van de zelfde gebruiker aan die instantie terugkeren of het gegeven wordt verloren.
 
 Omdat de kleverige verbindingen de capaciteit van Dispatcher beperken om verzoeken te optimaliseren, zou u deze benadering slechts wanneer nodig moeten gebruiken. U kunt de map opgeven die de &quot;plakke&quot; documenten bevat, zodat alle documenten in die map in hetzelfde exemplaar voor een gebruiker worden verwerkt.
 
@@ -107,15 +107,15 @@ Alle bestanden (van een willekeurige bestandsextensie) die en in de map geometri
 Elke map met de naam `_jcr_content` onder de map en (die, indien aanwezig, in de cache opgeslagen renderingen van subknooppunten van de pagina bevat).
 De map `en` wordt alleen verwijderd als de map `CQ-Action` is `Delete` of `Deactivate` .
 
-Voor verdere details over dit onderwerp, zie [ manueel het Valideren van het Geheime voorgeheugen van Dispatcher ](page-invalidate.md).
+Voor verdere details over dit onderwerp, zie [&#x200B; manueel het Valideren van het Geheime voorgeheugen van Dispatcher &#x200B;](page-invalidate.md).
 
 ### Hoe implementeer ik toestemming-gevoelige caching?
 
-Zie [ Caching Veilige Inhoud ](permissions-cache.md) pagina.
+Zie [&#x200B; Caching Veilige Inhoud &#x200B;](permissions-cache.md) pagina.
 
 ### Hoe kan ik communicatie tussen de Dispatcher- en CQ-instanties beveiligen?
 
-Zie [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) en de [ Controlelijst van de Veiligheid van AEM ](https://experienceleague.adobe.com/nl/docs/experience-manager-64/administering/security/security-checklist) pagina&#39;s.
+Zie [&#x200B; Controlelijst van de Veiligheid van Dispatcher &#x200B;](security-checklist.md) en de [&#x200B; Controlelijst van de Veiligheid van AEM &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-64/administering/security/security-checklist) pagina&#39;s.
 
 ### Dispatcher-probleem `jcr:content` gewijzigd in `jcr%3acontent`
 
@@ -123,19 +123,19 @@ Zie [ Controlelijst van de Veiligheid van Dispatcher ](security-checklist.md) en
 
 **Antwoord**: Vraag `ResourceResolver.map()` om een vriendschappelijke URL voor GET- verzoeken te produceren en Dispatcher in het voorgeheugen onderbrengende kwesties op te lossen. De methode map() codeert de `:` dubbelepunt naar onderstrepingstekens en de methode resolve() decodeert deze terug naar de leesbare indeling van SLING JCR. Gebruik de methode map() om de URL te genereren die wordt gebruikt in de Ajax-aanroep.
 
-Lees verder: [ https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
+Lees verder: [&#x200B; https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 
 ## Spoel de Dispatcher
 
 ### Hoe configureer ik Dispatcher flush-agents op een Publish-instantie?
 
-Zie de [ pagina van de Replicatie ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents).
+Zie de [&#x200B; pagina van de Replicatie &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/replication#configuring-your-replication-agents).
 
 ### Hoe los ik problemen met het flushing in Dispatcher op?
 
-[ zie deze het oplossen van problemenartikelen ](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]).
+[&#x200B; zie deze het oplossen van problemenartikelen &#x200B;](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]).
 
-Als de verrichtingen van de Schrapping de Dispatcher veroorzaken om te spoelen, [ gebruiken de tijdelijke oplossing in deze communautaire blogpost door Sensei Martin ](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
+Als de verrichtingen van de Schrapping de Dispatcher veroorzaken om te spoelen, [&#x200B; gebruiken de tijdelijke oplossing in deze communautaire blogpost door Sensei Martin &#x200B;](https://mkalugin-cq.blogspot.com/2012/04/i-have-been-working-on-following.html).
 
 ### Hoe kan ik DAM-middelen uit de Dispatcher-cache verwijderen?
 
@@ -143,7 +143,7 @@ U kunt de functie voor ketenreplicatie gebruiken. Als deze functie is ingeschake
 
 U schakelt dit als volgt in:
 
-1. [ volg hier de stappen ](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) om het spoelen agenten bij te creëren publiceren
+1. [&#x200B; volg hier de stappen &#x200B;](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance) om het spoelen agenten bij te creëren publiceren
 1. Ga naar de configuratie van elke agent.
 1. Op het **Trekkers** lusje, controleer **op ontvangen** doos.
 
@@ -157,7 +157,7 @@ Als het document is geconfigureerd voor automatische validatie, controleert de D
 
 ### Hoe retourneert de Dispatcher documenten?
 
-U kunt bepalen of Dispatcher een document in cache plaatst door het [ de configuratiedossier van Dispatcher ](dispatcher-configuration.md) te gebruiken, `dispatcher.any`. De Dispatcher controleert het verzoek aan de lijst van cacheable documenten. Als het document niet in deze lijst staat, vraagt de Dispatcher het document aan bij het AEM-exemplaar.
+U kunt bepalen of Dispatcher een document in cache plaatst door het [&#x200B; de configuratiedossier van Dispatcher &#x200B;](dispatcher-configuration.md) te gebruiken, `dispatcher.any`. De Dispatcher controleert het verzoek aan de lijst van cacheable documenten. Als het document niet in deze lijst staat, vraagt de Dispatcher het document aan bij het AEM-exemplaar.
 
 De eigenschap `/rules` bepaalt welke documenten in de cache worden geplaatst op basis van het documentpad. Ongeacht de eigenschap `/rules` plaatst Dispatcher een document nooit in cache in de volgende omstandigheden:
 
@@ -175,7 +175,7 @@ De Dispatcher slaat cachebestanden op de webserver op alsof ze deel uitmaken van
 
 >[!NOTE]
 >
->De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Voor extra informatie over reactiekopbal caching, zie de [ Caching sectie van de Kopballen van de Reactie van HTTP ](dispatcher-configuration.md#caching-http-response-headers).
+>De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Voor extra informatie over reactiekopbal caching, zie de [&#x200B; Caching sectie van de Kopballen van de Reactie van HTTP &#x200B;](dispatcher-configuration.md#caching-http-response-headers).
 
 ### Kan ik veelvoudige Dispatchers in een opstelling uitvoeren?
 

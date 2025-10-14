@@ -22,25 +22,25 @@ Dispatcher is een Adobe Experience Manager-programma voor caching en taakverdeli
 
 Het implementatieproces van de Dispatcher is onafhankelijk van de webserver en het gekozen besturingssysteem:
 
-1. Meer informatie over Dispatcher (deze pagina). Ook, zie [ vaak gestelde vragen over Dispatcher ](/help/using/dispatcher-faq.md).
-1. Installeer a [ gesteunde Webserver ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements) volgens de documentatie van de Webserver.
-1. [ installeer de module van Dispatcher ](dispatcher-install.md) op uw Webserver en vorm dienovereenkomstig de Webserver.
-1. [ vorm Dispatcher ](dispatcher-configuration.md) (het dispatcher.om het even welk dossier).
-1. [ vorm AEM ](page-invalidate.md) zodat de inhoudsupdates het geheime voorgeheugen ongeldig maken.
+1. Meer informatie over Dispatcher (deze pagina). Ook, zie [&#x200B; vaak gestelde vragen over Dispatcher &#x200B;](/help/using/dispatcher-faq.md).
+1. Installeer a [&#x200B; gesteunde Webserver &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements) volgens de documentatie van de Webserver.
+1. [&#x200B; installeer de module van Dispatcher &#x200B;](dispatcher-install.md) op uw Webserver en vorm dienovereenkomstig de Webserver.
+1. [&#x200B; vorm Dispatcher &#x200B;](dispatcher-configuration.md) (het dispatcher.om het even welk dossier).
+1. [&#x200B; vorm AEM &#x200B;](page-invalidate.md) zodat de inhoudsupdates het geheime voorgeheugen ongeldig maken.
 
 >[!NOTE]
 >
 >Een beter inzicht krijgen in de werking van de Dispatcher met AEM:
 >
->* Zie [ de Communautaire Deskundigen van AEM voor Juli 2017 vragen ](https://communities.adobeconnect.com/pf0gem7igw1f/).
->* Heb toegang tot [ deze bewaarplaats ](https://github.com/adobe/aem-dispatcher-experiments). Het bevat een verzameling experimenten in een &quot;home&quot;-laboratoriumformaat.
+>* Zie [&#x200B; de Communautaire Deskundigen van AEM voor Juli 2017 vragen &#x200B;](https://communities.adobeconnect.com/pf0gem7igw1f/).
+>* Heb toegang tot [&#x200B; deze bewaarplaats &#x200B;](https://github.com/adobe/aem-dispatcher-experiments). Het bevat een verzameling experimenten in een &quot;home&quot;-laboratoriumformaat.
 
 
 Gebruik de volgende informatie zoals vereist:
 
 * [De Dispatcher-beveiligingscontrolelijst](security-checklist.md)
 <!-- URL is 404! * [The Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html) -->
-* [ Optimizing een Website voor de Prestaties van het Geheime voorgeheugen ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+* [&#x200B; Optimizing een Website voor de Prestaties van het Geheime voorgeheugen &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
 * [Dispatcher met meerdere domeinen gebruiken](dispatcher-domains.md)
 * [SSL gebruiken met Dispatcher](dispatcher-ssl.md)
 * [Het uitvoeren van Toestemming-Gevoelige Caching](permissions-cache.md)
@@ -51,7 +51,7 @@ Gebruik de volgende informatie zoals vereist:
 >
 >**het gemeenschappelijkste gebruik van Dispatcher** moet reacties van een AEM **publiceren instantie** in het voorgeheugen onderbrengen, om de ontvankelijkheid en de veiligheid van uw extern onder ogen ziende gepubliceerde website te verhogen. Het grootste deel van de discussie gaat over deze zaak.
 >
->Maar, kan Dispatcher ook worden gebruikt om de ontvankelijkheid van uw **auteursinstantie** te verhogen. Dit is waar, vooral als u een groot aantal gebruikers hebt die uw website uitgeven en bijwerken. Voor details specifiek voor dit geval zie [ Gebruikend een Dispatcher met een Server van de Auteur ](#using-a-dispatcher-with-an-author-server), hieronder.
+>Maar, kan Dispatcher ook worden gebruikt om de ontvankelijkheid van uw **auteursinstantie** te verhogen. Dit is waar, vooral als u een groot aantal gebruikers hebt die uw website uitgeven en bijwerken. Voor details specifiek voor dit geval zie [&#x200B; Gebruikend een Dispatcher met een Server van de Auteur &#x200B;](#using-a-dispatcher-with-an-author-server), hieronder.
 
 ## Waarom Dispatcher gebruiken om caching uit te voeren? {#why-use-dispatcher-to-implement-caching}
 
@@ -99,7 +99,7 @@ Met deze workflow kunt u rijkere, dynamische inhoud maken die de flexibiliteit e
 
 >[!NOTE]
 >
->Wanneer de configuratie voor HTTP-koptekstcache ontbreekt, slaat de Dispatcher alleen de HTML-code van de pagina op - de HTTP-headers worden niet opgeslagen. Dit scenario kan een probleem zijn als u verschillende coderingen binnen uw website gebruikt, omdat deze pagina&#39;s mogelijk verloren gaan. Om HTTP toe te laten Kopbal Caching, zie [ Vormend het Geheime voorgeheugen van Dispatcher.](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)
+>Wanneer de configuratie voor HTTP-koptekstcache ontbreekt, slaat de Dispatcher alleen de HTML-code van de pagina op - de HTTP-headers worden niet opgeslagen. Dit scenario kan een probleem zijn als u verschillende coderingen binnen uw website gebruikt, omdat deze pagina&#39;s mogelijk verloren gaan. Om HTTP toe te laten Kopbal Caching, zie [&#x200B; Vormend het Geheime voorgeheugen van Dispatcher.](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)
 
 >[!NOTE]
 >
@@ -153,7 +153,7 @@ Ook hier moeten enkele punten worden vermeld:
 
 ### Bepalen of een document in cache moet worden geplaatst
 
-U kunt [ bepalen welke documenten de geheime voorgeheugens van Dispatcher in het configuratiedossier ](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration). De Dispatcher controleert het verzoek aan de lijst van cacheable documenten. Als het document niet in deze lijst staat, vraagt de Dispatcher het document aan bij het AEM-exemplaar.
+U kunt [&#x200B; bepalen welke documenten de geheime voorgeheugens van Dispatcher in het configuratiedossier &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration). De Dispatcher controleert het verzoek aan de lijst van cacheable documenten. Als het document niet in deze lijst staat, vraagt de Dispatcher het document aan bij het AEM-exemplaar.
 
 In de volgende gevallen vraagt de Dispatcher het document altijd rechtstreeks bij het AEM-exemplaar:
 
@@ -163,7 +163,7 @@ In de volgende gevallen vraagt de Dispatcher het document altijd rechtstreeks bi
 
 >[!NOTE]
 >
->De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Voor extra informatie over reactiekopbal caching, zie de [ Caching sectie van de Kopballen van de Reactie van HTTP ](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration).
+>De methoden GET of HEAD (voor de HTTP-header) kunnen door de Dispatcher in cache worden geplaatst. Voor extra informatie over reactiekopbal caching, zie de [&#x200B; Caching sectie van de Kopballen van de Reactie van HTTP &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration).
 
 ### Bepalen of een document in de cache is geplaatst
 
@@ -266,7 +266,7 @@ Er zijn verschillende manieren om te bepalen hoe lang een CDN een bron in cache 
 Vorm hoe lang de bijzondere middelen in het geheime voorgeheugen van CDN, afhankelijk van mime type, uitbreiding, verzoektype, etc. worden gehouden.
 
 1. Verlopen- en cachebeheerkoppen.
-De meeste CDN&#39;s respecteren `Expires:` en `Cache-Control:` HTTP-headers als deze worden verzonden door de upstream-server. Deze methode kan, bijvoorbeeld, worden bereikt door [ te gebruiken mod_validate ](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) Module Apache.
+De meeste CDN&#39;s respecteren `Expires:` en `Cache-Control:` HTTP-headers als deze worden verzonden door de upstream-server. Deze methode kan, bijvoorbeeld, worden bereikt door [&#x200B; te gebruiken mod_validate &#x200B;](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) Module Apache.
 
 1. Handmatige validatie.
 CDNs staat middelen toe om uit het geheime voorgeheugen door Webinterfaces worden verwijderd.
@@ -277,17 +277,17 @@ In een standaard AEM-configuratie biedt de configuratie door middel van extensie
 
 Als deze benadering wordt gebruikt om beheerde inhoud in het voorgeheugen onder te brengen, impliceert het dat de inhoudsveranderingen slechts aan eind - gebruikers zichtbaar zijn zodra de gevormde caching periode is verlopen. En wanneer het document weer van Dispatcher wordt opgehaald.
 
-Voor fijnere besturing kunt u met API-gebaseerde validatie de cache van een CDN ongeldig maken als de Dispatcher-cache ongeldig wordt gemaakt. Gebaseerd op CDNs API, kunt u uw eigen [ ContentBuilder ](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/ContentBuilder.html) en [ TransportHandler ](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/TransportHandler.html) (als API niet op REST-Gebaseerd is) uitvoeren, en opstelling een Agent van de Replicatie die deze stukken gebruikt om het geheime voorgeheugen van CDN ongeldig te maken.
+Voor fijnere besturing kunt u met API-gebaseerde validatie de cache van een CDN ongeldig maken als de Dispatcher-cache ongeldig wordt gemaakt. Gebaseerd op CDNs API, kunt u uw eigen [&#x200B; ContentBuilder &#x200B;](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/ContentBuilder.html) en [&#x200B; TransportHandler &#x200B;](https://developer.adobe.com/experience-manager/reference-materials/6-5/javadoc/com/day/cq/replication/TransportHandler.html) (als API niet op REST-Gebaseerd is) uitvoeren, en opstelling een Agent van de Replicatie die deze stukken gebruikt om het geheime voorgeheugen van CDN ongeldig te maken.
 
 >[!NOTE]
 >
->Zie ook [ de Veiligheid van AEM (CQ) Dispatcher en CDN+Browser Caching ](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) en geregistreerde presentatie op [ Dispatcher Caching ](https://experienceleague.adobe.com/nl/docs/events/experience-manager-gems-recordings/gems2015/aem-dispatcher-caching-new-features-and-optimizations).
+>Zie ook [&#x200B; de Veiligheid van AEM (CQ) Dispatcher en CDN+Browser Caching &#x200B;](https://www.slideshare.net/andrewmkhoury/dispatcher-caching-aemgemspart2jan2015) en geregistreerde presentatie op [&#x200B; Dispatcher Caching &#x200B;](https://experienceleague.adobe.com/nl/docs/events/experience-manager-gems-recordings/gems2015/aem-dispatcher-caching-new-features-and-optimizations).
 
 ## Dispatcher gebruiken met een Auteur-server {#using-a-dispatcher-with-an-author-server}
 
 >[!CAUTION]
 >
->Als u [ AEM met Aanraakinterface ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, **niet** inhoud van de geheim voorgeheugenauteursinstantie. Als caching voor de auteursinstantie wordt toegelaten, moet u het onbruikbaar maken en de inhoud van de geheim voorgeheugenfolder schrappen. Als u caching wilt uitschakelen, bewerkt u het `author_dispatcher.any` -bestand en wijzigt u de eigenschap `/rule` van de sectie `/cache` als volgt:
+>Als u [&#x200B; AEM met Aanraakinterface &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, **niet** inhoud van de geheim voorgeheugenauteursinstantie. Als caching voor de auteursinstantie wordt toegelaten, moet u het onbruikbaar maken en de inhoud van de geheim voorgeheugenfolder schrappen. Als u caching wilt uitschakelen, bewerkt u het `author_dispatcher.any` -bestand en wijzigt u de eigenschap `/rule` van de sectie `/cache` als volgt:
 
 ```xml
 /rules
@@ -299,14 +299,14 @@ Voor fijnere besturing kunt u met API-gebaseerde validatie de cache van een CDN 
 
 Een Dispatcher kan vóór een auteurinstantie worden gebruikt om auteursprestaties te verbeteren. Ga als volgt te werk om een ontwerpversie van Dispatcher te configureren:
 
-1. Installeer een Dispatcher in een Webserver (een Apache of IIS Webserver, zie [ Installerend Dispatcher ](dispatcher-install.md)).
+1. Installeer een Dispatcher in een Webserver (een Apache of IIS Webserver, zie [&#x200B; Installerend Dispatcher &#x200B;](dispatcher-install.md)).
 1. Test de nieuw geïnstalleerde Dispatcher op een werkende AEM-publicatie-instantie. Zo weet u zeker dat een correcte installatie op de basislijn is uitgevoerd.
 1. Zorg ervoor dat de Dispatcher via TCP/IP verbinding kan maken met de auteurinstantie.
-1. Vervang het steekproef `dispatcher.any` dossier met het `author_dispatcher.any` dossier dat van de [ download van Dispatcher ](release-notes.md#downloads) wordt voorzien.
+1. Vervang het steekproef `dispatcher.any` dossier met het `author_dispatcher.any` dossier dat van de [&#x200B; download van Dispatcher &#x200B;](release-notes.md#downloads) wordt voorzien.
 1. Open `author_dispatcher.any` in een teksteditor en breng de volgende wijzigingen aan:
 
    1. Wijzig de sectie `/hostname` en `/port` van de sectie `/renders` zodat ze naar de instantie van de auteur verwijzen.
-   1. Wijzig de `/docroot` van de `/cache` -sectie zodat deze naar een cachemap verwijzen. In het geval dat u [ AEM met Aanraakinterface ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, zie hierboven de waarschuwing.
+   1. Wijzig de `/docroot` van de `/cache` -sectie zodat deze naar een cachemap verwijzen. In het geval dat u [&#x200B; AEM met Aanraakinterface &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/developing/introduction/touch-ui-concepts) gebruikt, zie hierboven de waarschuwing.
    1. Sla de wijzigingen op.
 
 1. Verwijder alle bestaande bestanden in de map `/cache` > `/docroot` die u hierboven hebt geconfigureerd.

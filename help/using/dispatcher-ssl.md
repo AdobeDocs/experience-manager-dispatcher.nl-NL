@@ -33,8 +33,8 @@ Configureer de Dispatcher voor communicatie met de AEM- of CQ-renderinstantie me
 
 Voordat u Dispatcher configureert, configureert u AEM of CQ zodanig dat SSL wordt gebruikt. Zie voor meer informatie:
 
-* [ SSL/TLS door Standaard ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/ssl-by-default)
-* [ Gebruik de SSL Tovenaar in AEM ](https://experienceleague.adobe.com/nl/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
+* [&#x200B; SSL/TLS door Standaard &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/ssl-by-default)
+* [&#x200B; Gebruik de SSL Tovenaar in AEM &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
 
 ### Aan SSL gerelateerde aanvraagheaders {#ssl-related-request-headers}
 
@@ -55,7 +55,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 
 ### Dispatcher configureren voor het gebruik van SSL {#configuring-dispatcher-to-use-ssl}
 
-Om Dispatcher te vormen om met AEM of CQ over SSL te verbinden, vereist uw {[ dossier 0} dispatcher.any de volgende eigenschappen:](dispatcher-configuration.md)
+Om Dispatcher te vormen om met AEM of CQ over SSL te verbinden, vereist uw {[&#x200B; dossier 0} dispatcher.any de volgende eigenschappen:](dispatcher-configuration.md)
 
 * Een virtuele host die HTTPS-aanvragen afhandelt.
 * Het gedeelte `renders` van de virtuele host bevat een item dat de hostnaam en -poort van de CQ- of AEM-instantie identificeert die HTTPS gebruikt.
@@ -128,10 +128,10 @@ Voor het configureren van wederzijdse SSL hebt u certificaten nodig die zijn ond
 
 Voer de volgende stappen uit om wederzijdse SSL te configureren:
 
-1. [ installeer ](dispatcher-install.md) de recentste versie van Dispatcher voor uw platform. Gebruik een binair Dispatcher-bestand dat SSL ondersteunt (SSL staat in de bestandsnaam, bijvoorbeeld `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar` ).
-1. [ creeer of verkrijg een CA-ondertekend certificaat ](dispatcher-ssl.md#main-pars-title-3) voor Dispatcher en teruggeeft instantie.
-1. [ creeer keystore die het teruggeven certificaat ](dispatcher-ssl.md#main-pars-title-6) bevatten en vorm de dienst van HTTP van teruggeven.
-1. [ vorm de module van de het Webserver van Dispatcher ](dispatcher-ssl.md#main-pars-title-4) voor wederzijdse SSL.
+1. [&#x200B; installeer &#x200B;](dispatcher-install.md) de recentste versie van Dispatcher voor uw platform. Gebruik een binair Dispatcher-bestand dat SSL ondersteunt (SSL staat in de bestandsnaam, bijvoorbeeld `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar` ).
+1. [&#x200B; creeer of verkrijg een CA-ondertekend certificaat &#x200B;](dispatcher-ssl.md#main-pars-title-3) voor Dispatcher en teruggeeft instantie.
+1. [&#x200B; creeer keystore die het teruggeven certificaat &#x200B;](dispatcher-ssl.md#main-pars-title-6) bevatten en vorm de dienst van HTTP van teruggeven.
+1. [&#x200B; vorm de module van de het Webserver van Dispatcher &#x200B;](dispatcher-ssl.md#main-pars-title-4) voor wederzijdse SSL.
 
 ### CA-ondertekende certificaten maken of verkrijgen {#creating-or-obtaining-ca-signed-certificates}
 
@@ -139,7 +139,7 @@ Maak of verkrijg de CA-ondertekende certificaten die het publicatieexemplaar en 
 
 #### Uw CA maken {#creating-your-ca}
 
-Als u als CA dienst doet, gebruik [ OpenSSL ](https://www.openssl.org/) om de Autoriteit van het Certificaat tot stand te brengen die de server en cliëntcertificaten ondertekent. (U moet de OpenSSL-bibliotheken hebben geïnstalleerd.) Als u een derde CA gebruikt, voer deze procedure niet uit.
+Als u als CA dienst doet, gebruik [&#x200B; OpenSSL &#x200B;](https://www.openssl.org/) om de Autoriteit van het Certificaat tot stand te brengen die de server en cliëntcertificaten ondertekent. (U moet de OpenSSL-bibliotheken hebben geïnstalleerd.) Als u een derde CA gebruikt, voer deze procedure niet uit.
 
 1. Open een terminal en wijzig de huidige map in de map met het `CA.sh` -bestand, zoals `/usr/local/ssl/misc` .
 1. Om CA tot stand te brengen, ga het volgende bevel in en verstrek dan waarden wanneer ertoe aangezet:
@@ -156,7 +156,7 @@ Als u als CA dienst doet, gebruik [ OpenSSL ](https://www.openssl.org/) om de Au
 
 Gebruik OpenSSL om de certificaataanvragen te maken die u naar de derde CA wilt verzenden of die u met uw CA wilt ondertekenen.
 
-Wanneer u een certificaat maakt, gebruikt OpenSSL de eigenschap Common Name om de certificaathouder te identificeren. Voor het certificaat van de renderinstantie, gebruik de de gastheernaam van de instantiecomputer als Gemeenschappelijke Naam als u Dispatcher vormt om het certificaat goed te keuren. Voer deze procedure alleen uit als deze overeenkomt met de hostnaam van de instantie Publishing. Zie het [ DispatcherCheckPeerCN ](dispatcher-ssl.md#main-pars-title-11) bezit.
+Wanneer u een certificaat maakt, gebruikt OpenSSL de eigenschap Common Name om de certificaathouder te identificeren. Voor het certificaat van de renderinstantie, gebruik de de gastheernaam van de instantiecomputer als Gemeenschappelijke Naam als u Dispatcher vormt om het certificaat goed te keuren. Voer deze procedure alleen uit als deze overeenkomt met de hostnaam van de instantie Publishing. Zie het [&#x200B; DispatcherCheckPeerCN &#x200B;](dispatcher-ssl.md#main-pars-title-11) bezit.
 
 1. Open een terminal en wijzig de huidige map in de map met het CH.sh-bestand van uw OpenSSL-bibliotheken.
 1. Voer de volgende opdracht in en geef waarden op wanneer u hierom wordt gevraagd. Indien nodig, gebruik de gastheernaam van de het publiceren instantie als Gemeenschappelijke Naam. De gastheernaam is DNS-oplosbare naam voor het IP adres van teruggeven:
@@ -248,9 +248,9 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 Als u de HTTP-service van de renderinstantie wilt configureren voor het gebruik van SSL, gebruikt u het rendercertificaat met de instructies in de sectie *`Enable SSL on the Publish Instance`* :
 
-* AEM 6.2: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
-* AEM 6.1: [ toelatend HTTP over SSL ](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
-* Oudere versies van AEM: zie [ deze pagina.](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.2: [&#x200B; toelatend HTTP over SSL &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.1: [&#x200B; toelatend HTTP over SSL &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* Oudere versies van AEM: zie [&#x200B; deze pagina.](https://experienceleague.adobe.com/nl/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
 
 ### SSL configureren voor de Dispatcher-module {#configuring-ssl-for-the-dispatcher-module}
 
@@ -282,7 +282,7 @@ Combineer het Dispatcher-certificaat en de niet-gecodeerde persoonlijke sleutel 
 
 ### Certificaat opgeven dat moet worden gebruikt voor Dispatcher {#specifying-the-certificate-to-use-for-dispatcher}
 
-Voeg de volgende eigenschappen aan de [ de moduleconfiguratie van Dispatcher ](dispatcher-install.md#main-pars-55-35-1022) (in `httpd.conf`) toe:
+Voeg de volgende eigenschappen aan de [&#x200B; de moduleconfiguratie van Dispatcher &#x200B;](dispatcher-install.md#main-pars-55-35-1022) (in `httpd.conf`) toe:
 
 * `DispatcherCertificateFile`: Het pad naar het uniforme Dispatcher-certificaatbestand met het openbare certificaat en de niet-gecodeerde persoonlijke sleutel. Dit bestand wordt gebruikt wanneer de SSL-server om het Dispatcher-clientcertificaat vraagt.
 * `DispatcherCACertificateFile`: Het pad naar het CA-certificaatbestand. Wordt gebruikt als de SSL-server een CA presenteert die een basisinstantie niet vertrouwt.

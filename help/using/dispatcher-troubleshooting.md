@@ -26,16 +26,16 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Controleer <!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[ het Oplossen van problemen van Dispatcher het Flushing Kwesties ](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]), en [ Veelgestelde Veelgestelde vragen van Dispatcher ](dispatcher-faq.md) voor meer informatie.
+>Controleer <!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[&#x200B; het Oplossen van problemen van Dispatcher het Flushing Kwesties &#x200B;](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]), en [&#x200B; Veelgestelde Veelgestelde vragen van Dispatcher &#x200B;](dispatcher-faq.md) voor meer informatie.
 
 ## De basisconfiguratie controleren {#check-the-basic-configuration}
 
 Zoals altijd, zijn de eerste stappen de grondbeginselen te controleren:
 
 * [Basisbewerking bevestigen](/help/using/dispatcher-configuration.md#confirming-basic-operation)
-* Controleer alle logbestanden voor uw webserver en Dispatcher. Indien noodzakelijk, verhoog `loglevel` dat voor het [ registreren van Dispatcher ](/help/using/dispatcher-configuration.md#logging) wordt gebruikt.
+* Controleer alle logbestanden voor uw webserver en Dispatcher. Indien noodzakelijk, verhoog `loglevel` dat voor het [&#x200B; registreren van Dispatcher &#x200B;](/help/using/dispatcher-configuration.md#logging) wordt gebruikt.
 
-* [ controleer uw configuratie ](/help/using/dispatcher-configuration.md):
+* [&#x200B; controleer uw configuratie &#x200B;](/help/using/dispatcher-configuration.md):
 
    * Hebt u meerdere verzenders?
 

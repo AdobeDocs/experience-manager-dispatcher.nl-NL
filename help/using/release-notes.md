@@ -22,18 +22,18 @@ ht-degree: 1%
 | Versie | 4.3.7. |
 | Type | Kleine release |
 | Datum | 27 maart 2024 |
-| URL downloaden | <ul><li>[ Apache 2.4 ](#apache)</li><li>[ Microsoft® Internet Information Services (IIS) ](#iis)</li></ul> |
+| URL downloaden | <ul><li>[&#x200B; Apache 2.4 &#x200B;](#apache)</li><li>[&#x200B; Microsoft® Internet Information Services (IIS) &#x200B;](#iis)</li></ul> |
 | Compatibiliteit | AEM 6.1 of hoger |
 
 ## Systeemvereisten en -vereisten {#system-requirements-and-prerequisites}
 
-Zie [ Gesteunde Platforms ](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#dispatcher-platforms-web-servers) voor meer informatie over vereisten en eerste vereisten.
+Zie [&#x200B; Gesteunde Platforms &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#dispatcher-platforms-web-servers) voor meer informatie over vereisten en eerste vereisten.
 
 Adobe raadt aan de nieuwste versie van AEM Dispatcher te gebruiken om te profiteren van de nieuwste functionaliteit, de meest recente opgeloste problemen en de best mogelijke prestaties.
 
 ## Installatie-instructies {#installation-instructions}
 
-Voor gedetailleerde instructies, zie [ Installerend Dispatcher ](dispatcher-install.md).
+Voor gedetailleerde instructies, zie [&#x200B; Installerend Dispatcher &#x200B;](dispatcher-install.md).
 
 ## Releasegeschiedenis {#release-history}
 

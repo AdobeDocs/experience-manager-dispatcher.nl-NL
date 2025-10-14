@@ -70,7 +70,7 @@ Om toestemming-gevoelig caching uit te voeren, voer de volgende taken uit:
 >[!NOTE]
 >
 >Wanneer er een CDN (of een ander geheime voorgeheugen) vóór de Dispatcher is, dan zou u de in het voorgeheugen onderbrengende kopballen dienovereenkomstig moeten plaatsen zodat CDN niet de privé inhoud in het voorgeheugen onderbrengt. Bijvoorbeeld: `Header always set Cache-Control private` .
->&#x200B;>Voor AEM as a Cloud Service, zie de [ Caching ](https://experienceleague.adobe.com/nl/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) pagina voor meer details over hoe te om privé caching kopballen te plaatsen.
+>&#x200B;>Voor AEM as a Cloud Service, zie de [&#x200B; Caching &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) pagina voor meer details over hoe te om privé caching kopballen te plaatsen.
 
 ## De servlet Auth Checker maken {#create-the-auth-checker-servlet}
 
@@ -147,7 +147,7 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 
 >[!NOTE]
 >
->Als uw vereisten het caching van voor authentiek verklaarde documenten toestaan, plaats het /allowAuthorized bezit onder de /cache sectie aan `/allowAuthorized 1`. Zie het onderwerp [ Caching wanneer de Authentificatie ](/help/using/dispatcher-configuration.md) voor meer details wordt gebruikt.
+>Als uw vereisten het caching van voor authentiek verklaarde documenten toestaan, plaats het /allowAuthorized bezit onder de /cache sectie aan `/allowAuthorized 1`. Zie het onderwerp [&#x200B; Caching wanneer de Authentificatie &#x200B;](/help/using/dispatcher-configuration.md) voor meer details wordt gebruikt.
 
 De sectie auth_checker van de dispatcher.any file controleert het gedrag van toestemming-gevoelige caching. De sectie auth_checker bevat de volgende subsecties:
 

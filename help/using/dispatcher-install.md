@@ -23,7 +23,7 @@ Comment Type: draft
 
  -->
 
-Gebruik de [ pagina van de Nota&#39;s van de Versie van Dispatcher ](release-notes.md) om het recentste de installatiedossier van Dispatcher voor uw werkend systeem en Webserver te verkrijgen. Dispatcher-releasenummers zijn onafhankelijk van de Adobe Experience Manager-releasenummers en zijn compatibel met Adobe Experience Manager 6.x, 5.x en Adobe CQ 5.x-releases.
+Gebruik de [&#x200B; pagina van de Nota&#39;s van de Versie van Dispatcher &#x200B;](release-notes.md) om het recentste de installatiedossier van Dispatcher voor uw werkend systeem en Webserver te verkrijgen. Dispatcher-releasenummers zijn onafhankelijk van de Adobe Experience Manager-releasenummers en zijn compatibel met Adobe Experience Manager 6.x, 5.x en Adobe CQ 5.x-releases.
 
 >[!NOTE]
 >
@@ -49,7 +49,7 @@ De volgende tabel bevat de id van de webserver die wordt gebruikt in bestandsnam
 
 >[!NOTE]
 >
->Klanten die specifiek een upgrade uitvoeren van versie 4.3.3 naar versie 4.3.4, moeten een ander gedrag opmerken voor de manier waarop in cache geplaatste koppen worden ingesteld voor niet-cachebare inhoud. Om meer over deze verandering te lezen, zie de [ pagina van de Nota&#39;s van de Versie ](/help/using/release-notes.md#nov).
+>Klanten die specifiek een upgrade uitvoeren van versie 4.3.3 naar versie 4.3.4, moeten een ander gedrag opmerken voor de manier waarop in cache geplaatste koppen worden ingesteld voor niet-cachebare inhoud. Om meer over deze verandering te lezen, zie de [&#x200B; pagina van de Nota&#39;s van de Versie &#x200B;](/help/using/release-notes.md#nov).
 
 Elk archief bevat de volgende bestanden:
 
@@ -91,7 +91,7 @@ Comment Type: draft
 Voor informatie over hoe te om deze server van Web te installeren, zie de volgende middelen:
 
 * Microsoft®&#39;s eigen documentatie op de Internet Information Server
-* [ &quot;De officiële plaats van Microsoft® IIS&quot;](https://www.iis.net/)
+* [&#x200B; &quot;De officiële plaats van Microsoft® IIS&quot;](https://www.iis.net/)
 
 ### Vereiste IIS-componenten {#required-iis-components}
 
@@ -265,8 +265,8 @@ Gebruik de volgende procedure om Dispatcher-logberichten naar een logbestand te 
 
 Voordat u de Dispatcher kunt gaan gebruiken, moet u het volgende weten:
 
-* [ vorm ](dispatcher-configuration.md) Dispatcher
-* [ vorm AEM ](page-invalidate.md) om met Dispatcher te werken.
+* [&#x200B; vorm &#x200B;](dispatcher-configuration.md) Dispatcher
+* [&#x200B; vorm AEM &#x200B;](page-invalidate.md) om met Dispatcher te werken.
 
 ## Apache Web Server {#apache-web-server}
 
@@ -276,7 +276,7 @@ Voordat u de Dispatcher kunt gaan gebruiken, moet u het volgende weten:
 
 ### Apache-webserver installeren {#installing-apache-web-server}
 
-Voor Informatie over hoe te om een Server van het Web te installeren Apache leest de installatiehandleiding - of [ online ](https://httpd.apache.org/) of in de distributie.
+Voor Informatie over hoe te om een Server van het Web te installeren Apache leest de installatiehandleiding - of [&#x200B; online &#x200B;](https://httpd.apache.org/) of in de distributie.
 
 >[!CAUTION]
 >
@@ -284,7 +284,7 @@ Voor Informatie over hoe te om een Server van het Web te installeren Apache lees
 >
 >Meer informatie vindt u in de installatiehandleiding van Apache Web Server.
 
-Zie ook de Server van Apache HTTP [ Tips van de Veiligheid ](https://httpd.apache.org/docs/2.4/misc/security_tips.html) en [ Rapporten van de Veiligheid ](https://httpd.apache.org/security_report.html).
+Zie ook de Server van Apache HTTP [&#x200B; Tips van de Veiligheid &#x200B;](https://httpd.apache.org/docs/2.4/misc/security_tips.html) en [&#x200B; Rapporten van de Veiligheid &#x200B;](https://httpd.apache.org/security_report.html).
 
 ### Apache Web Server - Voeg de Dispatcher-module toe {#apache-web-server-add-the-dispatcher-module}
 
@@ -400,7 +400,7 @@ DispatcherKeepAliveTimeout 60
 
 >[!NOTE]
 >
->Klanten die specifiek een upgrade uitvoeren van versie 4.3.3 naar versie 4.3.4, moeten een ander gedrag opmerken voor de manier waarop in cache geplaatste koppen worden ingesteld voor niet-cachebare inhoud. Om meer over deze verandering te lezen, zie de [ pagina van de Nota&#39;s van de Versie ](/help/using/release-notes.md#nov).
+>Klanten die specifiek een upgrade uitvoeren van versie 4.3.3 naar versie 4.3.4, moeten een ander gedrag opmerken voor de manier waarop in cache geplaatste koppen worden ingesteld voor niet-cachebare inhoud. Om meer over deze verandering te lezen, zie de [&#x200B; pagina van de Nota&#39;s van de Versie &#x200B;](/help/using/release-notes.md#nov).
 
 De individuele configuratieparameters:
 
@@ -432,7 +432,7 @@ De individuele configuratieparameters:
 >
 >`ServerTokens Prod`
 >
->Zie de [ Documentatie Apache over de richtlijn ServerTokens (bijvoorbeeld, voor Apache 2.4) ](https://httpd.apache.org/docs/2.4/mod/core.html) voor meer informatie.
+>Zie de [&#x200B; Documentatie Apache over de richtlijn ServerTokens (bijvoorbeeld, voor Apache 2.4) &#x200B;](https://httpd.apache.org/docs/2.4/mod/core.html) voor meer informatie.
 
 **SetHandler**
 
@@ -509,7 +509,7 @@ De **parameter 0&rbrace; ModMimeUsePathInfo** zou voor alle configuraties Apache
 
 `ModMimeUsePathInfo On`
 
-De module mod_mime (bijvoorbeeld, [ Apache Module mod_mime ](https://httpd.apache.org/docs/2.4/mod/mod_mime.html)) wordt gebruikt om inhoudsmeta-gegevens aan de inhoud toe te wijzen die voor een reactie van HTTP wordt geselecteerd. De standaardinstelling houdt in dat `mod_mime` het inhoudstype bepaalt. Als zodanig wordt alleen het deel van de URL in aanmerking genomen dat aan een bestand of map is toegewezen.
+De module mod_mime (bijvoorbeeld, [&#x200B; Apache Module mod_mime &#x200B;](https://httpd.apache.org/docs/2.4/mod/mod_mime.html)) wordt gebruikt om inhoudsmeta-gegevens aan de inhoud toe te wijzen die voor een reactie van HTTP wordt geselecteerd. De standaardinstelling houdt in dat `mod_mime` het inhoudstype bepaalt. Als zodanig wordt alleen het deel van de URL in aanmerking genomen dat aan een bestand of map is toegewezen.
 
 Wanneer `On`, specificeert de `ModMimeUsePathInfo` parameter dat `mod_mime` het inhoudstype moet bepalen dat op *wordt gebaseerd volledige* URL; dit betekent dat de virtuele middelen meta-informatie hebben die op hun uitbreiding wordt toegepast.
 
@@ -556,8 +556,8 @@ Dispatcher gebruikt OpenSSL om veilige communicatie via HTTP te implementeren. B
 
 Voordat u de Dispatcher kunt gaan gebruiken, moet u nu het volgende doen:
 
-* [ vorm ](dispatcher-configuration.md) Dispatcher
-* [ vorm AEM ](page-invalidate.md) om met Dispatcher te werken.
+* [&#x200B; vorm &#x200B;](dispatcher-configuration.md) Dispatcher
+* [&#x200B; vorm AEM &#x200B;](page-invalidate.md) om met Dispatcher te werken.
 
 ## Sun Java™ System Web Server / iPlanet {#sun-java-system-web-server-iplanet}
 
@@ -670,5 +670,5 @@ Service fn="dispService" method="(GET|HEAD|POST)" type="\*/\*"
 
 Voordat u de Dispatcher kunt gaan gebruiken, moet u nu:
 
-* [ vorm ](dispatcher-configuration.md) Dispatcher
-* [ vorm AEM ](page-invalidate.md) om met Dispatcher te werken.
+* [&#x200B; vorm &#x200B;](dispatcher-configuration.md) Dispatcher
+* [&#x200B; vorm AEM &#x200B;](page-invalidate.md) om met Dispatcher te werken.
