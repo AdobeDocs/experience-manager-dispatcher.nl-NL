@@ -5,9 +5,9 @@ topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: b7ab59ad2da1b73ebbf7819670f056a68162796d
+source-git-commit: f4ed724deccf14c570ca873728a97d0ae5fe0e4f
 workflow-type: tm+mt
-source-wordcount: '1098'
+source-wordcount: '1105'
 ht-degree: 1%
 
 ---
@@ -22,18 +22,18 @@ ht-degree: 1%
 | Versie | 4.3.8. |
 | Type | Kleine release |
 | Datum | 20 november 2025 |
-| URL downloaden | <ul><li>[&#x200B; Apache 2.4 &#x200B;](#apache)</li><li>[&#x200B; Microsoft® Internet Information Services (IIS) &#x200B;](#iis)</li></ul> |
+| URL downloaden | <ul><li>[ Apache 2.4 ](#apache)</li><li>[ Microsoft® Internet Information Services (IIS) ](#iis)</li></ul> |
 | Compatibiliteit | AEM 6.1 of hoger |
 
 ## Systeemvereisten en -vereisten {#system-requirements-and-prerequisites}
 
-Zie [&#x200B; Gesteunde Platforms &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#dispatcher-platforms-web-servers) voor meer informatie over vereisten en eerste vereisten.
+Zie [ Gesteunde Platforms ](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#dispatcher-platforms-web-servers) voor meer informatie over vereisten en eerste vereisten.
 
 Adobe raadt aan de nieuwste versie van AEM Dispatcher te gebruiken om te profiteren van de nieuwste functionaliteit, de meest recente opgeloste problemen en de best mogelijke prestaties.
 
 ## Installatie-instructies {#installation-instructions}
 
-Voor gedetailleerde instructies, zie [&#x200B; Installerend Dispatcher &#x200B;](dispatcher-install.md).
+Voor gedetailleerde instructies, zie [ Installerend Dispatcher ](dispatcher-install.md).
 
 ## Releasegeschiedenis {#release-history}
 
@@ -41,9 +41,8 @@ Voor gedetailleerde instructies, zie [&#x200B; Installerend Dispatcher &#x200B;]
 
 **Verbeteringen**:
 
-* DISP-1040 - het bevestigen voor klant die urls herschrijft
+* DISP-1040 - voer `/allowedClients` in de configuratie van de verzender uit om te controleren welke IPs geheim voorgeheugenongeldig maken en blokkopballen (`handle`, `cq-handle`, enz.) kan uitvoeren of verwijderen tenzij uitdrukkelijk nodig
 * DISP-1046 - de stijl-terwijl-fout zou ook 429 reacties van AEM moeten behandelen
-* DISP-1041 - maken invalidate uri configureerbaar (#179)
 * SKYOPS-107219 - Optimize the current implementation of loading vanityUrls
 
 ### Release 4.3.7 (2024-maart-27) {#march}
