@@ -67,6 +67,6 @@ Na het toelaten van de milieuvariabele en het opstellen van config verandert:
 
 Raadpleeg de volgende bronnen voor klantgerichte basisrichtlijnen voor het in cache plaatsen van kopteksten en `ETag` afhandelen in Dispatcher:
 
-- [Dispatcher configureren - HTTP-antwoordheaders in cache plaatsen](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
+- [Dispatcher configureren - HTTP-antwoordheaders in cache plaatsen](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
 
 &quot;Deze mogelijkheid is beschikbaar in Dispatcher `2.0.264` (AEM SDK `2026.2.24464` ). Als deze optie is ingeschakeld, kan Dispatcher `If-None-Match` valideren op basis van in de cache opgeslagen `ETag` -waarden en `304 Not Modified` retourneren bij cacheschtochten. In AEM as a Cloud Service wordt dit ondersteund en kan het worden ingeschakeld via de Cloud Manager-omgevingsconfiguratie.&quot;
