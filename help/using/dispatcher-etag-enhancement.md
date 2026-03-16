@@ -53,7 +53,7 @@ Voorbeeld van een Apache-instructie in de Dispatcher-hostcontext:
 FileETag none
 ```
 
-Voor basislijn kopbal-caching begeleiding, zie [ Caching de reactiekopballen van HTTP ](dispatcher-configuration.md#caching-http-response-headers).
+Voor basislijn kopbal-caching begeleiding, zie [&#x200B; Caching de reactiekopballen van HTTP &#x200B;](dispatcher-configuration.md#caching-http-response-headers).
 
 ## Validatievoorbeeld
 
