@@ -3,17 +3,17 @@ cloud: Experience Cloud
 product: experience manager
 sub-product: experience manager dispatcher
 archetype: Administrator
-user-guide-title: Help bij Experience Manager Dispatcher
-breadcrumb-title: Dispatcher-handleiding
-user-guide-description: Leer Dispatcher te gebruiken voor caching, laadbalancering en het verbeteren van de beveiliging van uw AEM-server.
+user-guide-title: Experience Manager Dispatcher Help
+breadcrumb-title: Dispatcher Guide
+user-guide-description: Leer Dispatcher gebruiken voor caching, taakverdeling en het verbeteren van de beveiliging voor uw AEM-server.
 feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
+source-git-commit: fc4c45e045ee1a67f3d2ae6c005a88afde09f206
 workflow-type: tm+mt
-source-wordcount: '81'
-ht-degree: 25%
+source-wordcount: '99'
+ht-degree: 0%
 
 ---
 
@@ -28,7 +28,8 @@ ht-degree: 25%
 + Configureren {#configuring}
    + [De Dispatcher configureren](dispatcher-configuration.md)
    + [In cache geplaatste pagina&#39;s ongeldig maken vanuit AEM](page-invalidate.md)
-   + [&#x200B; optimaliseer een Website voor de Prestaties van het Geheime voorgeheugen &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [Dispatcher ETag Enhancement for CDN Revalidation](dispatcher-etag-enhancement.md)
+   + [Een website optimaliseren voor cacheprestaties](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [Beveiligde inhoud in cache opslaan](permissions-cache.md)
    + [AEM Dispatcher gebruiken met meerdere domeinen](dispatcher-domains.md)
    + [SSL gebruiken met AEM Dispatcher](dispatcher-ssl.md)
