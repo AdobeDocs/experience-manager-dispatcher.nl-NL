@@ -5,13 +5,13 @@ contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-redirecttarget: https://helpx.adobe.com/nl/experience-manager/6-4/sites/deploying/using/configuring-performance.html
-index: y
+redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+index: true
 internal: n
 snippet: y
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
+source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
 workflow-type: tm+mt
-source-wordcount: '1128'
+source-wordcount: '1140'
 ht-degree: 0%
 
 ---
@@ -57,7 +57,7 @@ HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich
 
 ## Gebruik geen URL-parameters {#avoid-url-parameters}
 
-Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Bijvoorbeeld, als u een beeldgalerij hebt, wordt volgende URL nooit in het voorgeheugen ondergebracht (tenzij Dispatcher dienovereenkomstig [&#x200B; wordt gevormd &#x200B;](dispatcher-configuration.md#main-pars_title_24)):
+Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Bijvoorbeeld, als u een beeldgalerij hebt, wordt volgende URL nooit in het voorgeheugen ondergebracht (tenzij Dispatcher dienovereenkomstig [ wordt gevormd ](dispatcher-configuration.md#main-pars_title_24)):
 
 ```xml
 www.myCompany.com/pictures/gallery.html?event=christmas&amp;page=1
@@ -122,7 +122,7 @@ Het is belangrijk dat u deze afbeeldingen maakt met dezelfde naamgevingsgreep al
 
 Voor pagina&#39;s die niet worden gewijzigd, blijven de afbeeldingen in het cachegeheugen staan, hoewel de pagina&#39;s zelf automatisch ongeldig worden gemaakt.
 
-## Personalization {#personalization}
+## Personalisatie {#personalization}
 
 De Dispatcher kan gepersonaliseerde gegevens niet in het cachegeheugen opslaan. Het wordt daarom aangeraden de personalisatie te beperken tot waar dat nodig is. Ter illustratie:
 
@@ -141,7 +141,7 @@ De Dispatcher kan gepersonaliseerde gegevens niet in het cachegeheugen opslaan. 
 
 ## Vaste verbindingen {#sticky-connections}
 
-[&#x200B; de Vaste verbindingen &#x200B;](dispatcher.md#TheBenefitsofLoadBalancing) zorgen ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map zodat deze alle documenten kan bevatten waarvoor kleverige verbindingen voor de website nodig zijn. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
+[ de Vaste verbindingen ](dispatcher.md#TheBenefitsofLoadBalancing) zorgen ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map zodat deze alle documenten kan bevatten waarvoor kleverige verbindingen voor de website nodig zijn. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
 
 ## MIME-typen {#mime-types}
 
