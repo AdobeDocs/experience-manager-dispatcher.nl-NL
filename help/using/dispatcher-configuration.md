@@ -19,7 +19,7 @@ In de volgende secties wordt beschreven hoe u verschillende aspecten van de Disp
 
 ## Ondersteuning voor IPv4 en IPv6 {#support-for-ipv-and-ipv}
 
-Alle elementen van AEM en Dispatcher kunnen in zowel IPv4 als IPv6 netwerken worden geïnstalleerd. Zie [&#x200B; IPV4 en IPV6 &#x200B;](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#ipv-and-ipv).
+Alle elementen van AEM en Dispatcher kunnen in zowel IPv4 als IPv6 netwerken worden geïnstalleerd. Zie [&#x200B; IPV4 en IPV6 &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#ipv-and-ipv).
 
 ## Dispatcher-configuratiebestanden {#dispatcher-configuration-files}
 
@@ -402,9 +402,9 @@ Gebruikend dit voorbeeld, toont de volgende lijst de virtuele gastheren die voor
 
 >[!CAUTION]
 >
->`/allowAuthorized` Stel dit in op `"0"` in de sectie `/cache` om deze functie in te schakelen. Zoals gedetailleerd in de sectie [&#x200B; &quot;Caching wanneer de authentificatie wordt gebruikt&quot;](#caching-when-authentication-is-used) sectie, wanneer u `/allowAuthorized 0 ` verzoeken plaatst die authentificatieinformatie omvatten **niet** caching is. Als toestemming-gevoelig caching wordt vereist, zie de [&#x200B; In het voorgeheugen onderbrengende Beveiligde Inhoud &#x200B;](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/permissions-cache) pagina.
+>`/allowAuthorized` Stel dit in op `"0"` in de sectie `/cache` om deze functie in te schakelen. Zoals gedetailleerd in de sectie [&#x200B; &quot;Caching wanneer de authentificatie wordt gebruikt&quot;](#caching-when-authentication-is-used) sectie, wanneer u `/allowAuthorized 0 ` verzoeken plaatst die authentificatieinformatie omvatten **niet** caching is. Als toestemming-gevoelig caching wordt vereist, zie de [&#x200B; In het voorgeheugen onderbrengende Beveiligde Inhoud &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/permissions-cache) pagina.
 
-Creeer een veilige zitting voor toegang tot teruggeven landbouwbedrijf zodat de gebruikers moeten login om het even welke pagina in het landbouwbedrijf toegang hebben. Na het programma openen, kunnen de gebruikers tot pagina&#39;s in het landbouwbedrijf toegang hebben. Zie [&#x200B; Creërend een Gesloten Groep van de Gebruiker &#x200B;](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used) voor informatie over het gebruiken van deze eigenschap met CUGs. Ook, zie Dispatcher [&#x200B; Controlelijst van de Veiligheid &#x200B;](/help/using/security-checklist.md) alvorens levend te gaan.
+Creeer een veilige zitting voor toegang tot teruggeven landbouwbedrijf zodat de gebruikers moeten login om het even welke pagina in het landbouwbedrijf toegang hebben. Na het programma openen, kunnen de gebruikers tot pagina&#39;s in het landbouwbedrijf toegang hebben. Zie [&#x200B; Creërend een Gesloten Groep van de Gebruiker &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/cug#creating-the-user-group-to-be-used) voor informatie over het gebruiken van deze eigenschap met CUGs. Ook, zie Dispatcher [&#x200B; Controlelijst van de Veiligheid &#x200B;](/help/using/security-checklist.md) alvorens levend te gaan.
 
 De eigenschap `/sessionmanagement` is een subeigenschap van `/farms` .
 
@@ -555,7 +555,7 @@ Gebruik de sectie `/filter` om de HTTP-aanvragen op te geven die Dispatcher acce
 
 >[!CAUTION]
 >
->Zie [&#x200B; Controlelijst van de Veiligheid van Dispatcher &#x200B;](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend AEM Dispatcher. Ook, lees de [&#x200B; Controlelijst van de Veiligheid van AEM &#x200B;](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/security/security-checklist#security) voor extra veiligheidsdetails betreffende uw installatie van AEM.
+>Zie [&#x200B; Controlelijst van de Veiligheid van Dispatcher &#x200B;](security-checklist.md) voor verdere overwegingen wanneer het beperken van toegang gebruikend AEM Dispatcher. Ook, lees de [&#x200B; Controlelijst van de Veiligheid van AEM &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/security/security-checklist#security) voor extra veiligheidsdetails betreffende uw installatie van AEM.
 
 De sectie `/filter` bestaat uit een reeks regels die of toegang tot inhoud volgens patronen in het verzoek-lijn deel van het HTTP- verzoek ontkennen of toestaan. Gebruik een strategie voor de lijst van gewenste personen van uw `/filter` sectie:
 
@@ -806,7 +806,7 @@ Afhankelijk van de installatie kunnen er meer bronnen onder `/libs` , `/apps` of
 
 >[!CAUTION]
 >
->Als u [&#x200B; gebruikend rapporten in publiceert milieu &#x200B;](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/operations/reporting#using-reports-in-a-publish-environment) bent, zou u Dispatcher moeten vormen om toegang tot `/etc/reports` voor externe bezoekers te ontkennen.
+>Als u [&#x200B; gebruikend rapporten in publiceert milieu &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/sites/administering/operations/reporting#using-reports-in-a-publish-environment) bent, zou u Dispatcher moeten vormen om toegang tot `/etc/reports` voor externe bezoekers te ontkennen.
 
 ### Query-tekenreeksen beperken {#restricting-query-strings}
 
@@ -938,7 +938,7 @@ De sectie `/vanity_urls` bevat de volgende eigenschappen:
 
 >[!NOTE]
 >
->Als uw teruggeven een geval van AEM is, moet u het [&#x200B; VanityURLS-Components- pakket van de Distributie van de Software &#x200B;](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) installeren om de dienst van vanityURL toe te laten. (Zie [&#x200B; Distributie van de Software &#x200B;](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution) voor meer details.)
+>Als uw teruggeven een geval van AEM is, moet u het [&#x200B; VanityURLS-Components- pakket van de Distributie van de Software &#x200B;](https://experience.adobe.com/#/downloads/content/software-distribution/en/aem.html?package=/content/software-distribution/en/details.html/content/dam/aem/public/adobe/packages/granite/vanityurls-components) installeren om de dienst van vanityURL toe te laten. (Zie [&#x200B; Distributie van de Software &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-65/content/sites/administering/contentmanagement/package-manager#software-distribution) voor meer details.)
 
 Gebruik de volgende procedure om toegang tot vanity URLs toe te laten.
 
@@ -1183,7 +1183,7 @@ Wanneer een bestand in `/content/myWebsite/xx` ongeldig wordt gemaakt, wordt elk
 
 >[!NOTE]
 >
->Ongeldige validatie kan worden voorkomen door een extra koptekst `CQ-Action-Scope:ResourceOnly` te verzenden. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [&#x200B; deze pagina &#x200B;](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [&#x200B; manueel het Valideren van het Geheime voorgeheugen van Dispatcher &#x200B;](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) voor extra details.
+>Ongeldige validatie kan worden voorkomen door een extra koptekst `CQ-Action-Scope:ResourceOnly` te verzenden. Deze methode kan worden gebruikt om bepaalde middelen te spoelen zonder andere delen van het geheime voorgeheugen ongeldig te maken. Zie [&#x200B; deze pagina &#x200B;](https://adobe-consulting-services.github.io/acs-aem-commons/features/dispatcher-flush-rules/index.html) en [&#x200B; manueel het Valideren van het Geheime voorgeheugen van Dispatcher &#x200B;](https://experienceleague.adobe.com/nl/docs/experience-manager-dispatcher/using/configuring/page-invalidate#configuring) voor extra details.
 
 >[!NOTE]
 >

@@ -26,7 +26,7 @@ ht-degree: 0%
 
 >[!NOTE]
 >
->Controleer <!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[&#x200B; het Oplossen van problemen van Dispatcher het Flushing Kwesties &#x200B;](https://experienceleague.adobe.com/search.html?lang=en#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]), en [&#x200B; Veelgestelde Veelgestelde vragen van Dispatcher &#x200B;](dispatcher-faq.md) voor meer informatie.
+>Controleer <!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[&#x200B; het Oplossen van problemen van Dispatcher het Flushing Kwesties &#x200B;](https://experienceleague.adobe.com/search.html?lang=nl-NL#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager]), en [&#x200B; Veelgestelde Veelgestelde vragen van Dispatcher &#x200B;](dispatcher-faq.md) voor meer informatie.
 
 ## De basisconfiguratie controleren {#check-the-basic-configuration}
 
