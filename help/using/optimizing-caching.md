@@ -57,7 +57,7 @@ HTTP-aanvraagheaders worden niet in het cachegeheugen opgeslagen. Er kunnen zich
 
 ## Gebruik geen URL-parameters {#avoid-url-parameters}
 
-Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Bijvoorbeeld, als u een beeldgalerij hebt, wordt volgende URL nooit in het voorgeheugen ondergebracht (tenzij Dispatcher dienovereenkomstig [ wordt gevormd ](dispatcher-configuration.md#main-pars_title_24)):
+Vermijd indien mogelijk URL-parameters voor pagina&#39;s die u in cache wilt plaatsen. Bijvoorbeeld, als u een beeldgalerij hebt, wordt volgende URL nooit in het voorgeheugen ondergebracht (tenzij Dispatcher dienovereenkomstig [&#x200B; wordt gevormd &#x200B;](dispatcher-configuration.md#main-pars_title_24)):
 
 ```xml
 www.myCompany.com/pictures/gallery.html?event=christmas&amp;page=1
@@ -141,7 +141,7 @@ De Dispatcher kan gepersonaliseerde gegevens niet in het cachegeheugen opslaan. 
 
 ## Vaste verbindingen {#sticky-connections}
 
-[ de Vaste verbindingen ](dispatcher.md#TheBenefitsofLoadBalancing) zorgen ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map zodat deze alle documenten kan bevatten waarvoor kleverige verbindingen voor de website nodig zijn. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
+[&#x200B; de Vaste verbindingen &#x200B;](dispatcher.md#TheBenefitsofLoadBalancing) zorgen ervoor dat de documenten voor één gebruiker allen op de zelfde server samengesteld zijn. Als een gebruiker deze map verlaat en er later weer naar terugkeert, blijft de verbinding behouden. Definieer één map zodat deze alle documenten kan bevatten waarvoor kleverige verbindingen voor de website nodig zijn. Probeer er geen andere documenten in op te nemen. Dit is van invloed op de taakverdeling als u gepersonaliseerde pagina&#39;s en sessiegegevens gebruikt.
 
 ## MIME-typen {#mime-types}
 
